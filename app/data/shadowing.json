@@ -1,0 +1,1119 @@
+[
+  {
+    "lesson": 1,
+    "topic": "Chào hỏi và giới thiệu",
+    "book": {
+      "title": "Đoạn trích Sejong 1 - Tự giới thiệu",
+      "sourcePage": 44,
+      "source": "Sejong1.pdf",
+      "sentences": [
+        {
+          "ko": "안녕하세요.",
+          "vi": "Xin chào.",
+          "grammar": [
+            "안녕하세요: lời chào lịch sự dùng trong hầu hết tình huống."
+          ],
+          "en": "Hello.",
+          "zh": "您好！"
+        },
+        {
+          "ko": "저는 흐엉이에요.",
+          "vi": "Tôi là Hương.",
+          "grammar": [
+            "저는: 저 + 는, đưa chủ đề “tôi” ra trước.",
+            "이에요/예요: là; 이에요 theo sau danh từ có 받침."
+          ],
+          "en": "I'm Hwang.",
+          "zh": "我是Hwang。"
+        },
+        {
+          "ko": "저는 베트남 사람이에요.",
+          "vi": "Tôi là người Việt Nam.",
+          "grammar": [
+            "N 사람: người thuộc quốc gia N.",
+            "은/는: tiểu từ chủ đề."
+          ],
+          "en": "I am Vietnamese.",
+          "zh": "我是越南人。"
+        },
+        {
+          "ko": "저는 선생님이에요.",
+          "vi": "Tôi là giáo viên.",
+          "grammar": [
+            "N이에요: “là N”, dùng sau danh từ kết thúc bằng phụ âm."
+          ],
+          "en": "I'm a teacher.",
+          "zh": "我是一名老师。"
+        },
+        {
+          "ko": "만나서 반가워요.",
+          "vi": "Rất vui được gặp bạn.",
+          "grammar": [
+            "V-아서/어서: nối nguyên nhân hoặc trình tự; 만나서 là “vì/được gặp”.",
+            "반가워요: dạng lịch sự của 반갑다."
+          ],
+          "en": "Nice to meet you.",
+          "zh": "很高兴认识你。"
+        }
+      ]
+    },
+    "original": {
+      "title": "Đoạn luyện thêm - Lần đầu gặp mặt",
+      "sentences": [
+        {
+          "ko": "안녕하세요? 저는 리에우예요.",
+          "vi": "Xin chào, tôi là Liễu.",
+          "grammar": [
+            "예요: “là”, dùng sau danh từ kết thúc bằng nguyên âm."
+          ],
+          "en": "Hello? My name is Lieu.",
+          "zh": "喂？我叫Lieu。"
+        },
+        {
+          "ko": "베트남에서 왔어요.",
+          "vi": "Tôi đến từ Việt Nam.",
+          "grammar": [
+            "에서: từ, tại; trong câu này chỉ nơi xuất phát.",
+            "왔어요: quá khứ lịch sự của 오다."
+          ],
+          "en": "I'm from Vietnam.",
+          "zh": "我来自越南。"
+        },
+        {
+          "ko": "지금 세종학당에서 한국어를 공부해요.",
+          "vi": "Hiện giờ tôi học tiếng Hàn tại Học viện Sejong.",
+          "grammar": [
+            "에서: nơi diễn ra hành động.",
+            "을/를: tiểu từ tân ngữ."
+          ],
+          "en": "I am studying Korean at King Sejong Institute.",
+          "zh": "我在世宗国王学院学习韩语。"
+        },
+        {
+          "ko": "만나서 반가워요.",
+          "vi": "Rất vui được gặp bạn.",
+          "grammar": [
+            "V-아서/어서: nối hành động với cảm xúc hoặc kết quả."
+          ],
+          "en": "Nice to meet you.",
+          "zh": "很高兴认识你。"
+        }
+      ]
+    }
+  },
+  {
+    "lesson": 2,
+    "topic": "Số và thông tin liên lạc",
+    "book": {
+      "title": "Đoạn trích Sejong 1 - Danh thiếp",
+      "sourcePage": 44,
+      "source": "Sejong1.pdf",
+      "sentences": [
+        {
+          "ko": "한국컴퓨터",
+          "vi": "Công ty Máy tính Hàn Quốc.",
+          "grammar": [
+            "Danh từ ghép: 한국 (Hàn Quốc) + 컴퓨터 (máy tính)."
+          ],
+          "en": "Korean computer",
+          "zh": "韩国电脑"
+        },
+        {
+          "ko": "이진수",
+          "vi": "Lee Jin-su.",
+          "grammar": [
+            "Tên người Hàn thường gồm họ đứng trước và tên đứng sau."
+          ],
+          "en": "Lee Jin-soo",
+          "zh": "Lee Jin-soo"
+        },
+        {
+          "ko": "전화번호: (02) 2689-9775",
+          "vi": "Số điện thoại: (02) 2689-9775.",
+          "grammar": [
+            "Số điện thoại được đọc bằng số Hán-Hàn; 0 thường đọc là 공 hoặc 영."
+          ],
+          "en": "Phone: (02) 2689-9775",
+          "zh": "电话： (02) 2689-9775"
+        },
+        {
+          "ko": "전자우편: ims@hancom.co.kr",
+          "vi": "Thư điện tử: ims@hancom.co.kr.",
+          "grammar": [
+            "전자우편 và 이메일 đều có nghĩa là thư điện tử."
+          ],
+          "en": "Email: ims@hancom.co.kr",
+          "zh": "电子邮箱： ims@hancom.co.kr"
+        },
+        {
+          "ko": "주소: (우) 135-751 서울특별시 강서구 금낭화로 154",
+          "vi": "Địa chỉ: 154 Geumnanghwa-ro, Gangseo-gu, Seoul 135-751.",
+          "grammar": [
+            "Địa chỉ Hàn Quốc đi từ đơn vị hành chính lớn đến nhỏ.",
+            "호, 번, 층 là các đơn vị thường gặp trong địa chỉ."
+          ],
+          "en": "Address: 154, Geumnanghwa-ro, Gangseo-gu, Seoul, 135-751, Republic of Korea",
+          "zh": "地址： 154, Geumnanghwa-ro, Gangseo-gu, Seoul, 135-751, Republic of Korea"
+        }
+      ]
+    },
+    "original": {
+      "title": "Đoạn luyện thêm - Hỏi thông tin",
+      "sentences": [
+        {
+          "ko": "제 전화번호는 공일공-이삼사오-육칠팔구예요.",
+          "vi": "Số điện thoại của tôi là 010-2345-6789.",
+          "grammar": [
+            "제: dạng rút gọn của 저의, nghĩa là “của tôi”.",
+            "N은/는 ...예요: nêu thông tin về chủ đề N."
+          ],
+          "en": "My phone number is Gongilgong-Isamsao-sixty-eight palgu.",
+          "zh": "我的电话号码是Gongilgong-Isamsao-sixty-eight palgu。"
+        },
+        {
+          "ko": "이메일 주소는 lieu@example.com이에요.",
+          "vi": "Địa chỉ email là lieu@example.com.",
+          "grammar": [
+            "이에요 dùng sau chuỗi đọc kết thúc bằng phụ âm."
+          ],
+          "en": "The email address is lieu@example.com.",
+          "zh": "电子邮件地址为lieu@example.com。"
+        },
+        {
+          "ko": "교실은 이백삼 호예요.",
+          "vi": "Phòng học là phòng số 203.",
+          "grammar": [
+            "호: số phòng; dùng với số Hán-Hàn."
+          ],
+          "en": "The classroom is two hundred and three ho.",
+          "zh": "教室是二百零三室。"
+        },
+        {
+          "ko": "세종학당은 사 층에 있어요.",
+          "vi": "Học viện Sejong ở tầng 4.",
+          "grammar": [
+            "N에 있어요: có/ở tại N.",
+            "층: tầng; dùng với số Hán-Hàn."
+          ],
+          "en": "Sejong Institute is on the fourth floor.",
+          "zh": "世宗学院位于四楼。"
+        },
+        {
+          "ko": "전화번호가 뭐예요?",
+          "vi": "Số điện thoại là gì?",
+          "grammar": [
+            "뭐예요?: là gì?",
+            "이/가: tiểu từ chủ ngữ."
+          ],
+          "en": "What's your phone number?",
+          "zh": "您的电话号码是什么？"
+        }
+      ]
+    }
+  },
+  {
+    "lesson": 3,
+    "topic": "Đồ vật và vị trí",
+    "book": {
+      "title": "Đoạn trích Sejong 1 - Trong phòng",
+      "sourcePage": 64,
+      "source": "Sejong1.pdf",
+      "sentences": [
+        {
+          "ko": "방에 책상이 있어요.",
+          "vi": "Trong phòng có một cái bàn.",
+          "grammar": [
+            "N에 N이/가 있어요: ở N có N."
+          ],
+          "en": "There is a desk in the room.",
+          "zh": "房间里有一张桌子。"
+        },
+        {
+          "ko": "책상 앞에 의자가 있어요.",
+          "vi": "Phía trước bàn có một cái ghế.",
+          "grammar": [
+            "앞에: ở phía trước.",
+            "이/가 있어요: có, tồn tại."
+          ],
+          "en": "There is a chair in front of the desk.",
+          "zh": "书桌前有一把椅子。"
+        },
+        {
+          "ko": "책상 옆에 가방이 있어요.",
+          "vi": "Bên cạnh bàn có một cái cặp.",
+          "grammar": [
+            "옆에: ở bên cạnh."
+          ],
+          "en": "There is a bag next to the desk.",
+          "zh": "桌子旁边有一个袋子。"
+        },
+        {
+          "ko": "책상 위에 책이 있어요.",
+          "vi": "Trên bàn có một quyển sách.",
+          "grammar": [
+            "위에: ở phía trên."
+          ],
+          "en": "I have a book on my desk.",
+          "zh": "我的书桌上有一本书。"
+        }
+      ]
+    },
+    "original": {
+      "title": "Đoạn luyện thêm - Căn phòng của tôi",
+      "sentences": [
+        {
+          "ko": "제 방에는 침대하고 책상이 있어요.",
+          "vi": "Trong phòng tôi có giường và bàn.",
+          "grammar": [
+            "에는: 에 + 는, nhấn mạnh địa điểm.",
+            "N하고 N: N và N."
+          ],
+          "en": "My room has a bed and a desk.",
+          "zh": "我的房间有一张床和一张桌子。"
+        },
+        {
+          "ko": "침대 옆에 작은 가방이 있어요.",
+          "vi": "Bên cạnh giường có một chiếc cặp nhỏ.",
+          "grammar": [
+            "A-(으)ㄴ N: tính từ bổ nghĩa cho danh từ; 작다 → 작은."
+          ],
+          "en": "There is a small bag next to the bed.",
+          "zh": "床旁边有一个小袋子。"
+        },
+        {
+          "ko": "책상 위에는 컴퓨터하고 시계가 있어요.",
+          "vi": "Trên bàn có máy tính và đồng hồ.",
+          "grammar": [
+            "위에는: 위 + 에 + 는, đưa vị trí thành chủ đề."
+          ],
+          "en": "On the desk is a computer and a clock.",
+          "zh": "桌子上有一台电脑和一个时钟。"
+        },
+        {
+          "ko": "창문은 책상 오른쪽에 있어요.",
+          "vi": "Cửa sổ ở bên phải bàn.",
+          "grammar": [
+            "N은/는 vị trí에 있어요: N ở vị trí nào đó."
+          ],
+          "en": "The window is on the right side of the desk.",
+          "zh": "窗户在桌子的右侧。"
+        }
+      ]
+    }
+  },
+  {
+    "lesson": 4,
+    "topic": "Hoạt động thường ngày",
+    "book": {
+      "title": "Đoạn trích Sejong 1 - Học và làm việc",
+      "sourcePage": 54,
+      "source": "Sejong1.pdf",
+      "sentences": [
+        {
+          "ko": "타완 씨는 회사원이에요.",
+          "vi": "Anh Tawan là nhân viên công ty.",
+          "grammar": [
+            "씨: kính ngữ đặt sau tên.",
+            "N이에요: là N."
+          ],
+          "en": "Tawan is a member of the company.",
+          "zh": "Tawan是该公司的成员。"
+        },
+        {
+          "ko": "회사에 가요.",
+          "vi": "Anh ấy đi đến công ty.",
+          "grammar": [
+            "에 가요: đi đến địa điểm."
+          ],
+          "en": "Let's go to work.",
+          "zh": "让我们开始工作吧。"
+        },
+        {
+          "ko": "민수 씨는 학생이에요.",
+          "vi": "Minsu là học sinh.",
+          "grammar": [
+            "은/는: tiểu từ chủ đề."
+          ],
+          "en": "Minsu is a student.",
+          "zh": "民宿是一名学生。"
+        },
+        {
+          "ko": "학교에 가요.",
+          "vi": "Cậu ấy đi đến trường.",
+          "grammar": [
+            "에: chỉ đích đến."
+          ],
+          "en": "Let's go to school.",
+          "zh": "我们去上学吧。"
+        },
+        {
+          "ko": "공부해요.",
+          "vi": "Cậu ấy học bài.",
+          "grammar": [
+            "하다 → 해요: dạng lịch sự thân mật của động từ 하다."
+          ],
+          "en": "I study.",
+          "zh": "我学习。"
+        }
+      ]
+    },
+    "original": {
+      "title": "Đoạn luyện thêm - Một ngày học tập",
+      "sentences": [
+        {
+          "ko": "저는 아침에 한국어를 공부해요.",
+          "vi": "Tôi học tiếng Hàn vào buổi sáng.",
+          "grammar": [
+            "Thời gian + 에: vào lúc.",
+            "을/를: tân ngữ."
+          ],
+          "en": "I study Korean in the morning.",
+          "zh": "我早上学习韩语。"
+        },
+        {
+          "ko": "오후에는 친구를 만나요.",
+          "vi": "Buổi chiều tôi gặp bạn.",
+          "grammar": [
+            "에는: nêu và đối chiếu thời điểm.",
+            "만나다 → 만나요."
+          ],
+          "en": "Meet a friend in the afternoon.",
+          "zh": "下午与朋友见面。"
+        },
+        {
+          "ko": "같이 영화를 봐요.",
+          "vi": "Chúng tôi cùng xem phim.",
+          "grammar": [
+            "같이: cùng nhau.",
+            "보다 → 봐요."
+          ],
+          "en": "Let's watch a movie together.",
+          "zh": "让我们一起看电影吧。"
+        },
+        {
+          "ko": "저녁에는 음악을 듣고 책을 읽어요.",
+          "vi": "Buổi tối tôi nghe nhạc và đọc sách.",
+          "grammar": [
+            "V-고: nối hai hành động theo nghĩa “và”.",
+            "듣다 → 듣고; 읽다 → 읽어요."
+          ],
+          "en": "In the evening, I listen to music and read books.",
+          "zh": "晚上，我会听音乐和看书。"
+        },
+        {
+          "ko": "열한 시에 자요.",
+          "vi": "Tôi ngủ lúc 11 giờ.",
+          "grammar": [
+            "Giờ + 에: vào lúc mấy giờ.",
+            "자다 → 자요."
+          ],
+          "en": "I sleep at eleven.",
+          "zh": "我十一点睡觉。"
+        }
+      ]
+    }
+  },
+  {
+    "lesson": 5,
+    "topic": "Địa điểm và mua sắm",
+    "book": {
+      "title": "Đoạn trích Sejong 1 - Tin nhắn đi chợ",
+      "sourcePage": 76,
+      "source": "Sejong1.pdf",
+      "sentences": [
+        {
+          "ko": "수진 씨에게.",
+          "vi": "Gửi Sujin.",
+          "grammar": [
+            "에게: cho, tới; chỉ người nhận."
+          ],
+          "en": "To Mr. Sujin.",
+          "zh": "敬Sujin先生。"
+        },
+        {
+          "ko": "안녕하세요?",
+          "vi": "Xin chào.",
+          "grammar": [
+            "Lời chào lịch sự."
+          ],
+          "en": "What's up, d",
+          "zh": "怎么了， d"
+        },
+        {
+          "ko": "오늘 시장에 가세요.",
+          "vi": "Hôm nay hãy đi chợ nhé.",
+          "grammar": [
+            "V-(으)세요: yêu cầu hoặc đề nghị lịch sự.",
+            "에: đích đến."
+          ],
+          "en": "Go to the market today.",
+          "zh": "今天就去市场。"
+        },
+        {
+          "ko": "사과가 싸요.",
+          "vi": "Táo rẻ.",
+          "grammar": [
+            "싸다 → 싸요: rẻ.",
+            "이/가: chủ ngữ."
+          ],
+          "en": "Apples are cheap.",
+          "zh": "苹果很便宜。"
+        },
+        {
+          "ko": "사과가 500원이에요.",
+          "vi": "Táo có giá 500 won.",
+          "grammar": [
+            "Giá tiền + 원이에요/예요: giá là bao nhiêu won."
+          ],
+          "en": "The apple is 500 won.",
+          "zh": "苹果是500韩元。"
+        },
+        {
+          "ko": "유키.",
+          "vi": "Yuki.",
+          "grammar": [
+            "Tên người gửi ở cuối tin nhắn."
+          ],
+          "en": "Yuki.",
+          "zh": "Yuki."
+        }
+      ]
+    },
+    "original": {
+      "title": "Đoạn luyện thêm - Mua đồ ở siêu thị",
+      "sentences": [
+        {
+          "ko": "오늘 마트에 가요.",
+          "vi": "Hôm nay tôi đi siêu thị.",
+          "grammar": [
+            "에 가요: đi đến."
+          ],
+          "en": "Let's go to the grocery store today.",
+          "zh": "我们今天去杂货店吧。"
+        },
+        {
+          "ko": "빵하고 우유를 사요.",
+          "vi": "Tôi mua bánh mì và sữa.",
+          "grammar": [
+            "N하고 N: N và N.",
+            "사다 → 사요."
+          ],
+          "en": "Bread and milk.",
+          "zh": "面包和牛奶。"
+        },
+        {
+          "ko": "과일도 사고 싶어요.",
+          "vi": "Tôi cũng muốn mua trái cây.",
+          "grammar": [
+            "도: cũng.",
+            "V-고 싶어요: muốn làm V."
+          ],
+          "en": "I also want to buy fruit.",
+          "zh": "我也想买水果。"
+        },
+        {
+          "ko": "사과는 얼마예요?",
+          "vi": "Táo bao nhiêu tiền?",
+          "grammar": [
+            "얼마예요?: bao nhiêu tiền?",
+            "은/는: nêu món hàng làm chủ đề."
+          ],
+          "en": "How much is an apple?",
+          "zh": "一个苹果多少钱？"
+        },
+        {
+          "ko": "사과가 싸면 다섯 개 살 거예요.",
+          "vi": "Nếu táo rẻ, tôi sẽ mua năm quả.",
+          "grammar": [
+            "A/V-(으)면: nếu.",
+            "V-(으)ㄹ 거예요: sẽ, dự định."
+          ],
+          "en": "If an apple were wrapped, I'd buy five.",
+          "zh": "如果一个苹果被包裹，我会买五个。"
+        }
+      ]
+    }
+  },
+  {
+    "lesson": 6,
+    "topic": "Số lượng và yêu cầu",
+    "book": {
+      "title": "Đoạn trích Sejong 1 - Danh sách mua hàng",
+      "sourcePage": 86,
+      "source": "Sejong1.pdf",
+      "sentences": [
+        {
+          "ko": "저는 가게에 갑니다.",
+          "vi": "Tôi đi đến cửa hàng.",
+          "grammar": [
+            "V-ㅂ/습니다: đuôi trang trọng; 가다 → 갑니다."
+          ],
+          "en": "I go to the store.",
+          "zh": "我去商店。"
+        },
+        {
+          "ko": "빵을 여섯 개 삽니다.",
+          "vi": "Tôi mua sáu cái bánh.",
+          "grammar": [
+            "Số thuần Hàn + 개: đếm đồ vật.",
+            "사다 → 삽니다."
+          ],
+          "en": "I buy six loaves of bread.",
+          "zh": "我买了六个面包。"
+        },
+        {
+          "ko": "우유는 네 개 삽니다.",
+          "vi": "Tôi mua bốn hộp sữa.",
+          "grammar": [
+            "넷 biến thành 네 trước đơn vị đếm.",
+            "은/는: đưa sữa thành chủ đề."
+          ],
+          "en": "I buy four milks.",
+          "zh": "我买了四杯牛奶。"
+        },
+        {
+          "ko": "사과하고 오렌지를 삽니다.",
+          "vi": "Tôi mua táo và cam.",
+          "grammar": [
+            "하고: và.",
+            "을/를: tân ngữ."
+          ],
+          "en": "Apologize and buy an orange.",
+          "zh": "道歉并买一个橙子。"
+        },
+        {
+          "ko": "사과 다섯 개하고 오렌지 네 개를 삽니다.",
+          "vi": "Tôi mua năm quả táo và bốn quả cam.",
+          "grammar": [
+            "Danh từ + số + đơn vị đếm.",
+            "하고: nối hai cụm danh từ."
+          ],
+          "en": "I buy five apples and four oranges.",
+          "zh": "我买了五个苹果和四个橙子。"
+        }
+      ]
+    },
+    "original": {
+      "title": "Đoạn luyện thêm - Gọi món và thanh toán",
+      "sentences": [
+        {
+          "ko": "아주머니, 사과 다섯 개 주세요.",
+          "vi": "Cô ơi, cho tôi năm quả táo.",
+          "grammar": [
+            "N 주세요: hãy cho tôi N.",
+            "다섯 개: năm cái/quả."
+          ],
+          "en": "Ma'am, give me five apples.",
+          "zh": "夫人，给我五个苹果。"
+        },
+        {
+          "ko": "우유 두 병하고 빵 한 개도 주세요.",
+          "vi": "Cho tôi thêm hai chai sữa và một cái bánh.",
+          "grammar": [
+            "둘 → 두, 하나 → 한 trước đơn vị đếm.",
+            "도: cũng, thêm nữa."
+          ],
+          "en": "Two bottles of milk and a loaf of bread, please.",
+          "zh": "请给我两瓶牛奶和一条面包。"
+        },
+        {
+          "ko": "모두 얼마예요?",
+          "vi": "Tất cả bao nhiêu tiền?",
+          "grammar": [
+            "모두: tất cả.",
+            "얼마예요?: bao nhiêu tiền?"
+          ],
+          "en": "How much for all of them?",
+          "zh": "他们所有人要多少钱？"
+        },
+        {
+          "ko": "만 원이에요.",
+          "vi": "Là 10.000 won.",
+          "grammar": [
+            "Số Hán-Hàn + 원: số tiền won."
+          ],
+          "en": "10,000 won.",
+          "zh": "10,000韩元。"
+        },
+        {
+          "ko": "네, 여기 있어요.",
+          "vi": "Vâng, tiền đây ạ.",
+          "grammar": [
+            "여기 있어요: ở đây/của bạn đây; dùng khi đưa vật."
+          ],
+          "en": "Yes, here it is.",
+          "zh": "是的，在这里。"
+        }
+      ]
+    }
+  },
+  {
+    "lesson": 7,
+    "topic": "Thời gian và lịch",
+    "book": {
+      "title": "Đoạn trích Sejong 1 - Lịch trong tuần",
+      "sourcePage": 118,
+      "source": "Sejong1.pdf",
+      "sentences": [
+        {
+          "ko": "월요일하고 수요일은 오전 아홉 시에 수업이 있습니다.",
+          "vi": "Thứ Hai và thứ Tư có lớp lúc 9 giờ sáng.",
+          "grammar": [
+            "하고: và.",
+            "시간에: vào thời gian.",
+            "있습니다: dạng trang trọng của 있어요."
+          ],
+          "en": "We have classes on Mondays and Wednesdays at 9am.",
+          "zh": "我们在周一和周三上午9点开课。"
+        },
+        {
+          "ko": "그리고 오후 세 시에 운동을 합니다.",
+          "vi": "Và tôi tập thể dục lúc 3 giờ chiều.",
+          "grammar": [
+            "그리고: và, rồi.",
+            "N을/를 합니다: thực hiện hoạt động N."
+          ],
+          "en": "And I work out at three o'clock in the afternoon.",
+          "zh": "我下午三点锻炼身体。"
+        },
+        {
+          "ko": "화요일하고 목요일은 열한 시에 수업이 있습니다.",
+          "vi": "Thứ Ba và thứ Năm có lớp lúc 11 giờ.",
+          "grammar": [
+            "Giờ dùng số thuần Hàn: 열한 시.",
+            "은/는: chủ đề."
+          ],
+          "en": "We have classes on Tuesdays and Thursdays at eleven o'clock.",
+          "zh": "我们在周二和周四11点开课。"
+        },
+        {
+          "ko": "금요일은 저녁 여섯 시에 치엔 씨를 만납니다.",
+          "vi": "Thứ Sáu tôi gặp Chien lúc 6 giờ tối.",
+          "grammar": [
+            "만나다 → 만납니다: dạng trang trọng.",
+            "을/를: chỉ người được gặp."
+          ],
+          "en": "On Fridays, we meet Mr. Chien at six o'clock in the evening.",
+          "zh": "星期五晚上六点，我们与Chien先生见面。"
+        },
+        {
+          "ko": "같이 저녁을 먹습니다.",
+          "vi": "Chúng tôi cùng ăn tối.",
+          "grammar": [
+            "같이: cùng nhau.",
+            "먹다 → 먹습니다."
+          ],
+          "en": "Let's have dinner together.",
+          "zh": "我们一起吃晚饭吧。"
+        }
+      ]
+    },
+    "original": {
+      "title": "Đoạn luyện thêm - Lịch học của tôi",
+      "sentences": [
+        {
+          "ko": "오늘은 7월 15일 월요일이에요.",
+          "vi": "Hôm nay là thứ Hai, ngày 15 tháng 7.",
+          "grammar": [
+            "Ngày tháng dùng số Hán-Hàn + 월/일.",
+            "N이에요: là N."
+          ],
+          "en": "Today is Monday, July 15th.",
+          "zh": "今天是7月15日星期一。"
+        },
+        {
+          "ko": "한국어 수업은 오전 아홉 시에 시작해요.",
+          "vi": "Lớp tiếng Hàn bắt đầu lúc 9 giờ sáng.",
+          "grammar": [
+            "에: vào lúc.",
+            "시작하다 → 시작해요."
+          ],
+          "en": "Korean classes start at 9am.",
+          "zh": "韩语课程从上午9点开始。"
+        },
+        {
+          "ko": "오후 세 시에는 도서관에 가요.",
+          "vi": "Lúc 3 giờ chiều tôi đi thư viện.",
+          "grammar": [
+            "에는: nhấn mạnh thời điểm.",
+            "에 가요: đi đến."
+          ],
+          "en": "At three o'clock in the afternoon, I go to the library.",
+          "zh": "下午三点，我去图书馆。"
+        },
+        {
+          "ko": "저녁 여섯 시에 친구를 만나요.",
+          "vi": "Tôi gặp bạn lúc 6 giờ tối.",
+          "grammar": [
+            "만나다 → 만나요.",
+            "을/를: tân ngữ."
+          ],
+          "en": "Meet your friend at 6pm.",
+          "zh": "下午6点与好友见面。"
+        },
+        {
+          "ko": "주말에는 수영을 배워요.",
+          "vi": "Cuối tuần tôi học bơi.",
+          "grammar": [
+            "N을/를 배우다: học một kỹ năng hoặc môn học."
+          ],
+          "en": "I learn to swim on the weekends.",
+          "zh": "我周末学游泳。"
+        }
+      ]
+    }
+  },
+  {
+    "lesson": 8,
+    "topic": "Thời tiết và mùa",
+    "book": {
+      "title": "Đoạn trích Sejong 1 - Bốn mùa ở Hàn Quốc",
+      "sourcePage": 108,
+      "source": "Sejong1.pdf",
+      "sentences": [
+        {
+          "ko": "한국에는 봄, 여름, 가을, 겨울이 있습니다.",
+          "vi": "Ở Hàn Quốc có mùa xuân, hạ, thu và đông.",
+          "grammar": [
+            "N에는 ...이/가 있습니다: ở N có...",
+            "있습니다: dạng trang trọng."
+          ],
+          "en": "Korea has spring, summer, autumn and winter.",
+          "zh": "韩国有春天、夏天、秋天和冬天。"
+        },
+        {
+          "ko": "여름은 덥습니다.",
+          "vi": "Mùa hè nóng.",
+          "grammar": [
+            "덥다 → 덥습니다: nóng, dạng trang trọng."
+          ],
+          "en": "Summer is hot.",
+          "zh": "夏天很热。"
+        },
+        {
+          "ko": "겨울은 춥습니다.",
+          "vi": "Mùa đông lạnh.",
+          "grammar": [
+            "춥다 → 춥습니다: lạnh, dạng trang trọng."
+          ],
+          "en": "Winter is cold.",
+          "zh": "冬天很冷。"
+        },
+        {
+          "ko": "한국은 요즘 봄입니다.",
+          "vi": "Dạo này ở Hàn Quốc đang là mùa xuân.",
+          "grammar": [
+            "요즘: dạo này.",
+            "N입니다: là N, dạng trang trọng."
+          ],
+          "en": "It is spring in Korea these days.",
+          "zh": "现在是韩国的春天。"
+        },
+        {
+          "ko": "날씨가 좋습니다.",
+          "vi": "Thời tiết đẹp.",
+          "grammar": [
+            "이/가: chủ ngữ.",
+            "좋다 → 좋습니다."
+          ],
+          "en": "The weather is nice.",
+          "zh": "天气很好。"
+        },
+        {
+          "ko": "그리고 따뜻합니다.",
+          "vi": "Và trời ấm áp.",
+          "grammar": [
+            "그리고: và.",
+            "따뜻하다 → 따뜻합니다."
+          ],
+          "en": "And it's warm.",
+          "zh": "而且很暖和。"
+        }
+      ]
+    },
+    "original": {
+      "title": "Đoạn luyện thêm - Dự báo hôm nay",
+      "sentences": [
+        {
+          "ko": "오늘 서울 날씨는 맑고 따뜻해요.",
+          "vi": "Hôm nay thời tiết Seoul trong và ấm.",
+          "grammar": [
+            "A-고: nối hai tính chất.",
+            "맑다 → 맑고."
+          ],
+          "en": "The weather in Seoul today is clear and warm.",
+          "zh": "首尔今天的天气晴朗温暖。"
+        },
+        {
+          "ko": "바람이 조금 불지만 춥지 않아요.",
+          "vi": "Gió thổi nhẹ nhưng không lạnh.",
+          "grammar": [
+            "V-지만: nhưng.",
+            "A/V-지 않아요: không."
+          ],
+          "en": "It's a little windy, but not cold.",
+          "zh": "有点风，但不冷。"
+        },
+        {
+          "ko": "부산은 흐리고 비가 와요.",
+          "vi": "Busan nhiều mây và có mưa.",
+          "grammar": [
+            "흐리다 → 흐리고.",
+            "비가 오다: mưa rơi/có mưa."
+          ],
+          "en": "Busan is cloudy and rainy.",
+          "zh": "釜山多云多雨。"
+        },
+        {
+          "ko": "저는 봄 날씨를 좋아해요.",
+          "vi": "Tôi thích thời tiết mùa xuân.",
+          "grammar": [
+            "N을/를 좋아하다: thích N."
+          ],
+          "en": "I love spring weather.",
+          "zh": "我喜欢春天的天气。"
+        }
+      ]
+    }
+  },
+  {
+    "lesson": 9,
+    "topic": "Hoạt động đã làm",
+    "book": {
+      "title": "Đoạn trích Sejong 1 - Hôm qua ở thư viện",
+      "sourcePage": 96,
+      "source": "Sejong1.pdf",
+      "sentences": [
+        {
+          "ko": "마크 씨는 어제 도서관에 갔습니다.",
+          "vi": "Hôm qua Mark đã đi thư viện.",
+          "grammar": [
+            "어제: hôm qua.",
+            "가다 → 갔습니다: quá khứ trang trọng."
+          ],
+          "en": "Mark went to the library yesterday.",
+          "zh": "马克昨天去了图书馆。"
+        },
+        {
+          "ko": "도서관에서 한국어 책을 읽었습니다.",
+          "vi": "Anh ấy đã đọc sách tiếng Hàn ở thư viện.",
+          "grammar": [
+            "에서: nơi diễn ra hành động.",
+            "읽다 → 읽었습니다: đã đọc."
+          ],
+          "en": "I read a Korean book in the library.",
+          "zh": "我在图书馆读了一本韩国书。"
+        },
+        {
+          "ko": "그리고 한국 음악을 들었습니다.",
+          "vi": "Và anh ấy đã nghe nhạc Hàn Quốc.",
+          "grammar": [
+            "듣다 → 들었습니다: đã nghe; biến âm ㄷ bất quy tắc."
+          ],
+          "en": "And I listened to Korean music.",
+          "zh": "我听了韩国音乐。"
+        },
+        {
+          "ko": "마크 씨는 도서관 앞에서 타완 씨를 만났습니다.",
+          "vi": "Mark đã gặp Tawan trước thư viện.",
+          "grammar": [
+            "N 앞에서: tại phía trước N.",
+            "만나다 → 만났습니다."
+          ],
+          "en": "Mark met Tawan in front of the library.",
+          "zh": "Mark在图书馆前遇见了Tawan。"
+        },
+        {
+          "ko": "두 사람은 식당에서 같이 밥을 먹었습니다.",
+          "vi": "Hai người đã cùng ăn ở nhà hàng.",
+          "grammar": [
+            "두 사람: hai người.",
+            "먹다 → 먹었습니다."
+          ],
+          "en": "The two ate together in the restaurant.",
+          "zh": "两人一起在餐厅吃饭。"
+        }
+      ]
+    },
+    "original": {
+      "title": "Đoạn luyện thêm - Một ngày vui",
+      "sentences": [
+        {
+          "ko": "어제 공원에서 산책했어요.",
+          "vi": "Hôm qua tôi đã đi dạo trong công viên.",
+          "grammar": [
+            "V-았/었어요: quá khứ lịch sự.",
+            "에서: nơi diễn ra hành động."
+          ],
+          "en": "Yesterday I took a walk in the park.",
+          "zh": "昨天我在公园里散步。"
+        },
+        {
+          "ko": "친구하고 자전거를 탔어요.",
+          "vi": "Tôi đã đi xe đạp cùng bạn.",
+          "grammar": [
+            "N하고: cùng/với N.",
+            "타다 → 탔어요."
+          ],
+          "en": "I rode my bike with a friend.",
+          "zh": "我和朋友一起骑自行车。"
+        },
+        {
+          "ko": "박물관도 구경했어요.",
+          "vi": "Tôi cũng đã tham quan bảo tàng.",
+          "grammar": [
+            "도: cũng.",
+            "구경하다 → 구경했어요."
+          ],
+          "en": "I also visited a museum.",
+          "zh": "我还参观了一家博物馆。"
+        },
+        {
+          "ko": "저녁에는 집에서 쉬었어요.",
+          "vi": "Buổi tối tôi đã nghỉ ở nhà.",
+          "grammar": [
+            "에는: nhấn mạnh thời gian.",
+            "쉬다 → 쉬었어요."
+          ],
+          "en": "In the evening, I rested at home.",
+          "zh": "晚上，我在家休息。"
+        },
+        {
+          "ko": "정말 재미있었어요.",
+          "vi": "Thật sự rất thú vị.",
+          "grammar": [
+            "재미있다 → 재미있었어요: đã thú vị/vui."
+          ],
+          "en": "It was a lot of fun.",
+          "zh": "非常有趣。"
+        }
+      ]
+    }
+  },
+  {
+    "lesson": 10,
+    "topic": "Kế hoạch cuối tuần",
+    "book": {
+      "title": "Đoạn trích Sejong 1 - Email cuối tuần",
+      "sourcePage": 140,
+      "source": "Sejong1.pdf",
+      "sentences": [
+        {
+          "ko": "수진 씨, 안녕하세요? 저 유키예요.",
+          "vi": "Sujin, xin chào. Mình là Yuki.",
+          "grammar": [
+            "Tên + 씨: cách gọi lịch sự.",
+            "저 유키예요: lược bỏ tiểu từ 는 trong văn nói."
+          ],
+          "en": "Hi Sujin, I'm Yuki.",
+          "zh": "嗨， Sujin ，我是Yuki。"
+        },
+        {
+          "ko": "주말에 뭐 할 거예요? 약속이 있어요?",
+          "vi": "Cuối tuần bạn sẽ làm gì? Bạn có hẹn không?",
+          "grammar": [
+            "V-(으)ㄹ 거예요: sẽ/dự định.",
+            "N이/가 있어요?: có N không?"
+          ],
+          "en": "What are you going to do over the weekend? Got an appointment?",
+          "zh": "你周末打算做什么？有预约吗？"
+        },
+        {
+          "ko": "저는 토요일에 시간이 있어요.",
+          "vi": "Tôi rảnh vào thứ Bảy.",
+          "grammar": [
+            "시간이 있어요: có thời gian/rảnh.",
+            "에: vào ngày."
+          ],
+          "en": "I have time on Saturday.",
+          "zh": "我周六有时间。"
+        },
+        {
+          "ko": "그래서 고궁에 갈 거예요.",
+          "vi": "Vì vậy tôi sẽ đi cung điện cổ.",
+          "grammar": [
+            "그래서: vì vậy.",
+            "가다 → 갈 거예요: sẽ đi."
+          ],
+          "en": "That's why I'm going to the palace.",
+          "zh": "这就是我要去皇宫的原因。"
+        },
+        {
+          "ko": "고궁에서 사진도 찍을 거예요.",
+          "vi": "Tôi cũng sẽ chụp ảnh tại cung điện.",
+          "grammar": [
+            "도: cũng.",
+            "찍다 → 찍을 거예요: sẽ chụp."
+          ],
+          "en": "I will also take pictures in the palace.",
+          "zh": "我还会在宫殿里拍照。"
+        },
+        {
+          "ko": "수진 씨도 같이 가요. 우리 같이 밥도 먹어요. 어때요?",
+          "vi": "Sujin cũng đi cùng nhé. Chúng ta cùng ăn nữa. Bạn thấy thế nào?",
+          "grammar": [
+            "V-아요/어요: có thể dùng để rủ hoặc đề nghị.",
+            "어때요?: thế nào?"
+          ],
+          "en": "Sujin will go with you. Let's eat together. What do you think?",
+          "zh": "Sujin会和你一起去。 一起吃吧，你觉得怎么样？"
+        }
+      ]
+    },
+    "original": {
+      "title": "Đoạn luyện thêm - Kế hoạch của tôi",
+      "sentences": [
+        {
+          "ko": "이번 주말에는 특별한 약속이 있어요.",
+          "vi": "Cuối tuần này tôi có một cuộc hẹn đặc biệt.",
+          "grammar": [
+            "이번 주말: cuối tuần này.",
+            "에는: đưa thời gian thành chủ đề."
+          ],
+          "en": "We have a special appointment for you this weekend.",
+          "zh": "我们本周末为您安排了一个特别的约会。"
+        },
+        {
+          "ko": "토요일에 친구하고 놀이공원에 갈 거예요.",
+          "vi": "Thứ Bảy tôi sẽ đi công viên giải trí cùng bạn.",
+          "grammar": [
+            "N하고: cùng với N.",
+            "V-(으)ㄹ 거예요: dự định."
+          ],
+          "en": "I'm going to the amusement park with a friend on Saturday.",
+          "zh": "我周六要和一个朋友去游乐园。"
+        },
+        {
+          "ko": "같이 사진을 찍고 맛있는 음식을 먹을 거예요.",
+          "vi": "Chúng tôi sẽ cùng chụp ảnh và ăn món ngon.",
+          "grammar": [
+            "V-고: nối hai hành động.",
+            "맛있는: dạng bổ nghĩa của 맛있다."
+          ],
+          "en": "We'll take pictures and eat something tasty together.",
+          "zh": "我们一起拍照，一起吃点好吃的。"
+        },
+        {
+          "ko": "일요일에는 집에서 쉬고 케이팝을 들을 거예요.",
+          "vi": "Chủ Nhật tôi sẽ nghỉ ở nhà và nghe K-pop.",
+          "grammar": [
+            "에서: nơi diễn ra hành động.",
+            "듣다 → 들을 거예요: sẽ nghe."
+          ],
+          "en": "On Sundays, I'll rest at home and listen to K-pop.",
+          "zh": "周日，我会在家休息，听韩国流行音乐。"
+        },
+        {
+          "ko": "벌써 기대돼요.",
+          "vi": "Tôi đã thấy mong chờ rồi.",
+          "grammar": [
+            "벌써: đã, sớm hơn mong đợi.",
+            "기대되다: cảm thấy mong đợi."
+          ],
+          "en": "I'm already excited.",
+          "zh": "我已经很兴奋了。"
+        }
+      ]
+    }
+  }
+]

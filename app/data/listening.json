@@ -1,0 +1,222 @@
+[
+  {
+    "lesson": 1,
+    "title": "Chào hỏi và giới thiệu",
+    "audio": "",
+    "transcript": "안녕하세요? 저는 안나예요. 저는 캐나다 사람이에요. 지금 세종학당에서 한국어를 공부해요. 만나서 반가워요.",
+    "translation": "Xin chào, tôi là Anna. Tôi là người Canada. Hiện giờ tôi học tiếng Hàn tại Học viện Sejong. Rất vui được gặp bạn.",
+    "question": "안나 씨는 어느 나라 사람이에요?",
+    "questionVi": "Anna là người nước nào?",
+    "options": [
+      "한국",
+      "캐나다",
+      "베트남",
+      "프랑스"
+    ],
+    "answer": 1,
+    "dictation": "저는 ___ 사람이에요.",
+    "dictationAnswer": "캐나다",
+    "translation_en": "Hi, I'm Anna and I'm Canadian. I'm studying Korean at King Sejong Institute. It's nice to meet you.",
+    "question_en": "Which country is Anna from?",
+    "translation_zh": "嗨，我是Anna ，我是加拿大人。 我在世宗国王学院学习韩语。很高兴认识您。",
+    "question_zh": "安娜来自哪个国家？"
+  },
+  {
+    "lesson": 2,
+    "title": "Số và thông tin liên lạc",
+    "audio": "",
+    "transcript": "제 전화번호는 공일공-이삼사오-육칠팔구예요. 교실은 이백삼 호예요. 세종학당은 사 층에 있어요.",
+    "translation": "Số điện thoại của tôi là 010-2345-6789. Phòng học là phòng 203. Học viện Sejong ở tầng 4.",
+    "question": "교실은 몇 호예요?",
+    "questionVi": "Phòng học là phòng số mấy?",
+    "options": [
+      "103호",
+      "203호",
+      "304호",
+      "403호"
+    ],
+    "answer": 1,
+    "dictation": "세종학당은 ___ 층에 있어요.",
+    "dictationAnswer": "사",
+    "translation_en": "My phone number is Gongilgong-Isamsao-sixty-eight palgu. The classroom is Baek Samho Lee. Sejong Institute is on the fourth floor.",
+    "question_en": "How many classrooms are there?",
+    "translation_zh": "我的电话号码是Gongilgong-Isamsao-sixty-eight palgu。 教室是Baek Samho Lee。世宗学院在四楼。",
+    "question_zh": "这里有多少间教室？"
+  },
+  {
+    "lesson": 3,
+    "title": "Đồ vật và vị trí",
+    "audio": "",
+    "transcript": "제 방에 책상과 침대가 있어요. 가방은 책상 옆에 있어요. 책은 책상 위에 있어요. 시계는 침대 앞에 있어요.",
+    "translation": "Trong phòng tôi có bàn và giường. Cặp ở cạnh bàn. Sách ở trên bàn. Đồng hồ ở trước giường.",
+    "question": "가방은 어디에 있어요?",
+    "questionVi": "Cặp ở đâu?",
+    "options": [
+      "책상 위",
+      "책상 옆",
+      "침대 아래",
+      "방 밖"
+    ],
+    "answer": 1,
+    "dictation": "책은 책상 ___에 있어요.",
+    "dictationAnswer": "위",
+    "translation_en": "I have a desk and a bed in my room. The bag is next to the desk. Books are on your desk. The clock is in front of the bed.",
+    "question_en": "Where's your bag?",
+    "translation_zh": "我的房间里有一张桌子和一张床。 书包在桌子旁边。 书放在您的书桌上。 时钟在床前。",
+    "question_zh": "你的包呢？"
+  },
+  {
+    "lesson": 4,
+    "title": "Hoạt động thường ngày",
+    "audio": "",
+    "transcript": "저는 아침에 한국어를 공부해요. 오후에 친구를 만나고 영화를 봐요. 저녁에는 음악을 듣고 책을 읽어요.",
+    "translation": "Buổi sáng tôi học tiếng Hàn. Buổi chiều tôi gặp bạn và xem phim. Buổi tối tôi nghe nhạc và đọc sách.",
+    "question": "저녁에 무엇을 해요?",
+    "questionVi": "Buổi tối người nói làm gì?",
+    "options": [
+      "운동해요",
+      "요리해요",
+      "음악을 듣고 책을 읽어요",
+      "친구를 만나요"
+    ],
+    "answer": 2,
+    "dictation": "오후에 친구를 만나고 ___를 봐요.",
+    "dictationAnswer": "영화",
+    "translation_en": "I study Korean in the morning. Meet a friend and watch a movie in the afternoon. In the evening, I listen to music and read books.",
+    "question_en": "What do you do for dinner?",
+    "translation_zh": "我早上学习韩语。 下午与朋友见面并观看电影。 晚上，我会听音乐和看书。",
+    "question_zh": "您晚餐做什么？"
+  },
+  {
+    "lesson": 5,
+    "title": "Địa điểm và mua sắm",
+    "audio": "",
+    "transcript": "오늘 마트에 가요. 빵하고 우유를 사요. 사과도 사고 싶어요. 사과는 한 개에 오백 원이에요.",
+    "translation": "Hôm nay tôi đi siêu thị. Tôi mua bánh mì và sữa. Tôi cũng muốn mua táo. Một quả táo giá 500 won.",
+    "question": "사과 한 개는 얼마예요?",
+    "questionVi": "Một quả táo giá bao nhiêu?",
+    "options": [
+      "300원",
+      "500원",
+      "900원",
+      "1,000원"
+    ],
+    "answer": 1,
+    "dictation": "빵하고 ___를 사요.",
+    "dictationAnswer": "우유",
+    "translation_en": "Let's go to the grocery store today. Bread and milk. I would also like to buy an apple. An apple is five hundred won per piece.",
+    "question_en": "How much is an apple?",
+    "translation_zh": "我们今天去杂货店吧。面包和牛奶。 我也想买一个苹果，一个苹果一块五百韩元。",
+    "question_zh": "一个苹果多少钱？"
+  },
+  {
+    "lesson": 6,
+    "title": "Số lượng và yêu cầu",
+    "audio": "",
+    "transcript": "사과 다섯 개 주세요. 우유 두 병하고 빵 한 개도 주세요. 모두 만 원이에요.",
+    "translation": "Cho tôi năm quả táo. Cho thêm hai chai sữa và một cái bánh. Tổng cộng là 10.000 won.",
+    "question": "우유를 몇 병 사요?",
+    "questionVi": "Người nói mua mấy chai sữa?",
+    "options": [
+      "한 병",
+      "두 병",
+      "세 병",
+      "네 병"
+    ],
+    "answer": 1,
+    "dictation": "사과 ___ 개 주세요.",
+    "dictationAnswer": "다섯",
+    "translation_en": "I would like five apples. Two bottles of milk and a loaf of bread, please. They're all 10,000 won.",
+    "question_en": "How many bottles of milk do you buy?",
+    "translation_zh": "我想要五个苹果。 请给我两瓶牛奶和一条面包。他们都赢了1万韩元。",
+    "question_zh": "您购买了多少瓶牛奶？"
+  },
+  {
+    "lesson": 7,
+    "title": "Thời gian và lịch",
+    "audio": "",
+    "transcript": "오늘은 칠월 십오일 월요일이에요. 한국어 수업은 오전 아홉 시에 시작해요. 오후 세 시에 도서관에 가요.",
+    "translation": "Hôm nay là thứ Hai, ngày 15 tháng 7. Lớp tiếng Hàn bắt đầu lúc 9 giờ sáng. Tôi đi thư viện lúc 3 giờ chiều.",
+    "question": "한국어 수업은 몇 시에 시작해요?",
+    "questionVi": "Lớp tiếng Hàn bắt đầu lúc mấy giờ?",
+    "options": [
+      "오전 8시",
+      "오전 9시",
+      "오후 3시",
+      "오후 6시"
+    ],
+    "answer": 1,
+    "dictation": "오늘은 칠월 ___일이에요.",
+    "dictationAnswer": "십오",
+    "translation_en": "Today is Monday, July 15. Korean classes start at 9am. I go to the library at three o'clock in the afternoon.",
+    "question_en": "What time does your Korean class start?",
+    "translation_zh": "今天是7月15日星期一。 韩语课程从上午9点开始。 我下午三点去图书馆。",
+    "question_zh": "您的韩语课什么时候开始？"
+  },
+  {
+    "lesson": 8,
+    "title": "Thời tiết và mùa",
+    "audio": "",
+    "transcript": "오늘 서울은 맑고 따뜻해요. 부산은 흐리고 비가 와요. 제주도는 바람이 많이 불어요.",
+    "translation": "Hôm nay Seoul trời trong và ấm. Busan nhiều mây và có mưa. Ở đảo Jeju gió thổi nhiều.",
+    "question": "부산 날씨는 어때요?",
+    "questionVi": "Thời tiết Busan thế nào?",
+    "options": [
+      "맑고 따뜻해요",
+      "흐리고 비가 와요",
+      "눈이 와요",
+      "아주 더워요"
+    ],
+    "answer": 1,
+    "dictation": "제주도는 ___이 많이 불어요.",
+    "dictationAnswer": "바람",
+    "translation_en": "Today, Seoul is clear and warm. Busan is cloudy and rainy. Jeju Island is very windy.",
+    "question_en": "How is the weather in Busan?",
+    "translation_zh": "今天，首尔清澈而温馨。 釜山多云多雨。 济州岛风很大。",
+    "question_zh": "釜山的天气如何？"
+  },
+  {
+    "lesson": 9,
+    "title": "Hoạt động đã làm",
+    "audio": "",
+    "transcript": "어제 친구하고 공원에 갔어요. 같이 산책하고 자전거를 탔어요. 저녁에는 박물관을 구경했어요.",
+    "translation": "Hôm qua tôi đi công viên cùng bạn. Chúng tôi đi dạo và đi xe đạp. Buổi tối chúng tôi tham quan bảo tàng.",
+    "question": "저녁에 어디를 구경했어요?",
+    "questionVi": "Buổi tối người nói đã tham quan đâu?",
+    "options": [
+      "미용실",
+      "수영장",
+      "박물관",
+      "놀이공원"
+    ],
+    "answer": 2,
+    "dictation": "같이 산책하고 ___를 탔어요.",
+    "dictationAnswer": "자전거",
+    "translation_en": "I went to the park with a friend yesterday. We took a walk and rode our bikes together. In the evening, we visited the museum.",
+    "question_en": "Where did you look in the evening?",
+    "translation_zh": "我昨天和一个朋友去了公园。 我们一起散步，骑着自行车。晚上，我们参观了博物馆。",
+    "question_zh": "您晚上在哪里看？"
+  },
+  {
+    "lesson": 10,
+    "title": "Kế hoạch cuối tuần",
+    "audio": "",
+    "transcript": "이번 주말에 친구하고 놀이공원에 갈 거예요. 같이 사진을 찍고 맛있는 음식을 먹을 거예요. 일요일에는 집에서 쉴 거예요.",
+    "translation": "Cuối tuần này tôi sẽ đi công viên giải trí cùng bạn. Chúng tôi sẽ chụp ảnh và ăn món ngon. Chủ Nhật tôi sẽ nghỉ ở nhà.",
+    "question": "일요일에 무엇을 할 거예요?",
+    "questionVi": "Chủ Nhật người nói sẽ làm gì?",
+    "options": [
+      "축구를 할 거예요",
+      "집에서 쉴 거예요",
+      "콘서트에 갈 거예요",
+      "등산을 할 거예요"
+    ],
+    "answer": 1,
+    "dictation": "친구하고 ___에 갈 거예요.",
+    "dictationAnswer": "놀이공원",
+    "translation_en": "I'm going to the amusement park with a friend this weekend. We'll take pictures and eat something tasty together. I will rest at home on Sunday.",
+    "question_en": "What are you going to do on Sunday?",
+    "translation_zh": "这个周末我要和一个朋友去游乐园。 我们一起拍照，一起吃点好吃的。 周日我会在家休息。",
+    "question_zh": "你周日打算做什么？"
+  }
+]
