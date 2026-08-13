@@ -15,6 +15,11 @@ Mỗi mục trong `vocabulary.json` cần có:
 
 Tổ hợp `lesson + ko` phải là duy nhất.
 
+Hai nhóm số được khai báo bằng ID trong `number-groups.json`. Những từ có ID ở
+đây không xuất hiện trong danh sách từ mới của từng bài, nhưng vẫn có thể được
+chọn và ôn riêng dưới mục **Số Hán–Hàn** hoặc **Số thuần Hàn**. Không đổi ID khi
+chỉnh nội dung vì ID được dùng để giữ tiến độ học viên.
+
 ## Shadowing
 
 Mỗi bài trong `shadowing.json` cần có mã bài, tên chủ đề, đoạn tiếng Hàn và ba

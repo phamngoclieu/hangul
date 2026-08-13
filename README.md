@@ -7,6 +7,7 @@ Web học tiếng Hàn Sejong 1A, tối ưu cho máy tính và iPad.
 - `app/index.html`: khung HTML nguồn.
 - `app/src/`: giao diện, chức năng và lớp lưu trữ.
 - `app/data/`: từ vựng, shadowing và bài nghe tách riêng.
+- `app/data/number-groups.json`: hai nhóm số Hán–Hàn và thuần Hàn, tách khỏi từ mới của Bài 2/Bài 6 nhưng giữ nguyên ID và tiến độ học.
 - `app/public/`: ảnh và tài nguyên tĩnh.
 - `supabase/schema.sql`: cấu trúc đồng bộ tài khoản trong giai đoạn tiếp theo.
 - `index.html` và `assets/`: bản build đang được GitHub Pages phục vụ.

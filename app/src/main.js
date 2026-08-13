@@ -1,10 +1,17 @@
 import vocabularyData from "../data/vocabulary.json";
+import numberGroupsData from "../data/number-groups.json";
 import shadowingData from "../data/shadowing.json";
 import listeningData from "../data/listening.json";
 import { storage } from "./services/storage.js";
 import { startRemoteSync } from "./services/remote-sync.js";
 
-const BASE_VOCAB = vocabularyData;
+const NUMBER_GROUP_BY_ID = new Map(
+  Object.entries(numberGroupsData).flatMap(([group, ids]) => ids.map(id => [id, group]))
+);
+const BASE_VOCAB = vocabularyData.map(item => ({
+  ...item,
+  vocabulary_group: NUMBER_GROUP_BY_ID.get(item.id) || ""
+}));
 const SHADOW_DATA = shadowingData;
 const LISTEN_DATA = listeningData;
 const BRAND_LOGO = `${import.meta.env.BASE_URL}assets/sejong-green.webp`;
@@ -15,7 +22,7 @@ const STORAGE = {
     reportUrl: "sejongGreen.reportUrl.v1"
   };
   const SESSION_KEY = "sejongGreen.session.v1";
-  const CONTENT_VERSION = "2026.07.31.1";
+  const CONTENT_VERSION = "2026.08.13.1";
   const OFFICIAL_AUDIO_PAGE = "https://nuri.iksi.or.kr/front/cms/contents/layout2/learningsejong/detail.do?csCmsMastrSeq=15227&menuSn=649";
   const OFFICIAL_EBOOK = "https://nuri.iksi.or.kr/e-book/ecatalog5.jsp?Dir=773&catimage=&callmode=admin";
   const NAVER_VOICE_SAMPLE = "https://korean.dict.naver.com/kovidict/#/entry/kovi/91a283a46498440f829043e121f8b52f";
@@ -156,9 +163,15 @@ const STORAGE = {
     9: { vi: "Hoạt động đã làm", en: "Past activities", zh: "过去的活动" },
     10: { vi: "Kế hoạch cuối tuần", en: "Weekend plans", zh: "周末计划" }
   };
+  const NUMBER_GROUPS = {
+    sino: { vi: "Số Hán–Hàn", en: "Sino-Korean numbers", zh: "汉字数词" },
+    native: { vi: "Số thuần Hàn", en: "Native Korean numbers", zh: "固有数词" }
+  };
   const UI_COPY = {
     "Tổng quan": { en: "Overview", zh: "总览" },
     "Từ vựng": { en: "Vocabulary", zh: "词汇" },
+    "Số Hán–Hàn": { en: "Sino-Korean numbers", zh: "汉字数词" },
+    "Số thuần Hàn": { en: "Native Korean numbers", zh: "固有数词" },
     "Trắc nghiệm": { en: "Quiz", zh: "测验" },
     "Luyện nghe": { en: "Listening", zh: "听力练习" },
     "Luyện viết": { en: "Writing", zh: "写作练习" },
@@ -277,6 +290,7 @@ const STORAGE = {
     "Viết từ tiếng Hàn có nghĩa": { en: "Write the Korean word for", zh: "请写出对应的韩语单词" },
     "Nhập tiếng Hàn": { en: "Enter Korean", zh: "输入韩语" },
     "Xem đáp án": { en: "Show answer", zh: "查看答案" },
+    "Bỏ qua từ": { en: "Skip word", zh: "跳过单词" },
     "Nghe rồi viết lại từ tiếng Hàn": { en: "Listen and write the Korean word", zh: "听后写出韩语单词" },
     "Nghe từ": { en: "Play word", zh: "播放单词" },
     "Nhập điều bạn nghe được": { en: "Type what you hear", zh: "输入你听到的内容" },
@@ -487,7 +501,19 @@ const STORAGE = {
     saveShared(shared);
     return merged;
   };
-  const lessonWords = lesson => state.vocab.filter(item => Number(item.lesson) === Number(lesson));
+  const lessonWords = lesson => state.vocab.filter(item =>
+    Number(item.lesson) === Number(lesson) && !NUMBER_GROUP_BY_ID.has(item.id)
+  );
+  const numberGroupWords = group => state.vocab.filter(item => NUMBER_GROUP_BY_ID.get(item.id) === group);
+  const vocabularySelectionWords = selection => String(selection).startsWith("numbers:")
+    ? numberGroupWords(String(selection).slice(8))
+    : lessonWords(Number(selection));
+  const vocabularySelectionLabel = selection => {
+    const value = String(selection);
+    if (!value.startsWith("numbers:")) return localizedTopic(Number(value));
+    const group = value.slice(8);
+    return NUMBER_GROUPS[group]?.[language()] || NUMBER_GROUPS[group]?.vi || "";
+  };
   const lessonInfo = lesson => LESSONS.find(item => item.lesson === Number(lesson)) || LESSONS[0];
   const defaultProgress = () => ({
     srs: {},
@@ -511,9 +537,14 @@ const STORAGE = {
     if (index >= 0) state.profiles[index] = state.profile;
     saveProfiles();
   };
-  const lessonOptions = selected => LESSONS.map(item =>
-    `<option value="${item.lesson}" ${Number(selected) === item.lesson ? "selected" : ""}>${language() === "zh" ? `第${item.lesson}课` : `${language() === "vi" ? "Bài" : "Lesson"} ${item.lesson}`} · ${esc(localizedTopic(item.lesson))}</option>`
-  ).join("");
+  const lessonOptions = (selected, includeNumberGroups = false) => [
+    ...LESSONS.map(item =>
+      `<option value="${item.lesson}" ${String(selected) === String(item.lesson) ? "selected" : ""}>${language() === "zh" ? `第${item.lesson}课` : `${language() === "vi" ? "Bài" : "Lesson"} ${item.lesson}`} · ${esc(localizedTopic(item.lesson))}</option>`
+    ),
+    ...(includeNumberGroups ? Object.entries(NUMBER_GROUPS).map(([group, labels]) =>
+      `<option value="numbers:${group}" ${String(selected) === `numbers:${group}` ? "selected" : ""}>${esc(labels[language()] || labels.vi)}</option>`
+    ) : [])
+  ].join("");
 
   function translateDynamicUiText(source) {
     if (language() === "vi") return source;
@@ -931,8 +962,11 @@ const STORAGE = {
 
   function dueWords(lesson = null) {
     const current = today();
+    const lessonWordIds = lesson
+      ? new Set(lessonWords(lesson).map(word => word.id))
+      : null;
     return state.vocab.filter(word => {
-      if (lesson && Number(word.lesson) !== Number(lesson)) return false;
+      if (lessonWordIds && !lessonWordIds.has(word.id)) return false;
       const item = srsEntry(word.id);
       return item.reviews > 0 && item.due <= current;
     });
@@ -1045,7 +1079,7 @@ const STORAGE = {
   }
 
   function renderVocabulary() {
-    const words = lessonWords(state.vocabLesson).filter(word => {
+    const words = vocabularySelectionWords(state.vocabLesson).filter(word => {
       const needle = normalize(state.vocabSearch);
       return !needle || [
         word.word,
@@ -1076,7 +1110,7 @@ const STORAGE = {
         </label>
         <label>
           <span class="field-label" style="margin-top:0">Bài / chủ đề</span>
-          <select class="field" id="vocabLesson">${lessonOptions(state.vocabLesson)}</select>
+          <select class="field" id="vocabLesson">${lessonOptions(state.vocabLesson, true)}</select>
         </label>
         <div style="align-self:end;color:var(--muted);padding:10px">${words.length} mục</div>
       </div>
@@ -1106,8 +1140,8 @@ const STORAGE = {
       </section>
     `;
     $("#vocabLesson").addEventListener("change", event => {
-      state.vocabLesson = Number(event.target.value);
-      setLastLesson(state.vocabLesson);
+      state.vocabLesson = event.target.value;
+      if (!String(state.vocabLesson).startsWith("numbers:")) setLastLesson(state.vocabLesson);
       renderVocabulary();
     });
     $("#vocabSearch").addEventListener("input", event => {
@@ -1132,7 +1166,7 @@ const STORAGE = {
     const progress = profileProgress();
     if (mode === "again") return state.vocab.filter(word => progress.reviewAgain?.[word.id]);
     if (mode === "hard") return state.vocab.filter(word => progress.reviewHard?.[word.id]);
-    return lessonWords(state.flashLesson);
+    return vocabularySelectionWords(state.flashLesson);
   }
 
   function initFlashDeck() {
@@ -1158,7 +1192,7 @@ const STORAGE = {
       ? uiText("Ôn từ chưa thuộc")
       : state.flashDeckMode === "hard"
         ? uiText("Ôn từ khó")
-        : localizedTopic(state.flashLesson);
+        : vocabularySelectionLabel(state.flashLesson);
     if (!word) {
       $("#view-flashcards").innerHTML = `
         <div class="study-shell">
@@ -1166,7 +1200,7 @@ const STORAGE = {
             <div><h1>Flashcard</h1><p>Lật thẻ, tự đánh giá và để lịch ôn lặp ngắt quãng lo phần còn lại.</p></div>
           </div>
           <div class="flash-deck-tabs">
-            <button class="${state.flashDeckMode === "lesson" ? "active" : ""}" data-flash-deck="lesson" type="button">Tất cả từ trong bài <span>${lessonWords(state.flashLesson).length}</span></button>
+            <button class="${state.flashDeckMode === "lesson" ? "active" : ""}" data-flash-deck="lesson" type="button">Tất cả từ trong bài <span>${vocabularySelectionWords(state.flashLesson).length}</span></button>
             <button class="${state.flashDeckMode === "again" ? "active" : ""}" data-flash-deck="again" type="button">Ôn từ chưa thuộc <span>${againCount}</span></button>
             <button class="${state.flashDeckMode === "hard" ? "active" : ""}" data-flash-deck="hard" type="button">Ôn từ khó <span>${hardCount}</span></button>
           </div>
@@ -1199,7 +1233,7 @@ const STORAGE = {
         <div class="page-heading">
           <div><h1>Flashcard</h1><p>Lật thẻ, tự đánh giá và để lịch ôn lặp ngắt quãng lo phần còn lại.</p></div>
           <div class="heading-actions">
-            <select class="field" id="flashLesson" style="width:auto">${lessonOptions(state.flashLesson)}</select>
+            <select class="field" id="flashLesson" style="width:auto">${lessonOptions(state.flashLesson, true)}</select>
             <select class="field" id="flashDirection" style="width:auto">
               <option value="both" ${state.flashDirection === "both" ? "selected" : ""}>Hai chiều</option>
               <option value="ko-vi" ${state.flashDirection === "ko-vi" ? "selected" : ""}>Hàn → Việt</option>
@@ -1208,7 +1242,7 @@ const STORAGE = {
           </div>
         </div>
         <div class="flash-deck-tabs">
-          <button class="${state.flashDeckMode === "lesson" ? "active" : ""}" data-flash-deck="lesson" type="button">Tất cả từ trong bài <span>${lessonWords(state.flashLesson).length}</span></button>
+          <button class="${state.flashDeckMode === "lesson" ? "active" : ""}" data-flash-deck="lesson" type="button">Tất cả từ trong bài <span>${vocabularySelectionWords(state.flashLesson).length}</span></button>
           <button class="${state.flashDeckMode === "again" ? "active" : ""}" data-flash-deck="again" type="button">Ôn từ chưa thuộc <span>${againCount}</span></button>
           <button class="${state.flashDeckMode === "hard" ? "active" : ""}" data-flash-deck="hard" type="button">Ôn từ khó <span>${hardCount}</span></button>
         </div>
@@ -1257,9 +1291,9 @@ const STORAGE = {
       </div>
     `;
     $("#flashLesson").addEventListener("change", event => {
-      state.flashLesson = Number(event.target.value);
+      state.flashLesson = event.target.value;
       state.flashDeckMode = "lesson";
-      setLastLesson(state.flashLesson);
+      if (!String(state.flashLesson).startsWith("numbers:")) setLastLesson(state.flashLesson);
       initFlashDeck();
       renderFlashcards();
     });
@@ -2084,6 +2118,7 @@ const STORAGE = {
           </div>
           <input class="field writing-input" id="writingInput" lang="ko" autocomplete="off" placeholder="Nhập tiếng Hàn">
           <div class="control-row" style="justify-content:center;margin-top:16px">
+            <button class="button subtle" id="skipWriting" type="button">Bỏ qua từ</button>
             <button class="button" id="revealWriting" type="button">Xem đáp án</button>
             <button class="button primary" id="checkWriting" type="button">Kiểm tra</button>
           </div>
@@ -2095,6 +2130,7 @@ const STORAGE = {
           </div>
           <input class="field writing-input" id="writingInput" lang="ko" autocomplete="off" placeholder="Nhập điều bạn nghe được">
           <div class="control-row" style="justify-content:center;margin-top:16px">
+            <button class="button subtle" id="skipWriting" type="button">Bỏ qua từ</button>
             <button class="button" id="revealWriting" type="button">Xem đáp án</button>
             <button class="button primary" id="checkWriting" type="button">Kiểm tra</button>
           </div>
@@ -2144,6 +2180,10 @@ const STORAGE = {
       renderWriting();
     }));
     $("#playDictation")?.addEventListener("click", () => speak(word.word));
+    $("#skipWriting")?.addEventListener("click", () => {
+      toast(language() === "en" ? "Word skipped." : language() === "zh" ? "已跳过此单词。" : "Đã bỏ qua từ này.");
+      nextWritingWord();
+    });
     $("#revealWriting")?.addEventListener("click", () => {
       state.writingFeedback = {
         ok: true,

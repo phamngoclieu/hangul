@@ -17,12 +17,14 @@ function requireValue(condition, message, errors) {
 }
 
 const vocabulary = readJson("app/data/vocabulary.json");
+const numberGroups = readJson("app/data/number-groups.json");
 const shadowing = readJson("app/data/shadowing.json");
 const listening = readJson("app/data/listening.json");
 const errors = [];
 const ids = new Set();
 
 requireValue(Array.isArray(vocabulary), "Từ vựng phải là một mảng.", errors);
+requireValue(numberGroups && typeof numberGroups === "object", "Nhóm số phải là một đối tượng.", errors);
 requireValue(Array.isArray(shadowing), "Shadowing phải là một mảng.", errors);
 requireValue(Array.isArray(listening), "Bài nghe phải là một mảng.", errors);
 
@@ -53,6 +55,21 @@ for (const [index, item] of vocabulary.entries()) {
   requireValue(Number.isInteger(item.lesson) && item.lesson > 0, `${label}: lesson không hợp lệ.`, errors);
   requireValue(!ids.has(item.id), `${label}: id bị trùng (${item.id}).`, errors);
   ids.add(item.id);
+}
+
+const vocabularyById = new Map(vocabulary.map(item => [item.id, item]));
+const groupedIds = new Set();
+for (const group of ["sino", "native"]) {
+  const groupIds = numberGroups?.[group];
+  requireValue(Array.isArray(groupIds) && groupIds.length > 0, `Nhóm số ${group} đang trống.`, errors);
+  if (!Array.isArray(groupIds)) continue;
+  for (const id of groupIds) {
+    const item = vocabularyById.get(id);
+    requireValue(Boolean(item), `Nhóm số ${group}: không tìm thấy id ${id}.`, errors);
+    requireValue(!groupedIds.has(id), `Từ ${id} xuất hiện trong nhiều nhóm số.`, errors);
+    groupedIds.add(id);
+    if (item) requireValue([2, 6].includes(item.lesson), `Từ số ${id} không thuộc Bài 2 hoặc Bài 6.`, errors);
+  }
 }
 
 for (const [index, lesson] of shadowing.entries()) {
