@@ -20,7 +20,7 @@ const ORIGIN_LABELS = {
 const loanwordSources = {
   커피: "coffee", 카페: "café", 주스: "juice", 컴퓨터: "computer", 텔레비전: "television",
   "PC방": "PC + 방", 이메일: "e-mail", 피아노: "piano", 펜: "pen", 피자: "pizza",
-  게임: "game", 쇼핑: "shopping", 마트: "mart", 라면: "ramen", 아이스크림: "ice cream",
+  게임: "game", 쇼핑: "shopping", 마트: "mart", 아이스크림: "ice cream",
   케이크: "cake", 버스: "bus", 바나나: "banana", 아르바이트: "German Arbeit",
   드라마: "drama", 파티: "party", 콘서트: "concert", 메모: "memo", "케이팝(K-POP)": "K-pop"
 };
@@ -45,6 +45,14 @@ const sinoWords = new Set([
   "약속", "시간", "특별하다", "축구", "경기", "농구", "음료수", "등산", "반", "음식", "운동화", "방학", "내용", "주",
   "사과", "차", "구두", "이름", "우산"
 ]);
+
+const sinoPatternWords = new Set([
+  "일월", "이월", "삼월", "사월", "오월", "유월", "칠월", "팔월", "구월", "시월", "십일월", "십이월",
+  "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일",
+  "일일", "이일", "삼일", "사일", "오일", "육일", "칠일", "팔일", "구일", "십일일", "십이일", "십삼일", "십사일", "십오일", "십육일", "십칠일", "십팔일", "십구일", "이십일", "이십일일", "이십이일", "이십삼일", "이십사일", "이십오일", "이십육일", "이십칠일", "이십팔일", "이십구일", "삼십일", "삼십일일"
+]);
+
+const otherWords = new Set(["라면", "김치"]);
 
 const mixedWords = new Set(["PC방", "핸드폰", "쇼핑몰", "한복", "태권도", "비빔밥"]);
 
@@ -77,7 +85,8 @@ function classify(item) {
   if (loanwordWords.has(item.word)) return "loanword";
   if (properWords.has(item.word)) return "proper";
   if (grammarWords.has(item.word)) return "grammar";
-  if (sinoWords.has(item.word)) return "sino";
+  if (otherWords.has(item.word)) return "other";
+  if (sinoWords.has(item.word) || sinoPatternWords.has(item.word)) return "sino";
   return "native";
 }
 
