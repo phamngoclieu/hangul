@@ -420,10 +420,10 @@ textarea.field { min-height: 120px; resize: vertical; }
   font-size: 11px;
 }
 .flash-deck-tabs button.active { border-color: var(--green-500); color: var(--forest-900); background: var(--green-100); }
-.flashcard-stage { perspective: 1200px; min-height: 480px; margin: 20px 0; }
+.flashcard-stage { perspective: 1200px; min-height: 650px; margin: 20px 0; }
 .flashcard {
   width: 100%;
-  min-height: 480px;
+  min-height: 650px;
   position: relative;
   cursor: pointer;
   border: 1px solid var(--line-strong);
@@ -452,6 +452,40 @@ textarea.field { min-height: 120px; resize: vertical; }
 .flash-example { margin-top: 20px; max-width: 700px; color: var(--ink-soft); }
 .flash-example-line { display: flex; align-items: center; justify-content: center; gap: 9px; }
 .flash-example-line .ko { font-size: 18px; }
+.actual-pronunciation {
+  margin-top: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+.actual-pronunciation > span:first-child {
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--green-100);
+  color: var(--forest-800);
+  font-size: 10px;
+  font-weight: 800;
+}
+.word-origin-card {
+  width: min(700px, 100%);
+  margin-top: 18px;
+  padding: 14px 16px;
+  display: grid;
+  gap: 8px;
+  border: 1px solid var(--green-200);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .78);
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.55;
+  text-align: left;
+}
+.word-origin-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.word-origin-head > span { color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
+.word-origin-head strong { padding: 3px 9px; border-radius: 999px; color: var(--forest-900); background: var(--green-100); font-size: 11px; }
+.word-memory-tip { padding-top: 8px; border-top: 1px solid var(--line); }
 .example-speak {
   width: 34px;
   height: 34px;
@@ -809,7 +843,9 @@ textarea.field { min-height: 120px; resize: vertical; }
   .vocab-table td { padding: 4px 0; border: 0; }
   .option-grid, .rating-row, .stat-grid, .report-grid, .data-grid, .inline-form { grid-template-columns: 1fr; }
   .flash-deck-tabs { grid-template-columns: 1fr; }
-  .flashcard-stage, .flashcard { min-height: 520px; }
+  .flashcard-stage, .flashcard { min-height: 720px; }
+  .flash-face { padding: 26px 20px; }
+  .word-origin-head { align-items: flex-start; flex-direction: column; }
   .word-note-head { align-items: flex-start; }
   .smart-writing-actions, .smart-review-grid { grid-template-columns: 1fr; }
   .writing-reference-head, .writing-save-line { align-items: flex-start; flex-direction: column; }

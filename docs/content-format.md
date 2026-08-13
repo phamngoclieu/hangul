@@ -20,6 +20,12 @@ Hai nhóm số được khai báo bằng ID trong `number-groups.json`. Những 
 chọn và ôn riêng dưới mục **Số Hán–Hàn** hoặc **Số thuần Hàn**. Không đổi ID khi
 chỉnh nội dung vì ID được dùng để giữ tiến độ học viên.
 
+Mỗi mục tích hợp sẵn còn có nhóm nguồn gốc đa ngôn ngữ
+(`origin_type`, `origin_label_*`, `origin_note_*`, `memory_tip_*`) và cách đọc
+thực tế `actual_pronunciation`. Các trường này chỉ xuất hiện ở mặt sau
+flashcard. Sau khi sửa danh sách gốc, chạy `node scripts/enrich-vocabulary.mjs`
+để chuẩn hóa lại toàn bộ 404 mục trước khi kiểm tra và phát hành.
+
 ## Shadowing
 
 Mỗi bài trong `shadowing.json` cần có mã bài, tên chủ đề, đoạn tiếng Hàn và ba

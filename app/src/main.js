@@ -22,7 +22,7 @@ const STORAGE = {
     reportUrl: "sejongGreen.reportUrl.v1"
   };
   const SESSION_KEY = "sejongGreen.session.v1";
-  const CONTENT_VERSION = "2026.08.13.1";
+  const CONTENT_VERSION = "2026.08.13.2";
   const OFFICIAL_AUDIO_PAGE = "https://nuri.iksi.or.kr/front/cms/contents/layout2/learningsejong/detail.do?csCmsMastrSeq=15227&menuSn=649";
   const OFFICIAL_EBOOK = "https://nuri.iksi.or.kr/e-book/ecatalog5.jsp?Dir=773&catimage=&callmode=admin";
   const NAVER_VOICE_SAMPLE = "https://korean.dict.naver.com/kovidict/#/entry/kovi/91a283a46498440f829043e121f8b52f";
@@ -172,6 +172,9 @@ const STORAGE = {
     "Từ vựng": { en: "Vocabulary", zh: "词汇" },
     "Số Hán–Hàn": { en: "Sino-Korean numbers", zh: "汉字数词" },
     "Số thuần Hàn": { en: "Native Korean numbers", zh: "固有数词" },
+    "Nguồn gốc từ": { en: "Word origin", zh: "词源" },
+    "Mẹo ghi nhớ": { en: "Memory tip", zh: "记忆提示" },
+    "Phát âm thực tế": { en: "Actual pronunciation", zh: "实际发音" },
     "Trắc nghiệm": { en: "Quiz", zh: "测验" },
     "Luyện nghe": { en: "Listening", zh: "听力练习" },
     "Luyện viết": { en: "Writing", zh: "写作练习" },
@@ -452,6 +455,21 @@ const STORAGE = {
   const exampleTranslationFor = (word, lang = language()) => lang === "vi"
     ? word.example_vi
     : (word[`example_${lang}`] || word.example_vi);
+  const localizedWordField = (word, field, lang = language()) =>
+    word[`${field}_${lang}`] || word[`${field}_vi`] || "";
+  const pronunciationMarkup = word => word.actual_pronunciation
+    ? `<span class="actual-pronunciation"><span>${uiText("Phát âm thực tế")}</span> [${esc(word.actual_pronunciation)}]</span>`
+    : "";
+  const wordOriginMarkup = word => `
+    <span class="word-origin-card">
+      <span class="word-origin-head">
+        <span>${uiText("Nguồn gốc từ")}</span>
+        <strong>${esc(localizedWordField(word, "origin_label"))}</strong>
+      </span>
+      <span>${esc(localizedWordField(word, "origin_note"))}</span>
+      <span class="word-memory-tip"><strong>${uiText("Mẹo ghi nhớ")}:</strong> ${esc(localizedWordField(word, "memory_tip").replace(/^(Mẹo|Tip|记忆提示)[:：]?\s*/u, ""))}</span>
+    </span>
+  `;
   const meaningOrder = () => language() === "en"
     ? ["en", "zh", "vi"]
     : language() === "zh"
@@ -1261,6 +1279,7 @@ const STORAGE = {
               ${meaningMarkup(word)}
               <span class="flash-main ko" style="font-size:44px">${esc(word.word)}</span>
               <span class="romanization">${esc(word.romanization)}</span>
+              ${pronunciationMarkup(word)}
               <span class="flash-example">
                 <span class="flash-example-line">
                   <span class="ko">${esc(word.example)}</span>
@@ -1269,6 +1288,7 @@ const STORAGE = {
                 <span class="muted">${esc(exampleTranslationFor(word))}</span>
                 ${word.grammar_point ? `<span class="grammar-chip">Ngữ pháp · ${esc(word.grammar_point)}</span>` : ""}
               </span>
+              ${wordOriginMarkup(word)}
             </span>
           </div>
         </div>

@@ -43,7 +43,17 @@ for (const [index, item] of vocabulary.entries()) {
     "example_vi",
     "example_en",
     "example_zh",
-    "topic"
+    "topic",
+    "origin_type",
+    "origin_label_vi",
+    "origin_label_en",
+    "origin_label_zh",
+    "origin_note_vi",
+    "origin_note_en",
+    "origin_note_zh",
+    "memory_tip_vi",
+    "memory_tip_en",
+    "memory_tip_zh"
   ]) {
     requireValue(
       typeof item[field] === "string" && item[field].trim().length > 0,
@@ -53,6 +63,12 @@ for (const [index, item] of vocabulary.entries()) {
   }
 
   requireValue(Number.isInteger(item.lesson) && item.lesson > 0, `${label}: lesson không hợp lệ.`, errors);
+  requireValue(
+    ["sino", "native", "loanword", "mixed", "proper", "grammar", "other"].includes(item.origin_type),
+    `${label}: origin_type không hợp lệ.`,
+    errors
+  );
+  requireValue(typeof item.actual_pronunciation === "string", `${label}: actual_pronunciation không hợp lệ.`, errors);
   requireValue(!ids.has(item.id), `${label}: id bị trùng (${item.id}).`, errors);
   ids.add(item.id);
 }
