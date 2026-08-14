@@ -1,6 +1,6 @@
 # Cập nhật nội dung học tập
 
-Nội dung nguồn nằm trong ba tệp JSON ở `app/data/`. Không sửa trực tiếp các
+Nội dung nguồn nằm trong các tệp JSON ở `app/data/`. Không sửa trực tiếp các
 tệp đã build trong `assets/`.
 
 ## Từ vựng
@@ -20,11 +20,19 @@ Hai nhóm số được khai báo bằng ID trong `number-groups.json`. Những 
 chọn và ôn riêng dưới mục **Số Hán–Hàn** hoặc **Số thuần Hàn**. Không đổi ID khi
 chỉnh nội dung vì ID được dùng để giữ tiến độ học viên.
 
-Mỗi mục tích hợp sẵn còn có nhóm nguồn gốc đa ngôn ngữ
-(`origin_type`, `origin_label_*`, `origin_note_*`, `memory_tip_*`) và cách đọc
-thực tế `actual_pronunciation`. Các trường này chỉ xuất hiện ở mặt sau
-flashcard. Sau khi sửa danh sách gốc, chạy `node scripts/enrich-vocabulary.mjs`
-để chuẩn hóa lại toàn bộ 404 mục trước khi kiểm tra và phát hành.
+Nguồn gốc từ được tách riêng trong `word-origins.json`, liên kết với từ vựng bằng
+ID. Mỗi mục có loại từ, giải thích và mẹo ghi nhớ bằng Việt - Anh - Trung, dạng
+gốc, nguồn nghiên cứu và trạng thái nghiên cứu. Ảnh chỉ được phép thêm cho mục
+`research_status: "unresolved"`, phải lưu trong `app/public/assets/vocabulary/`,
+có nguồn và giấy phép. Ảnh được tải lười và chỉ xuất hiện ở mặt sau flashcard.
+
+Quy trình cập nhật dữ liệu nguồn gốc:
+
+1. Chạy `scripts/research-vocabulary-origins.mjs` để cập nhật bộ nhớ đệm từ điển.
+2. Kiểm tra các từ đồng âm và bổ sung ngoại lệ chính xác trong
+   `scripts/build-word-origins.mjs`.
+3. Chạy `scripts/build-word-origins.mjs` để tạo đủ 404 mục.
+4. Chạy `npm run validate` trước khi phát hành.
 
 ## Shadowing
 

@@ -1,4 +1,5 @@
 import vocabularyData from "../data/vocabulary.json";
+import wordOriginsData from "../data/word-origins.json";
 import numberGroupsData from "../data/number-groups.json";
 import shadowingData from "../data/shadowing.json";
 import listeningData from "../data/listening.json";
@@ -10,6 +11,21 @@ const NUMBER_GROUP_BY_ID = new Map(
 );
 const BASE_VOCAB = vocabularyData.map(item => ({
   ...item,
+  origin_type: wordOriginsData.items[item.id]?.type || item.origin_type,
+  origin_label_vi: wordOriginsData.items[item.id]?.label_vi || item.origin_label_vi,
+  origin_label_en: wordOriginsData.items[item.id]?.label_en || item.origin_label_en,
+  origin_label_zh: wordOriginsData.items[item.id]?.label_zh || item.origin_label_zh,
+  origin_note_vi: wordOriginsData.items[item.id]?.note_vi || item.origin_note_vi,
+  origin_note_en: wordOriginsData.items[item.id]?.note_en || item.origin_note_en,
+  origin_note_zh: wordOriginsData.items[item.id]?.note_zh || item.origin_note_zh,
+  memory_tip_vi: wordOriginsData.items[item.id]?.tip_vi || item.memory_tip_vi,
+  memory_tip_en: wordOriginsData.items[item.id]?.tip_en || item.memory_tip_en,
+  memory_tip_zh: wordOriginsData.items[item.id]?.tip_zh || item.memory_tip_zh,
+  origin_image_path: wordOriginsData.items[item.id]?.image_path || "",
+  origin_image_alt_vi: wordOriginsData.items[item.id]?.image_alt_vi || "",
+  origin_image_alt_en: wordOriginsData.items[item.id]?.image_alt_en || "",
+  origin_image_alt_zh: wordOriginsData.items[item.id]?.image_alt_zh || "",
+  origin_image_credit: wordOriginsData.items[item.id]?.image_credit || "",
   vocabulary_group: NUMBER_GROUP_BY_ID.get(item.id) || ""
 }));
 const SHADOW_DATA = shadowingData;
@@ -22,7 +38,7 @@ const STORAGE = {
     reportUrl: "sejongGreen.reportUrl.v1"
   };
   const SESSION_KEY = "sejongGreen.session.v1";
-  const CONTENT_VERSION = "2026.08.13.2";
+  const CONTENT_VERSION = "2026.08.14.1";
   const OFFICIAL_AUDIO_PAGE = "https://nuri.iksi.or.kr/front/cms/contents/layout2/learningsejong/detail.do?csCmsMastrSeq=15227&menuSn=649";
   const OFFICIAL_EBOOK = "https://nuri.iksi.or.kr/e-book/ecatalog5.jsp?Dir=773&catimage=&callmode=admin";
   const NAVER_VOICE_SAMPLE = "https://korean.dict.naver.com/kovidict/#/entry/kovi/91a283a46498440f829043e121f8b52f";
@@ -460,6 +476,12 @@ const STORAGE = {
   const pronunciationMarkup = word => word.actual_pronunciation
     ? `<span class="actual-pronunciation"><span>${uiText("Phát âm thực tế")}</span> [${esc(word.actual_pronunciation)}]</span>`
     : "";
+  const originImageMarkup = word => word.origin_image_path
+    ? `<figure class="word-origin-image">
+        <img src="${esc(`${import.meta.env.BASE_URL}${word.origin_image_path}`)}" alt="${esc(localizedWordField(word, "origin_image_alt"))}" loading="lazy" decoding="async">
+        <figcaption>${esc(word.origin_image_credit)}</figcaption>
+      </figure>`
+    : "";
   const wordOriginMarkup = word => `
     <span class="word-origin-card">
       <span class="word-origin-head">
@@ -467,6 +489,7 @@ const STORAGE = {
         <strong>${esc(localizedWordField(word, "origin_label"))}</strong>
       </span>
       <span>${esc(localizedWordField(word, "origin_note"))}</span>
+      ${originImageMarkup(word)}
       <span class="word-memory-tip"><strong>${uiText("Mẹo ghi nhớ")}:</strong> ${esc(localizedWordField(word, "memory_tip").replace(/^(Mẹo|Tip|记忆提示)[:：]?\s*/u, ""))}</span>
     </span>
   `;

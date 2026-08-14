@@ -485,6 +485,26 @@ textarea.field { min-height: 120px; resize: vertical; }
 .word-origin-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .word-origin-head > span { color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
 .word-origin-head strong { padding: 3px 9px; border-radius: 999px; color: var(--forest-900); background: var(--green-100); font-size: 11px; }
+.word-origin-image {
+  width: 100%;
+  margin: 2px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--mint-50);
+}
+.word-origin-image img {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+}
+.word-origin-image figcaption {
+  padding: 6px 9px;
+  color: var(--muted);
+  font-size: 10px;
+  text-align: right;
+}
 .word-memory-tip { padding-top: 8px; border-top: 1px solid var(--line); }
 .example-speak {
   width: 34px;

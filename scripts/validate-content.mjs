@@ -17,6 +17,7 @@ function requireValue(condition, message, errors) {
 }
 
 const vocabulary = readJson("app/data/vocabulary.json");
+const wordOrigins = readJson("app/data/word-origins.json");
 const numberGroups = readJson("app/data/number-groups.json");
 const shadowing = readJson("app/data/shadowing.json");
 const listening = readJson("app/data/listening.json");
@@ -24,6 +25,7 @@ const errors = [];
 const ids = new Set();
 
 requireValue(Array.isArray(vocabulary), "Từ vựng phải là một mảng.", errors);
+requireValue(wordOrigins && typeof wordOrigins === "object", "Dữ liệu nguồn gốc từ không hợp lệ.", errors);
 requireValue(numberGroups && typeof numberGroups === "object", "Nhóm số phải là một đối tượng.", errors);
 requireValue(Array.isArray(shadowing), "Shadowing phải là một mảng.", errors);
 requireValue(Array.isArray(listening), "Bài nghe phải là một mảng.", errors);
@@ -74,6 +76,57 @@ for (const [index, item] of vocabulary.entries()) {
 }
 
 const vocabularyById = new Map(vocabulary.map(item => [item.id, item]));
+const originItems = wordOrigins?.items || {};
+requireValue(
+  Object.keys(originItems).length === vocabulary.length,
+  `Nguồn gốc từ phải có đúng ${vocabulary.length} mục (hiện có ${Object.keys(originItems).length}).`,
+  errors
+);
+
+const bannedGenericOriginText = [
+  "Từ thuần Hàn. Hãy ghi nhớ theo hình ảnh",
+  "A native Korean word. Remember it through an image",
+  "Từ Hán–Hàn. Thử liên hệ nghĩa",
+  "A Sino-Korean word. Connect its meaning"
+];
+
+for (const item of vocabulary) {
+  const origin = originItems[item.id];
+  const label = `word-origins.items.${item.id}`;
+  requireValue(Boolean(origin), `${label}: thiếu dữ liệu cho “${item.word}”.`, errors);
+  if (!origin) continue;
+
+  requireValue(
+    ["sino", "native", "loanword", "mixed", "proper", "grammar", "other"].includes(origin.type),
+    `${label}: type không hợp lệ.`,
+    errors
+  );
+  requireValue(["documented", "unresolved"].includes(origin.research_status), `${label}: research_status không hợp lệ.`, errors);
+  for (const field of ["label_vi", "label_en", "label_zh", "note_vi", "note_en", "note_zh", "tip_vi", "tip_en", "tip_zh", "source_url", "source_title"]) {
+    requireValue(typeof origin[field] === "string" && origin[field].trim(), `${label}: thiếu ${field}.`, errors);
+  }
+  requireValue(/^https:\/\//.test(origin.source_url), `${label}: source_url phải dùng HTTPS.`, errors);
+  for (const banned of bannedGenericOriginText) {
+    requireValue(!Object.values(origin).some(value => typeof value === "string" && value.includes(banned)), `${label}: còn nội dung nguồn gốc chung chung bị cấm.`, errors);
+  }
+
+  if (origin.research_status === "unresolved") {
+    for (const field of ["image_path", "image_alt_vi", "image_alt_en", "image_alt_zh", "image_credit", "image_license", "image_source_url"]) {
+      requireValue(typeof origin[field] === "string" && origin[field].trim(), `${label}: mục chưa rõ nguồn gốc thiếu ${field}.`, errors);
+    }
+    if (origin.image_path) {
+      const imagePath = path.join(root, "app/public", origin.image_path);
+      requireValue(fs.existsSync(imagePath), `${label}: không tìm thấy ảnh ${origin.image_path}.`, errors);
+    }
+  } else {
+    requireValue(!origin.image_path, `${label}: chỉ từ chưa tìm được nguồn gốc mới được có ảnh.`, errors);
+  }
+}
+
+for (const id of Object.keys(originItems)) {
+  requireValue(vocabularyById.has(id), `Nguồn gốc từ chứa ID lạ: ${id}.`, errors);
+}
+
 const groupedIds = new Set();
 for (const group of ["sino", "native"]) {
   const groupIds = numberGroups?.[group];
