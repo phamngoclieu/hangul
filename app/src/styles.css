@@ -485,6 +485,34 @@ textarea.field { min-height: 120px; resize: vertical; }
 .word-origin-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .word-origin-head > span { color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
 .word-origin-head strong { padding: 3px 9px; border-radius: 999px; color: var(--forest-900); background: var(--green-100); font-size: 11px; }
+.native-word-classification {
+  width: auto;
+  margin-top: 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: center;
+}
+.native-word-classification strong {
+  padding: 5px 11px;
+  border: 1px solid var(--green-200);
+  border-radius: 999px;
+  color: var(--forest-900);
+  background: var(--green-100);
+  font-size: 12px;
+}
+.origin-relation-list {
+  display: grid;
+  gap: 6px;
+}
+.origin-relation-row {
+  display: grid;
+  grid-template-columns: minmax(180px, .8fr) minmax(0, 1.2fr);
+  gap: 14px;
+  align-items: baseline;
+}
+.origin-relation-row > span:first-child { color: var(--muted); font-size: 12px; }
+.origin-relation-row > strong { color: var(--ink); font-size: 14px; overflow-wrap: anywhere; }
 .word-origin-image {
   width: 100%;
   margin: 2px 0 0;
@@ -506,6 +534,15 @@ textarea.field { min-height: 120px; resize: vertical; }
   text-align: right;
 }
 .word-memory-tip { padding-top: 8px; border-top: 1px solid var(--line); }
+.flash-navigation {
+  margin: -4px 0 14px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 10px;
+}
+.flash-navigation .button { min-height: 46px; }
+.flash-navigation .button:first-child { justify-self: start; }
+.flash-navigation .button:last-child { justify-self: end; }
 .example-speak {
   width: 34px;
   height: 34px;
@@ -866,6 +903,8 @@ textarea.field { min-height: 120px; resize: vertical; }
   .flashcard-stage, .flashcard { min-height: 720px; }
   .flash-face { padding: 26px 20px; }
   .word-origin-head { align-items: flex-start; flex-direction: column; }
+  .origin-relation-row { grid-template-columns: 1fr; gap: 2px; }
+  .flash-navigation .button { width: 100%; padding-inline: 12px; }
   .word-note-head { align-items: flex-start; }
   .smart-writing-actions, .smart-review-grid { grid-template-columns: 1fr; }
   .writing-reference-head, .writing-save-line { align-items: flex-start; flex-direction: column; }

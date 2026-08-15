@@ -28,7 +28,8 @@ const HV_OVERRIDES = {
   "重": "trọng", "長": "trưởng/trường", "樂": "nhạc/lạc", "便": "tiện",
   "白": "bạch", "百": "bách", "會": "hội", "間": "gian", "日": "nhật",
   "月": "nguyệt", "年": "niên", "時": "thời", "點": "điểm", "心": "tâm",
-  "職": "chức", "業": "nghiệp", "國": "quốc", "學": "học", "堂": "đường"
+  "職": "chức", "業": "nghiệp", "國": "quốc", "學": "học", "堂": "đường",
+  "畫": "họa", "住": "trú"
 };
 
 const SPECIAL = {
@@ -541,7 +542,7 @@ for (const item of vocabulary) {
 }
 
 const output = {
-  version: "2026-08-14.1",
+  version: "2026-08-15.1",
   generated_at: new Date().toISOString(),
   policy: "Images are used only when checked dictionary sources provide no reliable etymology beyond a generic native-word label.",
   research_sources: [

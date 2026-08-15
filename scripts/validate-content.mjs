@@ -110,6 +110,13 @@ for (const item of vocabulary) {
     requireValue(!Object.values(origin).some(value => typeof value === "string" && value.includes(banned)), `${label}: còn nội dung nguồn gốc chung chung bị cấm.`, errors);
   }
 
+  if (origin.type === "sino") {
+    for (const field of ["root_form", "simplified", "hanviet"]) {
+      requireValue(typeof origin[field] === "string" && origin[field].trim(), `${label}: từ Hán–Hàn thiếu ${field}.`, errors);
+    }
+    requireValue(!origin.hanviet.includes("?"), `${label}: âm Hán–Việt còn chưa xác định.`, errors);
+  }
+
   if (origin.research_status === "unresolved") {
     for (const field of ["image_path", "image_alt_vi", "image_alt_en", "image_alt_zh", "image_credit", "image_license", "image_source_url"]) {
       requireValue(typeof origin[field] === "string" && origin[field].trim(), `${label}: mục chưa rõ nguồn gốc thiếu ${field}.`, errors);

@@ -21,6 +21,9 @@ const BASE_VOCAB = vocabularyData.map(item => ({
   memory_tip_vi: wordOriginsData.items[item.id]?.tip_vi || item.memory_tip_vi,
   memory_tip_en: wordOriginsData.items[item.id]?.tip_en || item.memory_tip_en,
   memory_tip_zh: wordOriginsData.items[item.id]?.tip_zh || item.memory_tip_zh,
+  origin_root_form: wordOriginsData.items[item.id]?.root_form || "",
+  origin_simplified: wordOriginsData.items[item.id]?.simplified || "",
+  origin_hanviet: wordOriginsData.items[item.id]?.hanviet || "",
   origin_image_path: wordOriginsData.items[item.id]?.image_path || "",
   origin_image_alt_vi: wordOriginsData.items[item.id]?.image_alt_vi || "",
   origin_image_alt_en: wordOriginsData.items[item.id]?.image_alt_en || "",
@@ -38,7 +41,7 @@ const STORAGE = {
     reportUrl: "sejongGreen.reportUrl.v1"
   };
   const SESSION_KEY = "sejongGreen.session.v1";
-  const CONTENT_VERSION = "2026.08.14.1";
+  const CONTENT_VERSION = "2026.08.15.1";
   const OFFICIAL_AUDIO_PAGE = "https://nuri.iksi.or.kr/front/cms/contents/layout2/learningsejong/detail.do?csCmsMastrSeq=15227&menuSn=649";
   const OFFICIAL_EBOOK = "https://nuri.iksi.or.kr/e-book/ecatalog5.jsp?Dir=773&catimage=&callmode=admin";
   const NAVER_VOICE_SAMPLE = "https://korean.dict.naver.com/kovidict/#/entry/kovi/91a283a46498440f829043e121f8b52f";
@@ -190,6 +193,11 @@ const STORAGE = {
     "Số thuần Hàn": { en: "Native Korean numbers", zh: "固有数词" },
     "Nguồn gốc từ": { en: "Word origin", zh: "词源" },
     "Mẹo ghi nhớ": { en: "Memory tip", zh: "记忆提示" },
+    "Từ tương ứng trong tiếng Trung": { en: "Chinese equivalent", zh: "对应中文词" },
+    "Hán tự của từ Hàn": { en: "Korean Hanja", zh: "韩语汉字原形" },
+    "Âm Hán–Việt": { en: "Sino-Vietnamese reading", zh: "汉越音" },
+    "Từ trước": { en: "Previous word", zh: "上一个词" },
+    "Từ tiếp theo": { en: "Next word", zh: "下一个词" },
     "Phát âm thực tế": { en: "Actual pronunciation", zh: "实际发音" },
     "Trắc nghiệm": { en: "Quiz", zh: "测验" },
     "Luyện nghe": { en: "Listening", zh: "听力练习" },
@@ -482,17 +490,56 @@ const STORAGE = {
         <figcaption>${esc(word.origin_image_credit)}</figcaption>
       </figure>`
     : "";
-  const wordOriginMarkup = word => `
-    <span class="word-origin-card">
-      <span class="word-origin-head">
-        <span>${uiText("Nguồn gốc từ")}</span>
-        <strong>${esc(localizedWordField(word, "origin_label"))}</strong>
+  const hanjaFormMarkup = word => {
+    const traditional = word.origin_root_form;
+    const simplified = word.origin_simplified;
+    if (!traditional) return "";
+    return simplified && simplified !== traditional
+      ? `<span lang="ko-Hani">${esc(traditional)}</span><span aria-hidden="true"> → </span><span lang="zh-Hans">${esc(simplified)}</span>`
+      : `<span lang="ko-Hani">${esc(traditional)}</span>`;
+  };
+  const wordOriginMarkup = word => {
+    const label = esc(localizedWordField(word, "origin_label"));
+    if (word.origin_type === "native") {
+      return `<span class="word-origin-card native-word-classification"><strong>${label}</strong></span>`;
+    }
+    if (word.origin_type === "sino") {
+      return `
+        <span class="word-origin-card sino-word-origin">
+          <span class="word-origin-head">
+            <span>${uiText("Nguồn gốc từ")}</span>
+            <strong>${label}</strong>
+          </span>
+          <span class="origin-relation-list">
+            <span class="origin-relation-row">
+              <span>${uiText("Từ tương ứng trong tiếng Trung")}</span>
+              <strong lang="zh-Hans">${esc(meaningFor(word, "zh"))}</strong>
+            </span>
+            <span class="origin-relation-row">
+              <span>${uiText("Hán tự của từ Hàn")}</span>
+              <strong>${hanjaFormMarkup(word)}</strong>
+            </span>
+            <span class="origin-relation-row">
+              <span>${uiText("Âm Hán–Việt")}</span>
+              <strong lang="vi">${esc(word.origin_hanviet)}</strong>
+            </span>
+          </span>
+          <span class="word-memory-tip"><strong>${uiText("Mẹo ghi nhớ")}:</strong> ${esc(localizedWordField(word, "memory_tip").replace(/^(Mẹo|Tip|记忆提示)[:：]?\s*/u, ""))}</span>
+        </span>
+      `;
+    }
+    return `
+      <span class="word-origin-card">
+        <span class="word-origin-head">
+          <span>${uiText("Nguồn gốc từ")}</span>
+          <strong>${label}</strong>
+        </span>
+        <span>${esc(localizedWordField(word, "origin_note"))}</span>
+        ${originImageMarkup(word)}
+        <span class="word-memory-tip"><strong>${uiText("Mẹo ghi nhớ")}:</strong> ${esc(localizedWordField(word, "memory_tip").replace(/^(Mẹo|Tip|记忆提示)[:：]?\s*/u, ""))}</span>
       </span>
-      <span>${esc(localizedWordField(word, "origin_note"))}</span>
-      ${originImageMarkup(word)}
-      <span class="word-memory-tip"><strong>${uiText("Mẹo ghi nhớ")}:</strong> ${esc(localizedWordField(word, "memory_tip").replace(/^(Mẹo|Tip|记忆提示)[:：]?\s*/u, ""))}</span>
-    </span>
-  `;
+    `;
+  };
   const meaningOrder = () => language() === "en"
     ? ["en", "zh", "vi"]
     : language() === "zh"
@@ -686,6 +733,7 @@ const STORAGE = {
       volume: '<path d="M4 10v4h4l5 4V6L8 10H4Z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/>',
       play: '<path d="m9 6 9 6-9 6V6Z"/>',
       pause: '<path d="M9 6v12M15 6v12"/>',
+      arrowBack: '<path d="M19 12H5M10 7l-5 5 5 5"/>',
       arrow: '<path d="M5 12h14M14 7l5 5-5 5"/>',
       upload: '<path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 15v5h16v-5"/>',
       download: '<path d="M12 4v12M7 11l5 5 5-5"/><path d="M4 20h16"/>',
@@ -1216,6 +1264,14 @@ const STORAGE = {
     state.flashFlipped = false;
   }
 
+  function moveFlashCard(step) {
+    const targetIndex = clamp(state.flashIndex + step, 0, state.flashDeck.length - 1);
+    if (targetIndex === state.flashIndex) return;
+    state.flashIndex = targetIndex;
+    state.flashFlipped = false;
+    renderFlashcards();
+  }
+
   function flashDirectionFor(word) {
     if (state.flashDirection === "both") return Math.random() > .5 ? "ko-vi" : "vi-ko";
     return state.flashDirection;
@@ -1315,6 +1371,10 @@ const STORAGE = {
             </span>
           </div>
         </div>
+        <div class="flash-navigation" aria-label="Điều hướng flashcard">
+          <button class="button" id="previousFlash" type="button" ${state.flashIndex === 0 ? "disabled" : ""}>${icon("arrowBack")} Từ trước</button>
+          <button class="button" id="nextFlash" type="button" ${state.flashIndex === state.flashDeck.length - 1 ? "disabled" : ""}>Từ tiếp theo ${icon("arrow")}</button>
+        </div>
         <div class="control-row" style="justify-content:center;margin-bottom:14px">
           <button class="button" id="speakFlash" type="button">${icon("volume")} Nghe từ</button>
           <button class="button" id="shuffleFlash" type="button">${icon("refresh")} Xáo trộn lại</button>
@@ -1363,6 +1423,8 @@ const STORAGE = {
       renderFlashcards();
     });
     $("#speakFlash").addEventListener("click", () => speak(word.word));
+    $("#previousFlash").addEventListener("click", () => moveFlashCard(-1));
+    $("#nextFlash").addEventListener("click", () => moveFlashCard(1));
     $("#speakFlashExample")?.addEventListener("click", event => {
       event.stopPropagation();
       speak(word.example);
