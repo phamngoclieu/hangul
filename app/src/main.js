@@ -4,7 +4,17 @@ import numberGroupsData from "../data/number-groups.json";
 import shadowingData from "../data/shadowing.json";
 import listeningData from "../data/listening.json";
 import { storage } from "./services/storage.js";
-import { startRemoteSync } from "./services/remote-sync.js";
+import { startRemoteSync, stopRemoteSync } from "./services/remote-sync.js";
+import {
+  getAccountSession,
+  hasSupabaseConfig,
+  sendPasswordReset,
+  signInAccount,
+  signOutAccount,
+  signUpAccount,
+  updateAccountPassword,
+  watchAccountAuth
+} from "./services/account-service.js";
 
 const NUMBER_GROUP_BY_ID = new Map(
   Object.entries(numberGroupsData).flatMap(([group, ids]) => ids.map(id => [id, group]))
@@ -41,6 +51,7 @@ const STORAGE = {
     reportUrl: "sejongGreen.reportUrl.v1"
   };
   const SESSION_KEY = "sejongGreen.session.v1";
+  const PENDING_ACCOUNT_KEY = "sejongGreen.pendingAccountImport.v1";
   const CONTENT_VERSION = "2026.08.15.1";
   const OFFICIAL_AUDIO_PAGE = "https://nuri.iksi.or.kr/front/cms/contents/layout2/learningsejong/detail.do?csCmsMastrSeq=15227&menuSn=649";
   const OFFICIAL_EBOOK = "https://nuri.iksi.or.kr/e-book/ecatalog5.jsp?Dir=773&catimage=&callmode=admin";
@@ -458,7 +469,13 @@ const STORAGE = {
     writingReview: null,
     importMode: "merge",
     voices: [],
-    toastTimer: null
+    toastTimer: null,
+    account: {
+      configured: hasSupabaseConfig(),
+      user: null,
+      status: "local",
+      connecting: false
+    }
   };
 
   const $ = (selector, root = document) => root.querySelector(selector);
@@ -619,6 +636,16 @@ const STORAGE = {
     sessions: 0
   });
   const profileProgress = () => state.profile?.progress || defaultProgress();
+  const hydrateProfile = profile => {
+    if (!profile) return null;
+    profile.progress = { ...defaultProgress(), ...(profile.progress || {}) };
+    profile.progress.flashNotes = { ...(profile.progress.flashNotes || {}) };
+    profile.progress.writingNotes = { ...(profile.progress.writingNotes || {}) };
+    profile.progress.reviewAgain = { ...(profile.progress.reviewAgain || {}) };
+    profile.progress.reviewHard = { ...(profile.progress.reviewHard || {}) };
+    profile.settings = { voiceURI: "", rate: 0.9, language: "vi", ...(profile.settings || {}) };
+    return profile;
+  };
   const persistProfile = () => {
     if (!state.profile) return;
     const index = state.profiles.findIndex(item => item.id === state.profile.id);
@@ -754,6 +781,209 @@ const STORAGE = {
     state.toastTimer = setTimeout(() => element.classList.remove("show"), 2600);
   }
 
+  const SYNC_STATUS_COPY = {
+    connecting: "Đang kết nối…",
+    saving: "Đang lưu…",
+    synced: "Đã đồng bộ",
+    offline: "Ngoại tuyến · sẽ đồng bộ lại",
+    error: "Chờ đồng bộ lại",
+    local: "Chỉ trên thiết bị này"
+  };
+
+  function setSyncStatus(status) {
+    state.account.status = status;
+    const element = $("#profileSyncStatus");
+    if (!element) return;
+    element.textContent = SYNC_STATUS_COPY[status] || SYNC_STATUS_COPY.local;
+    element.className = `profile-sync-status ${status}`;
+  }
+
+  function showAccountMessage(message, isError = false) {
+    const element = $("#accountMessage");
+    element.textContent = message;
+    element.classList.toggle("error", isError);
+    element.hidden = !message;
+  }
+
+  function authErrorMessage(error) {
+    const message = String(error?.message || "").toLowerCase();
+    if (message.includes("invalid login credentials")) return "Email hoặc mật khẩu chưa đúng.";
+    if (message.includes("email not confirmed")) return "Bạn cần xác nhận email trước khi đăng nhập.";
+    if (message.includes("user already registered")) return "Email này đã có tài khoản.";
+    if (message.includes("password")) return "Mật khẩu chưa đạt yêu cầu bảo mật. Hãy dùng ít nhất 8 ký tự.";
+    if (message.includes("rate limit")) return "Bạn thao tác quá nhanh. Vui lòng thử lại sau ít phút.";
+    if (!navigator.onLine || message.includes("fetch")) return "Chưa có kết nối mạng. Dữ liệu trên thiết bị vẫn được giữ nguyên.";
+    return "Chưa thể hoàn tất. Vui lòng thử lại.";
+  }
+
+  function showAuthTab(tab) {
+    $$('[data-auth-tab]').forEach(item => item.classList.toggle("active", item.dataset.authTab === tab));
+    $("#loginPane").hidden = tab !== "login";
+    $("#registerPane").hidden = tab !== "register";
+    $("#localPane").hidden = tab !== "local";
+    $("#authNote").textContent = tab === "local"
+      ? "Hồ sơ cục bộ chỉ nằm trên thiết bị này. Bạn có thể đưa tiến độ lên tài khoản trực tuyến bất cứ lúc nào."
+      : "Mật khẩu được Supabase Auth bảo vệ. Dữ liệu học chỉ tài khoản của bạn mới truy cập được.";
+    showAccountMessage("");
+  }
+
+  function pendingImportFor(user) {
+    const pending = safeParse(storage.local.getItem(PENDING_ACCOUNT_KEY), null);
+    return pending?.userId === user.id ? pending : null;
+  }
+
+  async function refreshSyncedProfile(profileId) {
+    if (!state.profile || state.profile.id !== profileId) return;
+    state.profiles = loadProfiles();
+    const next = hydrateProfile(state.profiles.find(item => item.id === profileId));
+    if (!next) return;
+    state.profile = next;
+    document.documentElement.lang = next.settings.language === "zh" ? "zh-CN" : next.settings.language;
+    state.vocab = loadVocabularyContent(loadShared());
+    updateProfileChrome();
+    renderNav();
+    renderCurrentView();
+    toast("Đã nhận tiến độ mới từ thiết bị khác.");
+  }
+
+  async function enterOnlineAccount(user, preferredProfileId = "") {
+    if (!user || state.account.connecting) return;
+    state.account.connecting = true;
+    state.account.user = user;
+    setSyncStatus("connecting");
+    const cached = loadProfiles().find(item => item.accountId === user.id);
+    try {
+      const result = await startRemoteSync(storage, {
+        user,
+        preferredProfileId,
+        onStatus: setSyncStatus,
+        onRemoteChange: ({ profileId }) => refreshSyncedProfile(profileId)
+      });
+      if (!result.enabled) throw new Error(result.reason);
+      const pending = pendingImportFor(user);
+      if (pending) storage.local.removeItem(PENDING_ACCOUNT_KEY);
+      await enterApp(result.profileId);
+    } catch (error) {
+      console.warn("Online account unavailable:", error);
+      await stopRemoteSync({ flush: false });
+      if (cached) {
+        setSyncStatus("offline");
+        await enterApp(cached.id);
+        toast("Đang dùng bản đã lưu trên thiết bị. Web sẽ đồng bộ lại khi có mạng.");
+        window.addEventListener("online", () => enterOnlineAccount(user), { once: true });
+      } else {
+        state.account.user = null;
+        setSyncStatus("error");
+        showAccountMessage(authErrorMessage(error), true);
+        $("#loginGate").hidden = false;
+      }
+    } finally {
+      state.account.connecting = false;
+    }
+  }
+
+  async function loginOnline() {
+    const emailInput = $("#accountLoginEmail");
+    const password = $("#accountLoginPassword").value;
+    if (!emailInput.value.trim() || !emailInput.checkValidity()) return showAccountMessage("Hãy nhập email hợp lệ.", true);
+    if (!password) return showAccountMessage("Hãy nhập mật khẩu.", true);
+    const button = $("#accountLoginButton");
+    button.disabled = true;
+    button.textContent = "Đang đăng nhập…";
+    showAccountMessage("");
+    try {
+      const { user } = await signInAccount(emailInput.value, password);
+      $("#accountLoginPassword").value = "";
+      const pending = pendingImportFor(user);
+      await enterOnlineAccount(user, pending?.profileId || "");
+    } catch (error) {
+      showAccountMessage(authErrorMessage(error), true);
+    } finally {
+      button.disabled = false;
+      button.textContent = "Đăng nhập và đồng bộ";
+    }
+  }
+
+  async function registerOnline() {
+    const name = $("#accountDisplayName").value.trim();
+    const emailInput = $("#accountRegisterEmail");
+    const password = $("#accountRegisterPassword").value;
+    if (!name) return showAccountMessage("Hãy nhập tên hiển thị.", true);
+    if (!emailInput.value.trim() || !emailInput.checkValidity()) return showAccountMessage("Hãy nhập email hợp lệ.", true);
+    if (password.length < 8) return showAccountMessage("Mật khẩu cần ít nhất 8 ký tự.", true);
+    const button = $("#accountRegisterButton");
+    button.disabled = true;
+    button.textContent = "Đang tạo tài khoản…";
+    showAccountMessage("");
+    try {
+      const data = await signUpAccount({ displayName: name, email: emailInput.value, password });
+      const profileId = $("#accountImportProfile").value;
+      if (data.user) {
+        storage.local.setItem(PENDING_ACCOUNT_KEY, JSON.stringify({
+          userId: data.user.id,
+          profileId,
+          createdAt: new Date().toISOString()
+        }));
+      }
+      $("#accountRegisterPassword").value = "";
+      if (data.session?.user) {
+        await enterOnlineAccount(data.session.user, profileId);
+      } else {
+        showAccountMessage("Tài khoản đã được tạo. Hãy mở email xác nhận, sau đó quay lại web để tiến độ bắt đầu đồng bộ.");
+      }
+    } catch (error) {
+      showAccountMessage(authErrorMessage(error), true);
+    } finally {
+      button.disabled = false;
+      button.textContent = "Tạo tài khoản miễn phí";
+    }
+  }
+
+  async function requestPasswordReset() {
+    const emailInput = $("#accountLoginEmail");
+    if (!emailInput.value.trim() || !emailInput.checkValidity()) return showAccountMessage("Nhập email tài khoản trước, rồi chọn “Quên mật khẩu”.", true);
+    try {
+      await sendPasswordReset(emailInput.value);
+      showAccountMessage("Đã gửi email đặt lại mật khẩu. Hãy kiểm tra cả thư rác nếu chưa thấy.");
+    } catch (error) {
+      showAccountMessage(authErrorMessage(error), true);
+    }
+  }
+
+  function openPasswordRecovery() {
+    openDialog("Đặt mật khẩu mới", `
+      <p class="muted">Nhập mật khẩu mới cho tài khoản trực tuyến của bạn.</p>
+      <label class="field-label" for="recoveryPassword">Mật khẩu mới</label>
+      <input class="field" id="recoveryPassword" type="password" minlength="8" maxlength="72" autocomplete="new-password" placeholder="Ít nhất 8 ký tự">
+      <button class="button primary wide" id="saveRecoveryPassword" type="button">Lưu mật khẩu mới</button>
+    `);
+    $("#saveRecoveryPassword").addEventListener("click", async () => {
+      const password = $("#recoveryPassword").value;
+      if (password.length < 8) return toast("Mật khẩu cần ít nhất 8 ký tự.");
+      try {
+        await updateAccountPassword(password);
+        closeDialog();
+        toast("Đã cập nhật mật khẩu.");
+      } catch (error) {
+        toast(authErrorMessage(error));
+      }
+    });
+  }
+
+  function handleAccountAuthEvent(event, session) {
+    if (event === "PASSWORD_RECOVERY") {
+      setTimeout(openPasswordRecovery, 0);
+      return;
+    }
+    if (event === "SIGNED_IN" && session?.user && !state.account.connecting && state.profile?.accountId !== session.user.id) {
+      const pending = pendingImportFor(session.user);
+      setTimeout(() => enterOnlineAccount(session.user, pending?.profileId || ""), 0);
+    }
+    if (event === "SIGNED_OUT" && state.profile?.accountId) {
+      setTimeout(leaveApp, 0);
+    }
+  }
+
   async function hashPin(pin) {
     const bytes = new TextEncoder().encode(`sejong-green:${pin}`);
     if (window.crypto?.subtle) {
@@ -778,11 +1008,19 @@ const STORAGE = {
 
   function renderProfileSelect() {
     state.profiles = loadProfiles();
+    const localProfiles = state.profiles.filter(item => item.pinHash && !item.accountId);
     const select = $("#loginProfile");
-    select.innerHTML = state.profiles.length
-      ? state.profiles.map(item => `<option value="${esc(item.id)}">${esc(item.name)}</option>`).join("")
+    select.innerHTML = localProfiles.length
+      ? localProfiles.map(item => `<option value="${esc(item.id)}">${esc(item.name)}</option>`).join("")
       : '<option value="">Chưa có hồ sơ</option>';
-    $("#loginButton").disabled = !state.profiles.length;
+    $("#loginButton").disabled = !localProfiles.length;
+    const importSelect = $("#accountImportProfile");
+    if (importSelect) {
+      importSelect.innerHTML = [
+        '<option value="">Bắt đầu với hồ sơ mới</option>',
+        ...localProfiles.map(item => `<option value="${esc(item.id)}">Đưa tiến độ “${esc(item.name)}” lên tài khoản</option>`)
+      ].join("");
+    }
   }
 
   async function registerProfile() {
@@ -806,7 +1044,7 @@ const STORAGE = {
     await enterApp(profile.id);
   }
 
-  async function login() {
+  async function loginLocal() {
     const profile = state.profiles.find(item => item.id === $("#loginProfile").value);
     if (!profile) return toast("Hãy tạo hồ sơ trước.");
     const candidate = await hashPin($("#loginPin").value);
@@ -815,16 +1053,22 @@ const STORAGE = {
     await enterApp(profile.id);
   }
 
+  function updateProfileChrome() {
+    if (!state.profile) return;
+    $("#sidebarName").textContent = state.profile.name;
+    $("#avatarInitial").textContent = state.profile.name.trim().charAt(0).toUpperCase() || "S";
+    $("#topGreeting").textContent = language() === "en"
+      ? `Hi ${state.profile.name}, let's keep learning today`
+      : language() === "zh"
+        ? `${state.profile.name}，今天继续学习吧`
+        : `Chào ${state.profile.name}, hôm nay mình học tiếp nhé`;
+    setSyncStatus(state.profile.accountId ? state.account.status : "local");
+  }
+
   async function enterApp(profileId) {
     state.profiles = loadProfiles();
-    state.profile = state.profiles.find(item => item.id === profileId) || null;
+    state.profile = hydrateProfile(state.profiles.find(item => item.id === profileId) || null);
     if (!state.profile) return;
-    state.profile.progress = { ...defaultProgress(), ...(state.profile.progress || {}) };
-    state.profile.progress.flashNotes = { ...(state.profile.progress.flashNotes || {}) };
-    state.profile.progress.writingNotes = { ...(state.profile.progress.writingNotes || {}) };
-    state.profile.progress.reviewAgain = { ...(state.profile.progress.reviewAgain || {}) };
-    state.profile.progress.reviewHard = { ...(state.profile.progress.reviewHard || {}) };
-    state.profile.settings = { voiceURI: "", rate: 0.9, language: "vi", ...(state.profile.settings || {}) };
     document.documentElement.lang = state.profile.settings.language === "zh" ? "zh-CN" : state.profile.settings.language;
     const shared = loadShared();
     state.vocab = loadVocabularyContent(shared);
@@ -838,25 +1082,31 @@ const STORAGE = {
     setActiveDay();
     $("#loginGate").hidden = true;
     $("#appShell").hidden = false;
-    $("#sidebarName").textContent = state.profile.name;
-    $("#avatarInitial").textContent = state.profile.name.trim().charAt(0).toUpperCase() || "S";
-    $("#topGreeting").textContent = language() === "en"
-      ? `Hi ${state.profile.name}, let's keep learning today`
-      : language() === "zh"
-        ? `${state.profile.name}，今天继续学习吧`
-        : `Chào ${state.profile.name}, hôm nay mình học tiếp nhé`;
+    updateProfileChrome();
     renderNav();
     loadVoices();
     activateView("dashboard");
   }
 
-  function logout() {
+  function leaveApp() {
     stopAllMedia();
     storage.session.removeItem(SESSION_KEY);
     state.profile = null;
     $("#appShell").hidden = true;
     $("#loginGate").hidden = false;
     renderProfileSelect();
+  }
+
+  async function logout() {
+    const online = Boolean(state.profile?.accountId);
+    if (online) {
+      setSyncStatus("saving");
+      await stopRemoteSync();
+      try { await signOutAccount(); } catch (error) { console.warn("Unable to sign out remotely:", error); }
+      state.account.user = null;
+      state.account.status = "local";
+    }
+    leaveApp();
   }
 
   function renderNav() {
@@ -936,6 +1186,56 @@ const STORAGE = {
   }
 
   function openProfileSettings() {
+    if (state.profile.accountId) {
+      const email = state.account.user?.email || "";
+      openDialog("Tài khoản và đồng bộ", `
+        <div class="open-section">
+          <span class="sync-status ${esc(state.account.status)}">${esc(SYNC_STATUS_COPY[state.account.status] || SYNC_STATUS_COPY.connecting)}</span>
+          <label class="field-label">Tên hiển thị</label>
+          <input class="field" value="${esc(state.profile.name)}" disabled>
+          <label class="field-label">Email</label>
+          <input class="field" value="${esc(email)}" disabled>
+        </div>
+        <div class="open-section">
+          <h3>Ngôn ngữ hệ thống</h3>
+          <p class="muted small">Cài đặt này cũng được đồng bộ cùng tiến độ.</p>
+          <select class="field" id="systemLanguage">
+            ${Object.entries(LANGUAGE_META).map(([code, meta]) => `
+              <option value="${code}" ${language() === code ? "selected" : ""}>${esc(meta.label)}</option>
+            `).join("")}
+          </select>
+        </div>
+        <div class="open-section">
+          <h3>Bảo mật</h3>
+          <p class="muted small">Đổi mật khẩu qua đường dẫn bảo mật được gửi tới email của bạn.</p>
+          <button class="button" id="sendAccountReset" type="button">Gửi email đổi mật khẩu</button>
+        </div>
+        <div class="open-section danger-zone" style="padding:18px">
+          <h3>Phiên đăng nhập</h3>
+          <button class="button" id="logoutButton" type="button">Đăng xuất khỏi thiết bị này</button>
+        </div>
+      `);
+      $("#systemLanguage").addEventListener("change", event => {
+        state.profile.settings.language = event.target.value;
+        document.documentElement.lang = event.target.value === "zh" ? "zh-CN" : event.target.value;
+        persistProfile();
+        closeDialog();
+        updateProfileChrome();
+        renderNav();
+        renderCurrentView();
+        toast("Đã lưu và đồng bộ ngôn ngữ.");
+      });
+      $("#sendAccountReset").addEventListener("click", async () => {
+        try {
+          await sendPasswordReset(email);
+          toast("Đã gửi email đổi mật khẩu.");
+        } catch (error) {
+          toast(authErrorMessage(error));
+        }
+      });
+      $("#logoutButton").addEventListener("click", async () => { closeDialog(); await logout(); });
+      return;
+    }
     openDialog("Hồ sơ học viên", `
       <label class="field-label">Tên hồ sơ</label>
       <input class="field" value="${esc(state.profile.name)}" disabled>
@@ -2794,14 +3094,15 @@ const STORAGE = {
   }
 
   function bindStaticEvents() {
-    $$("[data-auth-tab]").forEach(button => button.addEventListener("click", () => {
-      $$("[data-auth-tab]").forEach(item => item.classList.toggle("active", item === button));
-      $("#loginPane").hidden = button.dataset.authTab !== "login";
-      $("#registerPane").hidden = button.dataset.authTab !== "register";
-    }));
-    $("#loginButton").addEventListener("click", login);
+    $$("[data-auth-tab]").forEach(button => button.addEventListener("click", () => showAuthTab(button.dataset.authTab)));
+    $("#accountLoginButton").addEventListener("click", loginOnline);
+    $("#accountRegisterButton").addEventListener("click", registerOnline);
+    $("#forgotPasswordButton").addEventListener("click", requestPasswordReset);
+    $("#loginButton").addEventListener("click", loginLocal);
     $("#registerButton").addEventListener("click", registerProfile);
-    $("#loginPin").addEventListener("keydown", event => { if (event.key === "Enter") login(); });
+    $("#accountLoginPassword").addEventListener("keydown", event => { if (event.key === "Enter") loginOnline(); });
+    $("#accountRegisterPassword").addEventListener("keydown", event => { if (event.key === "Enter") registerOnline(); });
+    $("#loginPin").addEventListener("keydown", event => { if (event.key === "Enter") loginLocal(); });
     $("#registerPin").addEventListener("keydown", event => { if (event.key === "Enter") registerProfile(); });
     $("#voiceSettingsButton").innerHTML = icon("volume");
     $("#profileSettingsButton").innerHTML = icon("settings");
@@ -2816,14 +3117,33 @@ const STORAGE = {
     $("#hiddenImport").addEventListener("change", event => importDataFile(event.target.files[0]));
   }
 
-  function boot() {
+  async function boot() {
     bindStaticEvents();
     const observer = new MutationObserver(scheduleUiTranslation);
     observer.observe(document.body, { childList: true, subtree: true });
     renderProfileSelect();
     const sessionId = storage.session.getItem(SESSION_KEY);
+    if (!state.account.configured) {
+      $$("[data-auth-tab=\"login\"], [data-auth-tab=\"register\"]").forEach(button => { button.disabled = true; });
+      $("#authNote").textContent = "Chưa cấu hình Supabase; web đang dùng hồ sơ cục bộ trên thiết bị này.";
+      showAuthTab("local");
+      if (sessionId && state.profiles.some(item => item.id === sessionId)) await enterApp(sessionId);
+      return;
+    }
+
+    await watchAccountAuth(handleAccountAuthEvent);
+    try {
+      const accountSession = await getAccountSession();
+      if (accountSession?.user) {
+        const pending = pendingImportFor(accountSession.user);
+        await enterOnlineAccount(accountSession.user, pending?.profileId || "");
+        return;
+      }
+    } catch (error) {
+      showAccountMessage(authErrorMessage(error), true);
+    }
     if (sessionId && state.profiles.some(item => item.id === sessionId)) {
-      enterApp(sessionId);
+      await enterApp(sessionId);
     }
   }
 
@@ -2832,5 +3152,7 @@ const STORAGE = {
     for (const recording of state.recordings.values()) URL.revokeObjectURL(recording.url);
   });
   document.addEventListener("visibilitychange", () => { if (document.hidden && "speechSynthesis" in window) window.speechSynthesis.cancel(); });
-  boot();
-  startRemoteSync(storage).catch(error => console.warn("Remote sync unavailable:", error));
+  boot().catch(error => {
+    console.warn("Unable to start application:", error);
+    showAccountMessage("Web chưa thể khởi động tài khoản trực tuyến. Hãy thử tải lại trang.", true);
+  });

@@ -6,8 +6,9 @@
   <meta name="theme-color" content="#075c36">
   <meta name="description" content="Sejong Green - web học tiếng Hàn sơ cấp 1A">
   <title>Sejong Green · Học tiếng Hàn 1A</title>
-  <script type="module" crossorigin src="/hangul/assets/index-CDkl8aDc.js"></script>
-  <link rel="stylesheet" crossorigin href="/hangul/assets/index-Ciy6oKZv.css">
+  <link rel="icon" href="/hangul/assets/sejong-green.webp" type="image/webp">
+  <script type="module" crossorigin src="/hangul/assets/index-DwPiClsN.js"></script>
+  <link rel="stylesheet" crossorigin href="/hangul/assets/index-BhqLw5j7.css">
 </head>
 <body>
 <a class="skip-link" href="#mainContent">Bỏ qua điều hướng</a>
@@ -21,27 +22,51 @@
     <div class="login-panel">
       <div class="login-tabs" role="tablist">
         <button class="active" type="button" data-auth-tab="login">Đăng nhập</button>
-        <button type="button" data-auth-tab="register">Tạo hồ sơ</button>
+        <button type="button" data-auth-tab="register">Tạo tài khoản</button>
+        <button type="button" data-auth-tab="local">Cục bộ</button>
       </div>
       <section id="loginPane">
-        <h2 id="loginTitle">Chào mừng bạn trở lại</h2>
-        <p class="muted">Tiến độ được lưu riêng trên trình duyệt này.</p>
+        <h2 id="loginTitle">Đăng nhập trực tuyến</h2>
+        <p class="muted">Tiến độ của bạn sẽ theo tài khoản trên mọi thiết bị.</p>
+        <label class="field-label" for="accountLoginEmail">Email</label>
+        <input id="accountLoginEmail" class="field" type="email" inputmode="email" autocomplete="email" placeholder="ban@example.com">
+        <label class="field-label" for="accountLoginPassword">Mật khẩu</label>
+        <input id="accountLoginPassword" class="field" type="password" minlength="8" maxlength="72" autocomplete="current-password" placeholder="Nhập mật khẩu">
+        <button class="button primary wide" id="accountLoginButton" type="button">Đăng nhập và đồng bộ</button>
+        <button class="text-button" id="forgotPasswordButton" type="button">Quên mật khẩu?</button>
+      </section>
+      <section id="registerPane" hidden>
+        <h2>Tạo tài khoản</h2>
+        <p class="muted">Một tài khoản cho máy tính, iPad và điện thoại.</p>
+        <label class="field-label" for="accountDisplayName">Tên hiển thị</label>
+        <input id="accountDisplayName" class="field" maxlength="64" autocomplete="name" placeholder="Ví dụ: Liễu">
+        <label class="field-label" for="accountRegisterEmail">Email</label>
+        <input id="accountRegisterEmail" class="field" type="email" inputmode="email" autocomplete="email" placeholder="ban@example.com">
+        <label class="field-label" for="accountRegisterPassword">Mật khẩu</label>
+        <input id="accountRegisterPassword" class="field" type="password" minlength="8" maxlength="72" autocomplete="new-password" placeholder="Ít nhất 8 ký tự">
+        <label class="field-label" for="accountImportProfile">Tiến độ ban đầu</label>
+        <select id="accountImportProfile" class="field">
+          <option value="">Bắt đầu với hồ sơ mới</option>
+        </select>
+        <button class="button primary wide" id="accountRegisterButton" type="button">Tạo tài khoản miễn phí</button>
+      </section>
+      <section id="localPane" hidden>
+        <h2>Hồ sơ trên thiết bị</h2>
+        <p class="muted">Chỉ dùng trong trình duyệt này và không đồng bộ.</p>
         <label class="field-label" for="loginProfile">Hồ sơ học viên</label>
         <select id="loginProfile" class="field"></select>
         <label class="field-label" for="loginPin">PIN</label>
         <input id="loginPin" class="field" type="password" inputmode="numeric" maxlength="12" autocomplete="current-password" placeholder="Nhập PIN">
-        <button class="button primary wide" id="loginButton" type="button">Vào học</button>
-      </section>
-      <section id="registerPane" hidden>
-        <h2>Tạo hồ sơ cục bộ</h2>
-        <p class="muted">Tên và PIN chỉ được lưu trên thiết bị này, không đồng bộ trực tuyến.</p>
+        <button class="button primary wide" id="loginButton" type="button">Vào học cục bộ</button>
+        <div class="local-divider"><span>hoặc tạo hồ sơ mới</span></div>
         <label class="field-label" for="registerName">Tên hiển thị</label>
         <input id="registerName" class="field" maxlength="32" autocomplete="name" placeholder="Ví dụ: Liễu">
         <label class="field-label" for="registerPin">PIN mới</label>
         <input id="registerPin" class="field" type="password" inputmode="numeric" minlength="4" maxlength="12" autocomplete="new-password" placeholder="Từ 4 đến 12 chữ số">
-        <button class="button primary wide" id="registerButton" type="button">Tạo hồ sơ và bắt đầu</button>
+        <button class="button wide" id="registerButton" type="button">Tạo hồ sơ cục bộ</button>
       </section>
-      <p class="auth-note">Đây là hồ sơ học tập cục bộ, không phải tài khoản trực tuyến bảo mật.</p>
+      <div class="auth-message" id="accountMessage" hidden></div>
+      <p class="auth-note" id="authNote">Mật khẩu được Supabase Auth bảo vệ. Dữ liệu học chỉ tài khoản của bạn mới truy cập được.</p>
     </div>
   </div>
 
@@ -54,7 +79,7 @@
       <nav id="mainNav"></nav>
       <button class="profile-card" id="profileMenuButton" type="button" aria-label="Mở cài đặt hồ sơ">
         <span class="avatar" id="avatarInitial">S</span>
-        <span class="profile-copy"><strong id="sidebarName">Học viên</strong><small>Sejong 1A</small></span>
+        <span class="profile-copy"><strong id="sidebarName">Học viên</strong><small id="profileSyncStatus">Sejong 1A</small></span>
         <span aria-hidden="true">⌄</span>
       </button>
     </aside>

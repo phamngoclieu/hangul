@@ -1,9 +1,14 @@
 let clientPromise;
 
+function publishableKey() {
+  return import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
+    import.meta.env.VITE_SUPABASE_ANON_KEY;
+}
+
 export function hasSupabaseConfig() {
   return Boolean(
     import.meta.env.VITE_SUPABASE_URL &&
-    import.meta.env.VITE_SUPABASE_ANON_KEY
+    publishableKey()
   );
 }
 
@@ -14,7 +19,7 @@ export async function getSupabaseClient() {
     clientPromise = import("@supabase/supabase-js").then(({ createClient }) =>
       createClient(
         import.meta.env.VITE_SUPABASE_URL,
-        import.meta.env.VITE_SUPABASE_ANON_KEY,
+        publishableKey(),
         {
           auth: {
             persistSession: true,

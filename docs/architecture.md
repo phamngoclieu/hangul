@@ -4,7 +4,7 @@
 
 1. Nội dung học tập không nằm trong mã giao diện.
 2. Bản phát hành mới không thay đổi các khóa lưu trữ cũ.
-3. Web hoạt động khi không có Supabase và có thể đồng bộ khi Supabase được bật.
+3. Web hoạt động khi không có Supabase và đồng bộ tài khoản khi Supabase được bật.
 4. Mọi dữ liệu nhập thêm phải qua bước kiểm tra trước khi build.
 
 ## Luồng dữ liệu
@@ -26,8 +26,12 @@ app/data/*.json
 
 - `storage.js` là cổng duy nhất của giao diện tới Local Storage và Session
   Storage.
-- `remote-sync.js` chỉ khởi động khi có cấu hình Supabase và người dùng đã đăng
-  nhập Supabase.
+- `account-service.js` quản lý đăng ký, đăng nhập, đặt lại mật khẩu và phiên
+  Supabase Auth.
+- `remote-sync.js` kéo dữ liệu khi đăng nhập, đẩy thay đổi sau một khoảng chờ
+  ngắn, nhận cập nhật Realtime từ thiết bị khác và giữ bản cục bộ khi mất mạng.
+- Mỗi tài khoản chỉ có quyền đọc/ghi hàng mang `auth.uid()` của chính mình;
+  quyền này được bắt buộc bằng RLS trong PostgreSQL.
 - Khi chưa cấu hình Supabase, hành vi giống hệt phiên bản cũ.
 
 ## Cập nhật nội dung
