@@ -5,3 +5,12 @@ dist/
 !.env.example
 .DS_Store
 *.log
+
+# Local-only textbook screenshots. Only listening and reading/writing pages
+# are published; these generated copies remain on the user's machine.
+app/public/assets/exercises/**/lesson-*-practice-*.webp
+app/public/assets/exercises/**/lesson-*-hangul-*.webp
+app/public/assets/exercises/**/lesson-*-review-game-*.webp
+assets/exercises/**/lesson-*-practice-*.webp
+assets/exercises/**/lesson-*-hangul-*.webp
+assets/exercises/**/lesson-*-review-game-*.webp

@@ -346,7 +346,9 @@ function buildCourse(courseId, courseCode) {
       vocabulary: vocabulary.filter(item => item.lesson === lesson.id),
       dialogues,
       audio: trackList,
-      exercises: exerciseAssets.filter(item => item.lesson === lesson.id),
+      // The website only publishes the listening and combined reading/writing
+      // pages. Grammar drills, Hangeul worksheets and review games stay local.
+      exercises: exerciseAssets.filter(item => item.lesson === lesson.id && ["listening", "reading"].includes(item.kind)),
     };
   });
 
@@ -363,7 +365,7 @@ function buildCourse(courseId, courseCode) {
 }
 
 const output = {
-  version: "2026.08.27.1",
+  version: "2026.08.27.2",
   generatedAt: new Date().toISOString(),
   courses: [buildCourse("sejong-1", "s1"), buildCourse("sejong-2", "s2")]
 };

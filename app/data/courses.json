@@ -1,6 +1,6 @@
 {
-  "version": "2026.08.27.1",
-  "generatedAt": "2026-08-27T13:41:46.736Z",
+  "version": "2026.08.27.2",
+  "generatedAt": "2026-08-27T15:05:24.714Z",
   "courses": [
     {
       "id": "sejong-1",
@@ -263,116 +263,7 @@
               "path": "audio/sejong-1/track-19.mp3"
             }
           ],
-          "exercises": [
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 18,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p018.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 19,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p019.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 20,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p020.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 21,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p021.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 22,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p022.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 23,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p023.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 24,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p024.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 25,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p025.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 26,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p026.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 27,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p027.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 28,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p028.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 29,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p029.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 30,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p030.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 31,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p031.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 32,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p032.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 33,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p033.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 34,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p034.webp"
-            },
-            {
-              "lesson": 0,
-              "kind": "hangul",
-              "page": 35,
-              "path": "assets/exercises/sejong-1/lesson-00-hangul-p035.webp"
-            }
-          ]
+          "exercises": []
         },
         {
           "id": 1,
@@ -759,18 +650,6 @@
           "exercises": [
             {
               "lesson": 1,
-              "kind": "practice-1",
-              "page": 39,
-              "path": "assets/exercises/sejong-1/lesson-01-practice-1-p039.webp"
-            },
-            {
-              "lesson": 1,
-              "kind": "practice-2",
-              "page": 41,
-              "path": "assets/exercises/sejong-1/lesson-01-practice-2-p041.webp"
-            },
-            {
-              "lesson": 1,
               "kind": "listening",
               "page": 42,
               "path": "assets/exercises/sejong-1/lesson-01-listening-p042.webp"
@@ -1119,18 +998,6 @@
           "exercises": [
             {
               "lesson": 2,
-              "kind": "practice-1",
-              "page": 49,
-              "path": "assets/exercises/sejong-1/lesson-02-practice-1-p049.webp"
-            },
-            {
-              "lesson": 2,
-              "kind": "practice-2",
-              "page": 51,
-              "path": "assets/exercises/sejong-1/lesson-02-practice-2-p051.webp"
-            },
-            {
-              "lesson": 2,
               "kind": "listening",
               "page": 52,
               "path": "assets/exercises/sejong-1/lesson-02-listening-p052.webp"
@@ -1441,18 +1308,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 3,
-              "kind": "practice-1",
-              "page": 59,
-              "path": "assets/exercises/sejong-1/lesson-03-practice-1-p059.webp"
-            },
-            {
-              "lesson": 3,
-              "kind": "practice-2",
-              "page": 61,
-              "path": "assets/exercises/sejong-1/lesson-03-practice-2-p061.webp"
-            },
             {
               "lesson": 3,
               "kind": "listening",
@@ -2057,18 +1912,6 @@
           "exercises": [
             {
               "lesson": 4,
-              "kind": "practice-1",
-              "page": 69,
-              "path": "assets/exercises/sejong-1/lesson-04-practice-1-p069.webp"
-            },
-            {
-              "lesson": 4,
-              "kind": "practice-2",
-              "page": 71,
-              "path": "assets/exercises/sejong-1/lesson-04-practice-2-p071.webp"
-            },
-            {
-              "lesson": 4,
               "kind": "listening",
               "page": 72,
               "path": "assets/exercises/sejong-1/lesson-04-listening-p072.webp"
@@ -2539,18 +2382,6 @@
           "exercises": [
             {
               "lesson": 5,
-              "kind": "practice-1",
-              "page": 79,
-              "path": "assets/exercises/sejong-1/lesson-05-practice-1-p079.webp"
-            },
-            {
-              "lesson": 5,
-              "kind": "practice-2",
-              "page": 81,
-              "path": "assets/exercises/sejong-1/lesson-05-practice-2-p081.webp"
-            },
-            {
-              "lesson": 5,
               "kind": "listening",
               "page": 82,
               "path": "assets/exercises/sejong-1/lesson-05-listening-p082.webp"
@@ -2938,18 +2769,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 6,
-              "kind": "practice-1",
-              "page": 89,
-              "path": "assets/exercises/sejong-1/lesson-06-practice-1-p089.webp"
-            },
-            {
-              "lesson": 6,
-              "kind": "practice-2",
-              "page": 91,
-              "path": "assets/exercises/sejong-1/lesson-06-practice-2-p091.webp"
-            },
             {
               "lesson": 6,
               "kind": "listening",
@@ -3385,18 +3204,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 7,
-              "kind": "practice-1",
-              "page": 99,
-              "path": "assets/exercises/sejong-1/lesson-07-practice-1-p099.webp"
-            },
-            {
-              "lesson": 7,
-              "kind": "practice-2",
-              "page": 101,
-              "path": "assets/exercises/sejong-1/lesson-07-practice-2-p101.webp"
-            },
             {
               "lesson": 7,
               "kind": "listening",
@@ -4102,18 +3909,6 @@
           "exercises": [
             {
               "lesson": 8,
-              "kind": "practice-1",
-              "page": 109,
-              "path": "assets/exercises/sejong-1/lesson-08-practice-1-p109.webp"
-            },
-            {
-              "lesson": 8,
-              "kind": "practice-2",
-              "page": 111,
-              "path": "assets/exercises/sejong-1/lesson-08-practice-2-p111.webp"
-            },
-            {
-              "lesson": 8,
               "kind": "listening",
               "page": 112,
               "path": "assets/exercises/sejong-1/lesson-08-listening-p112.webp"
@@ -4598,18 +4393,6 @@
           "exercises": [
             {
               "lesson": 9,
-              "kind": "practice-1",
-              "page": 119,
-              "path": "assets/exercises/sejong-1/lesson-09-practice-1-p119.webp"
-            },
-            {
-              "lesson": 9,
-              "kind": "practice-2",
-              "page": 121,
-              "path": "assets/exercises/sejong-1/lesson-09-practice-2-p121.webp"
-            },
-            {
-              "lesson": 9,
               "kind": "listening",
               "page": 122,
               "path": "assets/exercises/sejong-1/lesson-09-listening-p122.webp"
@@ -5076,18 +4859,6 @@
           "exercises": [
             {
               "lesson": 10,
-              "kind": "practice-1",
-              "page": 129,
-              "path": "assets/exercises/sejong-1/lesson-10-practice-1-p129.webp"
-            },
-            {
-              "lesson": 10,
-              "kind": "practice-2",
-              "page": 131,
-              "path": "assets/exercises/sejong-1/lesson-10-practice-2-p131.webp"
-            },
-            {
-              "lesson": 10,
               "kind": "listening",
               "page": 132,
               "path": "assets/exercises/sejong-1/lesson-10-listening-p132.webp"
@@ -5388,12 +5159,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 11,
-              "kind": "review-game",
-              "page": 146,
-              "path": "assets/exercises/sejong-1/lesson-11-review-game-p146.webp"
-            },
             {
               "lesson": 11,
               "kind": "listening",
@@ -5730,12 +5495,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 12,
-              "kind": "review-game",
-              "page": 156,
-              "path": "assets/exercises/sejong-1/lesson-12-review-game-p156.webp"
-            },
             {
               "lesson": 12,
               "kind": "listening",
@@ -6309,18 +6068,6 @@
           "exercises": [
             {
               "lesson": 1,
-              "kind": "practice-1",
-              "page": 15,
-              "path": "assets/exercises/sejong-2/lesson-01-practice-1-p015.webp"
-            },
-            {
-              "lesson": 1,
-              "kind": "practice-2",
-              "page": 17,
-              "path": "assets/exercises/sejong-2/lesson-01-practice-2-p017.webp"
-            },
-            {
-              "lesson": 1,
               "kind": "listening",
               "page": 18,
               "path": "assets/exercises/sejong-2/lesson-01-listening-p018.webp"
@@ -6807,18 +6554,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 2,
-              "kind": "practice-1",
-              "page": 25,
-              "path": "assets/exercises/sejong-2/lesson-02-practice-1-p025.webp"
-            },
-            {
-              "lesson": 2,
-              "kind": "practice-2",
-              "page": 27,
-              "path": "assets/exercises/sejong-2/lesson-02-practice-2-p027.webp"
-            },
             {
               "lesson": 2,
               "kind": "listening",
@@ -7357,18 +7092,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 3,
-              "kind": "practice-1",
-              "page": 35,
-              "path": "assets/exercises/sejong-2/lesson-03-practice-1-p035.webp"
-            },
-            {
-              "lesson": 3,
-              "kind": "practice-2",
-              "page": 37,
-              "path": "assets/exercises/sejong-2/lesson-03-practice-2-p037.webp"
-            },
             {
               "lesson": 3,
               "kind": "listening",
@@ -7956,18 +7679,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 4,
-              "kind": "practice-1",
-              "page": 47,
-              "path": "assets/exercises/sejong-2/lesson-04-practice-1-p047.webp"
-            },
-            {
-              "lesson": 4,
-              "kind": "practice-2",
-              "page": 49,
-              "path": "assets/exercises/sejong-2/lesson-04-practice-2-p049.webp"
-            },
             {
               "lesson": 4,
               "kind": "listening",
@@ -8559,18 +8270,6 @@
           "exercises": [
             {
               "lesson": 5,
-              "kind": "practice-1",
-              "page": 57,
-              "path": "assets/exercises/sejong-2/lesson-05-practice-1-p057.webp"
-            },
-            {
-              "lesson": 5,
-              "kind": "practice-2",
-              "page": 59,
-              "path": "assets/exercises/sejong-2/lesson-05-practice-2-p059.webp"
-            },
-            {
-              "lesson": 5,
               "kind": "listening",
               "page": 60,
               "path": "assets/exercises/sejong-2/lesson-05-listening-p060.webp"
@@ -9157,18 +8856,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 6,
-              "kind": "practice-1",
-              "page": 67,
-              "path": "assets/exercises/sejong-2/lesson-06-practice-1-p067.webp"
-            },
-            {
-              "lesson": 6,
-              "kind": "practice-2",
-              "page": 69,
-              "path": "assets/exercises/sejong-2/lesson-06-practice-2-p069.webp"
-            },
             {
               "lesson": 6,
               "kind": "listening",
@@ -9826,18 +9513,6 @@
           "exercises": [
             {
               "lesson": 7,
-              "kind": "practice-1",
-              "page": 79,
-              "path": "assets/exercises/sejong-2/lesson-07-practice-1-p079.webp"
-            },
-            {
-              "lesson": 7,
-              "kind": "practice-2",
-              "page": 81,
-              "path": "assets/exercises/sejong-2/lesson-07-practice-2-p081.webp"
-            },
-            {
-              "lesson": 7,
               "kind": "listening",
               "page": 82,
               "path": "assets/exercises/sejong-2/lesson-07-listening-p082.webp"
@@ -10390,18 +10065,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 8,
-              "kind": "practice-1",
-              "page": 89,
-              "path": "assets/exercises/sejong-2/lesson-08-practice-1-p089.webp"
-            },
-            {
-              "lesson": 8,
-              "kind": "practice-2",
-              "page": 91,
-              "path": "assets/exercises/sejong-2/lesson-08-practice-2-p091.webp"
-            },
             {
               "lesson": 8,
               "kind": "listening",
@@ -11025,18 +10688,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 9,
-              "kind": "practice-1",
-              "page": 99,
-              "path": "assets/exercises/sejong-2/lesson-09-practice-1-p099.webp"
-            },
-            {
-              "lesson": 9,
-              "kind": "practice-2",
-              "page": 101,
-              "path": "assets/exercises/sejong-2/lesson-09-practice-2-p101.webp"
-            },
             {
               "lesson": 9,
               "kind": "listening",
@@ -11696,18 +11347,6 @@
           "exercises": [
             {
               "lesson": 10,
-              "kind": "practice-1",
-              "page": 111,
-              "path": "assets/exercises/sejong-2/lesson-10-practice-1-p111.webp"
-            },
-            {
-              "lesson": 10,
-              "kind": "practice-2",
-              "page": 113,
-              "path": "assets/exercises/sejong-2/lesson-10-practice-2-p113.webp"
-            },
-            {
-              "lesson": 10,
               "kind": "listening",
               "page": 114,
               "path": "assets/exercises/sejong-2/lesson-10-listening-p114.webp"
@@ -12209,18 +11848,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 11,
-              "kind": "practice-1",
-              "page": 121,
-              "path": "assets/exercises/sejong-2/lesson-11-practice-1-p121.webp"
-            },
-            {
-              "lesson": 11,
-              "kind": "practice-2",
-              "page": 123,
-              "path": "assets/exercises/sejong-2/lesson-11-practice-2-p123.webp"
-            },
             {
               "lesson": 11,
               "kind": "listening",
@@ -12847,18 +12474,6 @@
           "exercises": [
             {
               "lesson": 12,
-              "kind": "practice-1",
-              "page": 131,
-              "path": "assets/exercises/sejong-2/lesson-12-practice-1-p131.webp"
-            },
-            {
-              "lesson": 12,
-              "kind": "practice-2",
-              "page": 133,
-              "path": "assets/exercises/sejong-2/lesson-12-practice-2-p133.webp"
-            },
-            {
-              "lesson": 12,
               "kind": "listening",
               "page": 134,
               "path": "assets/exercises/sejong-2/lesson-12-listening-p134.webp"
@@ -13377,18 +12992,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 13,
-              "kind": "practice-1",
-              "page": 143,
-              "path": "assets/exercises/sejong-2/lesson-13-practice-1-p143.webp"
-            },
-            {
-              "lesson": 13,
-              "kind": "practice-2",
-              "page": 145,
-              "path": "assets/exercises/sejong-2/lesson-13-practice-2-p145.webp"
-            },
             {
               "lesson": 13,
               "kind": "listening",
@@ -13944,18 +13547,6 @@
             }
           ],
           "exercises": [
-            {
-              "lesson": 14,
-              "kind": "practice-1",
-              "page": 153,
-              "path": "assets/exercises/sejong-2/lesson-14-practice-1-p153.webp"
-            },
-            {
-              "lesson": 14,
-              "kind": "practice-2",
-              "page": 155,
-              "path": "assets/exercises/sejong-2/lesson-14-practice-2-p155.webp"
-            },
             {
               "lesson": 14,
               "kind": "listening",

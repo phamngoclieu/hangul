@@ -15,6 +15,7 @@ import {
 const root = document.querySelector("#app");
 const PROFILE_KEY = "sejongGreen.profiles.v1";
 const SESSION_KEY = "sejongGreen.session.v1";
+const REPORT_URL_KEY = "sejongGreen.reportUrl.v1";
 const CONTENT_VERSION = coursesData.version;
 const courses = coursesData.courses;
 const courseById = new Map(courses.map(course => [course.id, course]));
@@ -24,9 +25,15 @@ const NAV_ITEMS = [
   ["lessons", "Bài học", "▤"],
   ["vocabulary", "Từ vựng", "가"],
   ["flashcards", "Flashcard", "▱"],
-  ["exercises", "Bài tập", "✓"],
+  ["quiz", "Trắc nghiệm", "?"],
+  ["listening", "Luyện nghe", "♪"],
+  ["shadowing", "Shadowing", "◌"],
+  ["writing", "Luyện viết", "✎"],
+  ["exercises", "Nghe · Đọc · Viết", "✓"],
   ["culture", "Văn hoá", "◉"],
   ["progress", "Tiến độ", "↗"],
+  ["reports", "Báo cáo", "!"],
+  ["data", "Dữ liệu", "⇩"],
 ];
 
 const ui = {
@@ -36,9 +43,29 @@ const ui = {
   vocabularySearch: "",
   vocabularyLesson: "all",
   flashLesson: "all",
+  flashDirection: "ko-vi",
+  flashDeckMode: "lesson",
+  flashDeckIds: [],
   flashIndex: 0,
   flashFlipped: false,
   exerciseLesson: "all",
+  quizLesson: "1",
+  quizDirection: "both",
+  quiz: null,
+  listeningLesson: "1",
+  listeningTranscript: false,
+  listeningDictationFeedback: "",
+  shadowLesson: "1",
+  shadowDialogue: 0,
+  shadowSentence: 0,
+  recordings: new Map(),
+  recording: null,
+  shadowFeedback: "",
+  writingLesson: "1",
+  writingMode: "vocab",
+  writingIndex: 0,
+  writingFeedback: "",
+  importMode: "merge",
   syncStatus: "local",
   accountSession: null,
   accountMessage: "",
@@ -80,6 +107,17 @@ function defaultCourseProgress() {
     completedExercises: [],
     masteredWords: [],
     notes: {},
+    srs: {},
+    reviewAgain: {},
+    reviewHard: {},
+    flashNotes: {},
+    quizHistory: [],
+    listening: {},
+    shadow: {},
+    writing: {},
+    writingNotes: {},
+    reports: [],
+    customVocabulary: [],
     lastLesson: 1,
   };
 }
@@ -135,6 +173,17 @@ function courseProgress(courseId = ui.courseId) {
   state.completedExercises ||= [];
   state.masteredWords ||= [];
   state.notes ||= {};
+  state.srs ||= {};
+  state.reviewAgain ||= {};
+  state.reviewHard ||= {};
+  state.flashNotes ||= {};
+  state.quizHistory ||= [];
+  state.listening ||= {};
+  state.shadow ||= {};
+  state.writing ||= {};
+  state.writingNotes ||= {};
+  state.reports ||= [];
+  state.customVocabulary ||= [];
   state.lastLesson ||= 1;
   return state;
 }
@@ -156,7 +205,89 @@ function selectedLesson() {
 }
 
 function allCourseVocabulary(course = selectedCourse()) {
-  return course?.lessons.flatMap(lesson => lesson.vocabulary) || [];
+  if (!course) return [];
+  return [...course.lessons.flatMap(lesson => lesson.vocabulary), ...(courseProgress(course.id).customVocabulary || [])];
+}
+
+function today() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function addDays(days) {
+  const date = new Date();
+  date.setDate(date.getDate() + Number(days));
+  return date.toISOString().slice(0, 10);
+}
+
+function shuffle(items) {
+  const result = [...items];
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    const target = Math.floor(Math.random() * (index + 1));
+    [result[index], result[target]] = [result[target], result[index]];
+  }
+  return result;
+}
+
+function normalizeAnswer(value) {
+  return String(value || "").normalize("NFC").trim().replace(/\s+/g, "").replace(/[.,!?\"'“”‘’]/g, "").toLowerCase();
+}
+
+function koreanVoices() {
+  if (!("speechSynthesis" in window)) return [];
+  return speechSynthesis.getVoices().filter(voice => voice.lang?.toLowerCase().startsWith("ko"));
+}
+
+function speakText(text, onend) {
+  if (!("speechSynthesis" in window) || !text) return false;
+  speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "ko-KR";
+  utterance.rate = Number(profile.settings?.rate) || 0.9;
+  const voice = koreanVoices().find(item => item.voiceURI === profile.settings?.voiceURI);
+  if (voice) utterance.voice = voice;
+  if (onend) utterance.onend = onend;
+  speechSynthesis.speak(utterance);
+  return true;
+}
+
+function speakLines(lines, index = 0) {
+  if (!lines[index]) return;
+  speakText(lines[index], () => speakLines(lines, index + 1));
+}
+
+function answerSimilarity(expected, actual) {
+  const left = normalizeAnswer(expected);
+  const right = normalizeAnswer(actual);
+  if (!left || !right) return 0;
+  const rows = Array.from({ length: left.length + 1 }, (_, row) => [row]);
+  for (let column = 0; column <= right.length; column += 1) rows[0][column] = column;
+  for (let row = 1; row <= left.length; row += 1) {
+    for (let column = 1; column <= right.length; column += 1) {
+      rows[row][column] = Math.min(
+        rows[row - 1][column] + 1,
+        rows[row][column - 1] + 1,
+        rows[row - 1][column - 1] + (left[row - 1] === right[column - 1] ? 0 : 1),
+      );
+    }
+  }
+  return Math.max(0, Math.round((1 - rows[left.length][right.length] / Math.max(left.length, right.length)) * 100));
+}
+
+function fileToDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file);
+  });
+}
+
+function lessonOptions(course, selected, includeAll = false) {
+  return `${includeAll ? `<option value="all" ${selected === "all" ? "selected" : ""}>Toàn bộ ${escapeHtml(course.title)}</option>` : ""}${course.lessons.map(lesson => `<option value="${lesson.id}" ${String(selected) === String(lesson.id) ? "selected" : ""}>${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`} · ${escapeHtml(lesson.titleVi)}</option>`).join("")}`;
+}
+
+function scopedLesson(course, value, fallback = 1) {
+  return course.lessons.find(lesson => lesson.id === Number(value)) || course.lessons.find(lesson => lesson.id === fallback) || course.lessons[0];
 }
 
 function progressPercent(course) {
@@ -243,7 +374,7 @@ function renderSidebar(course) {
 function renderMobileNav() {
   return `
     <nav class="mobile-nav" aria-label="Điều hướng nhanh">
-      ${NAV_ITEMS.slice(0, 6).map(([view, label, icon]) => `
+      ${NAV_ITEMS.map(([view, label, icon]) => `
         <button class="${ui.view === view || (view === "lessons" && ui.view === "lesson") ? "active" : ""}"
           type="button" data-action="navigate" data-view="${view}"><span>${icon}</span><small>${label}</small></button>
       `).join("")}
@@ -312,6 +443,15 @@ function renderDashboard(course) {
       <article><span>가</span><div><b>${course.vocabularyCount}</b><small>mục từ theo sách</small></div></article>
       <article><span>♪</span><div><b>${course.audioCount}</b><small>file nghe gốc</small></div></article>
       <article><span>✓</span><div><b>${progress.completedExercises.length}</b><small>bài tập đã làm</small></div></article>
+    </section>
+    <section class="quick-tools" aria-label="Công cụ luyện tập">
+      ${[
+        ["flashcards", "▱", "Flashcard", "Ôn từ chưa nhớ và từ khó"],
+        ["quiz", "?", "Trắc nghiệm", "Kiểm tra hai chiều"],
+        ["listening", "♪", "Luyện nghe", "Track đúng theo sách"],
+        ["shadowing", "◌", "Shadowing", "Nghe, lặp và ghi âm"],
+        ["writing", "✎", "Luyện viết", "Từ vựng, chính tả, bài viết"],
+      ].map(([view, icon, title, copy]) => `<button type="button" data-action="navigate" data-view="${view}"><span>${icon}</span><b>${title}</b><small>${copy}</small></button>`).join("")}
     </section>
     <section class="dashboard-grid">
       <article class="panel">
@@ -414,6 +554,7 @@ function renderVocabulary(course) {
       <label class="search-field"><span>⌕</span><input data-filter="vocabulary-search" type="search" placeholder="Tìm từ Hàn, phiên âm hoặc nghĩa Việt" value="${escapeHtml(ui.vocabularySearch)}" /></label>
       <label><span>Bài học</span><select data-filter="vocabulary-lesson"><option value="all">Tất cả bài</option>${course.lessons.map(lesson => `<option value="${lesson.id}" ${ui.vocabularyLesson === String(lesson.id) ? "selected" : ""}>${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`} · ${escapeHtml(lesson.titleVi)}</option>`).join("")}</select></label>
       <button class="secondary-button" type="button" data-action="navigate" data-view="flashcards">Học bằng flashcard →</button>
+      <button class="text-button" type="button" data-action="print-vocabulary">In danh sách</button>
     </section>
     <div class="result-count" data-vocabulary-count>${vocabulary.length} mục từ trong ${escapeHtml(course.title)}</div>
     <section class="vocabulary-grid" data-vocabulary-grid>${vocabulary.map(renderVocabularyCard).join("")}</section>
@@ -421,36 +562,110 @@ function renderVocabulary(course) {
   `;
 }
 
+function flashSourceVocabulary(course, mode = ui.flashDeckMode) {
+  const progress = courseProgress(course.id);
+  const all = allCourseVocabulary(course);
+  if (mode === "again") return all.filter(item => progress.reviewAgain[item.id]);
+  if (mode === "hard") return all.filter(item => progress.reviewHard[item.id]);
+  return ui.flashLesson === "all" ? all : all.filter(item => item.lesson === Number(ui.flashLesson));
+}
+
+function initializeFlashDeck(course, randomize = true) {
+  const source = flashSourceVocabulary(course);
+  ui.flashDeckIds = (randomize ? shuffle(source) : source).map(item => item.id);
+  ui.flashIndex = 0;
+  ui.flashFlipped = false;
+}
+
 function flashVocabulary(course) {
-  const items = allCourseVocabulary(course);
-  return ui.flashLesson === "all" ? items : items.filter(item => item.lesson === Number(ui.flashLesson));
+  const source = flashSourceVocabulary(course);
+  const sourceById = new Map(source.map(item => [item.id, item]));
+  const invalidDeck = ui.flashDeckIds.length !== source.length || ui.flashDeckIds.some(itemId => !sourceById.has(itemId));
+  if (invalidDeck) initializeFlashDeck(course, false);
+  return ui.flashDeckIds.map(itemId => sourceById.get(itemId)).filter(Boolean);
+}
+
+function rateFlashCard(item, rating) {
+  const progress = courseProgress();
+  const previous = progress.srs[item.id] || { level: 0, interval: 0, reviews: 0, lapses: 0, due: today() };
+  const next = { ...previous, reviews: previous.reviews + 1, last: today() };
+  if (rating === "again") {
+    next.level = Math.max(0, previous.level - 1);
+    next.interval = 0;
+    next.due = today();
+    next.lapses = (previous.lapses || 0) + 1;
+    progress.reviewAgain[item.id] = today();
+    delete progress.reviewHard[item.id];
+    toggleInArray(progress.masteredWords, item.id, false);
+  } else if (rating === "hard") {
+    next.level = Math.max(1, previous.level || 1);
+    next.interval = Math.max(2, Math.round((previous.interval || 1) * 1.6));
+    next.due = addDays(next.interval);
+    progress.reviewHard[item.id] = today();
+    delete progress.reviewAgain[item.id];
+    toggleInArray(progress.masteredWords, item.id, false);
+  } else {
+    next.level = Math.min(5, previous.level + 1);
+    next.interval = [1, 3, 7, 16, 35, 70][next.level] || 70;
+    next.due = addDays(next.interval);
+    delete progress.reviewAgain[item.id];
+    delete progress.reviewHard[item.id];
+    toggleInArray(progress.masteredWords, item.id, true);
+  }
+  progress.srs[item.id] = next;
+  saveProfile();
+  const remaining = flashVocabulary(selectedCourse());
+  ui.flashIndex = remaining.length ? (ui.flashIndex + 1) % remaining.length : 0;
+  ui.flashFlipped = false;
+  render();
 }
 
 function renderFlashcards(course) {
+  const progress = courseProgress();
   const items = flashVocabulary(course);
   if (ui.flashIndex >= items.length) ui.flashIndex = 0;
   const item = items[ui.flashIndex];
-  const progress = courseProgress();
+  const againCount = Object.keys(progress.reviewAgain).filter(itemId => progress.reviewAgain[itemId]).length;
+  const hardCount = Object.keys(progress.reviewHard).filter(itemId => progress.reviewHard[itemId]).length;
+  const direction = ui.flashDirection === "both" ? (ui.flashIndex % 2 ? "vi-ko" : "ko-vi") : ui.flashDirection;
+  const frontMain = item ? (direction === "ko-vi" ? item.word : item.meaningVi) : "";
+  const note = item ? progress.flashNotes[item.id] || "" : "";
   return `
-    ${sectionHeading(course.title, "Flashcard", "Thẻ của Sejong 1 và Sejong 2 luôn được lọc theo giáo trình đang chọn.")}
+    ${sectionHeading(course.title, "Flashcard", "Giữ nguyên bộ ôn chưa nhớ, từ khó, hai chiều, ghi chú và lịch lặp ngắt quãng của web cũ.")}
+    <section class="flash-deck-tabs">
+      <button class="${ui.flashDeckMode === "lesson" ? "active" : ""}" type="button" data-action="flash-mode" data-mode="lesson">Tất cả từ trong bài <span>${flashSourceVocabulary(course, "lesson").length}</span></button>
+      <button class="${ui.flashDeckMode === "again" ? "active" : ""}" type="button" data-action="flash-mode" data-mode="again">Ôn từ chưa thuộc <span>${againCount}</span></button>
+      <button class="${ui.flashDeckMode === "hard" ? "active" : ""}" type="button" data-action="flash-mode" data-mode="hard">Ôn từ khó <span>${hardCount}</span></button>
+    </section>
     <section class="flash-toolbar">
-      <label><span>Phạm vi</span><select data-filter="flash-lesson"><option value="all">Toàn bộ ${escapeHtml(course.title)}</option>${course.lessons.map(lesson => `<option value="${lesson.id}" ${ui.flashLesson === String(lesson.id) ? "selected" : ""}>${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`} · ${escapeHtml(lesson.titleVi)}</option>`).join("")}</select></label>
+      <label><span>Phạm vi</span><select data-filter="flash-lesson">${lessonOptions(course, ui.flashLesson, true)}</select></label>
+      <label><span>Chiều thẻ</span><select data-filter="flash-direction"><option value="both" ${ui.flashDirection === "both" ? "selected" : ""}>Hai chiều</option><option value="ko-vi" ${ui.flashDirection === "ko-vi" ? "selected" : ""}>Hàn → Việt</option><option value="vi-ko" ${ui.flashDirection === "vi-ko" ? "selected" : ""}>Việt → Hàn</option></select></label>
       <span>${items.length ? ui.flashIndex + 1 : 0} / ${items.length}</span>
     </section>
     ${item ? `
       <section class="flash-stage">
         <button class="flash-arrow" type="button" data-action="flash-prev" aria-label="Từ trước">←<small>Từ trước</small></button>
         <button class="flashcard ${ui.flashFlipped ? "flipped" : ""}" type="button" data-action="flip-card" aria-label="Lật thẻ">
-          <span class="flash-side flash-front"><small>Bài ${item.lesson} · Chạm để lật</small><strong>${escapeHtml(item.word)}</strong><i>${escapeHtml(item.romanization)}</i></span>
-          <span class="flash-side flash-back"><small>Nghĩa</small><strong>${escapeHtml(item.meaningVi)}</strong>${renderOrigin(item)}<i>Trang ${item.sourcePage || "—"} · ${escapeHtml(course.source)}</i></span>
+          <span class="flash-side flash-front"><small>Bài ${item.lesson} · ${direction === "ko-vi" ? "Hàn → Việt" : "Việt → Hàn"} · Chạm để lật</small><strong>${escapeHtml(frontMain)}</strong>${direction === "ko-vi" ? `<i>${escapeHtml(item.romanization)}</i>` : ""}</span>
+          <span class="flash-side flash-back"><small>Đáp án</small><strong>${escapeHtml(item.word)}</strong><i>${escapeHtml(item.romanization)} · ${escapeHtml(item.meaningVi)}</i>${renderOrigin(item)}<i>Trang ${item.sourcePage || "—"} · ${escapeHtml(course.source)}</i></span>
         </button>
         <button class="flash-arrow" type="button" data-action="flash-next" aria-label="Từ tiếp theo">→<small>Từ tiếp theo</small></button>
       </section>
       <section class="flash-actions">
         <button class="secondary-button" type="button" data-action="speak" data-text="${escapeHtml(item.word)}">♪ Nghe từ</button>
-        <button class="review-button" type="button" data-action="toggle-word" data-word="${escapeHtml(item.id)}">${progress.masteredWords.includes(item.id) ? "↺ Đưa về ôn lại" : "✓ Đã nhớ"}</button>
+        <button class="secondary-button" type="button" data-action="flash-shuffle">⇄ Xáo trộn lại</button>
       </section>
-    ` : `<div class="empty-state">Bài này chưa có mục từ.</div>`}
+      <section class="rating-row ${ui.flashFlipped ? "visible" : ""}" aria-label="Tự đánh giá">
+        <button class="rating-again" type="button" data-action="flash-rate" data-rate="again">Chưa nhớ</button>
+        <button class="rating-hard ${progress.reviewHard[item.id] ? "selected" : ""}" type="button" data-action="flash-rate" data-rate="hard">Khó</button>
+        <button class="rating-known" type="button" data-action="flash-rate" data-rate="known">Đã nhớ</button>
+      </section>
+      <section class="word-note-panel">
+        <div><b>Ghi chú của tôi</b><small>Đã tự động lưu</small></div>
+        <textarea data-flash-note="${escapeHtml(item.id)}" placeholder="Ghi điều bạn cần nhớ về từ này…">${escapeHtml(note)}</textarea>
+        <button class="text-button danger-text" type="button" data-action="delete-flash-note" data-word="${escapeHtml(item.id)}" ${note ? "" : "disabled"}>Xóa ghi chú</button>
+      </section>
+    ` : `<div class="empty-state"><h2>Bộ ôn này chưa có từ nào.</h2><p>Hãy đánh dấu “Chưa nhớ” hoặc “Khó” trong bộ thẻ toàn bài trước.</p><button class="primary-button" type="button" data-action="flash-mode" data-mode="lesson">Quay lại toàn bộ từ</button></div>`}
   `;
 }
 
@@ -489,10 +704,10 @@ function renderExerciseCard(item, lesson) {
 function renderExercises(course) {
   const exercises = course.lessons.flatMap(lesson => lesson.exercises.map(item => ({ item, lesson })));
   return `
-    ${sectionHeading(course.title, "Bài tập có hình từ sách", "Ảnh được chụp từ đúng trang cần nhìn hình; có ô ghi câu trả lời và trạng thái hoàn thành riêng.")}
+    ${sectionHeading(course.title, "Bài nghe · đọc · viết trong sách", "Chỉ giữ trang luyện nghe và trang đọc–viết; không đăng ảnh bài ngữ pháp, Hangeul hay trò chơi ôn tập.")}
     <section class="filter-bar compact">
       <label><span>Bài học</span><select data-filter="exercise-lesson"><option value="all">Tất cả bài tập</option>${course.lessons.map(lesson => `<option value="${lesson.id}" ${ui.exerciseLesson === String(lesson.id) ? "selected" : ""}>${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`} · ${escapeHtml(lesson.titleVi)}</option>`).join("")}</select></label>
-      <div class="source-badge">${exercises.length} ảnh bài tập · ${escapeHtml(course.source)}</div>
+      <div class="source-badge">${exercises.length} trang nghe/đọc/viết · ${escapeHtml(course.source)}</div>
     </section>
     <section class="exercise-grid">${exercises.map(({ item, lesson }) => renderExerciseCard(item, lesson)).join("")}</section>
   `;
@@ -525,7 +740,216 @@ function renderLesson(course, lesson) {
     ${lesson.dialogues.length ? `<section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">Hội thoại</span><h2>Đọc và nghe theo track</h2></div></div><div class="dialogue-grid">${lesson.dialogues.map(dialogue => `<article class="dialogue-card"><div><span>Track ${dialogue.track}</span><h3>${escapeHtml(dialogue.title)}</h3></div><div class="dialogue-lines">${dialogue.lines.map(line => `<p>${escapeHtml(line)}</p>`).join("")}</div>${renderAudio(lesson.audio.find(item => item.number === dialogue.track))}</article>`).join("")}</div></section>` : ""}
     <section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">Từ vựng</span><h2>${lesson.vocabulary.length} mục từ trong bài</h2></div><button class="text-button" type="button" data-action="lesson-vocabulary" data-lesson="${lesson.id}">Xem toàn bộ →</button></div><div class="lesson-vocabulary">${lesson.vocabulary.slice(0, 12).map(renderVocabularyCard).join("")}</div></section>
     <section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">File nghe</span><h2>${lesson.audio.length} track đúng theo sách</h2></div></div><div class="audio-list">${lesson.audio.map(renderAudio).join("")}</div></section>
-    ${lesson.exercises.length ? `<section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">Bài tập</span><h2>Ảnh bài tập cần nhìn hình</h2></div></div><div class="exercise-grid lesson-exercises">${lesson.exercises.map(item => renderExerciseCard(item, lesson)).join("")}</div></section>` : ""}
+    ${lesson.exercises.length ? `<section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">Theo sách</span><h2>Nghe · đọc · viết</h2></div></div><div class="exercise-grid lesson-exercises">${lesson.exercises.map(item => renderExerciseCard(item, lesson)).join("")}</div></section>` : ""}
+  `;
+}
+
+function quizWords(course) {
+  const words = allCourseVocabulary(course);
+  return ui.quizLesson === "all" ? words : words.filter(item => item.lesson === Number(ui.quizLesson));
+}
+
+function startQuiz(course) {
+  const words = shuffle(quizWords(course));
+  ui.quiz = { words, index: 0, score: 0, answered: false, selected: "", current: null, mistakes: [], saved: false };
+  render();
+}
+
+function currentQuizQuestion(course) {
+  const quiz = ui.quiz;
+  if (!quiz || quiz.index >= quiz.words.length) return null;
+  if (quiz.current) return quiz.current;
+  const word = quiz.words[quiz.index];
+  const direction = ui.quizDirection === "both" ? (quiz.index % 2 ? "vi-ko" : "ko-vi") : ui.quizDirection;
+  const correct = direction === "ko-vi" ? word.meaningVi : word.word;
+  const pool = quizWords(course).filter(item => item.id !== word.id);
+  const alternatives = shuffle(pool)
+    .map(item => direction === "ko-vi" ? item.meaningVi : item.word)
+    .filter((value, index, values) => value !== correct && values.indexOf(value) === index)
+    .slice(0, 3);
+  quiz.current = { word, direction, correct, options: shuffle([correct, ...alternatives]) };
+  return quiz.current;
+}
+
+function renderQuizResult(course) {
+  const quiz = ui.quiz;
+  const percent = quiz.words.length ? Math.round((quiz.score / quiz.words.length) * 100) : 0;
+  if (!quiz.saved) {
+    const progress = courseProgress(course.id);
+    progress.quizHistory.unshift({ date: new Date().toISOString(), lesson: ui.quizLesson, score: quiz.score, total: quiz.words.length, percent, mistakes: quiz.mistakes });
+    progress.quizHistory = progress.quizHistory.slice(0, 30);
+    quiz.mistakes.forEach(wordId => { progress.reviewAgain[wordId] = today(); });
+    quiz.saved = true;
+    saveProfile();
+  }
+  return `
+    ${sectionHeading(course.title, "Kết quả trắc nghiệm", "Điểm và từ trả lời sai đã được lưu riêng trong giáo trình này.")}
+    <section class="result-panel"><span>${percent}%</span><h2>${quiz.score}/${quiz.words.length} câu đúng</h2><p>${percent >= 85 ? "Rất tốt. Hãy duy trì nhịp học này." : "Các từ trả lời sai đã được đưa vào bộ Ôn từ chưa thuộc."}</p><div><button class="secondary-button" type="button" data-action="quiz-reset">Chọn bài khác</button><button class="primary-button" type="button" data-action="quiz-retry">Làm lại</button></div></section>
+  `;
+}
+
+function renderQuiz(course) {
+  if (!ui.quiz) {
+    return `
+      ${sectionHeading(course.title, "Trắc nghiệm", "Giữ lại chế độ Hàn → Việt, Việt → Hàn, xáo trộn và lưu lịch sử như web cũ.")}
+      <section class="practice-panel setup-panel">
+        <label><span>Bài / chủ đề</span><select data-filter="quiz-lesson">${lessonOptions(course, ui.quizLesson, true)}</select></label>
+        <label><span>Chiều hỏi</span><select data-filter="quiz-direction"><option value="both" ${ui.quizDirection === "both" ? "selected" : ""}>Xen kẽ hai chiều</option><option value="ko-vi" ${ui.quizDirection === "ko-vi" ? "selected" : ""}>Hàn → Việt</option><option value="vi-ko" ${ui.quizDirection === "vi-ko" ? "selected" : ""}>Việt → Hàn</option></select></label>
+        <div><b>${quizWords(course).length}</b><span> câu · xáo trộn tự động</span></div>
+        <button class="primary-button" type="button" data-action="quiz-start">Bắt đầu →</button>
+      </section>
+    `;
+  }
+  if (ui.quiz.index >= ui.quiz.words.length) return renderQuizResult(course);
+  const quiz = ui.quiz;
+  const question = currentQuizQuestion(course);
+  return `
+    ${sectionHeading(course.title, "Trắc nghiệm", `Câu ${quiz.index + 1}/${quiz.words.length} · đúng ${quiz.score}`)}
+    <section class="practice-panel quiz-panel">
+      <div class="linear-progress"><span style="width:${Math.round((quiz.index / quiz.words.length) * 100)}%"></span></div>
+      <span class="eyebrow">${question.direction === "ko-vi" ? "Chọn nghĩa đúng" : "Chọn từ tiếng Hàn đúng"}</span>
+      <h2 class="quiz-question">${escapeHtml(question.direction === "ko-vi" ? question.word.word : question.word.meaningVi)}</h2>
+      ${question.direction === "ko-vi" ? `<p class="romanization">${escapeHtml(question.word.romanization)}</p>` : ""}
+      <div class="quiz-options">${question.options.map(option => {
+        let className = "";
+        if (quiz.answered && option === question.correct) className = "correct";
+        else if (quiz.answered && option === quiz.selected) className = "wrong";
+        return `<button class="${className}" type="button" data-action="quiz-answer" data-option="${escapeHtml(option)}" ${quiz.answered ? "disabled" : ""}>${escapeHtml(option)}</button>`;
+      }).join("")}</div>
+      ${quiz.answered ? `<div class="quiz-feedback ${quiz.selected === question.correct ? "success" : "error"}">${quiz.selected === question.correct ? "Chính xác." : `Đáp án đúng: ${escapeHtml(question.correct)}`}</div><button class="primary-button quiz-next" type="button" data-action="quiz-next">${quiz.index + 1 === quiz.words.length ? "Xem kết quả" : "Câu tiếp theo"} →</button>` : ""}
+    </section>
+  `;
+}
+
+function listeningLines(lesson) {
+  return lesson.dialogues.flatMap(dialogue => dialogue.lines).filter(Boolean);
+}
+
+function renderListening(course) {
+  const lesson = scopedLesson(course, ui.listeningLesson);
+  const lines = listeningLines(lesson);
+  const dictation = lines[0] || "";
+  const listeningImage = lesson.exercises.find(item => item.kind === "listening");
+  const completed = Boolean(courseProgress().listening[lesson.id]?.completed);
+  return `
+    ${sectionHeading(course.title, `Luyện nghe · ${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`}`, "Nghe track gốc, chép chính tả và xem lời thoại lấy trực tiếp từ đúng bài trong sách.")}
+    <section class="practice-toolbar"><label><span>Bài học</span><select data-filter="listening-lesson">${lessonOptions(course, lesson.id)}</select></label><button class="complete-button ${completed ? "done" : ""}" type="button" data-action="mark-listening" data-lesson="${lesson.id}">${completed ? "✓ Đã luyện" : "Đánh dấu đã luyện"}</button></section>
+    <section class="listening-layout">
+      <article class="audio-practice"><span class="eyebrow">File nghe gốc</span><h2>${escapeHtml(lesson.titleVi)}</h2><div class="audio-list">${lesson.audio.map(renderAudio).join("")}</div></article>
+      <div class="listening-exercises">
+        <article class="practice-panel"><span class="eyebrow">Nghe chép chính tả</span><p>Nghe hội thoại rồi nhập lại câu đầu tiên.</p><input class="ko-input" data-listening-answer placeholder="Nhập câu tiếng Hàn" /><button class="secondary-button" type="button" data-action="check-listening-dictation" data-answer="${escapeHtml(dictation)}">Kiểm tra chính tả</button>${ui.listeningDictationFeedback ? `<div class="inline-feedback">${escapeHtml(ui.listeningDictationFeedback)}</div>` : ""}</article>
+        <article class="practice-panel"><button class="secondary-button wide" type="button" data-action="toggle-listening-transcript">${ui.listeningTranscript ? "Ẩn lời thoại" : "Xem lời thoại"}</button>${ui.listeningTranscript ? `<div class="transcript-list">${lesson.dialogues.map(dialogue => `<h3>${escapeHtml(dialogue.title)} · Track ${dialogue.track}</h3>${dialogue.lines.map(line => `<p>${escapeHtml(line)}</p>`).join("")}`).join("")}</div>` : ""}</article>
+        ${listeningImage ? `<article class="book-page-preview"><button type="button" data-action="open-image" data-src="${asset(listeningImage.path)}" data-alt="Nghe và chọn đáp án · trang ${listeningImage.page}"><img src="${asset(listeningImage.path)}" alt="Trang luyện nghe ${lesson.titleVi}" /><span>Phóng to trang nghe · tr. ${listeningImage.page}</span></button></article>` : ""}
+      </div>
+    </section>
+  `;
+}
+
+function currentShadowSentence(course) {
+  const lesson = scopedLesson(course, ui.shadowLesson);
+  const dialogue = lesson.dialogues[ui.shadowDialogue] || lesson.dialogues[0];
+  const lines = dialogue?.lines || [];
+  ui.shadowSentence = Math.max(0, Math.min(ui.shadowSentence, Math.max(0, lines.length - 1)));
+  return { lesson, dialogue, lines, sentence: lines[ui.shadowSentence] || "" };
+}
+
+function renderShadowing(course) {
+  const { lesson, dialogue, lines, sentence } = currentShadowSentence(course);
+  const key = `${course.id}:${lesson.id}:${ui.shadowDialogue}:${ui.shadowSentence}`;
+  const recording = ui.recordings.get(key);
+  const completed = Boolean(courseProgress().shadow[lesson.id]?.completed);
+  return `
+    ${sectionHeading(course.title, "Shadowing", "Giữ lại nghe từng câu, lặp toàn đoạn, ghi âm và chấm phát âm bằng nhận dạng giọng nói của trình duyệt.")}
+    <section class="practice-toolbar"><label><span>Bài học</span><select data-filter="shadow-lesson">${lessonOptions(course, lesson.id)}</select></label>${lesson.dialogues.length ? `<label><span>Hội thoại</span><select data-filter="shadow-dialogue">${lesson.dialogues.map((item, index) => `<option value="${index}" ${ui.shadowDialogue === index ? "selected" : ""}>${escapeHtml(item.title)} · Track ${item.track}</option>`).join("")}</select></label>` : ""}<button class="complete-button ${completed ? "done" : ""}" type="button" data-action="mark-shadow" data-lesson="${lesson.id}">${completed ? "✓ Đã luyện" : "Đánh dấu đã luyện"}</button></section>
+    ${sentence ? `<section class="shadow-layout"><article class="practice-panel shadow-card"><span>${ui.shadowSentence + 1}/${lines.length}</span><h2>${escapeHtml(sentence)}</h2><div class="shadow-navigation"><button type="button" data-action="shadow-prev">← Câu trước</button><button type="button" data-action="shadow-next">Câu tiếp →</button></div><div class="practice-actions"><button class="secondary-button" type="button" data-action="speak" data-text="${escapeHtml(sentence)}">♪ Nghe câu</button><button class="secondary-button" type="button" data-action="shadow-play-all" data-lines="${escapeHtml(JSON.stringify(lines))}">Nghe toàn đoạn</button><button class="${ui.recording?.key === key ? "danger-button" : "secondary-button"}" type="button" data-action="shadow-record" data-key="${escapeHtml(key)}">${ui.recording?.key === key ? "Dừng ghi âm" : "Bắt đầu ghi âm"}</button><button class="secondary-button" type="button" data-action="shadow-score" data-text="${escapeHtml(sentence)}">Chấm phát âm</button></div>${recording ? `<audio controls src="${escapeHtml(recording)}"></audio>` : ""}${ui.shadowFeedback ? `<div class="inline-feedback">${escapeHtml(ui.shadowFeedback)}</div>` : ""}</article><article class="practice-panel transcript-list"><h3>${escapeHtml(dialogue.title)}</h3>${lines.map((line, index) => `<button class="${index === ui.shadowSentence ? "active" : ""}" type="button" data-action="shadow-select" data-index="${index}">${escapeHtml(line)}</button>`).join("")}</article></section>` : `<div class="empty-state">Bài này chưa có đoạn hội thoại để luyện Shadowing.</div>`}
+  `;
+}
+
+function writingWords(course, lessonId) {
+  return allCourseVocabulary(course).filter(item => item.lesson === Number(lessonId));
+}
+
+function renderWriting(course) {
+  const lesson = scopedLesson(course, ui.writingLesson);
+  const words = writingWords(course, lesson.id);
+  if (ui.writingIndex >= words.length) ui.writingIndex = 0;
+  const word = words[ui.writingIndex];
+  const progress = courseProgress();
+  const writingState = progress.writing[lesson.id] || {};
+  const readingImage = lesson.exercises.find(item => item.kind === "reading");
+  let practice = "";
+  if (ui.writingMode === "topic") {
+    practice = `<article class="practice-panel writing-topic"><span class="eyebrow">Viết theo chủ đề · ${escapeHtml(lesson.titleVi)}</span><p>${escapeHtml(lesson.objectives.join(" · "))}</p><textarea data-writing-topic placeholder="Viết câu tiếng Hàn của bạn…">${escapeHtml(writingState.text || "")}</textarea><label>Ghi chú tự sửa<textarea data-writing-note placeholder="Ghi lại lỗi, cách sửa hoặc điều cần hỏi giáo viên…">${escapeHtml(progress.writingNotes[lesson.id] || "")}</textarea></label><button class="primary-button" type="button" data-action="save-writing" data-lesson="${lesson.id}">Lưu bài viết</button></article>`;
+  } else if (word) {
+    const prompt = ui.writingMode === "vocab" ? `Viết từ tiếng Hàn có nghĩa: ${word.meaningVi}` : "Nghe rồi viết lại từ tiếng Hàn";
+    practice = `<article class="practice-panel writing-word"><span>${ui.writingIndex + 1}/${words.length}</span><h2>${escapeHtml(prompt)}</h2>${ui.writingMode === "dictation" ? `<button class="secondary-button" type="button" data-action="speak" data-text="${escapeHtml(word.word)}">♪ Nghe từ</button>` : ""}<input class="ko-input" data-writing-answer placeholder="Nhập tiếng Hàn" /><div class="practice-actions"><button class="secondary-button" type="button" data-action="writing-check" data-answer="${escapeHtml(word.word)}">Kiểm tra</button><button class="text-button" type="button" data-action="writing-show" data-answer="${escapeHtml(word.word)}">Xem đáp án</button><button class="primary-button" type="button" data-action="writing-next">Từ tiếp theo →</button></div>${ui.writingFeedback ? `<div class="inline-feedback">${escapeHtml(ui.writingFeedback)}</div>` : ""}</article>`;
+  } else practice = `<div class="empty-state">Bài này chưa có từ để luyện viết.</div>`;
+  return `
+    ${sectionHeading(course.title, "Luyện viết", "Giữ lại viết từ, nghe chép chính tả, bài viết theo chủ đề và ghi chú tự sửa.")}
+    <section class="practice-toolbar"><label><span>Bài học</span><select data-filter="writing-lesson">${lessonOptions(course, lesson.id)}</select></label><label><span>Chế độ</span><select data-filter="writing-mode"><option value="vocab" ${ui.writingMode === "vocab" ? "selected" : ""}>Viết từ</option><option value="dictation" ${ui.writingMode === "dictation" ? "selected" : ""}>Nghe chép</option><option value="topic" ${ui.writingMode === "topic" ? "selected" : ""}>Viết theo chủ đề</option></select></label></section>
+    <section class="writing-layout">${practice}${readingImage ? `<article class="book-page-preview"><button type="button" data-action="open-image" data-src="${asset(readingImage.path)}" data-alt="Đọc và viết · trang ${readingImage.page}"><img src="${asset(readingImage.path)}" alt="Trang đọc và viết ${lesson.titleVi}" /><span>Phóng to trang đọc–viết · tr. ${readingImage.page}</span></button></article>` : ""}</section>
+  `;
+}
+
+function renderReports(course) {
+  const progress = courseProgress();
+  const reportUrl = storage.local.getItem(REPORT_URL_KEY) || "";
+  return `
+    ${sectionHeading(course.title, "Báo cáo và góp ý", "Giữ lại biểu mẫu báo lỗi nội dung, ảnh minh hoạ và xuất báo cáo cục bộ của web cũ.")}
+    <section class="reports-layout">
+      <form class="practice-panel report-form" data-form="report"><label>Loại lỗi<select name="type"><option>Sai nghĩa</option><option>Sai chính tả</option><option>Sai phát âm/phiên âm</option><option>Lỗi âm thanh</option><option>Lỗi giao diện</option><option>Đề xuất khác</option></select></label><label>Nội dung hiện tại<textarea name="current" required></textarea></label><label>Đề xuất sửa<textarea name="suggestion" required></textarea></label><label>Thông tin liên hệ<input name="contact" /></label><label>Ảnh minh hoạ<input name="image" type="file" accept="image/*" /></label><button class="primary-button" type="submit">Lưu báo cáo thành JSON</button></form>
+      <aside class="practice-panel"><h2>Kết nối Google Form</h2><label>Liên kết Google Form<input data-report-url type="url" value="${escapeHtml(reportUrl)}" placeholder="https://forms.google.com/…" /></label><button class="secondary-button" type="button" data-action="save-report-url">Lưu liên kết</button>${reportUrl ? `<a class="primary-button link-button" href="${escapeHtml(reportUrl)}" target="_blank" rel="noopener">Mở Google Form</a>` : ""}<h3>Báo cáo trên thiết bị</h3>${progress.reports.length ? `<ul class="report-list">${progress.reports.slice(0, 8).map(item => `<li><b>${escapeHtml(item.type)}</b><span>${escapeHtml(item.createdAt.slice(0, 10))}</span><p>${escapeHtml(item.suggestion)}</p></li>`).join("")}</ul><button class="text-button" type="button" data-action="export-reports">Xuất tất cả báo cáo</button>` : `<p>Chưa có báo cáo cục bộ.</p>`}</aside>
+    </section>
+  `;
+}
+
+function csvCell(value) {
+  return `"${String(value ?? "").replaceAll('"', '""')}"`;
+}
+
+function downloadText(filename, content, type = "application/json") {
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(new Blob([content], { type }));
+  link.download = filename;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(link.href), 500);
+}
+
+function exportVocabularyCsv(course) {
+  const rows = [["lesson", "word", "romanization", "meaning_vi", "origin_type", "hanja", "chinese_equivalent"], ...allCourseVocabulary(course).map(item => [item.lesson, item.word, item.romanization, item.meaningVi, item.originType, item.hanja, item.chineseEquivalent])];
+  downloadText(`${course.id}-vocabulary.csv`, rows.map(row => row.map(csvCell).join(",")).join("\n"), "text/csv;charset=utf-8");
+}
+
+async function importCourseData(file, course) {
+  const payload = JSON.parse(await file.text());
+  const incoming = payload.courseState || payload.progress?.courseState?.[course.id] || payload.progress || payload;
+  if (!incoming || typeof incoming !== "object") throw new Error("Tệp không chứa dữ liệu tiến độ hợp lệ.");
+  const current = courseProgress(course.id);
+  if (ui.importMode === "replace") profile.progress.courseState[course.id] = { ...defaultCourseProgress(), ...incoming };
+  else profile.progress.courseState[course.id] = {
+    ...current,
+    ...incoming,
+    completedLessons: [...new Set([...(current.completedLessons || []), ...(incoming.completedLessons || [])])],
+    completedExercises: [...new Set([...(current.completedExercises || []), ...(incoming.completedExercises || [])])],
+    masteredWords: [...new Set([...(current.masteredWords || []), ...(incoming.masteredWords || [])])],
+    notes: { ...(current.notes || {}), ...(incoming.notes || {}) },
+    srs: { ...(current.srs || {}), ...(incoming.srs || {}) },
+    reviewAgain: { ...(current.reviewAgain || {}), ...(incoming.reviewAgain || {}) },
+    reviewHard: { ...(current.reviewHard || {}), ...(incoming.reviewHard || {}) },
+    flashNotes: { ...(current.flashNotes || {}), ...(incoming.flashNotes || {}) },
+    customVocabulary: [...new Map([...(current.customVocabulary || []), ...(incoming.customVocabulary || [])].map(item => [item.id || item.word, item])).values()],
+  };
+  saveProfile();
+}
+
+function renderData(course) {
+  const progress = courseProgress();
+  return `
+    ${sectionHeading(course.title, "Quản lý dữ liệu", "Giữ lại nhập, xuất, sao lưu, CSV và thêm nhanh từ mới; dữ liệu vẫn tách riêng theo từng giáo trình.")}
+    <section class="data-grid">
+      <article class="practice-panel"><h2>Xuất và sao lưu</h2><div class="data-actions"><button type="button" data-action="export-vocabulary">Từ vựng JSON</button><button type="button" data-action="export-progress">Tiến độ JSON</button><button type="button" data-action="export-profile">Bản sao hồ sơ</button><button type="button" data-action="export-csv">Từ vựng CSV</button><button type="button" data-action="download-template">CSV mẫu</button></div><h3>Nhập bản sao</h3><label><input type="radio" name="importMode" value="merge" ${ui.importMode === "merge" ? "checked" : ""} /> Gộp thêm và loại trùng</label><label><input type="radio" name="importMode" value="replace" ${ui.importMode === "replace" ? "checked" : ""} /> Thay thế tiến độ giáo trình này</label><input data-import-file type="file" accept="application/json,.json" /><button class="danger-button" type="button" data-action="reset-progress">Khôi phục tiến độ trống</button></article>
+      <form class="practice-panel" data-form="add-word"><h2>Thêm nhanh một từ</h2><label>Từ tiếng Hàn<input required name="word" /></label><label>Phiên âm RR<input required name="romanization" /></label><label>Nghĩa tiếng Việt<input required name="meaningVi" /></label><label>Bài học<select name="lesson">${lessonOptions(course, progress.lastLesson)}</select></label><label>Phân loại<select name="originType"><option value="native">Từ thuần Hàn</option><option value="sino">Từ Hán–Hàn</option><option value="loanword">Từ mượn</option><option value="expression">Cụm diễn đạt</option></select></label><label>Hán tự / từ tiếng Hán liên hệ<input name="hanja" /></label><button class="primary-button" type="submit">Thêm vào ${escapeHtml(course.title)}</button><p>${progress.customVocabulary.length} từ do bạn thêm trong giáo trình này.</p></form>
+    </section>
   `;
 }
 
@@ -533,12 +957,27 @@ function renderProgress(course) {
   const progress = courseProgress();
   const vocabulary = allCourseVocabulary(course);
   const exerciseCount = course.lessons.reduce((sum, lesson) => sum + lesson.exercises.length, 0);
+  const quizAverage = progress.quizHistory.length ? Math.round(progress.quizHistory.reduce((sum, item) => sum + item.percent, 0) / progress.quizHistory.length) : 0;
+  const againWords = Object.keys(progress.reviewAgain).filter(itemId => progress.reviewAgain[itemId]);
+  const hardWords = Object.keys(progress.reviewHard).filter(itemId => progress.reviewHard[itemId]);
+  const completedListening = Object.values(progress.listening).filter(item => item?.completed).length;
+  const completedShadow = Object.values(progress.shadow).filter(item => item?.completed).length;
+  const savedWriting = Object.values(progress.writing).filter(item => item?.text || item?.savedAt).length;
   return `
     ${sectionHeading(course.title, "Tiến độ học tập", `Tiến độ dưới đây chỉ tính cho ${course.title}, không gộp với giáo trình còn lại.`)}
     <section class="progress-summary">
       <div class="progress-ring large" style="--progress:${progressPercent(course) * 3.6}deg"><span><b>${progressPercent(course)}%</b><small>${escapeHtml(course.title)}</small></span></div>
-      <div><span class="eyebrow">Tổng tiến độ</span><h2>${progress.completedLessons.length}/${course.lessons.length} bài đã hoàn thành</h2><p>${progress.completedExercises.length}/${exerciseCount} bài tập · ${progress.masteredWords.length}/${vocabulary.length} mục từ đã nhớ</p></div>
+      <div><span class="eyebrow">Tổng tiến độ</span><h2>${progress.completedLessons.length}/${course.lessons.length} bài đã hoàn thành</h2><p>${progress.completedExercises.length}/${exerciseCount} trang nghe–đọc–viết · ${progress.masteredWords.length}/${vocabulary.length} mục từ đã nhớ</p><button class="text-button" type="button" data-action="export-progress">Xuất tiến độ giáo trình →</button></div>
     </section>
+    <section class="progress-metrics">
+      <article><span>?</span><b>${quizAverage}%</b><small>Điểm trắc nghiệm trung bình</small></article>
+      <article><span>◇</span><b>${againWords.length}</b><small>Từ chưa thuộc cần ôn</small></article>
+      <article><span>!</span><b>${hardWords.length}</b><small>Từ khó đã đánh dấu</small></article>
+      <article><span>♪</span><b>${completedListening}</b><small>Bài luyện nghe</small></article>
+      <article><span>◌</span><b>${completedShadow}</b><small>Bài Shadowing</small></article>
+      <article><span>✎</span><b>${savedWriting}</b><small>Bài viết đã lưu</small></article>
+    </section>
+    ${(againWords.length || hardWords.length) ? `<section class="focus-panel"><div><span class="eyebrow">Cần ôn tiếp</span><h2>${againWords.length} từ chưa thuộc · ${hardWords.length} từ khó</h2></div><button class="primary-button" type="button" data-action="progress-review-hard">Mở bộ từ khó →</button></section>` : ""}
     <section class="progress-lessons">
       ${course.lessons.map(lesson => {
         const lessonExercises = lesson.exercises.map(item => `${course.id}:${lesson.id}:${item.page}:${item.kind}`);
@@ -547,6 +986,7 @@ function renderProgress(course) {
         return `<button type="button" data-action="open-lesson" data-lesson="${lesson.id}"><span class="lesson-index">${lesson.id === 0 ? "가" : String(lesson.id).padStart(2, "0")}</span><span><b>${escapeHtml(lesson.titleVi)}</b><small>${doneExercises}/${lessonExercises.length} bài tập · ${lesson.vocabulary.filter(item => progress.masteredWords.includes(item.id)).length}/${lesson.vocabulary.length} từ</small></span><i class="${done ? "done" : ""}">${done ? "✓" : "→"}</i></button>`;
       }).join("")}
     </section>
+    ${progress.quizHistory.length ? `<section class="history-panel"><div class="panel-heading"><div><span class="eyebrow">Lịch sử</span><h2>Các lần làm trắc nghiệm gần đây</h2></div></div><div class="history-list">${progress.quizHistory.slice(0, 8).map(item => `<div><b>${item.percent}%</b><span>${item.score}/${item.total} câu · ${item.lesson === "all" ? "Toàn bộ sách" : `Bài ${item.lesson}`}</span><small>${escapeHtml(item.date.slice(0, 10))}</small></div>`).join("")}</div></section>` : ""}
   `;
 }
 
@@ -556,15 +996,23 @@ function renderMain(course) {
   if (ui.view === "lesson") return renderLesson(course, selectedLesson() || course.lessons[0]);
   if (ui.view === "vocabulary") return renderVocabulary(course);
   if (ui.view === "flashcards") return renderFlashcards(course);
+  if (ui.view === "quiz") return renderQuiz(course);
+  if (ui.view === "listening") return renderListening(course);
+  if (ui.view === "shadowing") return renderShadowing(course);
+  if (ui.view === "writing") return renderWriting(course);
   if (ui.view === "exercises") return renderExercises(course);
   if (ui.view === "culture") return renderCulture(course);
   if (ui.view === "progress") return renderProgress(course);
+  if (ui.view === "reports") return renderReports(course);
+  if (ui.view === "data") return renderData(course);
   return renderDashboard(course);
 }
 
 function renderAccountDialog() {
   const configured = hasSupabaseConfig();
   const signedIn = Boolean(ui.accountSession?.user);
+  const settings = profile.settings || {};
+  const voices = koreanVoices();
   return `
     <dialog id="account-dialog" class="account-dialog">
       <button class="dialog-close" type="button" data-action="close-account" aria-label="Đóng">×</button>
@@ -582,6 +1030,14 @@ function renderAccountDialog() {
         </div>
         <form class="reset-form" data-form="reset" hidden><h3>Đặt lại mật khẩu</h3><label>Email<input required type="email" name="email" autocomplete="email" /></label><button class="secondary-button" type="submit">Gửi email đặt lại</button></form>
       ` : `<p>Website đang lưu tiến độ trên thiết bị này. Cần cấu hình Supabase khi phát hành để bật đăng nhập trực tuyến.</p>`}
+      <form class="settings-form" data-form="settings">
+        <h3>Cài đặt học tập</h3>
+        <label>Tên hiển thị<input required maxlength="64" name="displayName" value="${escapeHtml(profile.name || "Học viên")}" /></label>
+        <label>Ngôn ngữ hỗ trợ<select name="language"><option value="vi" ${settings.language === "vi" ? "selected" : ""}>Tiếng Việt</option><option value="zh" ${settings.language === "zh" ? "selected" : ""}>中文</option><option value="en" ${settings.language === "en" ? "selected" : ""}>English</option></select></label>
+        <label>Giọng tiếng Hàn<select name="voiceURI"><option value="">Mặc định của thiết bị</option>${voices.map(voice => `<option value="${escapeHtml(voice.voiceURI)}" ${settings.voiceURI === voice.voiceURI ? "selected" : ""}>${escapeHtml(voice.name)}</option>`).join("")}</select></label>
+        <label>Tốc độ đọc<select name="rate"><option value="0.7" ${Number(settings.rate) === 0.7 ? "selected" : ""}>Chậm</option><option value="0.9" ${Number(settings.rate ?? 0.9) === 0.9 ? "selected" : ""}>Vừa</option><option value="1.05" ${Number(settings.rate) === 1.05 ? "selected" : ""}>Nhanh</option></select></label>
+        <div><button class="secondary-button" type="button" data-action="test-voice">Nghe thử</button><button class="primary-button" type="submit">Lưu cài đặt</button></div>
+      </form>
     </dialog>
     <dialog id="image-dialog" class="image-dialog"><button class="dialog-close" type="button" data-action="close-image" aria-label="Đóng">×</button><img src="" alt="" /></dialog>
   `;
@@ -623,10 +1079,74 @@ function applyExerciseFilter() {
   });
 }
 
-function toggleInArray(array, value) {
+function toggleInArray(array, value, desired = null) {
   const index = array.indexOf(value);
-  if (index >= 0) array.splice(index, 1);
-  else array.push(value);
+  if (desired === false && index >= 0) array.splice(index, 1);
+  else if (desired === true && index < 0) array.push(value);
+  else if (desired === null && index >= 0) array.splice(index, 1);
+  else if (desired === null && index < 0) array.push(value);
+}
+
+async function toggleShadowRecording(key) {
+  if (ui.recording?.key === key) {
+    ui.recording.recorder.stop();
+    return;
+  }
+  if (!navigator.mediaDevices?.getUserMedia || !("MediaRecorder" in window)) {
+    ui.shadowFeedback = "Thiết bị này chưa hỗ trợ ghi âm trong trình duyệt.";
+    render();
+    return;
+  }
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const recorder = new MediaRecorder(stream);
+    const chunks = [];
+    recorder.addEventListener("dataavailable", event => {
+      if (event.data.size) chunks.push(event.data);
+    });
+    recorder.addEventListener("stop", () => {
+      const previous = ui.recordings.get(key);
+      if (previous) URL.revokeObjectURL(previous);
+      ui.recordings.set(key, URL.createObjectURL(new Blob(chunks, { type: recorder.mimeType || "audio/webm" })));
+      stream.getTracks().forEach(track => track.stop());
+      ui.recording = null;
+      ui.shadowFeedback = "Đã lưu bản ghi trên thiết bị này.";
+      render();
+    });
+    recorder.start();
+    ui.recording = { key, recorder };
+    ui.shadowFeedback = "Đang ghi âm… hãy đọc câu tiếng Hàn rồi bấm dừng.";
+    render();
+  } catch (error) {
+    ui.shadowFeedback = error.name === "NotAllowedError" ? "Cần cho phép micro để ghi âm." : "Không thể bắt đầu ghi âm trên thiết bị này.";
+    render();
+  }
+}
+
+function scoreShadowPronunciation(expected) {
+  const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!Recognition) {
+    ui.shadowFeedback = "Trình duyệt này chưa hỗ trợ nhận dạng phát âm. Bạn vẫn có thể nghe lại bản ghi.";
+    render();
+    return;
+  }
+  const recognition = new Recognition();
+  recognition.lang = "ko-KR";
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+  ui.shadowFeedback = "Đang nghe… hãy đọc câu trên thẻ.";
+  render();
+  recognition.addEventListener("result", event => {
+    const heard = event.results[0][0].transcript;
+    const score = answerSimilarity(expected, heard);
+    ui.shadowFeedback = `Độ khớp ${score}% · Hệ thống nghe được: ${heard}`;
+    render();
+  });
+  recognition.addEventListener("error", event => {
+    ui.shadowFeedback = event.error === "not-allowed" ? "Cần cho phép micro để chấm phát âm." : "Chưa nhận được giọng nói. Hãy thử lại.";
+    render();
+  });
+  recognition.start();
 }
 
 async function connectAccount(session) {
@@ -708,11 +1228,29 @@ root.addEventListener("click", async event => {
     render();
   }
   if (action === "speak") {
-    speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(button.dataset.text);
-    utterance.lang = "ko-KR";
-    utterance.rate = profile.settings?.rate || 0.9;
-    speechSynthesis.speak(utterance);
+    if (!speakText(button.dataset.text)) {
+      ui.shadowFeedback = "Thiết bị này chưa hỗ trợ đọc thành tiếng.";
+      if (ui.view === "shadowing") render();
+    }
+  }
+  if (action === "print-vocabulary") window.print();
+  if (action === "flash-mode") {
+    ui.flashDeckMode = button.dataset.mode;
+    initializeFlashDeck(selectedCourse());
+    render();
+  }
+  if (action === "flash-shuffle") {
+    initializeFlashDeck(selectedCourse());
+    render();
+  }
+  if (action === "flash-rate") {
+    const item = flashVocabulary(selectedCourse())[ui.flashIndex];
+    if (item) rateFlashCard(item, button.dataset.rate);
+  }
+  if (action === "delete-flash-note") {
+    delete courseProgress().flashNotes[button.dataset.word];
+    saveProfile();
+    render();
   }
   if (action === "flash-prev" || action === "flash-next") {
     const length = flashVocabulary(selectedCourse()).length;
@@ -723,6 +1261,121 @@ root.addEventListener("click", async event => {
   if (action === "flip-card") {
     ui.flashFlipped = !ui.flashFlipped;
     root.querySelector(".flashcard")?.classList.toggle("flipped", ui.flashFlipped);
+    root.querySelector(".rating-row")?.classList.toggle("visible", ui.flashFlipped);
+  }
+  if (action === "quiz-start") startQuiz(selectedCourse());
+  if (action === "quiz-answer" && ui.quiz && !ui.quiz.answered) {
+    const question = currentQuizQuestion(selectedCourse());
+    ui.quiz.selected = button.dataset.option;
+    ui.quiz.answered = true;
+    if (ui.quiz.selected === question.correct) ui.quiz.score += 1;
+    else ui.quiz.mistakes.push(question.word.id);
+    render();
+  }
+  if (action === "quiz-next" && ui.quiz?.answered) {
+    ui.quiz.index += 1;
+    ui.quiz.answered = false;
+    ui.quiz.selected = "";
+    ui.quiz.current = null;
+    render();
+  }
+  if (action === "quiz-reset") {
+    ui.quiz = null;
+    render();
+  }
+  if (action === "quiz-retry") startQuiz(selectedCourse());
+  if (action === "toggle-listening-transcript") {
+    ui.listeningTranscript = !ui.listeningTranscript;
+    render();
+  }
+  if (action === "check-listening-dictation") {
+    const input = root.querySelector("[data-listening-answer]");
+    const score = answerSimilarity(button.dataset.answer, input?.value);
+    ui.listeningDictationFeedback = score === 100 ? "Chính xác." : `Độ khớp ${score}% · Đáp án: ${button.dataset.answer || "Chưa có lời thoại"}`;
+    render();
+  }
+  if (action === "mark-listening") {
+    const lessonId = Number(button.dataset.lesson);
+    const current = courseProgress().listening[lessonId] || {};
+    courseProgress().listening[lessonId] = { ...current, completed: !current.completed, updatedAt: new Date().toISOString() };
+    saveProfile();
+    render();
+  }
+  if (action === "shadow-prev" || action === "shadow-next") {
+    const length = currentShadowSentence(selectedCourse()).lines.length;
+    if (length) ui.shadowSentence = (ui.shadowSentence + (action === "shadow-next" ? 1 : -1) + length) % length;
+    ui.shadowFeedback = "";
+    render();
+  }
+  if (action === "shadow-select") {
+    ui.shadowSentence = Number(button.dataset.index);
+    ui.shadowFeedback = "";
+    render();
+  }
+  if (action === "shadow-play-all") {
+    try {
+      speakLines(JSON.parse(button.dataset.lines || "[]"));
+    } catch {
+      ui.shadowFeedback = "Không thể đọc toàn đoạn này.";
+      render();
+    }
+  }
+  if (action === "shadow-record") await toggleShadowRecording(button.dataset.key);
+  if (action === "shadow-score") scoreShadowPronunciation(button.dataset.text);
+  if (action === "mark-shadow") {
+    const lessonId = Number(button.dataset.lesson);
+    const current = courseProgress().shadow[lessonId] || {};
+    courseProgress().shadow[lessonId] = { ...current, completed: !current.completed, updatedAt: new Date().toISOString() };
+    saveProfile();
+    render();
+  }
+  if (action === "writing-check") {
+    const input = root.querySelector("[data-writing-answer]");
+    const score = answerSimilarity(button.dataset.answer, input?.value);
+    ui.writingFeedback = score === 100 ? "Chính xác." : `Độ khớp ${score}% · Đáp án: ${button.dataset.answer}`;
+    render();
+  }
+  if (action === "writing-show") {
+    ui.writingFeedback = `Đáp án: ${button.dataset.answer}`;
+    render();
+  }
+  if (action === "writing-next") {
+    const length = writingWords(selectedCourse(), ui.writingLesson).length;
+    if (length) ui.writingIndex = (ui.writingIndex + 1) % length;
+    ui.writingFeedback = "";
+    render();
+  }
+  if (action === "save-writing") {
+    const lessonId = Number(button.dataset.lesson);
+    courseProgress().writing[lessonId] = { text: root.querySelector("[data-writing-topic]")?.value || "", savedAt: new Date().toISOString() };
+    courseProgress().writingNotes[lessonId] = root.querySelector("[data-writing-note]")?.value || "";
+    saveProfile();
+    ui.writingFeedback = "Đã lưu bài viết và ghi chú tự sửa.";
+    render();
+  }
+  if (action === "progress-review-hard") {
+    ui.flashDeckMode = Object.keys(courseProgress().reviewHard).length ? "hard" : "again";
+    initializeFlashDeck(selectedCourse());
+    navigate(ui.courseId, "flashcards");
+  }
+  if (action === "save-report-url") {
+    const url = root.querySelector("[data-report-url]")?.value.trim() || "";
+    storage.local.setItem(REPORT_URL_KEY, url);
+    render();
+  }
+  if (action === "export-reports") downloadText(`${ui.courseId}-reports.json`, JSON.stringify(courseProgress().reports, null, 2));
+  if (action === "export-vocabulary") downloadText(`${ui.courseId}-vocabulary.json`, JSON.stringify({ course: ui.courseId, version: CONTENT_VERSION, vocabulary: allCourseVocabulary(selectedCourse()) }, null, 2));
+  if (action === "export-progress") downloadText(`${ui.courseId}-progress.json`, JSON.stringify({ course: ui.courseId, version: CONTENT_VERSION, exportedAt: new Date().toISOString(), courseState: courseProgress() }, null, 2));
+  if (action === "export-profile") downloadText(`sejong-profile-${today()}.json`, JSON.stringify(profile, null, 2));
+  if (action === "export-csv") exportVocabularyCsv(selectedCourse());
+  if (action === "download-template") {
+    const template = [["lesson", "word", "romanization", "meaning_vi", "origin_type", "hanja"], [1, "한국어", "hangugeo", "tiếng Hàn", "sino", "韓國語"]];
+    downloadText("vocabulary-template.csv", template.map(row => row.map(csvCell).join(",")).join("\n"), "text/csv;charset=utf-8");
+  }
+  if (action === "reset-progress" && confirm(`Khôi phục toàn bộ tiến độ ${selectedCourse().title} về trống? Dữ liệu của cuốn còn lại sẽ được giữ nguyên.`)) {
+    profile.progress.courseState[ui.courseId] = defaultCourseProgress();
+    saveProfile();
+    render();
   }
   if (action === "open-image") {
     const dialog = root.querySelector("#image-dialog");
@@ -739,6 +1392,7 @@ root.addEventListener("click", async event => {
   }
   if (action === "close-account") root.querySelector("#account-dialog")?.close();
   if (action === "show-reset") root.querySelector(".reset-form")?.removeAttribute("hidden");
+  if (action === "test-voice") speakText("안녕하세요. 한국어를 공부해요.");
   if (action === "sign-out") {
     try {
       await signOutAccount();
@@ -762,6 +1416,12 @@ root.addEventListener("input", event => {
     clearTimeout(noteTimer);
     noteTimer = setTimeout(saveProfile, 400);
   }
+  if (event.target.matches("[data-flash-note]")) {
+    const key = event.target.dataset.flashNote;
+    courseProgress().flashNotes[key] = event.target.value;
+    clearTimeout(noteTimer);
+    noteTimer = setTimeout(saveProfile, 400);
+  }
 });
 
 root.addEventListener("change", event => {
@@ -775,9 +1435,51 @@ root.addEventListener("change", event => {
   }
   if (event.target.matches('[data-filter="flash-lesson"]')) {
     ui.flashLesson = event.target.value;
-    ui.flashIndex = 0;
+    initializeFlashDeck(selectedCourse(), false);
+    render();
+  }
+  if (event.target.matches('[data-filter="flash-direction"]')) {
+    ui.flashDirection = event.target.value;
     ui.flashFlipped = false;
     render();
+  }
+  if (event.target.matches('[data-filter="quiz-lesson"]')) ui.quizLesson = event.target.value;
+  if (event.target.matches('[data-filter="quiz-direction"]')) ui.quizDirection = event.target.value;
+  if (event.target.matches('[data-filter="listening-lesson"]')) {
+    ui.listeningLesson = event.target.value;
+    ui.listeningTranscript = false;
+    ui.listeningDictationFeedback = "";
+    render();
+  }
+  if (event.target.matches('[data-filter="shadow-lesson"]')) {
+    ui.shadowLesson = event.target.value;
+    ui.shadowDialogue = 0;
+    ui.shadowSentence = 0;
+    ui.shadowFeedback = "";
+    render();
+  }
+  if (event.target.matches('[data-filter="shadow-dialogue"]')) {
+    ui.shadowDialogue = Number(event.target.value);
+    ui.shadowSentence = 0;
+    ui.shadowFeedback = "";
+    render();
+  }
+  if (event.target.matches('[data-filter="writing-lesson"]')) {
+    ui.writingLesson = event.target.value;
+    ui.writingIndex = 0;
+    ui.writingFeedback = "";
+    render();
+  }
+  if (event.target.matches('[data-filter="writing-mode"]')) {
+    ui.writingMode = event.target.value;
+    ui.writingFeedback = "";
+    render();
+  }
+  if (event.target.matches('input[name="importMode"]')) ui.importMode = event.target.value;
+  if (event.target.matches("[data-import-file]") && event.target.files?.[0]) {
+    importCourseData(event.target.files[0], selectedCourse())
+      .then(() => { alert("Đã nhập dữ liệu cho giáo trình này."); render(); })
+      .catch(error => alert(error.message || "Không thể nhập tệp này."));
   }
 });
 
@@ -786,11 +1488,65 @@ root.addEventListener("submit", async event => {
   if (!form) return;
   event.preventDefault();
   const data = new FormData(form);
-  ui.accountError = "";
-  ui.accountMessage = "";
   const submit = form.querySelector('[type="submit"]');
-  submit.disabled = true;
+  if (submit) submit.disabled = true;
   try {
+    if (form.dataset.form === "report") {
+      const image = data.get("image");
+      const report = {
+        id: id(),
+        course: ui.courseId,
+        type: data.get("type"),
+        current: data.get("current"),
+        suggestion: data.get("suggestion"),
+        contact: data.get("contact"),
+        page: location.hash,
+        contentVersion: CONTENT_VERSION,
+        createdAt: new Date().toISOString(),
+        imageName: image?.size ? image.name : "",
+        imageData: image?.size ? await fileToDataUrl(image) : "",
+      };
+      courseProgress().reports.unshift({ ...report, imageData: "" });
+      courseProgress().reports = courseProgress().reports.slice(0, 50);
+      saveProfile();
+      downloadText(`${ui.courseId}-report-${today()}.json`, JSON.stringify(report, null, 2));
+      render();
+      return;
+    }
+    if (form.dataset.form === "add-word") {
+      const originType = data.get("originType");
+      const hanja = String(data.get("hanja") || "").trim();
+      if (originType === "sino" && !hanja) throw new Error("Từ Hán–Hàn cần ghi rõ Hán tự hoặc từ tiếng Hán liên hệ.");
+      courseProgress().customVocabulary.push({
+        id: `custom:${ui.courseId}:${id()}`,
+        lesson: Number(data.get("lesson")),
+        word: String(data.get("word")).trim(),
+        romanization: String(data.get("romanization")).trim(),
+        meaningVi: String(data.get("meaningVi")).trim(),
+        originType,
+        originLabelVi: { native: "Từ thuần Hàn", sino: "Từ Hán–Hàn", loanword: "Từ mượn", expression: "Cụm diễn đạt" }[originType],
+        hanja,
+        chineseEquivalent: hanja,
+        hanviet: "",
+        sourcePage: null,
+        custom: true,
+      });
+      saveProfile();
+      render();
+      return;
+    }
+    if (form.dataset.form === "settings") {
+      profile.name = String(data.get("displayName") || "Học viên").trim();
+      profile.settings = { language: data.get("language"), voiceURI: data.get("voiceURI"), rate: Number(data.get("rate")) };
+      saveProfile();
+      ui.accountMessage = "Đã lưu cài đặt học tập.";
+      render();
+      root.querySelector("#account-dialog")?.showModal();
+      return;
+    }
+
+    ui.accountError = "";
+    ui.accountMessage = "";
     if (form.dataset.form === "sign-in") {
       const result = await signInAccount(data.get("email"), data.get("password"));
       await connectAccount(result.session);
@@ -808,11 +1564,13 @@ root.addEventListener("submit", async event => {
     render();
     root.querySelector("#account-dialog")?.showModal();
   } catch (error) {
-    ui.accountError = error.message || "Không thể hoàn tất thao tác.";
-    render();
-    root.querySelector("#account-dialog")?.showModal();
+    if (["sign-in", "sign-up", "reset", "settings"].includes(form.dataset.form)) {
+      ui.accountError = error.message || "Không thể hoàn tất thao tác.";
+      render();
+      root.querySelector("#account-dialog")?.showModal();
+    } else alert(error.message || "Không thể hoàn tất thao tác.");
   } finally {
-    submit.disabled = false;
+    if (submit) submit.disabled = false;
   }
 });
 
