@@ -1,123 +1,19 @@
 <!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#075c36">
-  <meta name="description" content="Sejong Green - web học tiếng Hàn sơ cấp 1A">
-  <title>Sejong Green · Học tiếng Hàn 1A</title>
-  <link rel="icon" href="/hangul/assets/sejong-green.webp" type="image/webp">
-  <script type="module" crossorigin src="/hangul/assets/index-DwPiClsN.js"></script>
-  <link rel="stylesheet" crossorigin href="/hangul/assets/index-BhqLw5j7.css">
-</head>
-<body>
-<a class="skip-link" href="#mainContent">Bỏ qua điều hướng</a>
-  <div class="login-gate" id="loginGate" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
-    <div class="login-visual">
-      <img src="/hangul/assets/sejong-green.webp" alt="" width="94" height="94">
-      <h1>Sejong Green</h1>
-      <p>Nghe rõ hơn. Đọc sâu hơn. Viết tự tin hơn.</p>
-      <div class="login-korean" lang="ko">오늘도 한 걸음씩.</div>
-    </div>
-    <div class="login-panel">
-      <div class="login-tabs" role="tablist">
-        <button class="active" type="button" data-auth-tab="login">Đăng nhập</button>
-        <button type="button" data-auth-tab="register">Tạo tài khoản</button>
-        <button type="button" data-auth-tab="local">Cục bộ</button>
-      </div>
-      <section id="loginPane">
-        <h2 id="loginTitle">Đăng nhập trực tuyến</h2>
-        <p class="muted">Tiến độ của bạn sẽ theo tài khoản trên mọi thiết bị.</p>
-        <label class="field-label" for="accountLoginEmail">Email</label>
-        <input id="accountLoginEmail" class="field" type="email" inputmode="email" autocomplete="email" placeholder="ban@example.com">
-        <label class="field-label" for="accountLoginPassword">Mật khẩu</label>
-        <input id="accountLoginPassword" class="field" type="password" minlength="8" maxlength="72" autocomplete="current-password" placeholder="Nhập mật khẩu">
-        <button class="button primary wide" id="accountLoginButton" type="button">Đăng nhập và đồng bộ</button>
-        <button class="text-button" id="forgotPasswordButton" type="button">Quên mật khẩu?</button>
-      </section>
-      <section id="registerPane" hidden>
-        <h2>Tạo tài khoản</h2>
-        <p class="muted">Một tài khoản cho máy tính, iPad và điện thoại.</p>
-        <label class="field-label" for="accountDisplayName">Tên hiển thị</label>
-        <input id="accountDisplayName" class="field" maxlength="64" autocomplete="name" placeholder="Ví dụ: Liễu">
-        <label class="field-label" for="accountRegisterEmail">Email</label>
-        <input id="accountRegisterEmail" class="field" type="email" inputmode="email" autocomplete="email" placeholder="ban@example.com">
-        <label class="field-label" for="accountRegisterPassword">Mật khẩu</label>
-        <input id="accountRegisterPassword" class="field" type="password" minlength="8" maxlength="72" autocomplete="new-password" placeholder="Ít nhất 8 ký tự">
-        <label class="field-label" for="accountImportProfile">Tiến độ ban đầu</label>
-        <select id="accountImportProfile" class="field">
-          <option value="">Bắt đầu với hồ sơ mới</option>
-        </select>
-        <button class="button primary wide" id="accountRegisterButton" type="button">Tạo tài khoản miễn phí</button>
-      </section>
-      <section id="localPane" hidden>
-        <h2>Hồ sơ trên thiết bị</h2>
-        <p class="muted">Chỉ dùng trong trình duyệt này và không đồng bộ.</p>
-        <label class="field-label" for="loginProfile">Hồ sơ học viên</label>
-        <select id="loginProfile" class="field"></select>
-        <label class="field-label" for="loginPin">PIN</label>
-        <input id="loginPin" class="field" type="password" inputmode="numeric" maxlength="12" autocomplete="current-password" placeholder="Nhập PIN">
-        <button class="button primary wide" id="loginButton" type="button">Vào học cục bộ</button>
-        <div class="local-divider"><span>hoặc tạo hồ sơ mới</span></div>
-        <label class="field-label" for="registerName">Tên hiển thị</label>
-        <input id="registerName" class="field" maxlength="32" autocomplete="name" placeholder="Ví dụ: Liễu">
-        <label class="field-label" for="registerPin">PIN mới</label>
-        <input id="registerPin" class="field" type="password" inputmode="numeric" minlength="4" maxlength="12" autocomplete="new-password" placeholder="Từ 4 đến 12 chữ số">
-        <button class="button wide" id="registerButton" type="button">Tạo hồ sơ cục bộ</button>
-      </section>
-      <div class="auth-message" id="accountMessage" hidden></div>
-      <p class="auth-note" id="authNote">Mật khẩu được Supabase Auth bảo vệ. Dữ liệu học chỉ tài khoản của bạn mới truy cập được.</p>
-    </div>
-  </div>
-
-  <div class="app-shell" id="appShell" hidden>
-    <aside class="sidebar" aria-label="Điều hướng chính">
-      <div class="brand">
-        <img src="/hangul/assets/sejong-green.webp" alt="" width="48" height="48">
-        <span>Sejong<br>Green</span>
-      </div>
-      <nav id="mainNav"></nav>
-      <button class="profile-card" id="profileMenuButton" type="button" aria-label="Mở cài đặt hồ sơ">
-        <span class="avatar" id="avatarInitial">S</span>
-        <span class="profile-copy"><strong id="sidebarName">Học viên</strong><small id="profileSyncStatus">Sejong 1A</small></span>
-        <span aria-hidden="true">⌄</span>
-      </button>
-    </aside>
-
-    <div class="workspace">
-      <header class="topbar">
-        <div>
-          <p class="top-greeting" id="topGreeting">Chào bạn, hôm nay mình học tiếp nhé</p>
-          <p class="top-context" id="topContext">Sejong Korean 1A</p>
-        </div>
-        <div class="top-actions">
-          <button class="icon-button" id="voiceSettingsButton" type="button" title="Cài đặt giọng đọc" aria-label="Cài đặt giọng đọc"></button>
-          <button class="icon-button" id="profileSettingsButton" type="button" title="Cài đặt hồ sơ" aria-label="Cài đặt hồ sơ"></button>
-        </div>
-      </header>
-      <main id="mainContent" tabindex="-1">
-        <section class="view active" id="view-dashboard" data-view="dashboard"></section>
-        <section class="view" id="view-vocabulary" data-view="vocabulary"></section>
-        <section class="view" id="view-flashcards" data-view="flashcards"></section>
-        <section class="view" id="view-quiz" data-view="quiz"></section>
-        <section class="view" id="view-listening" data-view="listening"></section>
-        <section class="view" id="view-shadowing" data-view="shadowing"></section>
-        <section class="view" id="view-writing" data-view="writing"></section>
-        <section class="view" id="view-progress" data-view="progress"></section>
-        <section class="view" id="view-reports" data-view="reports"></section>
-        <section class="view" id="view-data" data-view="data"></section>
-      </main>
-    </div>
-  </div>
-
-  <dialog id="appDialog" class="app-dialog">
-    <div class="dialog-header">
-      <h2 id="dialogTitle">Cài đặt</h2>
-      <button class="icon-button" id="dialogClose" type="button" aria-label="Đóng"></button>
-    </div>
-    <div id="dialogBody"></div>
-  </dialog>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <input type="file" id="hiddenImport" accept=".json,.csv,text/csv,application/json" hidden>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f7ed" />
+    <meta
+      name="description"
+      content="Học Sejong Korean 1 và Sejong Korean 2 với từ vựng, ngữ pháp, bài tập và file nghe theo đúng sách."
+    />
+    <title>Học tiếng Hàn để thành kà su</title>
+    <script type="module" crossorigin src="/hangul/assets/index-C5jP8I9m.js"></script>
+    <link rel="stylesheet" crossorigin href="/hangul/assets/index-BmOeH4Rz.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+    <div id="app" aria-live="polite"></div>
+  </body>
 </html>

@@ -1,53 +1,46 @@
-# Sejong Green
+# Học tiếng Hàn để thành kà su
 
-Web học tiếng Hàn Sejong 1A, tối ưu cho máy tính và iPad.
+Website học theo đúng hai giáo trình **Sejong Korean 1** và **Sejong Korean 2**.
+Hai khu vực sử dụng dữ liệu, audio, bài tập và tiến độ riêng, không trộn lẫn.
 
-Web hỗ trợ tài khoản email/mật khẩu, đồng bộ tiến độ giữa nhiều thiết bị và
-đưa một hồ sơ cục bộ cũ lên tài khoản trực tuyến khi đăng ký.
+## Nội dung
+
+- Sejong 1: phần nhập môn, 12 bài, 4 bài văn hoá, 256 mục từ và 73 track.
+- Sejong 2: 14 bài, 4 bài văn hoá, 389 mục từ và 70 track.
+- Từ vựng lấy từ phần mục lục từ vựng của từng sách và đối chiếu với Từ điển
+  tiếng Hàn cơ sở của Viện Quốc ngữ Quốc gia Hàn Quốc.
+- Bài tập cần hình dùng ảnh chụp riêng từ đúng trang sách; không đăng nguyên PDF.
+- Tài khoản Supabase đồng bộ tiến độ riêng của từng giáo trình trên nhiều thiết bị.
 
 ## Cấu trúc
 
-- `app/index.html`: khung HTML nguồn.
-- `app/src/`: giao diện, chức năng và lớp lưu trữ.
-- `app/data/`: từ vựng, shadowing và bài nghe tách riêng.
-- `app/data/number-groups.json`: hai nhóm số Hán–Hàn và thuần Hàn, tách khỏi từ mới của Bài 2/Bài 6 nhưng giữ nguyên ID và tiến độ học.
-- `app/public/`: ảnh và tài nguyên tĩnh.
-- `supabase/schema.sql`: cấu trúc tài khoản, RLS và đồng bộ thời gian thực.
-- `index.html` và `assets/`: bản build đang được GitHub Pages phục vụ.
+- `app/data/courses.json`: hai giáo trình, bài học, từ vựng, ngữ pháp và ánh xạ tài nguyên.
+- `app/public/audio/sejong-1/`, `app/public/audio/sejong-2/`: file nghe theo số track.
+- `app/public/assets/exercises/`: ảnh bài tập theo giáo trình và bài.
+- `app/public/assets/culture/`: ảnh các bài văn hoá.
+- `app/src/`: giao diện, tiến độ và đồng bộ tài khoản.
+- `scripts/build-sejong-courses.mjs`: tạo dữ liệu giáo trình từ kết quả trích xuất đã đối chiếu.
+- `supabase/schema.sql`: bảng tài khoản, RLS và trạng thái đồng bộ.
 
 ## Chạy cục bộ
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
-## Kiểm tra và tạo bản phát hành
+## Kiểm tra và phát hành
 
 ```bash
-npm run validate
-npm run release
+pnpm run validate
+pnpm run release
 ```
 
-`npm run release` kiểm tra dữ liệu, build bằng Vite rồi cập nhật bản tĩnh ở thư
-mục gốc để đường dẫn GitHub Pages hiện tại tiếp tục hoạt động.
+`pnpm run release` kiểm tra dữ liệu, build bằng Vite rồi cập nhật `index.html`,
+`assets/` và `audio/` ở thư mục gốc cho GitHub Pages.
 
-## Cấu hình Supabase
+## Quy tắc hiển thị nguồn gốc từ
 
-Web mặc định vẫn dùng dữ liệu trình duyệt và giữ nguyên các khóa
-`sejongGreen.*`. Khi đã có dự án Supabase:
-
-1. Chạy `supabase/schema.sql` bằng một migration Supabase.
-2. Sao chép `.env.example` thành `.env`.
-3. Điền `VITE_SUPABASE_URL` và `VITE_SUPABASE_PUBLISHABLE_KEY`.
-4. Build lại web.
-
-Trong **Authentication → URL Configuration**, đặt:
-
-- Site URL: `https://phamngoclieu.github.io/hangul/`
-- Redirect URL: `https://phamngoclieu.github.io/hangul/**`
-
-Hai URL này cần thiết cho xác nhận email và đặt lại mật khẩu. Khi chạy cục bộ,
-có thể thêm `http://localhost:5173/hangul/**` hoặc URL preview tương ứng.
-
-Không đưa service-role key vào frontend hoặc GitHub.
+- Từ thuần Hàn chỉ hiện phân loại **Từ thuần Hàn**.
+- Từ Hán–Hàn luôn hiện Hán tự và từ tiếng Hán tương ứng.
+- Flashcard có nút **Từ trước** và **Từ tiếp theo**.

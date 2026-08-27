@@ -20,7 +20,7 @@ function defaultProgress() {
   return {
     srs: {}, quizHistory: [], listening: {}, shadow: {}, writing: {},
     flashNotes: {}, writingNotes: {}, reviewAgain: {}, reviewHard: {},
-    lastLesson: 1, streak: 0, lastActive: "", sessions: 0
+    courseState: {}, lastLesson: 1, streak: 0, lastActive: "", sessions: 0
   };
 }
 
@@ -43,7 +43,16 @@ function normalizeProfile(profile, user, displayName) {
       flashNotes: { ...(source.progress?.flashNotes || {}) },
       writingNotes: { ...(source.progress?.writingNotes || {}) },
       reviewAgain: { ...(source.progress?.reviewAgain || {}) },
-      reviewHard: { ...(source.progress?.reviewHard || {}) }
+      reviewHard: { ...(source.progress?.reviewHard || {}) },
+      courseState: Object.fromEntries(
+        Object.entries(source.progress?.courseState || {}).map(([courseId, state]) => [courseId, {
+          ...(state || {}),
+          completedLessons: [...(state?.completedLessons || [])],
+          completedExercises: [...(state?.completedExercises || [])],
+          masteredWords: [...(state?.masteredWords || [])],
+          notes: { ...(state?.notes || {}) }
+        }])
+      )
     }
   };
 }
