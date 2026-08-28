@@ -126,7 +126,7 @@ img { max-width: 100%; }
 .metric-grid b { font-size: 19px; }
 .metric-grid small { color: var(--muted); font-size: 9px; }
 
-.quick-tools { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 0 0 16px; }
+.quick-tools { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 16px; }
 .quick-tools button { display: grid; grid-template-columns: 36px 1fr; align-items: center; gap: 2px 10px; min-width: 0; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); text-align: left; }
 .quick-tools button > span { grid-row: 1 / 3; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--soft); color: var(--green); font-size: 18px; }
 .quick-tools b { font-size: 11px; }
@@ -362,7 +362,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--green-2); box-sh
 .transcript-list h3 { margin: 12px 0 2px; }
 .transcript-list p { margin: 0; padding: 8px 0; border-bottom: 1px dashed var(--line); color: var(--ink); font-family: "Noto Sans KR", sans-serif; }
 .book-page-preview { padding: 10px; overflow: hidden; }
-.book-page-preview button { position: relative; width: 100%; overflow: hidden; border: 0; border-radius: 11px; background: #eef1eb; padding: 0; }
+.book-page-preview button, button.book-page-preview { position: relative; width: 100%; overflow: hidden; border: 0; border-radius: 11px; background: #eef1eb; padding: 0; }
 .book-page-preview img { display: block; width: 100%; max-height: 520px; object-fit: cover; object-position: top; }
 .book-page-preview span { position: absolute; right: 9px; bottom: 9px; padding: 7px 9px; border-radius: 8px; background: rgba(23,76,60,.9); color: white; font-size: 8px; }
 
@@ -378,6 +378,20 @@ input:focus, select:focus, textarea:focus { border-color: var(--green-2); box-sh
 .writing-word h2 { text-align: center; }
 .ko-input { font-family: "Noto Sans KR", sans-serif; font-size: 17px; }
 .writing-topic > textarea { min-height: 220px; font-family: "Noto Sans KR", sans-serif; }
+.shuffle-writing { margin-left: auto; }
+.book-writing-panel { display: grid; gap: 12px; }
+.book-writing-panel .book-page-preview { padding: 0; }
+.book-writing-panel label { display: grid; gap: 7px; color: var(--green); font-size: 10px; }
+.book-writing-panel textarea { min-height: 150px; font-family: "Noto Sans KR", sans-serif; }
+.reading-layout { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(300px, .7fr); gap: 15px; align-items: start; }
+.reading-passage h2, .reading-word-form h2 { margin-top: 7px; color: var(--green); }
+.reading-lines { display: grid; gap: 7px; }
+.reading-lines > div { display: grid; grid-template-columns: 1fr 34px; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: #f7faf5; }
+.reading-lines p { margin: 0; color: var(--ink); font-family: "Noto Sans KR", sans-serif; font-size: 13px; line-height: 1.65; }
+.reading-lines .icon-button { width: 32px; height: 32px; }
+.reading-word-form { display: grid; gap: 11px; }
+.reading-word-form label { display: grid; gap: 5px; color: var(--muted); font-size: 8px; font-weight: 700; }
+.lesson-practice-links > div:last-child { display: flex; flex-wrap: wrap; gap: 9px; }
 .report-form, .settings-form { display: grid; gap: 12px; }
 .report-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .report-list li { display: grid; grid-template-columns: 1fr auto; gap: 3px 10px; padding: 10px; border-radius: 9px; background: var(--soft); }
@@ -408,6 +422,10 @@ dialog::backdrop { background: rgba(14,35,28,.6); backdrop-filter: blur(4px); }
 .auth-grid form, .reset-form { display: grid; gap: 11px; padding: 21px; border: 1px solid var(--line); border-radius: 14px; }
 .auth-grid h3, .reset-form h3 { margin: 0 0 5px; color: var(--green); font-size: 15px; }
 .auth-grid label, .reset-form label { display: grid; gap: 5px; color: var(--muted); font-size: 8px; font-weight: 700; }
+.auth-help { margin: -10px 0 16px; padding: 11px 13px; border-radius: 10px; background: var(--soft); color: var(--muted); font-size: 9px; line-height: 1.55; }
+.password-field { position: relative; display: block; }
+.password-field input { padding-right: 58px; }
+.password-field button { position: absolute; top: 5px; right: 5px; height: 30px; padding: 0 10px; border: 0; border-radius: 7px; background: var(--soft); color: var(--green); font-size: 8px; font-weight: 800; }
 .reset-form { margin-top: 14px; }
 .form-message { padding: 10px 12px; border-radius: 9px; font-size: 10px; }
 .form-message.error { background: #fbece8; color: #9d3e2e; }
@@ -461,7 +479,7 @@ dialog::backdrop { background: rgba(14,35,28,.6); backdrop-filter: blur(4px); }
   .flash-stage { grid-template-columns: 55px minmax(240px, 1fr) 55px; gap: 8px; }
   .culture-card { grid-template-columns: 1fr; }
   .lesson-exercises { grid-template-columns: 1fr; }
-  .listening-layout, .shadow-layout, .writing-layout, .reports-layout, .data-grid { grid-template-columns: 1fr; }
+  .listening-layout, .shadow-layout, .writing-layout, .reading-layout, .reports-layout, .data-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {

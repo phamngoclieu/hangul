@@ -235,6 +235,30 @@ function extractDialogue(lines, label) {
     .filter(line => !/^\d+\s*세종한국어/u.test(line));
 }
 
+function readingPage(courseId, lesson, readingAsset) {
+  // Sejong 1 inserts culture spreads before lessons 4 and 7. The first
+  // generated manifest used the pre-insert offsets for lessons 4-10.
+  if (courseId === "sejong-1" && lesson.id >= 4 && lesson.id <= 10) return lesson.pages[1] - 1;
+  return readingAsset?.page || null;
+}
+
+function extractReading(lines) {
+  return lines
+    .map(line => String(line || "").trim())
+    .filter(Boolean)
+    .filter(line => /[가-힣]/u.test(line))
+    .filter(line => !/^(읽고 쓰기|읽기)$/u.test(line))
+    .filter(line => !(/^\d+\./u.test(line) && /(다음|아래).*(읽|답|고르|표시|쓰|이야기)/u.test(line)))
+    .filter(line => !/^\d+\)/u.test(line))
+    .filter(line => !/^\(\d+\)/u.test(line))
+    .filter(line => !/^[①-⑩]/u.test(line))
+    .filter(line => !/^\d+\s*세종한국어\s*[12]?$/u.test(line))
+    .filter(line => !/^\d+\s+.+\s+\d+$/u.test(line))
+    .filter(line => !/^(네|아니요|[OX×x])$/u.test(line))
+    .filter(line => !/^\(?\s*(답장|삭제)/u.test(line))
+    .filter(line => !/그제고한 제주도로/u.test(line));
+}
+
 function romanize(value) {
   const initials = ["g", "kk", "n", "d", "tt", "r", "m", "b", "pp", "s", "ss", "", "j", "jj", "ch", "k", "t", "p", "h"];
   const vowels = ["a", "ae", "ya", "yae", "eo", "e", "yeo", "ye", "o", "wa", "wae", "oe", "yo", "u", "wo", "we", "wi", "yu", "eu", "ui", "i"];
@@ -340,15 +364,30 @@ function buildCourse(courseId, courseCode) {
         path: courseAudio.get(track),
       });
     }
+    let lessonExercises = exerciseAssets.filter(item => item.lesson === lesson.id && ["listening", "reading"].includes(item.kind));
+    if (courseId === "sejong-1" && lesson.id >= 4 && lesson.id <= 10) {
+      const listeningPage = lesson.pages[1] - 3;
+      const sourceReadingPage = lesson.pages[1] - 1;
+      lessonExercises = [
+        { lesson: lesson.id, kind: "listening", page: listeningPage, path: `assets/exercises/sejong-1/lesson-${String(lesson.id).padStart(2, "0")}-listening-p${String(listeningPage).padStart(3, "0")}.jpg` },
+        { lesson: lesson.id, kind: "reading", page: sourceReadingPage, path: `assets/exercises/sejong-1/lesson-${String(lesson.id).padStart(2, "0")}-reading-p${String(sourceReadingPage).padStart(3, "0")}.jpg` },
+      ];
+    }
+    const readingAsset = lessonExercises.find(item => item.kind === "reading");
+    const sourceReadingPage = readingPage(courseId, lesson, readingAsset);
     return {
       ...lesson,
       grammar: lesson.grammar.map(form => ({ form, noteVi: GRAMMAR_NOTES[form] || "Ôn mẫu ngữ pháp trong bài." })),
       vocabulary: vocabulary.filter(item => item.lesson === lesson.id),
       dialogues,
       audio: trackList,
-      // The website only publishes the listening and combined reading/writing
-      // pages. Grammar drills, Hangeul worksheets and review games stay local.
-      exercises: exerciseAssets.filter(item => item.lesson === lesson.id && ["listening", "reading"].includes(item.kind)),
+      reading: sourceReadingPage ? {
+        page: sourceReadingPage,
+        lines: extractReading(ocr.get(sourceReadingPage) || []),
+      } : null,
+      // The website only publishes the listening and reading/writing pages.
+      // Grammar drills, Hangeul worksheets and review games stay local.
+      exercises: lessonExercises,
     };
   });
 
@@ -365,7 +404,7 @@ function buildCourse(courseId, courseCode) {
 }
 
 const output = {
-  version: "2026.08.27.2",
+  version: "2026.08.28.1",
   generatedAt: new Date().toISOString(),
   courses: [buildCourse("sejong-1", "s1"), buildCourse("sejong-2", "s2")]
 };
