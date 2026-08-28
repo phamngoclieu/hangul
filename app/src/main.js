@@ -9,6 +9,7 @@ import {
   signInAccount,
   signOutAccount,
   signUpAccount,
+  updateAccountPassword,
   watchAccountAuth,
 } from "./services/account-service.js";
 
@@ -16,9 +17,18 @@ const root = document.querySelector("#app");
 const PROFILE_KEY = "sejongGreen.profiles.v1";
 const SESSION_KEY = "sejongGreen.session.v1";
 const REPORT_URL_KEY = "sejongGreen.reportUrl.v1";
+const PASSWORD_RECOVERY_KEY = "sejongGreen.passwordRecovery.v1";
 const CONTENT_VERSION = coursesData.version;
 const courses = coursesData.courses;
 const courseById = new Map(courses.map(course => [course.id, course]));
+
+function isPasswordRecoveryRedirect() {
+  const hash = new URLSearchParams(location.hash.replace(/^#/, ""));
+  const query = new URLSearchParams(location.search);
+  return hash.get("type") === "recovery" || query.get("type") === "recovery";
+}
+
+const passwordRecoveryFromUrl = isPasswordRecoveryRedirect();
 
 const NAV_ITEMS = [
   ["dashboard", "Tổng quan", "⌂"],
@@ -73,6 +83,7 @@ const ui = {
   accountSession: null,
   accountMessage: "",
   accountError: "",
+  passwordRecovery: passwordRecoveryFromUrl || storage.session.getItem(PASSWORD_RECOVERY_KEY) === "1",
 };
 
 let profile;
@@ -1066,23 +1077,46 @@ function friendlyAuthError(error) {
   }
   if (code === "email_not_confirmed" || /email not confirmed/i.test(message)) return "Email chưa được xác nhận. Hãy mở email xác nhận rồi đăng nhập lại.";
   if (code === "user_already_exists" || /already registered|already exists/i.test(message)) return "Email này đã có tài khoản. Hãy đăng nhập hoặc dùng Quên mật khẩu.";
+  if (/same password|different from the old password/i.test(message)) return "Mật khẩu mới cần khác mật khẩu cũ.";
+  if (/password.*(?:least|minimum|characters)/i.test(message)) return "Mật khẩu cần có ít nhất 6 ký tự.";
   if (/failed to fetch|network|load failed/i.test(message)) return "Không kết nối được máy chủ tài khoản. Hãy kiểm tra mạng rồi thử lại.";
   return message || "Không thể hoàn tất thao tác. Hãy thử lại.";
+}
+
+function setPasswordRecovery(active) {
+  ui.passwordRecovery = active;
+  if (active) storage.session.setItem(PASSWORD_RECOVERY_KEY, "1");
+  else storage.session.removeItem(PASSWORD_RECOVERY_KEY);
 }
 
 function renderAccountDialog() {
   const configured = hasSupabaseConfig();
   const signedIn = Boolean(ui.accountSession?.user);
+  const recovering = configured && ui.passwordRecovery;
   const settings = profile.settings || {};
   const voices = koreanVoices();
   return `
     <dialog id="account-dialog" class="account-dialog">
       <button class="dialog-close" type="button" data-action="close-account" aria-label="Đóng">×</button>
       <span class="eyebrow">Tài khoản và đồng bộ</span>
-      <h2>${signedIn ? "Tài khoản đang đăng nhập" : "Học trên nhiều thiết bị"}</h2>
+      <h2>${recovering ? "Tạo mật khẩu mới" : signedIn ? "Tài khoản đang đăng nhập" : "Học trên nhiều thiết bị"}</h2>
       ${ui.accountError ? `<p class="form-message error">${escapeHtml(ui.accountError)}</p>` : ""}
       ${ui.accountMessage ? `<p class="form-message success">${escapeHtml(ui.accountMessage)}</p>` : ""}
-      ${signedIn ? `
+      ${recovering ? signedIn ? `
+        <div class="recovery-panel">
+          <p class="auth-help">Liên kết đã được xác nhận cho <b>${escapeHtml(ui.accountSession.user.email || "tài khoản của bạn")}</b>. Hãy đặt mật khẩu mới để đăng nhập trên các thiết bị khác.</p>
+          <form class="recovery-form" data-form="update-password">
+            <label>Mật khẩu mới${passwordField("password", "new-password")}</label>
+            <label>Nhập lại mật khẩu mới${passwordField("passwordConfirm", "new-password")}</label>
+            <button class="primary-button" type="submit">Lưu mật khẩu mới</button>
+          </form>
+        </div>
+      ` : `
+        <div class="recovery-panel recovery-loading" role="status">
+          <h3>Đang xác nhận liên kết…</h3>
+          <p>Website đang kiểm tra phiên đặt lại mật khẩu từ email.</p>
+        </div>
+      ` : signedIn ? `
         <div class="signed-account"><span class="avatar">${escapeHtml((profile?.name || "H").slice(0, 1))}</span><div><b>${escapeHtml(profile?.name || "Học viên")}</b><p>${escapeHtml(ui.accountSession.user.email || "")}</p><small>Tiến độ Sejong 1 và Sejong 2 được đồng bộ riêng trong cùng tài khoản.</small></div></div>
         <button class="danger-button" type="button" data-action="sign-out">Đăng xuất trên thiết bị này</button>
       ` : configured ? `
@@ -1093,20 +1127,26 @@ function renderAccountDialog() {
         </div>
         <form class="reset-form" data-form="reset" hidden><h3>Đặt lại mật khẩu</h3><label>Email<input required type="email" name="email" autocomplete="email" /></label><button class="secondary-button" type="submit">Gửi email đặt lại</button></form>
       ` : `<p>Website đang lưu tiến độ trên thiết bị này. Cần cấu hình Supabase khi phát hành để bật đăng nhập trực tuyến.</p>`}
-      <form class="settings-form" data-form="settings">
+      ${recovering ? "" : `<form class="settings-form" data-form="settings">
         <h3>Cài đặt học tập</h3>
         <label>Tên hiển thị<input required maxlength="64" name="displayName" value="${escapeHtml(profile.name || "Học viên")}" /></label>
         <label>Ngôn ngữ hỗ trợ<select name="language"><option value="vi" ${settings.language === "vi" ? "selected" : ""}>Tiếng Việt</option><option value="zh" ${settings.language === "zh" ? "selected" : ""}>中文</option><option value="en" ${settings.language === "en" ? "selected" : ""}>English</option></select></label>
         <label>Giọng tiếng Hàn<select name="voiceURI"><option value="">Mặc định của thiết bị</option>${voices.map(voice => `<option value="${escapeHtml(voice.voiceURI)}" ${settings.voiceURI === voice.voiceURI ? "selected" : ""}>${escapeHtml(voice.name)}</option>`).join("")}</select></label>
         <label>Tốc độ đọc<select name="rate"><option value="0.7" ${Number(settings.rate) === 0.7 ? "selected" : ""}>Chậm</option><option value="0.9" ${Number(settings.rate ?? 0.9) === 0.9 ? "selected" : ""}>Vừa</option><option value="1.05" ${Number(settings.rate) === 1.05 ? "selected" : ""}>Nhanh</option></select></label>
         <div><button class="secondary-button" type="button" data-action="test-voice">Nghe thử</button><button class="primary-button" type="submit">Lưu cài đặt</button></div>
-      </form>
+      </form>`}
     </dialog>
     <dialog id="image-dialog" class="image-dialog"><button class="dialog-close" type="button" data-action="close-image" aria-label="Đóng">×</button><img src="" alt="" /></dialog>
   `;
 }
 
+function openAccountDialog() {
+  const dialog = root.querySelector("#account-dialog");
+  if (dialog && !dialog.open) dialog.showModal();
+}
+
 function render() {
+  const reopenAccountDialog = Boolean(root.querySelector("#account-dialog")?.open) || ui.passwordRecovery;
   refreshProfile();
   const course = selectedCourse();
   document.documentElement.dataset.course = course?.id || "courses";
@@ -1118,6 +1158,10 @@ function render() {
     ${renderAccountDialog()}
   `;
   if (ui.view === "vocabulary") applyVocabularyFilter();
+  if (reopenAccountDialog) {
+    openAccountDialog();
+    root.querySelector('[data-form="update-password"] input')?.focus();
+  }
 }
 
 function applyVocabularyFilter() {
@@ -1236,13 +1280,35 @@ async function connectAccount(session) {
 async function initializeAuth() {
   if (!hasSupabaseConfig()) return;
   try {
-    const session = await getAccountSession();
-    if (session) await connectAccount(session);
+    if (ui.passwordRecovery) setPasswordRecovery(true);
     authUnsubscribe = await watchAccountAuth((event, nextSession) => {
+      if (event === "PASSWORD_RECOVERY") {
+        setPasswordRecovery(true);
+        ui.accountError = "";
+        ui.accountMessage = "Liên kết đặt lại mật khẩu đã được xác nhận.";
+        if (nextSession) connectAccount(nextSession).catch(console.warn);
+        else render();
+        return;
+      }
       if (event === "SIGNED_IN" && nextSession?.user?.id === ui.accountSession?.user?.id) return;
       if (["SIGNED_IN", "TOKEN_REFRESHED", "USER_UPDATED"].includes(event) && nextSession) connectAccount(nextSession).catch(console.warn);
-      if (event === "SIGNED_OUT") connectAccount(null).catch(console.warn);
+      if (event === "SIGNED_OUT") {
+        setPasswordRecovery(false);
+        connectAccount(null).catch(console.warn);
+      }
     });
+    const session = await getAccountSession();
+    if (session && session.user?.id !== ui.accountSession?.user?.id) await connectAccount(session);
+    if (ui.passwordRecovery) {
+      if (session) {
+        ui.accountError = "";
+        ui.accountMessage = "Liên kết đặt lại mật khẩu đã được xác nhận.";
+      } else {
+        setPasswordRecovery(false);
+        ui.accountError = "Liên kết đặt lại mật khẩu không hợp lệ hoặc đã hết hạn. Hãy yêu cầu một email mới.";
+      }
+      render();
+    }
   } catch (error) {
     console.warn("Account initialization failed:", error);
     ui.syncStatus = "error";
@@ -1480,7 +1546,7 @@ root.addEventListener("click", async event => {
   if (action === "open-account") {
     ui.accountError = "";
     ui.accountMessage = "";
-    root.querySelector("#account-dialog")?.showModal();
+    openAccountDialog();
   }
   if (action === "close-account") root.querySelector("#account-dialog")?.close();
   if (action === "toggle-password") {
@@ -1501,12 +1567,13 @@ root.addEventListener("click", async event => {
   }
   if (action === "sign-out") {
     try {
+      setPasswordRecovery(false);
       await signOutAccount();
       await connectAccount(null);
     } catch (error) {
       ui.accountError = error.message;
       render();
-      root.querySelector("#account-dialog")?.showModal();
+      openAccountDialog();
     }
   }
 });
@@ -1651,7 +1718,7 @@ root.addEventListener("submit", async event => {
       saveProfile();
       ui.accountMessage = "Đã lưu cài đặt học tập.";
       render();
-      root.querySelector("#account-dialog")?.showModal();
+      openAccountDialog();
       return;
     }
 
@@ -1669,15 +1736,23 @@ root.addEventListener("submit", async event => {
     }
     if (form.dataset.form === "reset") {
       await sendPasswordReset(data.get("email"));
-      ui.accountMessage = "Đã gửi email đặt lại mật khẩu.";
+      ui.accountMessage = "Đã gửi email đặt lại mật khẩu. Hãy mở liên kết trong email để tạo mật khẩu mới.";
+    }
+    if (form.dataset.form === "update-password") {
+      const password = String(data.get("password") || "");
+      const passwordConfirm = String(data.get("passwordConfirm") || "");
+      if (password !== passwordConfirm) throw new Error("Hai lần nhập mật khẩu chưa giống nhau.");
+      await updateAccountPassword(password);
+      setPasswordRecovery(false);
+      ui.accountMessage = "Đã đổi mật khẩu. Bây giờ bạn có thể dùng email và mật khẩu mới trên các thiết bị khác.";
     }
     render();
-    root.querySelector("#account-dialog")?.showModal();
+    openAccountDialog();
   } catch (error) {
-    if (["sign-in", "sign-up", "reset", "settings"].includes(form.dataset.form)) {
+    if (["sign-in", "sign-up", "reset", "update-password", "settings"].includes(form.dataset.form)) {
       ui.accountError = friendlyAuthError(error);
       render();
-      root.querySelector("#account-dialog")?.showModal();
+      openAccountDialog();
     } else alert(error.message || "Không thể hoàn tất thao tác.");
   } finally {
     if (submit) submit.disabled = false;

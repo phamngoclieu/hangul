@@ -419,14 +419,19 @@ dialog::backdrop { background: rgba(14,35,28,.6); backdrop-filter: blur(4px); }
 .dialog-close { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 32px; height: 32px; border: 0; border-radius: 50%; background: var(--soft); color: var(--green); font-size: 20px; }
 .account-dialog h2 { margin: 7px 0 24px; color: var(--green); font-size: 27px; }
 .auth-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.auth-grid form, .reset-form { display: grid; gap: 11px; padding: 21px; border: 1px solid var(--line); border-radius: 14px; }
-.auth-grid h3, .reset-form h3 { margin: 0 0 5px; color: var(--green); font-size: 15px; }
-.auth-grid label, .reset-form label { display: grid; gap: 5px; color: var(--muted); font-size: 8px; font-weight: 700; }
+.auth-grid form, .reset-form, .recovery-form { display: grid; gap: 11px; padding: 21px; border: 1px solid var(--line); border-radius: 14px; }
+.auth-grid h3, .reset-form h3, .recovery-panel h3 { margin: 0 0 5px; color: var(--green); font-size: 15px; }
+.auth-grid label, .reset-form label, .recovery-form label { display: grid; gap: 5px; color: var(--muted); font-size: 8px; font-weight: 700; }
 .auth-help { margin: -10px 0 16px; padding: 11px 13px; border-radius: 10px; background: var(--soft); color: var(--muted); font-size: 9px; line-height: 1.55; }
 .password-field { position: relative; display: block; }
 .password-field input { padding-right: 58px; }
 .password-field button { position: absolute; top: 5px; right: 5px; height: 30px; padding: 0 10px; border: 0; border-radius: 7px; background: var(--soft); color: var(--green); font-size: 8px; font-weight: 800; }
 .reset-form { margin-top: 14px; }
+.recovery-panel { display: grid; gap: 14px; width: min(520px, 100%); margin: 0 auto; }
+.recovery-panel .auth-help { margin: 0; }
+.recovery-form { background: white; }
+.recovery-loading { padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--soft); }
+.recovery-loading p { margin: 0; color: var(--muted); }
 .form-message { padding: 10px 12px; border-radius: 9px; font-size: 10px; }
 .form-message.error { background: #fbece8; color: #9d3e2e; }
 .form-message.success { background: #e9f4ec; color: #286446; }
