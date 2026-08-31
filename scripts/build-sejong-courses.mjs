@@ -298,6 +298,7 @@ function cleanHanja(value) {
 
 function vocabularyRecord(courseId, item) {
   const old = oldVocabularyByWord.get(item.term);
+  const oldFlashcard = courseId === "sejong-1" ? old : null;
   const oldOrigin = oldOriginByWord.get(item.term);
   const override = VOCABULARY_OVERRIDES[`${courseId}:${item.lesson}:${item.term}`] || {};
   const dictionaryKey = dictionary[item.term] ? item.term : correctedDictionaryKeys[item.term];
@@ -330,6 +331,9 @@ function vocabularyRecord(courseId, item) {
     chineseEquivalent: originType === "sino" ? simplified(original) : "",
     hanviet: originType === "sino" ? (override.hanviet || oldOrigin?.hanviet || "") : "",
     pronunciation: old?.actual_pronunciation || entry.pronunciation || "",
+    example: oldFlashcard?.example || "",
+    exampleVi: oldFlashcard?.example_vi || "",
+    grammarPoint: oldFlashcard?.grammar_point || "",
     sourcePage: item.references[0] || null,
     dictionarySource: trustedDictionary && originType !== "native" ? SOURCE_DICTIONARY : "",
     dictionaryUrl: trustedDictionary && originType !== "native" ? entry.source_url : "",

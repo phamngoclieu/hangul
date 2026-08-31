@@ -419,7 +419,6 @@ function renderCoursePicker() {
         ${courses.map((course, index) => `
           <article class="course-card course-card-${index + 1}">
             <div class="course-number">0${index + 1}</div>
-            <span class="book-label">Giáo trình gốc · ${course.pageCount} trang</span>
             <h2>${escapeHtml(course.title)}</h2>
             <h3>${escapeHtml(course.titleKo)}</h3>
             <p>${escapeHtml(course.description)}</p>
@@ -435,10 +434,6 @@ function renderCoursePicker() {
             </button>
           </article>
         `).join("")}
-      </section>
-      <section class="source-note">
-        <span>✓</span>
-        <div><b>Nội dung theo đúng hai cuốn sách trên máy</b><p>Ảnh chỉ dùng cho bài tập cần nhìn hình; sách PDF gốc không được đăng nguyên cuốn.</p></div>
       </section>
     </main>
   `;
@@ -510,13 +505,13 @@ function renderCompactLesson(course, lesson) {
 function renderLessons(course) {
   const progress = courseProgress();
   return `
-    ${sectionHeading(course.title, "Danh sách bài học", `${course.lessons.length} bài được sắp đúng thứ tự trong ${course.source}.`)}
+    ${sectionHeading(course.title, "Danh sách bài học", `${course.lessons.length} bài được sắp theo đúng lộ trình học.`)}
     <section class="lesson-grid">
       ${course.lessons.map(lesson => {
         const done = progress.completedLessons.includes(lesson.id);
         return `
           <article class="lesson-card ${done ? "completed" : ""}">
-            <div class="lesson-card-top"><span>${lesson.id === 0 ? "Nhập môn" : `Bài ${String(lesson.id).padStart(2, "0")}`}</span><i>${done ? "✓ Đã học" : `tr. ${lesson.pages[0]}–${lesson.pages[1]}`}</i></div>
+            <div class="lesson-card-top"><span>${lesson.id === 0 ? "Nhập môn" : `Bài ${String(lesson.id).padStart(2, "0")}`}</span>${done ? "<i>✓ Đã học</i>" : ""}</div>
             <h2>${escapeHtml(lesson.titleVi)}</h2><h3>${escapeHtml(lesson.titleKo)}</h3>
             <p>${escapeHtml(lesson.objectives.join(" · "))}</p>
             <div class="lesson-tags">
@@ -559,6 +554,30 @@ function renderOrigin(item, compact = false) {
   return `<div class="origin-box other"><span>Phân loại</span><b>${escapeHtml(item.originLabelVi)}</b></div>`;
 }
 
+function actualPronunciation(item) {
+  const pronunciation = String(item.pronunciation || "").trim();
+  if (!pronunciation) return "";
+  const comparable = value => value.normalize("NFC").replace(/[\s/ː]/g, "");
+  return comparable(pronunciation) === comparable(item.word) ? "" : pronunciation;
+}
+
+function renderActualPronunciation(item) {
+  const pronunciation = actualPronunciation(item);
+  if (!pronunciation) return "";
+  return `<div class="actual-pronunciation"><span>Cách đọc khi biến âm</span><b>[${escapeHtml(pronunciation)}]</b></div>`;
+}
+
+function renderFlashExample(item) {
+  if (!item.example) return "";
+  return `
+    <div class="flash-example">
+      <p>${escapeHtml(item.example)}</p>
+      ${item.exampleVi ? `<small>${escapeHtml(item.exampleVi)}</small>` : ""}
+    </div>
+    ${item.grammarPoint ? `<span class="grammar-chip">Ngữ pháp · ${escapeHtml(item.grammarPoint)}</span>` : ""}
+  `;
+}
+
 function renderVocabularyCard(item) {
   const mastered = courseProgress().masteredWords.includes(item.id);
   return `
@@ -575,7 +594,7 @@ function renderVocabularyCard(item) {
 function renderVocabulary(course) {
   const vocabulary = allCourseVocabulary(course);
   return `
-    ${sectionHeading(course.title, "Từ vựng theo đúng giáo trình", `${vocabulary.length} mục từ được lấy từ phần mục lục từ vựng của ${course.source}.`)}
+    ${sectionHeading(course.title, "Từ vựng theo đúng giáo trình", `${vocabulary.length} mục từ được chia theo từng bài học.`)}
     <section class="filter-bar">
       <label class="search-field"><span>⌕</span><input data-filter="vocabulary-search" type="search" placeholder="Tìm từ Hàn, phiên âm hoặc nghĩa Việt" value="${escapeHtml(ui.vocabularySearch)}" /></label>
       <label><span>Bài học</span><select data-filter="vocabulary-lesson"><option value="all">Tất cả bài</option>${course.lessons.map(lesson => `<option value="${lesson.id}" ${ui.vocabularyLesson === String(lesson.id) ? "selected" : ""}>${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`} · ${escapeHtml(lesson.titleVi)}</option>`).join("")}</select></label>
@@ -657,7 +676,7 @@ function renderFlashcards(course) {
   const frontMain = item ? (direction === "ko-vi" ? item.word : item.meaningVi) : "";
   const note = item ? progress.flashNotes[item.id] || "" : "";
   return `
-    ${sectionHeading(course.title, "Flashcard", "Giữ nguyên bộ ôn chưa nhớ, từ khó, hai chiều, ghi chú và lịch lặp ngắt quãng của web cũ.")}
+    ${sectionHeading(course.title, "Flashcard", "Lật thẻ để xem đáp án, cách đọc khi biến âm, ví dụ và ngữ pháp liên quan.")}
     <section class="flash-deck-tabs">
       <button class="${ui.flashDeckMode === "lesson" ? "active" : ""}" type="button" data-action="flash-mode" data-mode="lesson">Tất cả từ trong bài <span>${flashSourceVocabulary(course, "lesson").length}</span></button>
       <button class="${ui.flashDeckMode === "again" ? "active" : ""}" type="button" data-action="flash-mode" data-mode="again">Ôn từ chưa thuộc <span>${againCount}</span></button>
@@ -671,14 +690,15 @@ function renderFlashcards(course) {
     ${item ? `
       <section class="flash-stage">
         <button class="flash-arrow" type="button" data-action="flash-prev" aria-label="Từ trước">←<small>Từ trước</small></button>
-        <button class="flashcard ${ui.flashFlipped ? "flipped" : ""}" type="button" data-action="flip-card" aria-label="Lật thẻ">
+        <button class="flashcard ${ui.flashFlipped ? "flipped" : ""}" type="button" data-action="flip-card" aria-label="Lật thẻ" aria-pressed="${ui.flashFlipped}">
           <span class="flash-side flash-front"><small>Bài ${item.lesson} · ${direction === "ko-vi" ? "Hàn → Việt" : "Việt → Hàn"} · Chạm để lật</small><strong>${escapeHtml(frontMain)}</strong>${direction === "ko-vi" ? `<i>${escapeHtml(item.romanization)}</i>` : ""}</span>
-          <span class="flash-side flash-back"><small>Đáp án</small><strong>${escapeHtml(item.word)}</strong><i>${escapeHtml(item.romanization)} · ${escapeHtml(item.meaningVi)}</i>${renderOrigin(item)}<i>Trang ${item.sourcePage || "—"} · ${escapeHtml(course.source)}</i></span>
+          <span class="flash-side flash-back"><small>Đáp án</small><strong>${escapeHtml(item.word)}</strong><i>${escapeHtml(item.romanization)} · ${escapeHtml(item.meaningVi)}</i>${renderActualPronunciation(item)}${renderFlashExample(item)}${renderOrigin(item)}</span>
         </button>
         <button class="flash-arrow" type="button" data-action="flash-next" aria-label="Từ tiếp theo">→<small>Từ tiếp theo</small></button>
       </section>
       <section class="flash-actions">
         <button class="secondary-button" type="button" data-action="speak" data-text="${escapeHtml(item.word)}">♪ Nghe từ</button>
+        ${item.example ? `<button class="secondary-button" type="button" data-action="speak" data-text="${escapeHtml(item.example)}">♪ Nghe câu ví dụ</button>` : ""}
         <button class="secondary-button" type="button" data-action="flash-shuffle">⇄ Xáo trộn lại</button>
       </section>
       <section class="rating-row ${ui.flashFlipped ? "visible" : ""}" aria-label="Tự đánh giá">
@@ -713,12 +733,12 @@ function renderExerciseCard(item, lesson) {
   const note = progress.notes[key] || "";
   return `
     <article class="exercise-card ${done ? "completed" : ""}" data-exercise-card data-lesson="${lesson.id}">
-      <button class="exercise-image" type="button" data-action="open-image" data-src="${asset(item.path)}" data-alt="${escapeHtml(`${exerciseTitle(item)} · trang ${item.page}`)}">
-        <img src="${asset(item.path)}" alt="${escapeHtml(`${exerciseTitle(item)} của ${lesson.titleVi}, trang ${item.page}`)}" loading="lazy" />
+      <button class="exercise-image" type="button" data-action="open-image" data-src="${asset(item.path)}" data-alt="${escapeHtml(exerciseTitle(item))}">
+        <img src="${asset(item.path)}" alt="${escapeHtml(`${exerciseTitle(item)} của ${lesson.titleVi}`)}" loading="lazy" />
         <span>Phóng to ảnh bài tập</span>
       </button>
       <div class="exercise-body">
-        <span class="eyebrow">${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`} · trang ${item.page}</span>
+        <span class="eyebrow">${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`}</span>
         <h3>${exerciseTitle(item)}</h3>
         <label>Ghi câu trả lời<textarea data-note-key="${escapeHtml(key)}" placeholder="Gõ câu trả lời hoặc ghi chú của bạn…">${escapeHtml(note)}</textarea></label>
         <button class="complete-button ${done ? "done" : ""}" type="button" data-action="toggle-exercise" data-key="${escapeHtml(key)}">${done ? "✓ Đã hoàn thành" : "Đánh dấu hoàn thành"}</button>
@@ -733,15 +753,14 @@ function renderReading(course) {
   const lines = reading?.lines || [];
   const completed = Boolean(courseProgress().reading[lesson.id]?.completed);
   return `
-    ${sectionHeading(course.title, `Luyện đọc · ${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`}`, "Đọc nội dung lấy trực tiếp từ đúng trang sách, nghe từng câu và lưu thêm từ mới gặp trong bài.")}
+    ${sectionHeading(course.title, `Luyện đọc · ${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`}`, "Đọc nội dung trong bài, nghe từng câu và lưu thêm từ mới gặp.")}
     <section class="practice-toolbar">
       <label><span>Bài học</span><select data-filter="reading-lesson">${lessonOptions(course, lesson.id)}</select></label>
-      <div class="source-badge">${escapeHtml(course.source)} · trang ${reading?.page || "—"}</div>
       <button class="complete-button ${completed ? "done" : ""}" type="button" data-action="mark-reading" data-lesson="${lesson.id}">${completed ? "✓ Đã đọc" : "Đánh dấu đã đọc"}</button>
     </section>
     <section class="reading-layout">
       <article class="practice-panel reading-passage">
-        <span class="eyebrow">Bài đọc trong sách · trang ${reading?.page || "—"}</span>
+        <span class="eyebrow">Bài đọc trong sách</span>
         <h2>${escapeHtml(lesson.titleVi)}</h2>
         ${lines.length ? `<div class="reading-lines">${lines.map(line => `<div><p>${escapeHtml(line)}</p><button class="icon-button" type="button" data-action="speak" data-text="${escapeHtml(line)}" aria-label="Nghe câu">♪</button></div>`).join("")}</div>` : `<div class="empty-state">Bài này chưa có đoạn đọc phù hợp để hiển thị.</div>`}
       </article>
@@ -766,8 +785,8 @@ function renderCulture(course) {
     <section class="culture-list">
       ${course.cultures.map(culture => `
         <article class="culture-card">
-          <div class="culture-copy"><span class="eyebrow">Văn hoá ${culture.id} · trang ${culture.pages[0]}–${culture.pages[1]}</span><h2>${escapeHtml(culture.titleVi)}</h2><h3>${escapeHtml(culture.titleKo)}</h3></div>
-          <div class="culture-images">${culture.images.map(image => `<button type="button" data-action="open-image" data-src="${asset(image.path)}" data-alt="${escapeHtml(culture.titleVi)}"><img src="${asset(image.path)}" alt="${escapeHtml(`${culture.titleVi}, trang ${image.page}`)}" loading="lazy" /></button>`).join("")}</div>
+          <div class="culture-copy"><span class="eyebrow">Văn hoá ${culture.id}</span><h2>${escapeHtml(culture.titleVi)}</h2><h3>${escapeHtml(culture.titleKo)}</h3></div>
+          <div class="culture-images">${culture.images.map(image => `<button type="button" data-action="open-image" data-src="${asset(image.path)}" data-alt="${escapeHtml(culture.titleVi)}"><img src="${asset(image.path)}" alt="${escapeHtml(culture.titleVi)}" loading="lazy" /></button>`).join("")}</div>
         </article>
       `).join("")}
     </section>
@@ -780,7 +799,7 @@ function renderLesson(course, lesson) {
   return `
     <button class="back-button" type="button" data-action="navigate" data-view="lessons">← Tất cả bài học ${escapeHtml(course.title)}</button>
     <header class="lesson-hero">
-      <div><span class="eyebrow">${lesson.id === 0 ? "Phần nhập môn" : `Bài ${String(lesson.id).padStart(2, "0")}`} · trang ${lesson.pages[0]}–${lesson.pages[1]}</span><h1>${escapeHtml(lesson.titleVi)}</h1><h2>${escapeHtml(lesson.titleKo)}</h2><p>${escapeHtml(lesson.objectives.join(" · "))}</p></div>
+      <div><span class="eyebrow">${lesson.id === 0 ? "Phần nhập môn" : `Bài ${String(lesson.id).padStart(2, "0")}`}</span><h1>${escapeHtml(lesson.titleVi)}</h1><h2>${escapeHtml(lesson.titleKo)}</h2><p>${escapeHtml(lesson.objectives.join(" · "))}</p></div>
       <button class="complete-button ${done ? "done" : ""}" type="button" data-action="toggle-lesson" data-lesson="${lesson.id}">${done ? "✓ Đã hoàn thành bài" : "Đánh dấu hoàn thành"}</button>
     </header>
     ${lesson.grammar.length ? `<section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">Ngữ pháp</span><h2>Mẫu câu của bài</h2></div></div><div class="grammar-grid">${lesson.grammar.map(item => `<article><b>${escapeHtml(item.form)}</b><p>${escapeHtml(item.noteVi)}</p></article>`).join("")}</div></section>` : ""}
@@ -886,7 +905,7 @@ function renderListening(course) {
       <div class="listening-exercises">
         <article class="practice-panel"><span class="eyebrow">Nghe chép chính tả</span><p>Nghe hội thoại rồi nhập lại câu đầu tiên.</p><input class="ko-input" data-listening-answer placeholder="Nhập câu tiếng Hàn" /><button class="secondary-button" type="button" data-action="check-listening-dictation" data-answer="${escapeHtml(dictation)}">Kiểm tra chính tả</button>${ui.listeningDictationFeedback ? `<div class="inline-feedback">${escapeHtml(ui.listeningDictationFeedback)}</div>` : ""}</article>
         <article class="practice-panel"><button class="secondary-button wide" type="button" data-action="toggle-listening-transcript">${ui.listeningTranscript ? "Ẩn lời thoại" : "Xem lời thoại"}</button>${ui.listeningTranscript ? `<div class="transcript-list">${lesson.dialogues.map(dialogue => `<h3>${escapeHtml(dialogue.title)} · Track ${dialogue.track}</h3>${dialogue.lines.map(line => `<p>${escapeHtml(line)}</p>`).join("")}`).join("")}</div>` : ""}</article>
-        ${listeningImage ? `<article class="book-page-preview"><button type="button" data-action="open-image" data-src="${asset(listeningImage.path)}" data-alt="Nghe và chọn đáp án · trang ${listeningImage.page}"><img src="${asset(listeningImage.path)}" alt="Trang luyện nghe ${lesson.titleVi}" /><span>Phóng to trang nghe · tr. ${listeningImage.page}</span></button></article>` : ""}
+        ${listeningImage ? `<article class="book-page-preview"><button type="button" data-action="open-image" data-src="${asset(listeningImage.path)}" data-alt="Nghe và chọn đáp án"><img src="${asset(listeningImage.path)}" alt="Bài luyện nghe ${lesson.titleVi}" /><span>Phóng to bài nghe</span></button></article>` : ""}
       </div>
     </section>
   `;
@@ -943,9 +962,9 @@ function renderWriting(course) {
     practice = `<article class="practice-panel writing-word"><span>${ui.writingIndex + 1}/${words.length}</span><h2>${escapeHtml(prompt)}</h2>${ui.writingMode === "dictation" ? `<button class="secondary-button" type="button" data-action="speak" data-text="${escapeHtml(word.word)}">♪ Nghe từ</button>` : ""}<input class="ko-input" data-writing-answer placeholder="Nhập tiếng Hàn" /><div class="practice-actions"><button class="secondary-button" type="button" data-action="writing-check" data-answer="${escapeHtml(word.word)}">Kiểm tra</button><button class="text-button" type="button" data-action="writing-show" data-answer="${escapeHtml(word.word)}">Xem đáp án</button><button class="primary-button" type="button" data-action="writing-next">Từ tiếp theo →</button></div>${ui.writingFeedback ? `<div class="inline-feedback">${escapeHtml(ui.writingFeedback)}</div>` : ""}</article>`;
   } else practice = `<div class="empty-state">Bài này chưa có từ để luyện viết.</div>`;
   return `
-    ${sectionHeading(course.title, "Luyện viết", "Viết từ, nghe chép chính tả, xáo trộn thứ tự và trả lời trực tiếp bài tập trên trang sách.")}
+    ${sectionHeading(course.title, "Luyện viết", "Viết từ, nghe chép chính tả, xáo trộn thứ tự và trả lời trực tiếp bài tập.")}
     <section class="practice-toolbar"><label><span>Bài học</span><select data-filter="writing-lesson">${lessonOptions(course, lesson.id)}</select></label><label><span>Chế độ</span><select data-filter="writing-mode"><option value="vocab" ${ui.writingMode === "vocab" ? "selected" : ""}>Viết từ</option><option value="dictation" ${ui.writingMode === "dictation" ? "selected" : ""}>Nghe chép</option><option value="topic" ${ui.writingMode === "topic" ? "selected" : ""}>Viết theo chủ đề</option></select></label>${ui.writingMode === "topic" ? "" : `<button class="secondary-button shuffle-writing" type="button" data-action="writing-shuffle">⇄ Xáo trộn</button>`}</section>
-    <section class="writing-layout">${practice}${readingImage ? `<article class="practice-panel book-writing-panel"><button class="book-page-preview" type="button" data-action="open-image" data-src="${asset(readingImage.path)}" data-alt="Đọc và viết · trang ${readingImage.page}"><img src="${asset(readingImage.path)}" alt="Trang đọc và viết ${lesson.titleVi}" /><span>Phóng to trang đọc–viết · tr. ${readingImage.page}</span></button><label><b>Câu trả lời cho bài trong sách</b><textarea data-book-writing-answer placeholder="Ví dụ:\n1) ...\n2) ...">${escapeHtml(writingState.bookAnswer || "")}</textarea></label><button class="primary-button" type="button" data-action="save-book-writing" data-lesson="${lesson.id}">Lưu câu trả lời</button>${ui.writingBookMessage ? `<div class="inline-feedback">${escapeHtml(ui.writingBookMessage)}</div>` : ""}</article>` : ""}</section>
+    <section class="writing-layout">${practice}${readingImage ? `<article class="practice-panel book-writing-panel"><button class="book-page-preview" type="button" data-action="open-image" data-src="${asset(readingImage.path)}" data-alt="Đọc và viết"><img src="${asset(readingImage.path)}" alt="Bài đọc và viết ${lesson.titleVi}" /><span>Phóng to bài đọc–viết</span></button><label><b>Câu trả lời cho bài trong sách</b><textarea data-book-writing-answer placeholder="Ví dụ:\n1) ...\n2) ...">${escapeHtml(writingState.bookAnswer || "")}</textarea></label><button class="primary-button" type="button" data-action="save-book-writing" data-lesson="${lesson.id}">Lưu câu trả lời</button>${ui.writingBookMessage ? `<div class="inline-feedback">${escapeHtml(ui.writingBookMessage)}</div>` : ""}</article>` : ""}</section>
   `;
 }
 
@@ -1154,7 +1173,7 @@ function render() {
   root.innerHTML = `
     ${renderHeader(course)}
     ${course ? `<div class="app-layout">${renderSidebar(course)}<main id="main-content" class="content">${renderMain(course)}</main></div>${renderMobileNav()}` : renderCoursePicker()}
-    <footer class="site-footer"><span>Học tiếng Hàn để thành kà su</span><small>Nội dung tách theo Sejong 1 / Sejong 2 · phiên bản ${escapeHtml(CONTENT_VERSION)}</small></footer>
+    <footer class="site-footer"><span>Học tiếng Hàn để thành kà su</span></footer>
     ${renderAccountDialog()}
   `;
   if (ui.view === "vocabulary") applyVocabularyFilter();
@@ -1393,7 +1412,9 @@ root.addEventListener("click", async event => {
   }
   if (action === "flip-card") {
     ui.flashFlipped = !ui.flashFlipped;
-    root.querySelector(".flashcard")?.classList.toggle("flipped", ui.flashFlipped);
+    const flashcard = root.querySelector(".flashcard");
+    flashcard?.classList.toggle("flipped", ui.flashFlipped);
+    flashcard?.setAttribute("aria-pressed", String(ui.flashFlipped));
     root.querySelector(".rating-row")?.classList.toggle("visible", ui.flashFlipped);
   }
   if (action === "quiz-start") startQuiz(selectedCourse());
@@ -1508,7 +1529,7 @@ root.addEventListener("click", async event => {
       bookSavedAt: new Date().toISOString(),
     };
     saveProfile();
-    ui.writingBookMessage = "Đã lưu câu trả lời cho trang bài tập.";
+    ui.writingBookMessage = "Đã lưu câu trả lời.";
     render();
   }
   if (action === "progress-review-hard") {

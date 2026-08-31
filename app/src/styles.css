@@ -166,7 +166,7 @@ img { max-width: 100%; }
 .course-card-2::before { background: #f1e7cf; }
 .course-number { position: absolute; right: 22px; top: 3px; color: rgba(23,76,60,.1); font-size: 110px; font-weight: 800; line-height: 1; }
 .book-label { position: relative; display: inline-block; padding: 7px 10px; border-radius: 99px; background: var(--soft); color: var(--green); font-size: 9px; font-weight: 700; }
-.course-card h2 { position: relative; margin: 54px 0 0; color: var(--green); font-size: 44px; letter-spacing: -.05em; }
+.course-card h2 { position: relative; margin: 62px 0 0; color: var(--green); font-size: 44px; letter-spacing: -.05em; }
 .course-card h3 { position: relative; margin: 2px 0 14px; color: #35594e; font-family: "Noto Sans KR", sans-serif; font-size: 18px; }
 .course-card p { position: relative; min-height: 54px; color: var(--muted); font-size: 11px; line-height: 1.75; }
 .course-card dl { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 25px 0 22px; }
@@ -238,7 +238,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--green-2); box-sh
 .flash-stage { display: grid; grid-template-columns: 105px minmax(300px, 670px) 105px; justify-content: center; align-items: center; gap: 25px; perspective: 1200px; }
 .flashcard { position: relative; height: 430px; border: 0; border-radius: 24px; background: transparent; transform-style: preserve-3d; transition: transform .55s cubic-bezier(.2,.75,.2,1); }
 .flashcard.flipped { transform: rotateY(180deg); }
-.flash-side { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 45px; border: 1px solid #d5dfd6; border-radius: 24px; backface-visibility: hidden; box-shadow: var(--shadow); }
+.flash-side { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow-y: auto; padding: 38px 45px; border: 1px solid #d5dfd6; border-radius: 24px; backface-visibility: hidden; box-shadow: var(--shadow); }
 .flash-front { background: radial-gradient(circle at 20% 20%, #f1f6df, transparent 30%), var(--paper); }
 .flash-back { transform: rotateY(180deg); background: #173f34; color: white; }
 .flash-side > small { color: var(--muted); font-size: 9px; }
@@ -247,7 +247,14 @@ input:focus, select:focus, textarea:focus { border-color: var(--green-2); box-sh
 .flash-side > i { color: #829088; font-size: 11px; font-style: normal; }
 .flash-back > small, .flash-back > i { color: #bcd0c6; }
 .flash-back > strong { max-width: 520px; font-size: clamp(22px, 3vw, 34px); }
-.flash-back .origin-box { width: min(430px, 100%); margin: 20px 0; text-align: left; }
+.flash-back .origin-box { width: min(430px, 100%); margin: 15px 0 0; text-align: left; }
+.actual-pronunciation { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 13px; color: #dff1e8; }
+.actual-pronunciation span { padding: 5px 8px; border-radius: 99px; background: rgba(255,255,255,.12); font-size: 8px; font-weight: 800; text-transform: uppercase; }
+.actual-pronunciation b { font-family: "Noto Sans KR", sans-serif; font-size: 16px; }
+.flash-example { width: min(430px, 100%); margin-top: 13px; padding: 11px 14px; border-radius: 11px; background: rgba(255,255,255,.08); text-align: left; }
+.flash-example p { margin: 0; color: white; font-family: "Noto Sans KR", sans-serif; font-size: 13px; line-height: 1.5; }
+.flash-example small { display: block; margin-top: 4px; color: #bcd0c6; font-size: 9px; line-height: 1.45; }
+.grammar-chip { margin-top: 9px; padding: 5px 9px; border-radius: 99px; background: #dce99b; color: #173f34; font-size: 8px; font-weight: 800; }
 .flash-arrow { display: grid; place-items: center; gap: 7px; border: 0; background: transparent; color: var(--green); font-size: 29px; }
 .flash-arrow small { color: var(--muted); font-size: 8px; }
 .flash-actions { display: flex; justify-content: center; gap: 9px; margin-top: 22px; }
@@ -517,7 +524,9 @@ dialog::backdrop { background: rgba(14,35,28,.6); backdrop-filter: blur(4px); }
   .flash-toolbar label { width: 100%; }
   .flash-toolbar > span { grid-column: 1 / -1; text-align: center; }
   .flashcard { height: 390px; }
-  .flash-side { padding: 26px 18px; }
+  .flash-side { padding: 24px 18px; }
+  .flash-back > strong { margin-top: 15px; }
+  .flash-example { padding: 9px 11px; }
   .flash-arrow small { display: none; }
   .exercise-card { grid-template-columns: 1fr; }
   .exercise-image { height: 250px; }

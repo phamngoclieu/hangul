@@ -43,7 +43,10 @@
               "pronunciation": "명ː",
               "sourcePage": 14,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%AA%85"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%AA%85",
+              "example": "학생 세 명이 있어요.",
+              "exampleVi": "Có ba học sinh.",
+              "grammarPoint": "Số thuần Hàn + đơn vị đếm"
             },
             {
               "id": "sejong-1-l00-모두",
@@ -60,7 +63,10 @@
               "pronunciation": "모두",
               "sourcePage": 29,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "모두 얼마예요?",
+              "exampleVi": "Tất cả bao nhiêu tiền?",
+              "grammarPoint": "모두 얼마예요?"
             },
             {
               "id": "sejong-1-l00-물",
@@ -77,7 +83,10 @@
               "pronunciation": "물",
               "sourcePage": 29,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "이것은 물이에요.",
+              "exampleVi": "Đây là nước.",
+              "grammarPoint": "이것은 N이에요/예요"
             },
             {
               "id": "sejong-1-l00-밖",
@@ -94,7 +103,10 @@
               "pronunciation": "박",
               "sourcePage": 29,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "가방은 책상 밖에 있어요.",
+              "exampleVi": "Cặp ở bên ngoài bàn.",
+              "grammarPoint": "N은/는 위치에 있어요"
             },
             {
               "id": "sejong-1-l00-안",
@@ -111,7 +123,10 @@
               "pronunciation": "안",
               "sourcePage": 14,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "가방은 책상 안에 있어요.",
+              "exampleVi": "Cặp ở bên trong bàn.",
+              "grammarPoint": "N은/는 위치에 있어요"
             },
             {
               "id": "sejong-1-l00-오",
@@ -128,7 +143,10 @@
               "pronunciation": "오ː",
               "sourcePage": 14,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%98%A4"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%98%A4",
+              "example": "교실은 오 호예요.",
+              "exampleVi": "Phòng học là phòng số năm.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l00-위",
@@ -145,7 +163,10 @@
               "pronunciation": "위",
               "sourcePage": 14,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "가방은 책상 위에 있어요.",
+              "exampleVi": "Cặp ở trên bàn.",
+              "grammarPoint": "N은/는 위치에 있어요"
             },
             {
               "id": "sejong-1-l00-집",
@@ -162,7 +183,10 @@
               "pronunciation": "집",
               "sourcePage": 29,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "집에 책상이 있어요.",
+              "exampleVi": "Ở nhà có một cái bàn.",
+              "grammarPoint": "N에 N이/가 있어요"
             }
           ],
           "dialogues": [],
@@ -308,7 +332,10 @@
               "pronunciation": "경ː찰",
               "sourcePage": 40,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B2%BD%EC%B0%B0"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B2%BD%EC%B0%B0",
+              "example": "제 친구는 경찰이에요.",
+              "exampleVi": "Bạn tôi là cảnh sát.",
+              "grammarPoint": "N은/는 N이에요/예요"
             },
             {
               "id": "sejong-1-l01-공무원",
@@ -342,7 +369,10 @@
               "pronunciation": "네",
               "sourcePage": 38,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "네, 저는 학생이에요.",
+              "exampleVi": "Vâng, tôi là học sinh.",
+              "grammarPoint": "네 · N이에요/예요"
             },
             {
               "id": "sejong-1-l01-몽골 사람",
@@ -376,7 +406,10 @@
               "pronunciation": "무얻",
               "sourcePage": 37,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "책상 위에 무엇이 있어요?",
+              "exampleVi": "Trên bàn có gì?",
+              "grammarPoint": "무엇이 있어요?"
             },
             {
               "id": "sejong-1-l01-베트남 사람",
@@ -410,7 +443,10 @@
               "pronunciation": "선생님",
               "sourcePage": 40,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%84%A0%EC%83%9D%EB%8B%98"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%84%A0%EC%83%9D%EB%8B%98",
+              "example": "제 친구는 선생님이에요.",
+              "exampleVi": "Bạn tôi là giáo viên.",
+              "grammarPoint": "N은/는 N이에요/예요"
             },
             {
               "id": "sejong-1-l01-씨",
@@ -427,7 +463,10 @@
               "pronunciation": "씨",
               "sourcePage": 38,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%94%A8"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%94%A8",
+              "example": "안나 씨는 선생님이에요.",
+              "exampleVi": "Chị Anna là giáo viên.",
+              "grammarPoint": "이름 + 씨 · 은/는"
             },
             {
               "id": "sejong-1-l01-아니요",
@@ -444,7 +483,10 @@
               "pronunciation": "아니요",
               "sourcePage": 39,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "아니요, 저는 회사원이 아니에요.",
+              "exampleVi": "Không, tôi không phải là nhân viên công ty.",
+              "grammarPoint": "N이/가 아니에요"
             },
             {
               "id": "sejong-1-l01-의사",
@@ -461,7 +503,10 @@
               "pronunciation": "의사",
               "sourcePage": 40,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%98%EC%82%AC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%98%EC%82%AC",
+              "example": "제 친구는 의사예요.",
+              "exampleVi": "Bạn tôi là bác sỹ.",
+              "grammarPoint": "N은/는 N이에요/예요"
             },
             {
               "id": "sejong-1-l01-이름",
@@ -478,7 +523,10 @@
               "pronunciation": "이름",
               "sourcePage": 39,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "이름이 뭐예요?",
+              "exampleVi": "Tên của bạn là gì?",
+              "grammarPoint": "N이/가 뭐예요?"
             },
             {
               "id": "sejong-1-l01-일본 사람",
@@ -563,7 +611,10 @@
               "pronunciation": "학쌩",
               "sourcePage": 40,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%95%99%EC%83%9D"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%95%99%EC%83%9D",
+              "example": "제 친구는 학생이에요.",
+              "exampleVi": "Bạn tôi là học sinh.",
+              "grammarPoint": "N은/는 N이에요/예요"
             },
             {
               "id": "sejong-1-l01-한국 사람",
@@ -597,7 +648,10 @@
               "pronunciation": "회ː사원  /훼ː사원",
               "sourcePage": 40,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%9A%8C%EC%82%AC%EC%9B%90"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%9A%8C%EC%82%AC%EC%9B%90",
+              "example": "제 친구는 회사원이에요.",
+              "exampleVi": "Bạn tôi là Nhân viên công ty.",
+              "grammarPoint": "N은/는 N이에요/예요"
             }
           ],
           "dialogues": [
@@ -716,7 +770,10 @@
               "pronunciation": "공부하다",
               "sourcePage": 48,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B3%B5%EB%B6%80%ED%95%98%EB%8B%A4"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B3%B5%EB%B6%80%ED%95%98%EB%8B%A4",
+              "example": "학교에서 한국어를 공부해요.",
+              "exampleVi": "Tôi học tiếng Hàn ở trường.",
+              "grammarPoint": "N에서 N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l02-공원",
@@ -733,7 +790,10 @@
               "pronunciation": "공원",
               "sourcePage": 50,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B3%B5%EC%9B%90"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B3%B5%EC%9B%90",
+              "example": "공원에서 운동해요.",
+              "exampleVi": "Tôi tập thể dục ở công viên.",
+              "grammarPoint": "N에서 V-아요/어요"
             },
             {
               "id": "sejong-1-l02-뭐 해요?",
@@ -784,7 +844,10 @@
               "pronunciation": "식땅",
               "sourcePage": 50,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%8B%9D%EB%8B%B9"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%8B%9D%EB%8B%B9",
+              "example": "식당은 몇 층이에요?",
+              "exampleVi": "Nhà hàng, quán ăn ở tầng mấy?",
+              "grammarPoint": "N은/는 몇 층이에요?"
             },
             {
               "id": "sejong-1-l02-어디",
@@ -801,7 +864,10 @@
               "pronunciation": "어디",
               "sourcePage": 50,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "가방이 어디에 있어요?",
+              "exampleVi": "Cặp ở đâu?",
+              "grammarPoint": "N이/가 어디에 있어요?"
             },
             {
               "id": "sejong-1-l02-오늘",
@@ -818,7 +884,10 @@
               "pronunciation": "오늘",
               "sourcePage": 47,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "오늘 한국어를 공부해요.",
+              "exampleVi": "Hôm nay tôi học tiếng Hàn.",
+              "grammarPoint": "Thời gian + N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l02-운동하다",
@@ -835,7 +904,10 @@
               "pronunciation": "운ː동하다",
               "sourcePage": 48,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9A%B4%EB%8F%99%ED%95%98%EB%8B%A4"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9A%B4%EB%8F%99%ED%95%98%EB%8B%A4",
+              "example": "공원에서 운동해요.",
+              "exampleVi": "Tôi tập thể dục ở công viên.",
+              "grammarPoint": "N에서 V-아요/어요"
             },
             {
               "id": "sejong-1-l02-이야기하다",
@@ -869,7 +941,10 @@
               "pronunciation": "일ː하다",
               "sourcePage": 48,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "회사에서 일해요.",
+              "exampleVi": "Tôi làm việc ở công ty.",
+              "grammarPoint": "N에서 V-아요/어요"
             },
             {
               "id": "sejong-1-l02-자다",
@@ -886,7 +961,10 @@
               "pronunciation": "자다",
               "sourcePage": 48,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저는 지금 자요.",
+              "exampleVi": "Bây giờ tôi ngủ.",
+              "grammarPoint": "V-아요/어요"
             },
             {
               "id": "sejong-1-l02-전화하다",
@@ -920,7 +998,10 @@
               "pronunciation": "지금",
               "sourcePage": 48,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A7%80%EA%B8%88"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A7%80%EA%B8%88",
+              "example": "지금 한국어를 공부해요.",
+              "exampleVi": "Bây giờ tôi học tiếng Hàn.",
+              "grammarPoint": "지금 + V-아요/어요"
             },
             {
               "id": "sejong-1-l02-학교",
@@ -937,7 +1018,10 @@
               "pronunciation": "학꾜",
               "sourcePage": 50,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%95%99%EA%B5%90"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%95%99%EA%B5%90",
+              "example": "학교에 책상이 있어요.",
+              "exampleVi": "Ở trường có một cái bàn.",
+              "grammarPoint": "N에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l02-회사",
@@ -954,7 +1038,10 @@
               "pronunciation": "회ː사  /훼ː사",
               "sourcePage": 50,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%9A%8C%EC%82%AC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%9A%8C%EC%82%AC",
+              "example": "회사에서 빵하고 우유를 사요.",
+              "exampleVi": "Tôi mua bánh mì và sữa tại công ty.",
+              "grammarPoint": "N에서 N하고 N을/를 사요"
             }
           ],
           "dialogues": [
@@ -1073,7 +1160,10 @@
               "pronunciation": "가방",
               "sourcePage": 58,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B0%80%EB%B0%A9"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B0%80%EB%B0%A9",
+              "example": "방에 가방이 있어요.",
+              "exampleVi": "Trong phòng có cặp, túi.",
+              "grammarPoint": "N에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l03-교실",
@@ -1090,7 +1180,10 @@
               "pronunciation": "교ː실",
               "sourcePage": 60,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B5%90%EC%8B%A4"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B5%90%EC%8B%A4",
+              "example": "이것은 교실이에요.",
+              "exampleVi": "Đây là phòng học, lớp học.",
+              "grammarPoint": "이것은 N이에요/예요"
             },
             {
               "id": "sejong-1-l03-뒤",
@@ -1107,7 +1200,10 @@
               "pronunciation": "뒤ː",
               "sourcePage": 60,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "가방은 책상 뒤에 있어요.",
+              "exampleVi": "Cặp ở sau bàn.",
+              "grammarPoint": "N은/는 위치에 있어요"
             },
             {
               "id": "sejong-1-l03-밑",
@@ -1141,7 +1237,10 @@
               "pronunciation": "방",
               "sourcePage": 63,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B0%A9"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B0%A9",
+              "example": "방에 책상이 있어요.",
+              "exampleVi": "Ở phòng có một cái bàn.",
+              "grammarPoint": "N에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l03-아래",
@@ -1175,7 +1274,10 @@
               "pronunciation": "압",
               "sourcePage": 60,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "가방은 책상 앞에 있어요.",
+              "exampleVi": "Cặp ở trước bàn.",
+              "grammarPoint": "N은/는 위치에 있어요"
             },
             {
               "id": "sejong-1-l03-옆",
@@ -1192,7 +1294,10 @@
               "pronunciation": "엽",
               "sourcePage": 60,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "가방은 책상 옆에 있어요.",
+              "exampleVi": "Cặp ở bên cạnh bàn.",
+              "grammarPoint": "N은/는 위치에 있어요"
             },
             {
               "id": "sejong-1-l03-의자",
@@ -1209,7 +1314,10 @@
               "pronunciation": "의자",
               "sourcePage": 58,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%98%EC%9E%90"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%98%EC%9E%90",
+              "example": "이것은 의자예요.",
+              "exampleVi": "Đây là ghế.",
+              "grammarPoint": "이것은 N이에요/예요"
             },
             {
               "id": "sejong-1-l03-책",
@@ -1226,7 +1334,10 @@
               "pronunciation": "책",
               "sourcePage": 60,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B1%85"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B1%85",
+              "example": "이것은 책이에요.",
+              "exampleVi": "Đây là sách.",
+              "grammarPoint": "이것은 N이에요/예요"
             },
             {
               "id": "sejong-1-l03-책상",
@@ -1243,7 +1354,10 @@
               "pronunciation": "책쌍",
               "sourcePage": 58,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B1%85%EC%83%81"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B1%85%EC%83%81",
+              "example": "방에 책상이 있어요.",
+              "exampleVi": "Trong phòng có bàn.",
+              "grammarPoint": "N에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l03-침대",
@@ -1260,7 +1374,10 @@
               "pronunciation": "침ː대",
               "sourcePage": 60,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B9%A8%EB%8C%80"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B9%A8%EB%8C%80",
+              "example": "방에 침대가 있어요.",
+              "exampleVi": "Trong phòng có giường.",
+              "grammarPoint": "N에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l03-펜",
@@ -1277,7 +1394,10 @@
               "pronunciation": "",
               "sourcePage": 58,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%8E%9C"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%8E%9C",
+              "example": "방에 펜이 있어요.",
+              "exampleVi": "Trong phòng có bút.",
+              "grammarPoint": "N에 N이/가 있어요"
             }
           ],
           "dialogues": [
@@ -1397,7 +1517,10 @@
               "pronunciation": "구",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B5%AC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B5%AC",
+              "example": "교실은 구 호예요.",
+              "exampleVi": "Phòng học là phòng số chín.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-만",
@@ -1448,7 +1571,10 @@
               "pronunciation": "",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B0%B1"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B0%B1",
+              "example": "교실은 백 호예요.",
+              "exampleVi": "Phòng học là phòng số một trăm.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-빵",
@@ -1465,7 +1591,10 @@
               "pronunciation": "빵",
               "sourcePage": 70,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B9%B5"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B9%B5",
+              "example": "마트에서 빵하고 우유를 사요.",
+              "exampleVi": "Tôi mua bánh, bánh mì và sữa ở siêu thị.",
+              "grammarPoint": "N에서 N하고 N을/를 사요"
             },
             {
               "id": "sejong-1-l04-사",
@@ -1482,7 +1611,10 @@
               "pronunciation": "사ː",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%82%AC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%82%AC",
+              "example": "교실은 사 호예요.",
+              "exampleVi": "Phòng học là phòng số bốn.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-사과",
@@ -1499,7 +1631,10 @@
               "pronunciation": "사과",
               "sourcePage": 70,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%82%AC%EA%B3%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%82%AC%EA%B3%BC",
+              "example": "마트에서 사과하고 우유를 사요.",
+              "exampleVi": "Tôi mua táo và sữa ở siêu thị.",
+              "grammarPoint": "N에서 N하고 N을/를 사요"
             },
             {
               "id": "sejong-1-l04-사다",
@@ -1516,7 +1651,10 @@
               "pronunciation": "사다",
               "sourcePage": 70,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저는 옷을 사요.",
+              "exampleVi": "Tôi mua quần áo.",
+              "grammarPoint": "N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l04-삼",
@@ -1533,7 +1671,10 @@
               "pronunciation": "삼",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%82%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%82%BC",
+              "example": "교실은 삼 호예요.",
+              "exampleVi": "Phòng học là phòng số ba.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-십육",
@@ -1550,7 +1691,10 @@
               "pronunciation": "심뉵",
               "sourcePage": 72,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "교실은 십육 호예요.",
+              "exampleVi": "Phòng học là phòng số mười sáu.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-십이",
@@ -1567,7 +1711,10 @@
               "pronunciation": "시비월",
               "sourcePage": 72,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "교실은 십이 호예요.",
+              "exampleVi": "Phòng học là phòng số mười hai.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-십일",
@@ -1584,7 +1731,10 @@
               "pronunciation": "시빌",
               "sourcePage": 72,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "교실은 십일 호예요.",
+              "exampleVi": "Phòng học là phòng số mười một.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-십칠",
@@ -1601,7 +1751,10 @@
               "pronunciation": "",
               "sourcePage": 72,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "교실은 십칠 호예요.",
+              "exampleVi": "Phòng học là phòng số mười bảy.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-십팔",
@@ -1618,7 +1771,10 @@
               "pronunciation": "",
               "sourcePage": 72,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "교실은 십팔 호예요.",
+              "exampleVi": "Phòng học là phòng số mười tám.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-싸다",
@@ -1703,7 +1859,10 @@
               "pronunciation": "우유",
               "sourcePage": 70,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9A%B0%EC%9C%A0"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9A%B0%EC%9C%A0",
+              "example": "마트에서 우유하고 우유를 사요.",
+              "exampleVi": "Tôi mua sữa và sữa ở siêu thị.",
+              "grammarPoint": "N에서 N하고 N을/를 사요"
             },
             {
               "id": "sejong-1-l04-육",
@@ -1720,7 +1879,10 @@
               "pronunciation": "육",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9C%A1"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9C%A1",
+              "example": "교실은 육 호예요.",
+              "exampleVi": "Phòng học là phòng số sáu.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-이",
@@ -1737,7 +1899,10 @@
               "pronunciation": "이",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%B4"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%B4",
+              "example": "교실은 이 호예요.",
+              "exampleVi": "Phòng học là phòng số hai.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-이십",
@@ -1754,7 +1919,10 @@
               "pronunciation": "이ː십",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%B4%EC%8B%AD"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%B4%EC%8B%AD",
+              "example": "교실은 이십 호예요.",
+              "exampleVi": "Phòng học là phòng số hai mươi.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-일",
@@ -1771,7 +1939,10 @@
               "pronunciation": "일ː",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%BC",
+              "example": "교실은 일 호예요.",
+              "exampleVi": "Phòng học là phòng số một.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-읽다",
@@ -1788,7 +1959,10 @@
               "pronunciation": "익따",
               "sourcePage": 70,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "공원에서 책을 읽어요.",
+              "exampleVi": "Tôi đọc sách ở công viên.",
+              "grammarPoint": "N에서 N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l04-주다",
@@ -1805,7 +1979,10 @@
               "pronunciation": "주다",
               "sourcePage": 72,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "물 한 병 주세요.",
+              "exampleVi": "Cho tôi một chai nước.",
+              "grammarPoint": "N 주세요"
             },
             {
               "id": "sejong-1-l04-주스",
@@ -1822,7 +1999,10 @@
               "pronunciation": "",
               "sourcePage": 70,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A3%BC%EC%8A%A4"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A3%BC%EC%8A%A4",
+              "example": "이것은 주스예요.",
+              "exampleVi": "Đây là nước ép trái cây.",
+              "grammarPoint": "이것은 N이에요/예요"
             },
             {
               "id": "sejong-1-l04-천",
@@ -1856,7 +2036,10 @@
               "pronunciation": "칠",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B9%A0"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B9%A0",
+              "example": "교실은 칠 호예요.",
+              "exampleVi": "Phòng học là phòng số bảy.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-팔",
@@ -1873,7 +2056,10 @@
               "pronunciation": "팔",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%8C%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%8C%94",
+              "example": "교실은 팔 호예요.",
+              "exampleVi": "Phòng học là phòng số tám.",
+              "grammarPoint": "Số Hán–Hàn + 호예요"
             },
             {
               "id": "sejong-1-l04-한국어",
@@ -1890,7 +2076,10 @@
               "pronunciation": "한ː구거",
               "sourcePage": 72,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%95%9C%EA%B5%AD%EC%96%B4"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%95%9C%EA%B5%AD%EC%96%B4",
+              "example": "학교에서 한국어를 공부해요.",
+              "exampleVi": "Tôi học tiếng Hàn ở trường.",
+              "grammarPoint": "N에서 N을/를 V-아요/어요"
             }
           ],
           "dialogues": [
@@ -2022,7 +2211,10 @@
               "pronunciation": "가ː게",
               "sourcePage": 86,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "가게에서 바나나 다섯 개를 사요.",
+              "exampleVi": "Tôi mua năm quả chuối ở cửa hàng.",
+              "grammarPoint": "N에서 số + đơn vị đếm"
             },
             {
               "id": "sejong-1-l05-개",
@@ -2039,7 +2231,10 @@
               "pronunciation": "개ː",
               "sourcePage": 82,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B0%9C"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B0%9C",
+              "example": "사과 다섯 개 주세요.",
+              "exampleVi": "Cho tôi năm quả táo.",
+              "grammarPoint": "Số thuần Hàn + đơn vị đếm"
             },
             {
               "id": "sejong-1-l05-권",
@@ -2056,7 +2251,10 @@
               "pronunciation": "권",
               "sourcePage": 82,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B6%8C"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B6%8C",
+              "example": "책 세 권 주세요.",
+              "exampleVi": "Cho tôi ba quyển sách.",
+              "grammarPoint": "Số thuần Hàn + đơn vị đếm"
             },
             {
               "id": "sejong-1-l05-넷",
@@ -2090,7 +2288,10 @@
               "pronunciation": "다섣",
               "sourcePage": 80,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "사과 다섯 개 주세요.",
+              "exampleVi": "Cho tôi năm quả táo.",
+              "grammarPoint": "Số thuần Hàn + 개 주세요"
             },
             {
               "id": "sejong-1-l05-둘",
@@ -2124,7 +2325,10 @@
               "pronunciation": "멷",
               "sourcePage": 82,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "교실은 몇 층이에요?",
+              "exampleVi": "Phòng học ở tầng mấy?",
+              "grammarPoint": "몇 + đơn vị đếm"
             },
             {
               "id": "sejong-1-l05-반갑다",
@@ -2158,7 +2362,10 @@
               "pronunciation": "병ː",
               "sourcePage": 82,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B3%91"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B3%91",
+              "example": "물 두 병 주세요.",
+              "exampleVi": "Cho tôi hai chai nước.",
+              "grammarPoint": "Số thuần Hàn + đơn vị đếm"
             },
             {
               "id": "sejong-1-l05-셋",
@@ -2192,7 +2399,10 @@
               "pronunciation": "아홉",
               "sourcePage": 80,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "사과 아홉 개 주세요.",
+              "exampleVi": "Cho tôi chín quả táo.",
+              "grammarPoint": "Số thuần Hàn + 개 주세요"
             },
             {
               "id": "sejong-1-l05-얼마나",
@@ -2226,7 +2436,10 @@
               "pronunciation": "여기",
               "sourcePage": 80,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "여기는 백화점이에요.",
+              "exampleVi": "Đây là trung tâm bách hóa.",
+              "grammarPoint": "여기는 N이에요/예요"
             },
             {
               "id": "sejong-1-l05-여덟",
@@ -2243,7 +2456,10 @@
               "pronunciation": "여덜",
               "sourcePage": 80,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "사과 여덟 개 주세요.",
+              "exampleVi": "Cho tôi tám quả táo.",
+              "grammarPoint": "Số thuần Hàn + 개 주세요"
             },
             {
               "id": "sejong-1-l05-여섯",
@@ -2260,7 +2476,10 @@
               "pronunciation": "여섣",
               "sourcePage": 80,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "사과 여섯 개 주세요.",
+              "exampleVi": "Cho tôi sáu quả táo.",
+              "grammarPoint": "Số thuần Hàn + 개 주세요"
             },
             {
               "id": "sejong-1-l05-열",
@@ -2277,7 +2496,10 @@
               "pronunciation": "열ː",
               "sourcePage": 80,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "사과 열 개 주세요.",
+              "exampleVi": "Cho tôi mười quả táo.",
+              "grammarPoint": "Số thuần Hàn + 개 주세요"
             },
             {
               "id": "sejong-1-l05-열하나",
@@ -2311,7 +2533,10 @@
               "pronunciation": "일곱",
               "sourcePage": 80,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "사과 일곱 개 주세요.",
+              "exampleVi": "Cho tôi bảy quả táo.",
+              "grammarPoint": "Số thuần Hàn + 개 주세요"
             },
             {
               "id": "sejong-1-l05-잔",
@@ -2328,7 +2553,10 @@
               "pronunciation": "잔",
               "sourcePage": 82,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9E%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9E%94",
+              "example": "차 한 잔 주세요.",
+              "exampleVi": "Cho tôi một tách trà.",
+              "grammarPoint": "Số thuần Hàn + đơn vị đếm"
             },
             {
               "id": "sejong-1-l05-죄송합니다",
@@ -2362,7 +2590,10 @@
               "pronunciation": "친구",
               "sourcePage": 82,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B9%9C%EA%B5%AC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B9%9C%EA%B5%AC",
+              "example": "이 사람은 제 친구예요.",
+              "exampleVi": "Người này là bạn của tôi.",
+              "grammarPoint": "제 · N이에요/예요"
             },
             {
               "id": "sejong-1-l05-하나",
@@ -2497,7 +2728,10 @@
               "pronunciation": "가치",
               "sourcePage": 90,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "친구하고 같이 밥을 먹어요.",
+              "exampleVi": "Tôi cùng bạn ăn cơm.",
+              "grammarPoint": "N하고 같이 V-아요/어요"
             },
             {
               "id": "sejong-1-l06-극장",
@@ -2531,7 +2765,10 @@
               "pronunciation": "도서관",
               "sourcePage": 92,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%8F%84%EC%84%9C%EA%B4%80"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%8F%84%EC%84%9C%EA%B4%80",
+              "example": "오후 세 시에 도서관에 가요.",
+              "exampleVi": "Tôi đi thư viện lúc 3 giờ chiều.",
+              "grammarPoint": "시간에 N에 가요"
             },
             {
               "id": "sejong-1-l06-듣다",
@@ -2548,7 +2785,10 @@
               "pronunciation": "듣따",
               "sourcePage": 90,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저는 음악을 들어요.",
+              "exampleVi": "Tôi nghe nhạc.",
+              "grammarPoint": "N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l06-마시다",
@@ -2565,7 +2805,10 @@
               "pronunciation": "마시다",
               "sourcePage": 90,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "아침에 커피를 마셔요.",
+              "exampleVi": "Buổi sáng tôi uống cà phê.",
+              "grammarPoint": "N에 N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l06-만나다",
@@ -2582,7 +2825,10 @@
               "pronunciation": "만나다",
               "sourcePage": 90,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "오늘 친구를 만나요.",
+              "exampleVi": "Hôm nay tôi gặp bạn.",
+              "grammarPoint": "N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l06-먹다",
@@ -2599,7 +2845,10 @@
               "pronunciation": "먹따",
               "sourcePage": 90,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저는 불고기를 먹어요.",
+              "exampleVi": "Tôi ăn bulgogi.",
+              "grammarPoint": "N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l06-밥",
@@ -2616,7 +2865,10 @@
               "pronunciation": "밥",
               "sourcePage": 90,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "오후 세 시에 밥을 먹어요.",
+              "exampleVi": "Tôi ăn cơm lúc 3 giờ chiều.",
+              "grammarPoint": "시간에 N을/를 해요"
             },
             {
               "id": "sejong-1-l06-백화점",
@@ -2633,7 +2885,10 @@
               "pronunciation": "배콰점",
               "sourcePage": 92,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B0%B1%ED%99%94%EC%A0%90"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B0%B1%ED%99%94%EC%A0%90",
+              "example": "백화점에서 빵하고 우유를 사요.",
+              "exampleVi": "Tôi mua bánh mì và sữa tại trung tâm thương mại.",
+              "grammarPoint": "N에서 N하고 N을/를 사요"
             },
             {
               "id": "sejong-1-l06-보다",
@@ -2650,7 +2905,10 @@
               "pronunciation": "보다",
               "sourcePage": 90,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "친구하고 영화를 봐요.",
+              "exampleVi": "Tôi xem phim cùng bạn.",
+              "grammarPoint": "N하고 N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l06-어제",
@@ -2667,7 +2925,10 @@
               "pronunciation": "어제",
               "sourcePage": 1,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "어제 공원에서 산책했어요.",
+              "exampleVi": "Hôm qua tôi đã đi dạo trong công viên.",
+              "grammarPoint": "어제 · V-았/었어요"
             },
             {
               "id": "sejong-1-l06-영화",
@@ -2684,7 +2945,10 @@
               "pronunciation": "영화",
               "sourcePage": 91,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%98%81%ED%99%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%98%81%ED%99%94",
+              "example": "친구하고 영화를 봐요.",
+              "exampleVi": "Tôi xem phim cùng bạn.",
+              "grammarPoint": "N하고 N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l06-영화를 보다",
@@ -2718,7 +2982,10 @@
               "pronunciation": "우리",
               "sourcePage": 90,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "우리 같이 공원에서 놀았어요.",
+              "exampleVi": "Chúng tôi đã cùng chơi ở công viên.",
+              "grammarPoint": "같이 V-았/었어요"
             },
             {
               "id": "sejong-1-l06-음악",
@@ -2735,7 +3002,10 @@
               "pronunciation": "으막",
               "sourcePage": 90,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%8C%EC%95%85"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%8C%EC%95%85",
+              "example": "저는 음악을 들어요.",
+              "exampleVi": "Tôi nghe nhạc.",
+              "grammarPoint": "N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l06-커피숍",
@@ -2769,7 +3039,10 @@
               "pronunciation": "",
               "sourcePage": 91,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%85%94%EB%A0%88%EB%B9%84%EC%A0%84"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%85%94%EB%A0%88%EB%B9%84%EC%A0%84",
+              "example": "이것은 텔레비전이에요.",
+              "exampleVi": "Đây là tivi.",
+              "grammarPoint": "이것은 N이에요/예요"
             }
           ],
           "dialogues": [
@@ -2898,7 +3171,10 @@
               "pronunciation": "가을",
               "sourcePage": 102,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저는 가을을 좋아해요.",
+              "exampleVi": "Tôi thích mùa thu.",
+              "grammarPoint": "N을/를 좋아해요"
             },
             {
               "id": "sejong-1-l07-가져오다",
@@ -2932,7 +3208,10 @@
               "pronunciation": "겨울",
               "sourcePage": 102,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저는 겨울을 좋아해요.",
+              "exampleVi": "Tôi thích mùa đông.",
+              "grammarPoint": "N을/를 좋아해요"
             },
             {
               "id": "sejong-1-l07-날씨가 나쁘다",
@@ -3017,7 +3296,10 @@
               "pronunciation": "덥따",
               "sourcePage": 102,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "오늘 날씨가 더워요.",
+              "exampleVi": "Thời tiết hôm nay nóng.",
+              "grammarPoint": "N이/가 A-아요/어요"
             },
             {
               "id": "sejong-1-l07-두꺼운 옷",
@@ -3051,7 +3333,10 @@
               "pronunciation": "따뜨타다",
               "sourcePage": 104,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "오늘 날씨가 따뜻해요.",
+              "exampleVi": "Thời tiết hôm nay ấm áp.",
+              "grammarPoint": "N이/가 A-아요/어요"
             },
             {
               "id": "sejong-1-l07-봄",
@@ -3068,7 +3353,10 @@
               "pronunciation": "봄",
               "sourcePage": 102,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저는 봄을 좋아해요.",
+              "exampleVi": "Tôi thích mùa xuân.",
+              "grammarPoint": "N을/를 좋아해요"
             },
             {
               "id": "sejong-1-l07-비가 오다",
@@ -3102,7 +3390,10 @@
               "pronunciation": "쉬ː다",
               "sourcePage": 105,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저녁에는 집에서 쉬었어요.",
+              "exampleVi": "Buổi tối tôi đã nghỉ ở nhà.",
+              "grammarPoint": "N에서 V-았/었어요"
             },
             {
               "id": "sejong-1-l07-시원하다",
@@ -3119,7 +3410,10 @@
               "pronunciation": "시원하다",
               "sourcePage": 104,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "오늘 날씨가 시원해요.",
+              "exampleVi": "Thời tiết hôm nay mát mẻ.",
+              "grammarPoint": "N이/가 A-아요/어요"
             },
             {
               "id": "sejong-1-l07-언제",
@@ -3136,7 +3430,10 @@
               "pronunciation": "언ː제",
               "sourcePage": 108,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "수업이 언제 시작해요?",
+              "exampleVi": "Lớp học bắt đầu khi nào?",
+              "grammarPoint": "언제 V-아요/어요?"
             },
             {
               "id": "sejong-1-l07-여름",
@@ -3153,7 +3450,10 @@
               "pronunciation": "여름",
               "sourcePage": 102,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저는 여름을 좋아해요.",
+              "exampleVi": "Tôi thích mùa hè.",
+              "grammarPoint": "N을/를 좋아해요"
             },
             {
               "id": "sejong-1-l07-요즘",
@@ -3170,7 +3470,10 @@
               "pronunciation": "요즘",
               "sourcePage": 106,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "요즘 서울 날씨가 좋아요.",
+              "exampleVi": "Dạo này thời tiết Seoul đẹp.",
+              "grammarPoint": "요즘 + N이/가 A-아요/어요"
             },
             {
               "id": "sejong-1-l07-좋아하다",
@@ -3187,7 +3490,10 @@
               "pronunciation": "조ː아하다",
               "sourcePage": 102,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저는 고양이를 좋아해요.",
+              "exampleVi": "Tôi thích mèo.",
+              "grammarPoint": "N을/를 좋아해요"
             },
             {
               "id": "sejong-1-l07-중국어",
@@ -3221,7 +3527,10 @@
               "pronunciation": "춥따",
               "sourcePage": 104,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "오늘 날씨가 추워요.",
+              "exampleVi": "Thời tiết hôm nay lạnh.",
+              "grammarPoint": "N이/가 A-아요/어요"
             }
           ],
           "dialogues": [
@@ -3353,7 +3662,10 @@
               "pronunciation": "구월",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B5%AC%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B5%AC%EC%9B%94",
+              "example": "한국어 수업은 구월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng chín.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-금요일",
@@ -3370,7 +3682,10 @@
               "pronunciation": "그묘일",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B8%88%EC%9A%94%EC%9D%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B8%88%EC%9A%94%EC%9D%BC",
+              "example": "금요일에 한국어 수업이 있어요.",
+              "exampleVi": "Có lớp tiếng Hàn vào thứ sáu.",
+              "grammarPoint": "요일 + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-내일",
@@ -3387,7 +3702,10 @@
               "pronunciation": "내일",
               "sourcePage": 114,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%82%B4%EC%9D%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%82%B4%EC%9D%BC",
+              "example": "내일 일찍 오세요.",
+              "exampleVi": "Ngày mai hãy đến sớm.",
+              "grammarPoint": "Thời gian + V-(으)세요"
             },
             {
               "id": "sejong-1-l08-며칠",
@@ -3404,7 +3722,10 @@
               "pronunciation": "며칠",
               "sourcePage": 118,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "오늘이 며칠이에요?",
+              "exampleVi": "Hôm nay là ngày bao nhiêu?",
+              "grammarPoint": "며칠이에요?"
             },
             {
               "id": "sejong-1-l08-목요일",
@@ -3421,7 +3742,10 @@
               "pronunciation": "모교일",
               "sourcePage": 110,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%AA%A9%EC%9A%94%EC%9D%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%AA%A9%EC%9A%94%EC%9D%BC",
+              "example": "목요일에 한국어 수업이 있어요.",
+              "exampleVi": "Có lớp tiếng Hàn vào thứ năm.",
+              "grammarPoint": "요일 + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-무슨 요일",
@@ -3455,7 +3779,10 @@
               "pronunciation": "사ː월",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%82%AC%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%82%AC%EC%9B%94",
+              "example": "한국어 수업은 사월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng bốn.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-삼십일",
@@ -3472,7 +3799,10 @@
               "pronunciation": "삼시빌",
               "sourcePage": 112,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "한국어 수업은 삼십일에 있어요.",
+              "exampleVi": "Lớp tiếng Hàn diễn ra vào ngày ngày ba mươi.",
+              "grammarPoint": "Ngày + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-삼십일일",
@@ -3489,7 +3819,10 @@
               "pronunciation": "삼시비릴",
               "sourcePage": 112,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "한국어 수업은 삼십일일에 있어요.",
+              "exampleVi": "Lớp tiếng Hàn diễn ra vào ngày ngày ba mươi mốt.",
+              "grammarPoint": "Ngày + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-삼월",
@@ -3506,7 +3839,10 @@
               "pronunciation": "사뭘",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%82%BC%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%82%BC%EC%9B%94",
+              "example": "한국어 수업은 삼월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng ba.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-삼일",
@@ -3523,7 +3859,10 @@
               "pronunciation": "사밀",
               "sourcePage": 112,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "한국어 수업은 삼일에 있어요.",
+              "exampleVi": "Lớp tiếng Hàn diễn ra vào ngày ngày ba.",
+              "grammarPoint": "Ngày + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-수업",
@@ -3540,7 +3879,10 @@
               "pronunciation": "수업",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%88%98%EC%97%85"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%88%98%EC%97%85",
+              "example": "오후 세 시에 수업이 있어요.",
+              "exampleVi": "Tôi có lớp học lúc 3 giờ chiều.",
+              "grammarPoint": "시간에 N을/를 해요"
             },
             {
               "id": "sejong-1-l08-수요일",
@@ -3557,7 +3899,10 @@
               "pronunciation": "수요일",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%88%98%EC%9A%94%EC%9D%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%88%98%EC%9A%94%EC%9D%BC",
+              "example": "수요일에 한국어 수업이 있어요.",
+              "exampleVi": "Có lớp tiếng Hàn vào thứ tư.",
+              "grammarPoint": "요일 + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-시월",
@@ -3574,7 +3919,10 @@
               "pronunciation": "시월",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%8B%9C%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%8B%9C%EC%9B%94",
+              "example": "한국어 수업은 시월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng mười.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-시험",
@@ -3608,7 +3956,10 @@
               "pronunciation": "시비월",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%8B%AD%EC%9D%B4%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%8B%AD%EC%9D%B4%EC%9B%94",
+              "example": "한국어 수업은 십이월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng mười hai.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-십일월",
@@ -3625,7 +3976,10 @@
               "pronunciation": "시비뤌",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%8B%AD%EC%9D%BC%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%8B%AD%EC%9D%BC%EC%9B%94",
+              "example": "한국어 수업은 십일월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng mười một.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-십일일",
@@ -3642,7 +3996,10 @@
               "pronunciation": "시비릴",
               "sourcePage": 112,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "한국어 수업은 십일일에 있어요.",
+              "exampleVi": "Lớp tiếng Hàn diễn ra vào ngày ngày mười một.",
+              "grammarPoint": "Ngày + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-아침",
@@ -3659,7 +4016,10 @@
               "pronunciation": "아침",
               "sourcePage": 114,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "아침 일곱 시에 일어나요.",
+              "exampleVi": "Tôi thức dậy lúc 7 giờ sáng.",
+              "grammarPoint": "시간에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-월요일",
@@ -3676,7 +4036,10 @@
               "pronunciation": "워료일",
               "sourcePage": 110,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9B%94%EC%9A%94%EC%9D%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9B%94%EC%9A%94%EC%9D%BC",
+              "example": "월요일에 한국어 수업이 있어요.",
+              "exampleVi": "Có lớp tiếng Hàn vào thứ hai.",
+              "grammarPoint": "요일 + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-유월",
@@ -3693,7 +4056,10 @@
               "pronunciation": "유월",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9C%A0%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9C%A0%EC%9B%94",
+              "example": "한국어 수업은 유월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng sáu.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-육일",
@@ -3710,7 +4076,10 @@
               "pronunciation": "유길",
               "sourcePage": 112,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "한국어 수업은 육일에 있어요.",
+              "exampleVi": "Lớp tiếng Hàn diễn ra vào ngày ngày sáu.",
+              "grammarPoint": "Ngày + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-이십구일",
@@ -3727,7 +4096,10 @@
               "pronunciation": "이십꾸일",
               "sourcePage": 112,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "한국어 수업은 이십구일에 있어요.",
+              "exampleVi": "Lớp tiếng Hàn diễn ra vào ngày ngày hai mươi chín.",
+              "grammarPoint": "Ngày + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-이월",
@@ -3744,7 +4116,10 @@
               "pronunciation": "이ː월",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%B4%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%B4%EC%9B%94",
+              "example": "한국어 수업은 이월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng hai.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-이일",
@@ -3761,7 +4136,10 @@
               "pronunciation": "",
               "sourcePage": 112,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "한국어 수업은 이일에 있어요.",
+              "exampleVi": "Lớp tiếng Hàn diễn ra vào ngày ngày hai.",
+              "grammarPoint": "Ngày + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-일요일",
@@ -3778,7 +4156,10 @@
               "pronunciation": "이료일",
               "sourcePage": 111,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%BC%EC%9A%94%EC%9D%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%BC%EC%9A%94%EC%9D%BC",
+              "example": "일요일에 한국어 수업이 있어요.",
+              "exampleVi": "Có lớp tiếng Hàn vào chủ nhật.",
+              "grammarPoint": "요일 + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-일월",
@@ -3795,7 +4176,10 @@
               "pronunciation": "이뤌",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%BC%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%BC%EC%9B%94",
+              "example": "한국어 수업은 일월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng một.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-일일",
@@ -3812,7 +4196,10 @@
               "pronunciation": "이릴",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%BC%EC%9D%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%9D%BC%EC%9D%BC",
+              "example": "한국어 수업은 일일에 있어요.",
+              "exampleVi": "Lớp tiếng Hàn diễn ra vào ngày ngày một.",
+              "grammarPoint": "Ngày + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-저녁",
@@ -3829,7 +4216,10 @@
               "pronunciation": "저녁",
               "sourcePage": 114,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저녁 여섯 시에 친구를 만나요.",
+              "exampleVi": "Tôi gặp bạn lúc 6 giờ tối.",
+              "grammarPoint": "시간에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-점심",
@@ -3846,7 +4236,10 @@
               "pronunciation": "점ː심",
               "sourcePage": 114,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A0%90%EC%8B%AC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A0%90%EC%8B%AC",
+              "example": "오후 세 시에 점심을 먹어요.",
+              "exampleVi": "Tôi ăn trưa lúc 3 giờ chiều.",
+              "grammarPoint": "시간에 N을/를 해요"
             },
             {
               "id": "sejong-1-l08-칠월",
@@ -3863,7 +4256,10 @@
               "pronunciation": "치뤌",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B9%A0%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B9%A0%EC%9B%94",
+              "example": "한국어 수업은 칠월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng bảy.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-칠일",
@@ -3880,7 +4276,10 @@
               "pronunciation": "치릴",
               "sourcePage": 112,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "한국어 수업은 칠일에 있어요.",
+              "exampleVi": "Lớp tiếng Hàn diễn ra vào ngày ngày bảy.",
+              "grammarPoint": "Ngày + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-토요일",
@@ -3897,7 +4296,10 @@
               "pronunciation": "토요일",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%86%A0%EC%9A%94%EC%9D%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%86%A0%EC%9A%94%EC%9D%BC",
+              "example": "토요일에 한국어 수업이 있어요.",
+              "exampleVi": "Có lớp tiếng Hàn vào thứ bảy.",
+              "grammarPoint": "요일 + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-팔월",
@@ -3914,7 +4316,10 @@
               "pronunciation": "파뤌",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%8C%94%EC%9B%94"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%8C%94%EC%9B%94",
+              "example": "한국어 수업은 팔월에 시작해요.",
+              "exampleVi": "Lớp tiếng Hàn bắt đầu vào tháng tám.",
+              "grammarPoint": "Tháng + 에 V-아요/어요"
             },
             {
               "id": "sejong-1-l08-화요일",
@@ -3931,7 +4336,10 @@
               "pronunciation": "화요일",
               "sourcePage": 112,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%99%94%EC%9A%94%EC%9D%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%99%94%EC%9A%94%EC%9D%BC",
+              "example": "화요일에 한국어 수업이 있어요.",
+              "exampleVi": "Có lớp tiếng Hàn vào thứ ba.",
+              "grammarPoint": "요일 + 에 N이/가 있어요"
             },
             {
               "id": "sejong-1-l08-회의",
@@ -3948,7 +4356,10 @@
               "pronunciation": "회의/훼이",
               "sourcePage": 115,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%9A%8C%EC%9D%98"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%ED%9A%8C%EC%9D%98",
+              "example": "오후 세 시에 회의를 해요.",
+              "exampleVi": "Tôi họp lúc 3 giờ chiều.",
+              "grammarPoint": "시간에 N을/를 해요"
             }
           ],
           "dialogues": [
@@ -4125,7 +4536,10 @@
               "pronunciation": "노래방",
               "sourcePage": 128,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%85%B8%EB%9E%98%EB%B0%A9"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%85%B8%EB%9E%98%EB%B0%A9",
+              "example": "노래방은 몇 층이에요?",
+              "exampleVi": "Quán karaoke ở tầng mấy?",
+              "grammarPoint": "N은/는 몇 층이에요?"
             },
             {
               "id": "sejong-1-l09-놀러 가다",
@@ -4176,7 +4590,10 @@
               "pronunciation": "바쁘다",
               "sourcePage": 122,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "저는 요즘 조금 바빠요.",
+              "exampleVi": "Dạo này tôi hơi bận.",
+              "grammarPoint": "요즘 · A-아요/어요"
             },
             {
               "id": "sejong-1-l09-불고기",
@@ -4193,7 +4610,10 @@
               "pronunciation": "불고기",
               "sourcePage": 124,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "불고기가 정말 맛있어요.",
+              "exampleVi": "Bulgogi thật sự rất ngon.",
+              "grammarPoint": "N이/가 A-아요/어요"
             },
             {
               "id": "sejong-1-l09-쇼핑을 하다",
@@ -4397,7 +4817,10 @@
               "pronunciation": "정ː말",
               "sourcePage": 123,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A0%95%EB%A7%90"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A0%95%EB%A7%90",
+              "example": "김치가 정말 맛있어요.",
+              "exampleVi": "Kimchi thật sự rất ngon.",
+              "grammarPoint": "정말 + A-아요/어요"
             },
             {
               "id": "sejong-1-l09-차를 마시다",
@@ -4431,7 +4854,10 @@
               "pronunciation": "층",
               "sourcePage": 124,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B8%B5"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%B8%B5",
+              "example": "세종학당은 사 층이에요.",
+              "exampleVi": "Học viện Sejong ở tầng 4.",
+              "grammarPoint": "Số Hán–Hàn + 층"
             },
             {
               "id": "sejong-1-l09-커피를 마시다",
@@ -4595,7 +5021,10 @@
               "pronunciation": "고향",
               "sourcePage": 134,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B3%A0%ED%96%A5"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EA%B3%A0%ED%96%A5",
+              "example": "제 고향은 날씨가 따뜻해요.",
+              "exampleVi": "Quê tôi có thời tiết ấm áp.",
+              "grammarPoint": "N은/는 N이/가 A-아요/어요"
             },
             {
               "id": "sejong-1-l10-구경하다",
@@ -4612,7 +5041,10 @@
               "pronunciation": "구ː경하다",
               "sourcePage": 136,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "어제 박물관을 구경했어요.",
+              "exampleVi": "Hôm qua tôi đã tham quan bảo tàng.",
+              "grammarPoint": "N을/를 V-았/었어요"
             },
             {
               "id": "sejong-1-l10-그림",
@@ -4663,7 +5095,10 @@
               "pronunciation": "마ː니",
               "sourcePage": 134,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "겨울에는 눈이 많이 와요.",
+              "exampleVi": "Mùa đông tuyết rơi nhiều.",
+              "grammarPoint": "많이 + V-아요/어요"
             },
             {
               "id": "sejong-1-l10-미술관",
@@ -4697,7 +5132,10 @@
               "pronunciation": "바다",
               "sourcePage": 134,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "여름 바다가 아주 아름다워요.",
+              "exampleVi": "Biển mùa hè rất đẹp.",
+              "grammarPoint": "N이/가 아주 A-아요/어요"
             },
             {
               "id": "sejong-1-l10-박물관",
@@ -4714,7 +5152,10 @@
               "pronunciation": "방물관",
               "sourcePage": 132,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B0%95%EB%AC%BC%EA%B4%80"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B0%95%EB%AC%BC%EA%B4%80",
+              "example": "어제 박물관에 갔어요.",
+              "exampleVi": "Hôm qua tôi đã đi đến viện bảo tàng.",
+              "grammarPoint": "N에 갔어요"
             },
             {
               "id": "sejong-1-l10-병원",
@@ -4782,7 +5223,10 @@
               "pronunciation": "수영",
               "sourcePage": 134,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%88%98%EC%98%81"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%88%98%EC%98%81",
+              "example": "오후 세 시에 수영을 해요.",
+              "exampleVi": "Tôi bơi lúc 3 giờ chiều.",
+              "grammarPoint": "시간에 N을/를 해요"
             },
             {
               "id": "sejong-1-l10-수영장",
@@ -4799,7 +5243,10 @@
               "pronunciation": "수영장",
               "sourcePage": 134,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%88%98%EC%98%81%EC%9E%A5"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%88%98%EC%98%81%EC%9E%A5",
+              "example": "어제 수영장에 갔어요.",
+              "exampleVi": "Hôm qua tôi đã đi đến hồ bơi.",
+              "grammarPoint": "N에 갔어요"
             },
             {
               "id": "sejong-1-l10-아프다",
@@ -4884,7 +5331,10 @@
               "pronunciation": "주말",
               "sourcePage": 134,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A3%BC%EB%A7%90"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A3%BC%EB%A7%90",
+              "example": "주말에 수영을 배워요.",
+              "exampleVi": "Cuối tuần tôi học bơi.",
+              "grammarPoint": "Thời gian + 에"
             },
             {
               "id": "sejong-1-l10-지난 주말",
@@ -5107,7 +5557,10 @@
               "pronunciation": "배우다",
               "sourcePage": 149,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "오후에 수영을 배워요.",
+              "exampleVi": "Buổi chiều tôi học bơi.",
+              "grammarPoint": "시간에 N을/를 V-아요/어요"
             },
             {
               "id": "sejong-1-l11-쉽다",
@@ -5124,7 +5577,10 @@
               "pronunciation": "쉽따",
               "sourcePage": 144,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "이 한국어 문제는 쉬워요.",
+              "exampleVi": "Bài tiếng Hàn này dễ.",
+              "grammarPoint": "N은/는 A-아요/어요"
             },
             {
               "id": "sejong-1-l11-시작하다",
@@ -5141,7 +5597,10 @@
               "pronunciation": "시자카다",
               "sourcePage": 149,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%8B%9C%EC%9E%91%ED%95%98%EB%8B%A4"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%8B%9C%EC%9E%91%ED%95%98%EB%8B%A4",
+              "example": "수업은 아홉 시에 시작해요.",
+              "exampleVi": "Lớp học bắt đầu lúc 9 giờ.",
+              "grammarPoint": "시간에 V-아요/어요"
             },
             {
               "id": "sejong-1-l11-아주",
@@ -5158,7 +5617,10 @@
               "pronunciation": "아주",
               "sourcePage": 149,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "하노이는 여름에 아주 더워요.",
+              "exampleVi": "Hà Nội rất nóng vào mùa hè.",
+              "grammarPoint": "아주 + A-아요/어요"
             },
             {
               "id": "sejong-1-l11-어렵다",
@@ -5175,7 +5637,10 @@
               "pronunciation": "어렵따",
               "sourcePage": 144,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "이 한국어 문제는 어려워요.",
+              "exampleVi": "Bài tiếng Hàn này khó.",
+              "grammarPoint": "N은/는 A-아요/어요"
             },
             {
               "id": "sejong-1-l11-이유",
@@ -5226,7 +5691,10 @@
               "pronunciation": "재미읻따",
               "sourcePage": 144,
               "dictionarySource": "",
-              "dictionaryUrl": ""
+              "dictionaryUrl": "",
+              "example": "놀이공원이 정말 재미있었어요.",
+              "exampleVi": "Công viên giải trí thật sự rất vui.",
+              "grammarPoint": "A-았/었어요"
             },
             {
               "id": "sejong-1-l11-주",
@@ -5243,7 +5711,10 @@
               "pronunciation": "주ː",
               "sourcePage": 149,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A3%BC"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%A3%BC",
+              "example": "다음 주에 친구를 만날 거예요.",
+              "exampleVi": "Tuần sau tôi sẽ gặp bạn.",
+              "grammarPoint": "다음 주에 V-(으)ㄹ 거예요"
             },
             {
               "id": "sejong-1-l11-지난",
@@ -5277,7 +5748,10 @@
               "pronunciation": "",
               "sourcePage": 145,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%BB%B4%ED%93%A8%ED%84%B0"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%BB%B4%ED%93%A8%ED%84%B0",
+              "example": "이것은 컴퓨터예요.",
+              "exampleVi": "Đây là máy vi tính.",
+              "grammarPoint": "이것은 N이에요/예요"
             },
             {
               "id": "sejong-1-l11-한 달",
@@ -5493,7 +5967,10 @@
               "pronunciation": "방ː학",
               "sourcePage": 154,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B0%A9%ED%95%99"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EB%B0%A9%ED%95%99",
+              "example": "방학에 제주도에 갈 거예요.",
+              "exampleVi": "Kỳ nghỉ tôi sẽ đi đảo Jeju.",
+              "grammarPoint": "시간에 N에 갈 거예요"
             },
             {
               "id": "sejong-1-l12-살다",
@@ -5527,7 +6004,10 @@
               "pronunciation": "",
               "sourcePage": 154,
               "dictionarySource": "Từ điển tiếng Hàn cơ sở · Viện Quốc ngữ Quốc gia Hàn Quốc",
-              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%95%84%EB%A5%B4%EB%B0%94%EC%9D%B4%ED%8A%B8"
+              "dictionaryUrl": "https://krdict.korean.go.kr/vie/dicMarinerSearch/search?mainSearchWord=%EC%95%84%EB%A5%B4%EB%B0%94%EC%9D%B4%ED%8A%B8",
+              "example": "오후 세 시에 아르바이트를 해요.",
+              "exampleVi": "Tôi làm thêm lúc 3 giờ chiều.",
+              "grammarPoint": "시간에 N을/를 해요"
             },
             {
               "id": "sejong-1-l12-앞으로",

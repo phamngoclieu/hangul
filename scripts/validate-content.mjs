@@ -223,6 +223,9 @@ for (const course of courseData?.courses || []) {
       courseVocabularyIds.add(item.id);
       requireValue(typeof item.meaningVi === "string" && item.meaningVi.trim(), `${item.id}: thiếu nghĩa Việt.`, errors);
       requireValue(typeof item.romanization === "string" && item.romanization.trim(), `${item.id}: thiếu phiên âm.`, errors);
+      for (const field of ["pronunciation", "example", "exampleVi", "grammarPoint"]) {
+        if (field in item) requireValue(typeof item[field] === "string", `${item.id}: ${field} không hợp lệ.`, errors);
+      }
 
       if (item.originType === "native") {
         requireValue(item.originLabelVi === "Từ thuần Hàn", `${item.id}: từ thuần Hàn chỉ được giữ phân loại.`, errors);
