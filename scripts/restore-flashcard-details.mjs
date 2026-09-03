@@ -11,8 +11,13 @@ const legacyByWord = new Map(legacyVocabulary.map(item => [item.word, item]));
 let restored = 0;
 
 for (const course of courseData.courses || []) {
-  for (const lesson of course.lessons || []) {
-    for (const item of lesson.vocabulary || []) {
+  const vocabularyCollections = [
+    ...(course.lessons || []).map(lesson => lesson.vocabulary || []),
+    course.numberVocabulary?.sino || [],
+    course.numberVocabulary?.native || [],
+  ];
+  for (const vocabulary of vocabularyCollections) {
+    for (const item of vocabulary) {
       delete item.example;
       delete item.exampleVi;
       delete item.grammarPoint;

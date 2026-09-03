@@ -219,6 +219,8 @@ const COURSE_META = {
 };
 
 const correctedDictionaryKeys = { "꽃": "꾳", "손": "손…", "시다": "시다!", "저곳": "제공" };
+const NUMBER_HANJA = /^[零〇一二三四五六七八九十百千萬万億亿兆]+$/u;
+const NATIVE_NUMBER_WORDS = new Set(["하나", "둘", "셋", "넷", "다섯", "여섯", "일곱", "여덟", "아홉", "열", "열하나", "열둘", "스물", "서른", "마흔", "쉰", "예순", "일흔", "여든", "아흔"]);
 
 function readOcr(courseCode) {
   const rows = fs.readFileSync(path.join(generatedRoot, `${courseCode}.jsonl`), "utf8").trim().split(/\r?\n/).map(JSON.parse);
@@ -314,6 +316,11 @@ function vocabularyRecord(courseId, item) {
   if (override.originType) originType = override.originType;
 
   const meaning = override.meaningVi || FALLBACK_MEANINGS[item.term] || (trustedDictionary ? entry.meaning_vi : "") || old?.meaning || "Xem nghĩa trong ngữ cảnh bài học";
+  const vocabularyGroup = originType === "sino" && NUMBER_HANJA.test(original)
+    ? "numbers-sino"
+    : originType === "native" && NATIVE_NUMBER_WORDS.has(item.term)
+      ? "numbers-native"
+      : "";
   const originLabels = {
     native: "Từ thuần Hàn", sino: "Từ Hán–Hàn", loanword: "Từ mượn", mixed: "Từ hỗn hợp",
     proper: "Tên riêng", expression: "Cụm diễn đạt"
@@ -334,6 +341,7 @@ function vocabularyRecord(courseId, item) {
     example: oldFlashcard?.example || "",
     exampleVi: oldFlashcard?.example_vi || "",
     grammarPoint: oldFlashcard?.grammar_point || "",
+    ...(vocabularyGroup ? { vocabularyGroup } : {}),
     sourcePage: item.references[0] || null,
     dictionarySource: trustedDictionary && originType !== "native" ? SOURCE_DICTIONARY : "",
     dictionaryUrl: trustedDictionary && originType !== "native" ? entry.source_url : "",
@@ -382,7 +390,7 @@ function buildCourse(courseId, courseCode) {
     return {
       ...lesson,
       grammar: lesson.grammar.map(form => ({ form, noteVi: GRAMMAR_NOTES[form] || "Ôn mẫu ngữ pháp trong bài." })),
-      vocabulary: vocabulary.filter(item => item.lesson === lesson.id),
+      vocabulary: vocabulary.filter(item => item.lesson === lesson.id && !item.vocabularyGroup),
       dialogues,
       audio: trackList,
       reading: sourceReadingPage ? {
@@ -400,6 +408,10 @@ function buildCourse(courseId, courseCode) {
     audioCount: assets.audio[courseId]?.length || 0,
     vocabularyCount: vocabulary.length,
     lessons,
+    numberVocabulary: {
+      sino: vocabulary.filter(item => item.vocabularyGroup === "numbers-sino"),
+      native: vocabulary.filter(item => item.vocabularyGroup === "numbers-native"),
+    },
     cultures: meta.cultures.map(([id, titleKo, titleVi, pages]) => ({
       id, titleKo, titleVi, pages,
       images: (assets.culture[courseId] || []).filter(item => item.unit === id)

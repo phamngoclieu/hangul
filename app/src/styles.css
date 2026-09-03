@@ -195,6 +195,14 @@ img { max-width: 100%; }
 .lesson-tags span { padding: 5px 8px; border-radius: 99px; background: var(--soft); color: #4b665b; font-size: 8px; }
 .lesson-card .primary-button { width: 100%; }
 
+.vocabulary-scope-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 14px; }
+.vocabulary-scope-cards button { display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 2px 12px; min-height: 72px; padding: 12px 15px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); color: var(--green); text-align: left; }
+.vocabulary-scope-cards button > span { grid-row: 1 / 3; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 11px; background: var(--soft); font-family: "Noto Sans KR", sans-serif; font-size: 17px; font-weight: 800; }
+.vocabulary-scope-cards b { font-size: 11px; }
+.vocabulary-scope-cards small { grid-column: 2; color: var(--muted); font-size: 8px; }
+.vocabulary-scope-cards button.active { border-color: var(--green); background: #edf4e9; box-shadow: inset 0 0 0 1px var(--green); }
+.vocabulary-scope-cards button.active > span { background: var(--green); color: white; }
+
 .filter-bar { display: grid; grid-template-columns: minmax(250px, 1fr) 260px auto; align-items: end; gap: 10px; margin-bottom: 18px; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
 .filter-bar.compact { grid-template-columns: minmax(240px, 320px) 1fr; align-items: center; }
 .filter-bar label, .flash-toolbar label { display: grid; gap: 5px; color: var(--muted); font-size: 8px; font-weight: 700; }
@@ -514,6 +522,7 @@ dialog::backdrop { background: rgba(14,35,28,.6); backdrop-filter: blur(4px); }
   .course-card dl div { padding: 10px 7px; }
   .source-note { align-items: flex-start; }
   .source-note p { line-height: 1.6; }
+  .vocabulary-scope-cards { grid-template-columns: 1fr; }
   .filter-bar, .filter-bar.compact { grid-template-columns: 1fr; }
   .source-badge { justify-self: start; }
   .flash-stage { grid-template-columns: 38px minmax(0, 1fr) 38px; }

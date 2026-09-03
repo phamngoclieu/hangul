@@ -21,6 +21,10 @@ const PASSWORD_RECOVERY_KEY = "sejongGreen.passwordRecovery.v1";
 const CONTENT_VERSION = coursesData.version;
 const courses = coursesData.courses;
 const courseById = new Map(courses.map(course => [course.id, course]));
+const NUMBER_VOCABULARY_LABELS = {
+  "numbers-sino": "Số Hán–Hàn",
+  "numbers-native": "Số thuần Hàn",
+};
 
 function isPasswordRecoveryRedirect() {
   const hash = new URLSearchParams(location.hash.replace(/^#/, ""));
@@ -223,7 +227,51 @@ function selectedLesson() {
 
 function allCourseVocabulary(course = selectedCourse()) {
   if (!course) return [];
-  return [...course.lessons.flatMap(lesson => lesson.vocabulary), ...(courseProgress(course.id).customVocabulary || [])];
+  return [
+    ...course.lessons.flatMap(lesson => lesson.vocabulary),
+    ...(course.numberVocabulary?.sino || []),
+    ...(course.numberVocabulary?.native || []),
+    ...(courseProgress(course.id).customVocabulary || []),
+  ];
+}
+
+function numberVocabulary(course, group) {
+  if (group === "numbers-sino") return course.numberVocabulary?.sino || [];
+  if (group === "numbers-native") return course.numberVocabulary?.native || [];
+  return [];
+}
+
+function lessonVocabulary(course, lessonId) {
+  const lesson = course.lessons.find(item => item.id === Number(lessonId));
+  const custom = (courseProgress(course.id).customVocabulary || []).filter(item => item.lesson === Number(lessonId) && !item.vocabularyGroup);
+  return [...(lesson?.vocabulary || []), ...custom];
+}
+
+function lessonCourseVocabulary(course) {
+  return [
+    ...course.lessons.flatMap(lesson => lesson.vocabulary),
+    ...(courseProgress(course.id).customVocabulary || []).filter(item => !item.vocabularyGroup),
+  ];
+}
+
+function vocabularyForScope(course, scope) {
+  if (scope === "numbers-sino" || scope === "numbers-native") return numberVocabulary(course, scope);
+  if (scope === "all") return lessonCourseVocabulary(course);
+  return lessonVocabulary(course, scope);
+}
+
+function normalizeVocabularyScope(course, scope, fallback = "all") {
+  if (scope === "all") return scope;
+  if (NUMBER_VOCABULARY_LABELS[scope] && numberVocabulary(course, scope).length) return scope;
+  if (course.lessons.some(lesson => String(lesson.id) === String(scope))) return String(scope);
+  return fallback;
+}
+
+function vocabularyScopeLabel(course, scope) {
+  if (scope === "all") return "Từ vựng trong các bài";
+  if (NUMBER_VOCABULARY_LABELS[scope]) return NUMBER_VOCABULARY_LABELS[scope];
+  const lesson = course.lessons.find(item => String(item.id) === String(scope));
+  return lesson ? `${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`} · ${lesson.titleVi}` : "Từ vựng trong các bài";
 }
 
 function today() {
@@ -305,6 +353,15 @@ function fileToDataUrl(file) {
 
 function lessonOptions(course, selected, includeAll = false) {
   return `${includeAll ? `<option value="all" ${selected === "all" ? "selected" : ""}>Toàn bộ ${escapeHtml(course.title)}</option>` : ""}${course.lessons.map(lesson => `<option value="${lesson.id}" ${String(selected) === String(lesson.id) ? "selected" : ""}>${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`} · ${escapeHtml(lesson.titleVi)}</option>`).join("")}`;
+}
+
+function vocabularyScopeOptions(course, selected, includeAll = true) {
+  const lessonOptionsMarkup = course.lessons.map(lesson => `<option value="${lesson.id}" ${String(selected) === String(lesson.id) ? "selected" : ""}>${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`} · ${escapeHtml(lesson.titleVi)}</option>`).join("");
+  const numberOptions = Object.entries(NUMBER_VOCABULARY_LABELS)
+    .filter(([group]) => numberVocabulary(course, group).length)
+    .map(([group, label]) => `<option value="${group}" ${selected === group ? "selected" : ""}>${label} · ${numberVocabulary(course, group).length} mục</option>`)
+    .join("");
+  return `${includeAll ? `<option value="all" ${selected === "all" ? "selected" : ""}>Từ vựng trong các bài</option>` : ""}<optgroup label="Bài học">${lessonOptionsMarkup}</optgroup>${numberOptions ? `<optgroup label="Nhóm số riêng">${numberOptions}</optgroup>` : ""}`;
 }
 
 function scopedLesson(course, value, fallback = 1) {
@@ -493,10 +550,11 @@ function renderDashboard(course) {
 
 function renderCompactLesson(course, lesson) {
   const done = courseProgress(course.id).completedLessons.includes(lesson.id);
+  const vocabulary = lessonVocabulary(course, lesson.id);
   return `
     <button class="compact-lesson" type="button" data-action="open-lesson" data-lesson="${lesson.id}">
       <span class="lesson-index">${lesson.id === 0 ? "가" : String(lesson.id).padStart(2, "0")}</span>
-      <span><b>${escapeHtml(lesson.titleVi)}</b><small>${escapeHtml(lesson.titleKo)} · ${lesson.vocabulary.length} mục từ</small></span>
+      <span><b>${escapeHtml(lesson.titleVi)}</b><small>${escapeHtml(lesson.titleKo)} · ${vocabulary.length} mục từ</small></span>
       <i class="${done ? "done" : ""}">${done ? "✓" : "→"}</i>
     </button>
   `;
@@ -509,6 +567,7 @@ function renderLessons(course) {
     <section class="lesson-grid">
       ${course.lessons.map(lesson => {
         const done = progress.completedLessons.includes(lesson.id);
+        const vocabulary = lessonVocabulary(course, lesson.id);
         return `
           <article class="lesson-card ${done ? "completed" : ""}">
             <div class="lesson-card-top"><span>${lesson.id === 0 ? "Nhập môn" : `Bài ${String(lesson.id).padStart(2, "0")}`}</span>${done ? "<i>✓ Đã học</i>" : ""}</div>
@@ -516,7 +575,7 @@ function renderLessons(course) {
             <p>${escapeHtml(lesson.objectives.join(" · "))}</p>
             <div class="lesson-tags">
               ${lesson.grammar.map(item => `<span>${escapeHtml(item.form)}</span>`).join("")}
-              <span>${lesson.vocabulary.length} mục từ</span><span>${lesson.audio.length} track</span>
+              <span>${vocabulary.length} mục từ</span><span>${lesson.audio.length} track</span>
             </div>
             <button class="primary-button" type="button" data-action="open-lesson" data-lesson="${lesson.id}">Mở bài học <span>→</span></button>
           </article>
@@ -580,9 +639,11 @@ function renderFlashExample(item) {
 
 function renderVocabularyCard(item) {
   const mastered = courseProgress().masteredWords.includes(item.id);
+  const scope = item.vocabularyGroup || `lesson:${item.lesson}`;
+  const context = NUMBER_VOCABULARY_LABELS[item.vocabularyGroup] || (item.lesson === 0 ? "Nhập môn" : `Bài ${item.lesson}`);
   return `
-    <article class="vocab-card" data-vocab-card data-lesson="${item.lesson}" data-search="${escapeHtml(`${item.word} ${item.romanization} ${item.meaningVi}`.toLowerCase())}">
-      <div class="vocab-top"><span>Bài ${item.lesson}</span><button type="button" data-action="speak" data-text="${escapeHtml(item.word)}" aria-label="Nghe ${escapeHtml(item.word)}">♪</button></div>
+    <article class="vocab-card" data-vocab-card data-vocab-scope="${scope}" data-number-group="${item.vocabularyGroup || ""}" data-search="${escapeHtml(`${item.word} ${item.romanization} ${item.meaningVi}`.toLowerCase())}">
+      <div class="vocab-top"><span>${context}</span><button type="button" data-action="speak" data-text="${escapeHtml(item.word)}" aria-label="Nghe ${escapeHtml(item.word)}">♪</button></div>
       <h2>${escapeHtml(item.word)}</h2><p class="romanization">${escapeHtml(item.romanization)}</p>
       <p class="meaning">${escapeHtml(item.meaningVi)}</p>
       ${renderOrigin(item, true)}
@@ -592,13 +653,20 @@ function renderVocabularyCard(item) {
 }
 
 function renderVocabulary(course) {
+  ui.vocabularyLesson = normalizeVocabularyScope(course, ui.vocabularyLesson);
   const vocabulary = allCourseVocabulary(course);
+  const lessonWords = lessonCourseVocabulary(course);
+  const numberGroups = Object.entries(NUMBER_VOCABULARY_LABELS).filter(([group]) => numberVocabulary(course, group).length);
   return `
-    ${sectionHeading(course.title, "Từ vựng theo đúng giáo trình", `${vocabulary.length} mục từ được chia theo từng bài học.`)}
+    ${sectionHeading(course.title, "Từ vựng", `${lessonWords.length} mục từ trong bài; số Hán–Hàn và số thuần Hàn được tách thành nhóm riêng.`)}
+    ${numberGroups.length ? `<section class="vocabulary-scope-cards" aria-label="Nhóm từ vựng">
+      <button class="${ui.vocabularyLesson === "all" ? "active" : ""}" type="button" data-action="select-vocabulary-scope" data-scope="all"><span>가</span><b>Từ vựng trong bài</b><small>${lessonWords.length} mục</small></button>
+      ${numberGroups.map(([group, label]) => `<button class="${ui.vocabularyLesson === group ? "active" : ""}" type="button" data-action="select-vocabulary-scope" data-scope="${group}"><span>${group === "numbers-sino" ? "一" : "하나"}</span><b>${label}</b><small>${numberVocabulary(course, group).length} mục</small></button>`).join("")}
+    </section>` : ""}
     <section class="filter-bar">
       <label class="search-field"><span>⌕</span><input data-filter="vocabulary-search" type="search" placeholder="Tìm từ Hàn, phiên âm hoặc nghĩa Việt" value="${escapeHtml(ui.vocabularySearch)}" /></label>
-      <label><span>Bài học</span><select data-filter="vocabulary-lesson"><option value="all">Tất cả bài</option>${course.lessons.map(lesson => `<option value="${lesson.id}" ${ui.vocabularyLesson === String(lesson.id) ? "selected" : ""}>${lesson.id === 0 ? "Nhập môn" : `Bài ${lesson.id}`} · ${escapeHtml(lesson.titleVi)}</option>`).join("")}</select></label>
-      <button class="secondary-button" type="button" data-action="navigate" data-view="flashcards">Học bằng flashcard →</button>
+      <label><span>Nhóm từ vựng</span><select data-filter="vocabulary-lesson">${vocabularyScopeOptions(course, ui.vocabularyLesson)}</select></label>
+      <button class="secondary-button" type="button" data-action="open-vocabulary-flashcards">Học nhóm này bằng flashcard →</button>
       <button class="text-button" type="button" data-action="print-vocabulary">In danh sách</button>
     </section>
     <div class="result-count" data-vocabulary-count>${vocabulary.length} mục từ trong ${escapeHtml(course.title)}</div>
@@ -612,7 +680,7 @@ function flashSourceVocabulary(course, mode = ui.flashDeckMode) {
   const all = allCourseVocabulary(course);
   if (mode === "again") return all.filter(item => progress.reviewAgain[item.id]);
   if (mode === "hard") return all.filter(item => progress.reviewHard[item.id]);
-  return ui.flashLesson === "all" ? all : all.filter(item => item.lesson === Number(ui.flashLesson));
+  return vocabularyForScope(course, ui.flashLesson);
 }
 
 function initializeFlashDeck(course, randomize = true) {
@@ -666,6 +734,7 @@ function rateFlashCard(item, rating) {
 }
 
 function renderFlashcards(course) {
+  ui.flashLesson = normalizeVocabularyScope(course, ui.flashLesson);
   const progress = courseProgress();
   const items = flashVocabulary(course);
   if (ui.flashIndex >= items.length) ui.flashIndex = 0;
@@ -678,12 +747,12 @@ function renderFlashcards(course) {
   return `
     ${sectionHeading(course.title, "Flashcard", "Lật thẻ để xem đáp án, cách đọc khi biến âm, ví dụ và ngữ pháp liên quan.")}
     <section class="flash-deck-tabs">
-      <button class="${ui.flashDeckMode === "lesson" ? "active" : ""}" type="button" data-action="flash-mode" data-mode="lesson">Tất cả từ trong bài <span>${flashSourceVocabulary(course, "lesson").length}</span></button>
+      <button class="${ui.flashDeckMode === "lesson" ? "active" : ""}" type="button" data-action="flash-mode" data-mode="lesson">${escapeHtml(vocabularyScopeLabel(course, ui.flashLesson))} <span>${flashSourceVocabulary(course, "lesson").length}</span></button>
       <button class="${ui.flashDeckMode === "again" ? "active" : ""}" type="button" data-action="flash-mode" data-mode="again">Ôn từ chưa thuộc <span>${againCount}</span></button>
       <button class="${ui.flashDeckMode === "hard" ? "active" : ""}" type="button" data-action="flash-mode" data-mode="hard">Ôn từ khó <span>${hardCount}</span></button>
     </section>
     <section class="flash-toolbar">
-      <label><span>Phạm vi</span><select data-filter="flash-lesson">${lessonOptions(course, ui.flashLesson, true)}</select></label>
+      <label><span>Phạm vi</span><select data-filter="flash-lesson">${vocabularyScopeOptions(course, ui.flashLesson)}</select></label>
       <label><span>Chiều thẻ</span><select data-filter="flash-direction"><option value="both" ${ui.flashDirection === "both" ? "selected" : ""}>Hai chiều</option><option value="ko-vi" ${ui.flashDirection === "ko-vi" ? "selected" : ""}>Hàn → Việt</option><option value="vi-ko" ${ui.flashDirection === "vi-ko" ? "selected" : ""}>Việt → Hàn</option></select></label>
       <span>${items.length ? ui.flashIndex + 1 : 0} / ${items.length}</span>
     </section>
@@ -691,7 +760,7 @@ function renderFlashcards(course) {
       <section class="flash-stage">
         <button class="flash-arrow" type="button" data-action="flash-prev" aria-label="Từ trước">←<small>Từ trước</small></button>
         <button class="flashcard ${ui.flashFlipped ? "flipped" : ""}" type="button" data-action="flip-card" aria-label="Lật thẻ" aria-pressed="${ui.flashFlipped}">
-          <span class="flash-side flash-front"><small>Bài ${item.lesson} · ${direction === "ko-vi" ? "Hàn → Việt" : "Việt → Hàn"} · Chạm để lật</small><strong>${escapeHtml(frontMain)}</strong>${direction === "ko-vi" ? `<i>${escapeHtml(item.romanization)}</i>` : ""}</span>
+          <span class="flash-side flash-front"><small>${escapeHtml(NUMBER_VOCABULARY_LABELS[item.vocabularyGroup] || (item.lesson === 0 ? "Nhập môn" : `Bài ${item.lesson}`))} · ${direction === "ko-vi" ? "Hàn → Việt" : "Việt → Hàn"} · Chạm để lật</small><strong>${escapeHtml(frontMain)}</strong>${direction === "ko-vi" ? `<i>${escapeHtml(item.romanization)}</i>` : ""}</span>
           <span class="flash-side flash-back"><small>Đáp án</small><strong>${escapeHtml(item.word)}</strong><i>${escapeHtml(item.romanization)} · ${escapeHtml(item.meaningVi)}</i>${renderActualPronunciation(item)}${renderFlashExample(item)}${renderOrigin(item)}</span>
         </button>
         <button class="flash-arrow" type="button" data-action="flash-next" aria-label="Từ tiếp theo">→<small>Từ tiếp theo</small></button>
@@ -796,6 +865,7 @@ function renderCulture(course) {
 function renderLesson(course, lesson) {
   const progress = courseProgress();
   const done = progress.completedLessons.includes(lesson.id);
+  const vocabulary = lessonVocabulary(course, lesson.id);
   return `
     <button class="back-button" type="button" data-action="navigate" data-view="lessons">← Tất cả bài học ${escapeHtml(course.title)}</button>
     <header class="lesson-hero">
@@ -804,15 +874,14 @@ function renderLesson(course, lesson) {
     </header>
     ${lesson.grammar.length ? `<section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">Ngữ pháp</span><h2>Mẫu câu của bài</h2></div></div><div class="grammar-grid">${lesson.grammar.map(item => `<article><b>${escapeHtml(item.form)}</b><p>${escapeHtml(item.noteVi)}</p></article>`).join("")}</div></section>` : ""}
     ${lesson.dialogues.length ? `<section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">Hội thoại</span><h2>Đọc và nghe theo track</h2></div></div><div class="dialogue-grid">${lesson.dialogues.map(dialogue => `<article class="dialogue-card"><div><span>Track ${dialogue.track}</span><h3>${escapeHtml(dialogue.title)}</h3></div><div class="dialogue-lines">${dialogue.lines.map(line => `<p>${escapeHtml(line)}</p>`).join("")}</div>${renderAudio(lesson.audio.find(item => item.number === dialogue.track))}</article>`).join("")}</div></section>` : ""}
-    <section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">Từ vựng</span><h2>${lesson.vocabulary.length} mục từ trong bài</h2></div><button class="text-button" type="button" data-action="lesson-vocabulary" data-lesson="${lesson.id}">Xem toàn bộ →</button></div><div class="lesson-vocabulary">${lesson.vocabulary.slice(0, 12).map(renderVocabularyCard).join("")}</div></section>
+    <section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">Từ vựng</span><h2>${vocabulary.length} mục từ trong bài</h2></div><button class="text-button" type="button" data-action="lesson-vocabulary" data-lesson="${lesson.id}">Xem toàn bộ →</button></div><div class="lesson-vocabulary">${vocabulary.slice(0, 12).map(renderVocabularyCard).join("")}</div></section>
     <section class="lesson-section"><div class="panel-heading"><div><span class="eyebrow">File nghe</span><h2>${lesson.audio.length} track đúng theo sách</h2></div></div><div class="audio-list">${lesson.audio.map(renderAudio).join("")}</div></section>
     <section class="lesson-section lesson-practice-links"><div class="panel-heading"><div><span class="eyebrow">Luyện tập</span><h2>Chọn đúng kỹ năng cần luyện</h2></div></div><div><button class="secondary-button" type="button" data-action="lesson-practice" data-view="listening" data-lesson="${lesson.id}">♪ Luyện nghe</button><button class="secondary-button" type="button" data-action="lesson-practice" data-view="reading" data-lesson="${lesson.id}">文 Luyện đọc</button><button class="secondary-button" type="button" data-action="lesson-practice" data-view="writing" data-lesson="${lesson.id}">✎ Luyện viết</button></div></section>
   `;
 }
 
 function quizWords(course) {
-  const words = allCourseVocabulary(course);
-  return ui.quizLesson === "all" ? words : words.filter(item => item.lesson === Number(ui.quizLesson));
+  return vocabularyForScope(course, ui.quizLesson);
 }
 
 function startQuiz(course) {
@@ -856,10 +925,11 @@ function renderQuizResult(course) {
 
 function renderQuiz(course) {
   if (!ui.quiz) {
+    ui.quizLesson = normalizeVocabularyScope(course, ui.quizLesson, "1");
     return `
       ${sectionHeading(course.title, "Trắc nghiệm", "Giữ lại chế độ Hàn → Việt, Việt → Hàn, xáo trộn và lưu lịch sử như web cũ.")}
       <section class="practice-panel setup-panel">
-        <label><span>Bài / chủ đề</span><select data-filter="quiz-lesson">${lessonOptions(course, ui.quizLesson, true)}</select></label>
+        <label><span>Bài / nhóm từ</span><select data-filter="quiz-lesson">${vocabularyScopeOptions(course, ui.quizLesson)}</select></label>
         <label><span>Chiều hỏi</span><select data-filter="quiz-direction"><option value="both" ${ui.quizDirection === "both" ? "selected" : ""}>Xen kẽ hai chiều</option><option value="ko-vi" ${ui.quizDirection === "ko-vi" ? "selected" : ""}>Hàn → Việt</option><option value="vi-ko" ${ui.quizDirection === "vi-ko" ? "selected" : ""}>Việt → Hàn</option></select></label>
         <div><b>${quizWords(course).length}</b><span> câu · xáo trộn tự động</span></div>
         <button class="primary-button" type="button" data-action="quiz-start">Bắt đầu →</button>
@@ -932,7 +1002,7 @@ function renderShadowing(course) {
 }
 
 function writingWords(course, lessonId) {
-  const source = allCourseVocabulary(course).filter(item => item.lesson === Number(lessonId));
+  const source = lessonVocabulary(course, lessonId);
   const sourceById = new Map(source.map(item => [item.id, item]));
   const validDeck = ui.writingDeckIds.length === source.length && ui.writingDeckIds.every(itemId => sourceById.has(itemId));
   if (!validDeck) ui.writingDeckIds = source.map(item => item.id);
@@ -940,7 +1010,7 @@ function writingWords(course, lessonId) {
 }
 
 function shuffleWritingDeck(course) {
-  const words = allCourseVocabulary(course).filter(item => item.lesson === Number(ui.writingLesson));
+  const words = lessonVocabulary(course, ui.writingLesson);
   ui.writingDeckIds = shuffle(words).map(item => item.id);
   ui.writingIndex = 0;
   ui.writingFeedback = words.length ? "Đã xáo trộn thứ tự từ." : "";
@@ -993,7 +1063,7 @@ function downloadText(filename, content, type = "application/json") {
 }
 
 function exportVocabularyCsv(course) {
-  const rows = [["lesson", "word", "romanization", "meaning_vi", "origin_type", "hanja", "chinese_equivalent"], ...allCourseVocabulary(course).map(item => [item.lesson, item.word, item.romanization, item.meaningVi, item.originType, item.hanja, item.chineseEquivalent])];
+  const rows = [["vocabulary_group", "lesson", "word", "romanization", "meaning_vi", "origin_type", "hanja", "chinese_equivalent"], ...allCourseVocabulary(course).map(item => [item.vocabularyGroup || "lesson", item.vocabularyGroup ? "" : item.lesson, item.word, item.romanization, item.meaningVi, item.originType, item.hanja, item.chineseEquivalent])];
   downloadText(`${course.id}-vocabulary.csv`, rows.map(row => row.map(csvCell).join(",")).join("\n"), "text/csv;charset=utf-8");
 }
 
@@ -1187,13 +1257,20 @@ function applyVocabularyFilter() {
   const query = ui.vocabularySearch.trim().toLowerCase();
   let visible = 0;
   root.querySelectorAll("[data-vocab-card]").forEach(card => {
-    const matchesLesson = ui.vocabularyLesson === "all" || card.dataset.lesson === ui.vocabularyLesson;
+    const matchesLesson = ui.vocabularyLesson === "all"
+      ? !card.dataset.numberGroup
+      : NUMBER_VOCABULARY_LABELS[ui.vocabularyLesson]
+        ? card.dataset.vocabScope === ui.vocabularyLesson
+        : card.dataset.vocabScope === `lesson:${ui.vocabularyLesson}`;
     const matchesQuery = !query || card.dataset.search.includes(query);
     card.hidden = !(matchesLesson && matchesQuery);
     if (!card.hidden) visible += 1;
   });
+  root.querySelectorAll("[data-action='select-vocabulary-scope']").forEach(button => {
+    button.classList.toggle("active", button.dataset.scope === ui.vocabularyLesson);
+  });
   const count = root.querySelector("[data-vocabulary-count]");
-  if (count) count.textContent = `${visible} mục từ trong ${selectedCourse().title}`;
+  if (count) count.textContent = `${visible} mục · ${vocabularyScopeLabel(selectedCourse(), ui.vocabularyLesson)}`;
   const empty = root.querySelector("[data-vocabulary-empty]");
   if (empty) empty.hidden = visible > 0;
 }
@@ -1340,7 +1417,14 @@ root.addEventListener("click", async event => {
   if (!button) return;
   const action = button.dataset.action;
 
-  if (action === "select-course") navigate(button.dataset.course, "dashboard");
+  if (action === "select-course") {
+    ui.vocabularyLesson = "all";
+    ui.flashLesson = "all";
+    ui.flashDeckMode = "lesson";
+    ui.flashDeckIds = [];
+    ui.quizLesson = "1";
+    navigate(button.dataset.course, "dashboard");
+  }
   if (action === "go-courses") navigate(null);
   if (action === "navigate" && ui.courseId) navigate(ui.courseId, button.dataset.view);
   if (action === "open-lesson") {
@@ -1352,6 +1436,18 @@ root.addEventListener("click", async event => {
   if (action === "lesson-vocabulary") {
     ui.vocabularyLesson = button.dataset.lesson;
     navigate(ui.courseId, "vocabulary");
+  }
+  if (action === "select-vocabulary-scope") {
+    ui.vocabularyLesson = button.dataset.scope;
+    const select = root.querySelector('[data-filter="vocabulary-lesson"]');
+    if (select) select.value = ui.vocabularyLesson;
+    applyVocabularyFilter();
+  }
+  if (action === "open-vocabulary-flashcards") {
+    ui.flashLesson = ui.vocabularyLesson;
+    ui.flashDeckMode = "lesson";
+    initializeFlashDeck(selectedCourse(), false);
+    navigate(ui.courseId, "flashcards");
   }
   if (action === "lesson-practice") {
     const lessonId = String(button.dataset.lesson);
@@ -1633,7 +1729,10 @@ root.addEventListener("change", event => {
     ui.flashFlipped = false;
     render();
   }
-  if (event.target.matches('[data-filter="quiz-lesson"]')) ui.quizLesson = event.target.value;
+  if (event.target.matches('[data-filter="quiz-lesson"]')) {
+    ui.quizLesson = event.target.value;
+    render();
+  }
   if (event.target.matches('[data-filter="quiz-direction"]')) ui.quizDirection = event.target.value;
   if (event.target.matches('[data-filter="listening-lesson"]')) {
     ui.listeningLesson = event.target.value;

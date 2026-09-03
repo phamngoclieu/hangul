@@ -201,6 +201,8 @@ for (const [index, lesson] of listening.entries()) {
 requireValue(Array.isArray(courseData?.courses), "Dữ liệu giáo trình phải có courses.", errors);
 const expectedCourses = { "sejong-1": { tracks: 73, lessons: 13 }, "sejong-2": { tracks: 70, lessons: 14 } };
 const courseVocabularyIds = new Set();
+const NUMBER_HANJA = /^[零〇一二三四五六七八九十百千萬万億亿兆]+$/u;
+const NATIVE_NUMBER_WORDS = new Set(["하나", "둘", "셋", "넷", "다섯", "여섯", "일곱", "여덟", "아홉", "열", "열하나", "열둘", "스물", "서른", "마흔", "쉰", "예순", "일흔", "여든", "아흔"]);
 
 for (const course of courseData?.courses || []) {
   const expected = expectedCourses[course.id];
@@ -210,33 +212,15 @@ for (const course of courseData?.courses || []) {
   requireValue(course.lessons?.length === expected.lessons, `${course.id}: số bài học không đúng.`, errors);
   requireValue(course.source === (course.id === "sejong-1" ? "Sejong1.pdf" : "Sejong2.pdf"), `${course.id}: sai sách nguồn.`, errors);
 
-  let vocabularyCount = 0;
+  const courseVocabulary = [];
   for (const lesson of course.lessons || []) {
     requireValue(Array.isArray(lesson.vocabulary), `${course.id} bài ${lesson.id}: thiếu từ vựng.`, errors);
     requireValue(Array.isArray(lesson.audio), `${course.id} bài ${lesson.id}: thiếu audio.`, errors);
     requireValue(Array.isArray(lesson.exercises), `${course.id} bài ${lesson.id}: thiếu bài tập.`, errors);
 
     for (const item of lesson.vocabulary || []) {
-      vocabularyCount += 1;
-      requireValue(item.id.startsWith(`${course.id}-`), `${course.id}: ID từ vựng không mang phạm vi giáo trình (${item.id}).`, errors);
-      requireValue(!courseVocabularyIds.has(item.id), `ID từ vựng bị trùng: ${item.id}.`, errors);
-      courseVocabularyIds.add(item.id);
-      requireValue(typeof item.meaningVi === "string" && item.meaningVi.trim(), `${item.id}: thiếu nghĩa Việt.`, errors);
-      requireValue(typeof item.romanization === "string" && item.romanization.trim(), `${item.id}: thiếu phiên âm.`, errors);
-      for (const field of ["pronunciation", "example", "exampleVi", "grammarPoint"]) {
-        if (field in item) requireValue(typeof item[field] === "string", `${item.id}: ${field} không hợp lệ.`, errors);
-      }
-
-      if (item.originType === "native") {
-        requireValue(item.originLabelVi === "Từ thuần Hàn", `${item.id}: từ thuần Hàn chỉ được giữ phân loại.`, errors);
-        requireValue(!item.hanja && !item.chineseEquivalent && !item.hanviet, `${item.id}: từ thuần Hàn không được có phần nguồn gốc/Hán tự.`, errors);
-        requireValue(!item.dictionarySource && !item.dictionaryUrl, `${item.id}: từ thuần Hàn không được hiển thị nguồn.`, errors);
-      }
-      if (item.originType === "sino") {
-        requireValue(Boolean(item.hanja), `${item.id}: từ Hán–Hàn thiếu Hán tự.`, errors);
-        requireValue(Boolean(item.chineseEquivalent), `${item.id}: từ Hán–Hàn thiếu từ tiếng Hán liên hệ.`, errors);
-        requireValue(!/[^\p{Script=Han}/]/u.test(item.hanja || ""), `${item.id}: liên hệ Hán–Hàn còn lẫn ký tự không phải Hán tự.`, errors);
-      }
+      requireValue(!item.vocabularyGroup, `${item.id}: mục số không được nằm trong từ vựng Bài ${lesson.id}.`, errors);
+      courseVocabulary.push(item);
     }
 
     for (const audio of lesson.audio || []) {
@@ -250,7 +234,48 @@ for (const course of courseData?.courses || []) {
       requireValue(fs.existsSync(imagePath), `${course.id}: không tìm thấy ${exercise.path}.`, errors);
     }
   }
-  requireValue(vocabularyCount === course.vocabularyCount, `${course.id}: vocabularyCount không khớp (${vocabularyCount}/${course.vocabularyCount}).`, errors);
+
+  requireValue(Array.isArray(course.numberVocabulary?.sino), `${course.id}: thiếu nhóm số Hán–Hàn.`, errors);
+  requireValue(Array.isArray(course.numberVocabulary?.native), `${course.id}: thiếu nhóm số thuần Hàn.`, errors);
+  for (const [group, items] of [["numbers-sino", course.numberVocabulary?.sino || []], ["numbers-native", course.numberVocabulary?.native || []]]) {
+    for (const item of items) {
+      requireValue(item.vocabularyGroup === group, `${item.id}: sai nhóm ${group}.`, errors);
+      if (group === "numbers-sino") {
+        requireValue(item.originType === "sino" && NUMBER_HANJA.test(item.hanja || ""), `${item.id}: không phải số Hán–Hàn hợp lệ.`, errors);
+      } else {
+        requireValue(item.originType === "native" && NATIVE_NUMBER_WORDS.has(item.word), `${item.id}: không phải số thuần Hàn hợp lệ.`, errors);
+      }
+      courseVocabulary.push(item);
+    }
+  }
+
+  for (const item of courseVocabulary) {
+    requireValue(item.id.startsWith(`${course.id}-`), `${course.id}: ID từ vựng không mang phạm vi giáo trình (${item.id}).`, errors);
+    requireValue(!courseVocabularyIds.has(item.id), `ID từ vựng bị trùng: ${item.id}.`, errors);
+    courseVocabularyIds.add(item.id);
+    requireValue(typeof item.meaningVi === "string" && item.meaningVi.trim(), `${item.id}: thiếu nghĩa Việt.`, errors);
+    requireValue(typeof item.romanization === "string" && item.romanization.trim(), `${item.id}: thiếu phiên âm.`, errors);
+    for (const field of ["pronunciation", "example", "exampleVi", "grammarPoint"]) {
+      if (field in item) requireValue(typeof item[field] === "string", `${item.id}: ${field} không hợp lệ.`, errors);
+    }
+
+    if (item.originType === "native") {
+      requireValue(item.originLabelVi === "Từ thuần Hàn", `${item.id}: từ thuần Hàn chỉ được giữ phân loại.`, errors);
+      requireValue(!item.hanja && !item.chineseEquivalent && !item.hanviet, `${item.id}: từ thuần Hàn không được có phần nguồn gốc/Hán tự.`, errors);
+      requireValue(!item.dictionarySource && !item.dictionaryUrl, `${item.id}: từ thuần Hàn không được hiển thị nguồn.`, errors);
+    }
+    if (item.originType === "sino") {
+      requireValue(Boolean(item.hanja), `${item.id}: từ Hán–Hàn thiếu Hán tự.`, errors);
+      requireValue(Boolean(item.chineseEquivalent), `${item.id}: từ Hán–Hàn thiếu từ tiếng Hán liên hệ.`, errors);
+      requireValue(!/[^\p{Script=Han}/]/u.test(item.hanja || ""), `${item.id}: liên hệ Hán–Hàn còn lẫn ký tự không phải Hán tự.`, errors);
+    }
+  }
+
+  requireValue(courseVocabulary.length === course.vocabularyCount, `${course.id}: vocabularyCount không khớp (${courseVocabulary.length}/${course.vocabularyCount}).`, errors);
+  if (course.id === "sejong-1") {
+    requireValue(course.numberVocabulary.sino.length === 19, `${course.id}: nhóm số Hán–Hàn phải có 19 mục.`, errors);
+    requireValue(course.numberVocabulary.native.length === 11, `${course.id}: nhóm số thuần Hàn phải có 11 mục.`, errors);
+  }
 
   for (const culture of course.cultures || []) {
     for (const image of culture.images || []) {
