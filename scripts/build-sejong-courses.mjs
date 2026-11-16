@@ -6,6 +6,8 @@ const generatedRoot = process.env.SEJONG_GENERATED_ROOT || "/private/tmp/sejong-
 
 const currentVocabulary = JSON.parse(fs.readFileSync(path.join(root, "app/data/vocabulary.json"), "utf8"));
 const currentOrigins = JSON.parse(fs.readFileSync(path.join(root, "app/data/word-origins.json"), "utf8"));
+const bookExamples = JSON.parse(fs.readFileSync(path.join(root, "app/data/book-examples.json"), "utf8"));
+const manualSimplifiedHanzi = JSON.parse(fs.readFileSync(path.join(root, "app/data/simplified-hanzi-map.json"), "utf8"));
 const dictionary = JSON.parse(fs.readFileSync(path.join(generatedRoot, "dictionary.json"), "utf8"));
 const assets = JSON.parse(fs.readFileSync(path.join(generatedRoot, "assets-manifest.json"), "utf8"));
 
@@ -280,6 +282,9 @@ for (const origin of Object.values(currentOrigins.items)) {
   if (traditional.length !== simplified.length) continue;
   traditional.forEach((char, index) => simplifiedCharacterMap.set(char, simplified[index]));
 }
+for (const [traditional, simplified] of Object.entries(manualSimplifiedHanzi)) {
+  simplifiedCharacterMap.set(traditional, simplified);
+}
 function simplified(value) {
   return [...value].map(char => simplifiedCharacterMap.get(char) || char).join("");
 }
@@ -300,7 +305,8 @@ function cleanHanja(value) {
 
 function vocabularyRecord(courseId, item) {
   const old = oldVocabularyByWord.get(item.term);
-  const oldFlashcard = courseId === "sejong-1" ? old : null;
+  const id = `${courseId}-l${String(item.lesson).padStart(2, "0")}-${item.term}`;
+  const bookExample = bookExamples.items?.[id] || {};
   const oldOrigin = oldOriginByWord.get(item.term);
   const override = VOCABULARY_OVERRIDES[`${courseId}:${item.lesson}:${item.term}`] || {};
   const dictionaryKey = dictionary[item.term] ? item.term : correctedDictionaryKeys[item.term];
@@ -326,7 +332,7 @@ function vocabularyRecord(courseId, item) {
     proper: "Tên riêng", expression: "Cụm diễn đạt"
   };
   return {
-    id: `${courseId}-l${String(item.lesson).padStart(2, "0")}-${item.term}`,
+    id,
     lesson: item.lesson,
     word: item.term,
     romanization: old?.romanization || romanize(item.term),
@@ -338,9 +344,9 @@ function vocabularyRecord(courseId, item) {
     chineseEquivalent: originType === "sino" ? simplified(original) : "",
     hanviet: originType === "sino" ? (override.hanviet || oldOrigin?.hanviet || "") : "",
     pronunciation: old?.actual_pronunciation || entry.pronunciation || "",
-    example: oldFlashcard?.example || "",
-    exampleVi: oldFlashcard?.example_vi || "",
-    grammarPoint: oldFlashcard?.grammar_point || "",
+    example: bookExample.example || "",
+    exampleSourcePage: bookExample.sourcePage || null,
+    exampleSourceType: bookExample.sourceType || "",
     ...(vocabularyGroup ? { vocabularyGroup } : {}),
     sourcePage: item.references[0] || null,
     dictionarySource: trustedDictionary && originType !== "native" ? SOURCE_DICTIONARY : "",

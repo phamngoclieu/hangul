@@ -22,6 +22,8 @@ const numberGroups = readJson("app/data/number-groups.json");
 const shadowing = readJson("app/data/shadowing.json");
 const listening = readJson("app/data/listening.json");
 const courseData = readJson("app/data/courses.json");
+const bookExamples = readJson("app/data/book-examples.json");
+const simplifiedHanziMap = readJson("app/data/simplified-hanzi-map.json");
 const errors = [];
 const ids = new Set();
 
@@ -213,6 +215,7 @@ for (const course of courseData?.courses || []) {
   requireValue(course.source === (course.id === "sejong-1" ? "Sejong1.pdf" : "Sejong2.pdf"), `${course.id}: sai sách nguồn.`, errors);
 
   const courseVocabulary = [];
+  const courseExamples = new Set();
   for (const lesson of course.lessons || []) {
     requireValue(Array.isArray(lesson.vocabulary), `${course.id} bài ${lesson.id}: thiếu từ vựng.`, errors);
     requireValue(Array.isArray(lesson.audio), `${course.id} bài ${lesson.id}: thiếu audio.`, errors);
@@ -258,6 +261,19 @@ for (const course of courseData?.courses || []) {
     for (const field of ["pronunciation", "example", "exampleVi", "grammarPoint"]) {
       if (field in item) requireValue(typeof item[field] === "string", `${item.id}: ${field} không hợp lệ.`, errors);
     }
+    requireValue(typeof item.example === "string" && item.example.trim(), `${item.id}: thiếu câu ví dụ trong sách.`, errors);
+    requireValue(/[.!?]$/u.test(item.example || ""), `${item.id}: câu ví dụ chưa hoàn chỉnh.`, errors);
+    requireValue(!courseExamples.has(item.example), `${item.id}: câu ví dụ bị trùng trong ${course.title}.`, errors);
+    courseExamples.add(item.example);
+    requireValue(Number.isInteger(item.exampleSourcePage) && item.exampleSourcePage >= 1 && item.exampleSourcePage <= course.pageCount, `${item.id}: trang nguồn câu ví dụ không hợp lệ.`, errors);
+    requireValue(["verbatim", "completed-exercise"].includes(item.exampleSourceType), `${item.id}: loại nguồn câu ví dụ không hợp lệ.`, errors);
+    const sourceExample = bookExamples.items?.[item.id];
+    requireValue(Boolean(sourceExample), `${item.id}: thiếu đối chiếu trong book-examples.json.`, errors);
+    if (sourceExample) {
+      requireValue(sourceExample.example === item.example, `${item.id}: câu ví dụ không khớp dữ liệu nguồn.`, errors);
+      requireValue(sourceExample.sourcePage === item.exampleSourcePage, `${item.id}: trang câu ví dụ không khớp dữ liệu nguồn.`, errors);
+      requireValue(sourceExample.sourceType === item.exampleSourceType, `${item.id}: loại nguồn câu ví dụ không khớp dữ liệu nguồn.`, errors);
+    }
 
     if (item.originType === "native") {
       requireValue(item.originLabelVi === "Từ thuần Hàn", `${item.id}: từ thuần Hàn chỉ được giữ phân loại.`, errors);
@@ -268,6 +284,9 @@ for (const course of courseData?.courses || []) {
       requireValue(Boolean(item.hanja), `${item.id}: từ Hán–Hàn thiếu Hán tự.`, errors);
       requireValue(Boolean(item.chineseEquivalent), `${item.id}: từ Hán–Hàn thiếu từ tiếng Hán liên hệ.`, errors);
       requireValue(!/[^\p{Script=Han}/]/u.test(item.hanja || ""), `${item.id}: liên hệ Hán–Hàn còn lẫn ký tự không phải Hán tự.`, errors);
+      const expectedSimplified = [...item.hanja].map(character => simplifiedHanziMap[character] || character).join("");
+      requireValue(item.chineseEquivalent === expectedSimplified, `${item.id}: liên hệ tiếng Hán chưa dùng chữ giản thể nhất quán.`, errors);
+      requireValue(![...item.chineseEquivalent].some(character => Object.hasOwn(simplifiedHanziMap, character)), `${item.id}: liên hệ tiếng Hán còn chữ phồn thể.`, errors);
     }
   }
 
@@ -286,6 +305,7 @@ for (const course of courseData?.courses || []) {
 }
 
 requireValue((courseData?.courses || []).length === 2, "Phải có đúng hai khu vực Sejong 1 và Sejong 2.", errors);
+requireValue(Object.keys(bookExamples?.items || {}).length === courseVocabularyIds.size, `book-examples.json phải có đúng ${courseVocabularyIds.size} mục.`, errors);
 
 if (errors.length) {
   console.error(`Dữ liệu chưa hợp lệ (${errors.length} lỗi):`);

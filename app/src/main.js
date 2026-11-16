@@ -605,8 +605,7 @@ function renderOrigin(item, compact = false) {
     return `
       <div class="origin-box sino">
         <span>Phân loại · Từ Hán–Hàn</span>
-        <b>Liên hệ với từ tiếng Hán: ${escapeHtml(chinese)}</b>
-        ${compact ? "" : `<small>Hán tự của từ Hàn: ${escapeHtml(item.hanja)}${item.hanviet ? ` · Âm Hán–Việt: ${escapeHtml(item.hanviet)}` : ""}</small>`}
+        <b>Liên hệ tiếng Hán (giản thể): ${escapeHtml(chinese)}</b>
       </div>
     `;
   }
@@ -637,6 +636,16 @@ function renderFlashExample(item) {
   `;
 }
 
+function renderVocabularyExample(item) {
+  if (!item.example) return "";
+  return `
+    <div class="vocabulary-example">
+      <span>Ví dụ trong sách</span>
+      <p>${escapeHtml(item.example)}</p>
+    </div>
+  `;
+}
+
 function renderVocabularyCard(item) {
   const mastered = courseProgress().masteredWords.includes(item.id);
   const scope = item.vocabularyGroup || `lesson:${item.lesson}`;
@@ -646,6 +655,7 @@ function renderVocabularyCard(item) {
       <div class="vocab-top"><span>${context}</span><button type="button" data-action="speak" data-text="${escapeHtml(item.word)}" aria-label="Nghe ${escapeHtml(item.word)}">♪</button></div>
       <h2>${escapeHtml(item.word)}</h2><p class="romanization">${escapeHtml(item.romanization)}</p>
       <p class="meaning">${escapeHtml(item.meaningVi)}</p>
+      ${renderVocabularyExample(item)}
       ${renderOrigin(item, true)}
       <button class="master-button ${mastered ? "mastered" : ""}" type="button" data-action="toggle-word" data-word="${escapeHtml(item.id)}">${mastered ? "✓ Đã nhớ" : "+ Đánh dấu đã nhớ"}</button>
     </article>
@@ -1063,7 +1073,7 @@ function downloadText(filename, content, type = "application/json") {
 }
 
 function exportVocabularyCsv(course) {
-  const rows = [["vocabulary_group", "lesson", "word", "romanization", "meaning_vi", "origin_type", "hanja", "chinese_equivalent"], ...allCourseVocabulary(course).map(item => [item.vocabularyGroup || "lesson", item.vocabularyGroup ? "" : item.lesson, item.word, item.romanization, item.meaningVi, item.originType, item.hanja, item.chineseEquivalent])];
+  const rows = [["vocabulary_group", "lesson", "word", "romanization", "meaning_vi", "example_from_book", "origin_type", "hanja", "chinese_equivalent_simplified"], ...allCourseVocabulary(course).map(item => [item.vocabularyGroup || "lesson", item.vocabularyGroup ? "" : item.lesson, item.word, item.romanization, item.meaningVi, item.example, item.originType, item.hanja, item.chineseEquivalent])];
   downloadText(`${course.id}-vocabulary.csv`, rows.map(row => row.map(csvCell).join(",")).join("\n"), "text/csv;charset=utf-8");
 }
 

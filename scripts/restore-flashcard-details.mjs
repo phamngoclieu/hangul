@@ -3,11 +3,10 @@ import path from "node:path";
 
 const root = process.cwd();
 const coursesPath = path.join(root, "app/data/courses.json");
-const legacyPath = path.join(root, "app/data/vocabulary.json");
+const examplesPath = path.join(root, "app/data/book-examples.json");
 const courseData = JSON.parse(fs.readFileSync(coursesPath, "utf8"));
-const legacyVocabulary = JSON.parse(fs.readFileSync(legacyPath, "utf8"));
+const bookExamples = JSON.parse(fs.readFileSync(examplesPath, "utf8"));
 
-const legacyByWord = new Map(legacyVocabulary.map(item => [item.word, item]));
 let restored = 0;
 
 for (const course of courseData.courses || []) {
@@ -21,16 +20,17 @@ for (const course of courseData.courses || []) {
       delete item.example;
       delete item.exampleVi;
       delete item.grammarPoint;
-      if (course.id !== "sejong-1") continue;
-      const legacy = legacyByWord.get(item.word);
-      if (!legacy) continue;
-      item.example = legacy.example || "";
-      item.exampleVi = legacy.example_vi || "";
-      item.grammarPoint = legacy.grammar_point || "";
+      delete item.exampleSourcePage;
+      delete item.exampleSourceType;
+      const bookExample = bookExamples.items?.[item.id];
+      if (!bookExample) continue;
+      item.example = bookExample.example;
+      item.exampleSourcePage = bookExample.sourcePage;
+      item.exampleSourceType = bookExample.sourceType;
       restored += 1;
     }
   }
 }
 
 fs.writeFileSync(coursesPath, `${JSON.stringify(courseData, null, 2)}\n`);
-console.log(`Đã khôi phục câu ví dụ và ngữ pháp cho ${restored} flashcard.`);
+console.log(`Đã gắn ${restored} câu ví dụ từ sách vào từ vựng và flashcard.`);
