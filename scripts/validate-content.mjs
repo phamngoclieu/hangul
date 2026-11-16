@@ -23,6 +23,7 @@ const shadowing = readJson("app/data/shadowing.json");
 const listening = readJson("app/data/listening.json");
 const courseData = readJson("app/data/courses.json");
 const bookExamples = readJson("app/data/book-examples.json");
+const exampleTranslations = readJson("app/data/example-translations-vi.json");
 const simplifiedHanziMap = readJson("app/data/simplified-hanzi-map.json");
 const errors = [];
 const ids = new Set();
@@ -263,6 +264,9 @@ for (const course of courseData?.courses || []) {
     }
     requireValue(typeof item.example === "string" && item.example.trim(), `${item.id}: thiếu câu ví dụ trong sách.`, errors);
     requireValue(/[.!?]$/u.test(item.example || ""), `${item.id}: câu ví dụ chưa hoàn chỉnh.`, errors);
+    requireValue(typeof item.exampleVi === "string" && item.exampleVi.trim(), `${item.id}: thiếu bản dịch tiếng Việt của câu ví dụ.`, errors);
+    requireValue(/[.!?…][”']?$/u.test(item.exampleVi || ""), `${item.id}: bản dịch tiếng Việt chưa hoàn chỉnh.`, errors);
+    requireValue(!/[가-힣]/u.test(item.exampleVi || ""), `${item.id}: bản dịch tiếng Việt còn lẫn chữ Hàn.`, errors);
     requireValue(!courseExamples.has(item.example), `${item.id}: câu ví dụ bị trùng trong ${course.title}.`, errors);
     courseExamples.add(item.example);
     requireValue(Number.isInteger(item.exampleSourcePage) && item.exampleSourcePage >= 1 && item.exampleSourcePage <= course.pageCount, `${item.id}: trang nguồn câu ví dụ không hợp lệ.`, errors);
@@ -271,6 +275,8 @@ for (const course of courseData?.courses || []) {
     requireValue(Boolean(sourceExample), `${item.id}: thiếu đối chiếu trong book-examples.json.`, errors);
     if (sourceExample) {
       requireValue(sourceExample.example === item.example, `${item.id}: câu ví dụ không khớp dữ liệu nguồn.`, errors);
+      requireValue(sourceExample.exampleVi === item.exampleVi, `${item.id}: bản dịch tiếng Việt không khớp dữ liệu nguồn.`, errors);
+      requireValue(exampleTranslations.items?.[item.id] === item.exampleVi, `${item.id}: bản dịch tiếng Việt không khớp dữ liệu dịch.`, errors);
       requireValue(sourceExample.sourcePage === item.exampleSourcePage, `${item.id}: trang câu ví dụ không khớp dữ liệu nguồn.`, errors);
       requireValue(sourceExample.sourceType === item.exampleSourceType, `${item.id}: loại nguồn câu ví dụ không khớp dữ liệu nguồn.`, errors);
     }
@@ -306,6 +312,7 @@ for (const course of courseData?.courses || []) {
 
 requireValue((courseData?.courses || []).length === 2, "Phải có đúng hai khu vực Sejong 1 và Sejong 2.", errors);
 requireValue(Object.keys(bookExamples?.items || {}).length === courseVocabularyIds.size, `book-examples.json phải có đúng ${courseVocabularyIds.size} mục.`, errors);
+requireValue(Object.keys(exampleTranslations?.items || {}).length === courseVocabularyIds.size, `example-translations-vi.json phải có đúng ${courseVocabularyIds.size} mục.`, errors);
 
 if (errors.length) {
   console.error(`Dữ liệu chưa hợp lệ (${errors.length} lỗi):`);

@@ -227,6 +227,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--green-2); box-sh
 .vocabulary-example { margin: 0 0 12px; padding: 10px 11px; border-left: 3px solid #8cb5a2; border-radius: 0 9px 9px 0; background: #f2f6f2; }
 .vocabulary-example span { display: block; margin-bottom: 4px; color: var(--green-2); font-size: 7px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
 .vocabulary-example p { margin: 0; color: #294b40; font-family: "Noto Sans KR", sans-serif; font-size: 10px; line-height: 1.55; }
+.vocabulary-example small { display: block; margin-top: 4px; color: #64756d; font-size: 8px; line-height: 1.5; }
 .origin-box { display: grid; gap: 2px; margin-top: auto; padding: 9px 10px; border-radius: 9px; }
 .origin-box span { font-size: 7px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 .origin-box b { font-size: 9px; line-height: 1.45; }

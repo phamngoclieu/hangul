@@ -14,3226 +14,3871 @@
   "items": {
     "sejong-1-l00-명": {
       "example": "아울러 약 7,700만 명에 이른다.",
+      "exampleVi": "Ngoài ra, nó lên tới khoảng 77 triệu người.",
       "sourcePage": 14,
       "sourceType": "verbatim"
     },
     "sejong-1-l00-모두": {
       "example": "자음은 모두 받침으로 쓰인다.",
+      "exampleVi": "Tất cả phụ âm đều có thể dùng làm phụ âm cuối.",
       "sourcePage": 29,
       "sourceType": "verbatim"
     },
     "sejong-1-l00-물": {
       "example": "물은 얼마예요?",
+      "exampleVi": "Nước giá bao nhiêu?",
       "sourcePage": 76,
       "sourceType": "verbatim"
     },
     "sejong-1-l00-밖": {
       "example": "친구가 교실 밖에 있어요.",
+      "exampleVi": "Bạn tôi đang ở ngoài lớp học.",
       "sourcePage": 29,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l00-안": {
       "example": "책이 가방 안에 있어요.",
+      "exampleVi": "Cuốn sách ở trong túi.",
       "sourcePage": 14,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l00-위": {
       "example": "책이 책상 위에 있어요.",
+      "exampleVi": "Có một cuốn sách trên bàn.",
       "sourcePage": 14,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l00-집": {
       "example": "로라 씨는 집에 가요.",
+      "exampleVi": "Laura đang về nhà.",
       "sourcePage": 50,
       "sourceType": "verbatim"
     },
     "sejong-1-l01-경찰": {
       "example": "저는 경찰이에요.",
+      "exampleVi": "Tôi là cảnh sát.",
       "sourcePage": 40,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l01-공무원": {
       "example": "저는 공무원이에요.",
+      "exampleVi": "Tôi là một công chức.",
       "sourcePage": 40,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l01-네": {
       "example": "네, 태국 사람이에요.",
+      "exampleVi": "Vâng, tôi là người Thái.",
       "sourcePage": 38,
       "sourceType": "verbatim"
     },
     "sejong-1-l01-몽골 사람": {
       "example": "저는 몽골 사람이에요.",
+      "exampleVi": "Tôi là người Mông Cổ.",
       "sourcePage": 38,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l01-무엇": {
       "example": "두 사람은 무엇을 하고 있어요?",
+      "exampleVi": "Hai bạn đang làm gì vậy?",
       "sourcePage": 37,
       "sourceType": "verbatim"
     },
     "sejong-1-l01-베트남 사람": {
       "example": "저는 베트남 사람이에요.",
+      "exampleVi": "Tôi là người Việt Nam.",
       "sourcePage": 38,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l01-선생님": {
       "example": "선생님은 한국 사람이에요.",
+      "exampleVi": "Giáo viên là người Hàn Quốc.",
       "sourcePage": 40,
       "sourceType": "verbatim"
     },
     "sejong-1-l01-씨": {
       "example": "김민수 씨는 학생이에요.",
+      "exampleVi": "Kim Min-su là học sinh.",
       "sourcePage": 38,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l01-아니요": {
       "example": "아니요, 저는 회사원이 아니에요.",
+      "exampleVi": "Không, tôi không phải là nhân viên văn phòng.",
       "sourcePage": 39,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l01-의사": {
       "example": "저는 의사예요.",
+      "exampleVi": "Tôi là một bác sĩ.",
       "sourcePage": 40,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l01-이름": {
       "example": "이 사람의 이름은 무엇이에요?",
+      "exampleVi": "Tên của người này là gì?",
       "sourcePage": 44,
       "sourceType": "verbatim"
     },
     "sejong-1-l01-일본 사람": {
       "example": "저는 일본 사람이에요.",
+      "exampleVi": "Tôi là người Nhật.",
       "sourcePage": 38,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l01-저": {
       "example": "저는 타완이에요.",
+      "exampleVi": "Tôi là Tawan.",
       "sourcePage": 38,
       "sourceType": "verbatim"
     },
     "sejong-1-l01-중국 사람": {
       "example": "네, 중국 사람이에요.",
+      "exampleVi": "Vâng, tôi là người Trung Quốc.",
       "sourcePage": 38,
       "sourceType": "verbatim"
     },
     "sejong-1-l01-태국 사람": {
       "example": "태국 사람이에요?",
+      "exampleVi": "Bạn đến từ Thái Lan phải không?",
       "sourcePage": 38,
       "sourceType": "verbatim"
     },
     "sejong-1-l01-학생": {
       "example": "저는 학생이에요.",
+      "exampleVi": "Tôi là một sinh viên.",
       "sourcePage": 40,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l01-한국 사람": {
       "example": "그리고 한국 사람도 많이 만날 것입니다.",
+      "exampleVi": "Và bạn sẽ gặp nhiều người Hàn Quốc.",
       "sourcePage": 159,
       "sourceType": "verbatim"
     },
     "sejong-1-l01-회사원": {
       "example": "저는 회사원이에요.",
+      "exampleVi": "Tôi là một nhân viên văn phòng.",
       "sourcePage": 40,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l02-공부하다": {
       "example": "한국어를 공부하면서 무엇을 했어요?",
+      "exampleVi": "Bạn đã làm gì khi học tiếng Hàn?",
       "sourcePage": 145,
       "sourceType": "verbatim"
     },
     "sejong-1-l02-공원": {
       "example": "저는 공원에 가요.",
+      "exampleVi": "Tôi đi đến công viên.",
       "sourcePage": 50,
       "sourceType": "verbatim"
     },
     "sejong-1-l02-뭐 해요?": {
       "example": "민수 씨는 지금 뭐 해요?",
+      "exampleVi": "Minsu, bây giờ cậu đang làm gì thế?",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l02-시장": {
       "example": "시장에 가요.",
+      "exampleVi": "Tôi đi chợ.",
       "sourcePage": 83,
       "sourceType": "verbatim"
     },
     "sejong-1-l02-식당": {
       "example": "식당에 가요.",
+      "exampleVi": "Tôi đi đến nhà hàng.",
       "sourcePage": 50,
       "sourceType": "verbatim"
     },
     "sejong-1-l02-어디": {
       "example": "투이 씨는 어디에 가요?",
+      "exampleVi": "Cậu đi đâu thế, Tú?",
       "sourcePage": 50,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l02-오늘": {
       "example": "여러분은 오늘 무엇을 해요?",
+      "exampleVi": "Hôm nay bạn đang làm gì?",
       "sourcePage": 49,
       "sourceType": "verbatim"
     },
     "sejong-1-l02-운동하다": {
       "example": "지금 운동해요.",
+      "exampleVi": "Bây giờ tôi đang tập thể dục.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l02-이야기하다": {
       "example": "지금 이야기해요.",
+      "exampleVi": "Bây giờ tôi đang nói chuyện.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l02-일하다": {
       "example": "지금 일해요.",
+      "exampleVi": "Bây giờ tôi đang làm việc.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l02-자다": {
       "example": "지금 자요.",
+      "exampleVi": "Bây giờ tôi đang ngủ.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l02-전화하다": {
       "example": "지금 전화해요.",
+      "exampleVi": "Bây giờ tôi đang gọi điện.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l02-지금": {
       "example": "지금 뭐 해요?",
+      "exampleVi": "Bây giờ bạn đang làm gì?",
       "sourcePage": 48,
       "sourceType": "verbatim"
     },
     "sejong-1-l02-학교": {
       "example": "학교에 가요.",
+      "exampleVi": "Tôi đi đến trường.",
       "sourcePage": 50,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l02-회사": {
       "example": "회사에 가요.",
+      "exampleVi": "Tôi đang đi làm.",
       "sourcePage": 50,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l03-가방": {
       "example": "가방 안에 있어요.",
+      "exampleVi": "Nó ở trong túi.",
       "sourcePage": 60,
       "sourceType": "verbatim"
     },
     "sejong-1-l03-교실": {
       "example": "책이 교실에 있어요.",
+      "exampleVi": "Có một cuốn sách trong lớp học.",
       "sourcePage": 60,
       "sourceType": "verbatim"
     },
     "sejong-1-l03-뒤": {
       "example": "의자가 책상 뒤에 있어요.",
+      "exampleVi": "Chiếc ghế ở phía sau bàn làm việc.",
       "sourcePage": 60,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l03-밑": {
       "example": "책이 책상 밑에 있어요.",
+      "exampleVi": "Cuốn sách ở dưới bàn.",
       "sourcePage": 60,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l03-방": {
       "example": "방에 무엇이 있어요?",
+      "exampleVi": "Có gì trong phòng vậy?",
       "sourcePage": 63,
       "sourceType": "verbatim"
     },
     "sejong-1-l03-아래": {
       "example": "가방이 의자 아래에 있어요.",
+      "exampleVi": "Cái túi ở dưới ghế.",
       "sourcePage": 60,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l03-앞": {
       "example": "친구들 앞에서 자기소개를 해 보세요.",
+      "exampleVi": "Giới thiệu bản thân trước mặt bạn bè.",
       "sourcePage": 43,
       "sourceType": "verbatim"
     },
     "sejong-1-l03-옆": {
       "example": "책이 책상 옆에 있어요.",
+      "exampleVi": "Có một cuốn sách ở cạnh bàn.",
       "sourcePage": 60,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l03-의자": {
       "example": "네, 의자가 있어요.",
+      "exampleVi": "Vâng, có ghế.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l03-책": {
       "example": "책이 가방 안에 있어요?",
+      "exampleVi": "Cuốn sách có ở trong túi không?",
       "sourcePage": 61,
       "sourceType": "verbatim"
     },
     "sejong-1-l03-책상": {
       "example": "네, 책상이 있어요.",
+      "exampleVi": "Vâng, có bàn học.",
       "sourcePage": 58,
       "sourceType": "verbatim"
     },
     "sejong-1-l03-침대": {
       "example": "침대 위에 있어요.",
+      "exampleVi": "Nó ở trên giường.",
       "sourcePage": 60,
       "sourceType": "verbatim"
     },
     "sejong-1-l03-펜": {
       "example": "펜이 있어요?",
+      "exampleVi": "Bạn có bút không?",
       "sourcePage": 58,
       "sourceType": "verbatim"
     },
     "sejong-1-l04-무엇을 드릴까요?": {
       "example": "무엇을 드릴까요?",
+      "exampleVi": "Quý khách muốn lấy gì ạ?",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-빵": {
       "example": "빵은 얼마예요?",
+      "exampleVi": "Bánh mỳ giá bao nhiêu?",
       "sourcePage": 76,
       "sourceType": "verbatim"
     },
     "sejong-1-l04-사과": {
       "example": "사과를 사요.",
+      "exampleVi": "Mua táo.",
       "sourcePage": 70,
       "sourceType": "verbatim"
     },
     "sejong-1-l04-사다": {
       "example": "시장에서 사과를 사요.",
+      "exampleVi": "Mua táo ở chợ.",
       "sourcePage": 70,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-싸다": {
       "example": "학교 근처 시장에서 싸게 파는 물건이 있어요?",
+      "exampleVi": "Ở chợ gần trường có mặt hàng nào bán rẻ không?",
       "sourcePage": 77,
       "sourceType": "verbatim"
     },
     "sejong-1-l04-얼마예요?": {
       "example": "사과는 얼마예요?",
+      "exampleVi": "Một quả táo giá bao nhiêu?",
       "sourcePage": 73,
       "sourceType": "verbatim"
     },
     "sejong-1-l04-오렌지": {
       "example": "사과하고 오렌지 있어요?",
+      "exampleVi": "Bạn có táo và cam không?",
       "sourcePage": 82,
       "sourceType": "verbatim"
     },
     "sejong-1-l04-우유": {
       "example": "저는 우유를 사요.",
+      "exampleVi": "Tôi mua sữa.",
       "sourcePage": 70,
       "sourceType": "verbatim"
     },
     "sejong-1-l04-읽다": {
       "example": "저는 책을 읽어요.",
+      "exampleVi": "Tôi đọc sách.",
       "sourcePage": 70,
       "sourceType": "verbatim"
     },
     "sejong-1-l04-주다": {
       "example": "사과를 주세요.",
+      "exampleVi": "Làm ơn cho tôi một quả táo.",
       "sourcePage": 72,
       "sourceType": "verbatim"
     },
     "sejong-1-l04-주스": {
       "example": "주스 하나를 삽니다.",
+      "exampleVi": "Tôi mua một phần nước ép.",
       "sourcePage": 80,
       "sourceType": "verbatim"
     },
     "sejong-1-l04-한국어": {
       "example": "한국어를 공부하세요.",
+      "exampleVi": "Học tiếng Hàn.",
       "sourcePage": 72,
       "sourceType": "verbatim"
     },
     "sejong-1-l05-가게": {
       "example": "저는 가게에 갑니다.",
+      "exampleVi": "Tôi đi đến cửa hàng.",
       "sourcePage": 86,
       "sourceType": "verbatim"
     },
     "sejong-1-l05-개": {
       "example": "몇 개 드릴까요?",
+      "exampleVi": "Quý khách muốn lấy mấy cái?",
       "sourcePage": 82,
       "sourceType": "verbatim"
     },
     "sejong-1-l05-권": {
       "example": "책 세 권 주세요.",
+      "exampleVi": "Xin vui lòng cho tôi ba cuốn sách.",
       "sourcePage": 82,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-몇": {
       "example": "무엇을 몇 개 사요?",
+      "exampleVi": "Bạn mua cái gì và bao nhiêu?",
       "sourcePage": 83,
       "sourceType": "verbatim"
     },
     "sejong-1-l05-반갑다": {
       "example": "반갑습니다.",
+      "exampleVi": "Rất vui được gặp bạn.",
       "sourcePage": 80,
       "sourceType": "verbatim"
     },
     "sejong-1-l05-병": {
       "example": "물 두 병 주세요.",
+      "exampleVi": "Làm ơn cho tôi hai chai nước.",
       "sourcePage": 82,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-얼마나": {
       "example": "교실에 무엇이 얼마나 있습니까?",
+      "exampleVi": "Trong lớp có những gì và mỗi thứ có bao nhiêu?",
       "sourcePage": 81,
       "sourceType": "verbatim"
     },
     "sejong-1-l05-여기": {
       "example": "네, 여기 있습니다.",
+      "exampleVi": "Vâng, nó ở đây.",
       "sourcePage": 80,
       "sourceType": "verbatim"
     },
     "sejong-1-l05-잔": {
       "example": "주스 세 잔 주세요.",
+      "exampleVi": "Làm ơn cho ba ly nước trái cây.",
       "sourcePage": 82,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-죄송합니다": {
       "example": "죄송합니다.",
+      "exampleVi": "Xin lỗi.",
       "sourcePage": 81,
       "sourceType": "verbatim"
     },
     "sejong-1-l05-친구": {
       "example": "친구 두 명이 교실에 있어요.",
+      "exampleVi": "Hai người bạn đang ở trong lớp học.",
       "sourcePage": 82,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l06-같이": {
       "example": "우리는 같이 밥을 먹었어요.",
+      "exampleVi": "Chúng tôi đã ăn cùng nhau.",
       "sourcePage": 90,
       "sourceType": "verbatim"
     },
     "sejong-1-l06-극장": {
       "example": "극장에서 한국 영화를 봤어요?",
+      "exampleVi": "Bạn đã xem phim Hàn Quốc ở rạp chưa?",
       "sourcePage": 92,
       "sourceType": "verbatim"
     },
     "sejong-1-l06-도서관": {
       "example": "어제 도서관에서 친구를 만났어요.",
+      "exampleVi": "Hôm qua tôi gặp một người bạn ở thư viện.",
       "sourcePage": 92,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l06-듣다": {
       "example": "치엔 씨는 음악을 들었어요.",
+      "exampleVi": "Chiên đã nghe nhạc.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l06-마시다": {
       "example": "어제 커피를 마셨어요.",
+      "exampleVi": "Hôm qua tôi đã uống cà phê.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l06-만나다": {
       "example": "어제 민수 씨를 만났어요.",
+      "exampleVi": "Tôi đã gặp Minsu ngày hôm qua.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l06-먹다": {
       "example": "어디에서 밥을 먹어요?",
+      "exampleVi": "Bạn ăn ở đâu?",
       "sourcePage": 93,
       "sourceType": "verbatim"
     },
     "sejong-1-l06-밥": {
       "example": "밥을 먹었어요?",
+      "exampleVi": "Bạn đã ăn chưa?",
       "sourcePage": 91,
       "sourceType": "verbatim"
     },
     "sejong-1-l06-백화점": {
       "example": "백화점에 갔어요.",
+      "exampleVi": "Tôi đã đi đến cửa hàng bách hóa.",
       "sourcePage": 93,
       "sourceType": "verbatim"
     },
     "sejong-1-l06-보다": {
       "example": "어제 한국 영화를 봤어요.",
+      "exampleVi": "Hôm qua tôi đã xem một bộ phim Hàn Quốc.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l06-어제": {
       "example": "여러분은 어제 무엇을 했어요?",
+      "exampleVi": "Hôm qua bạn đã làm gì?",
       "sourcePage": 91,
       "sourceType": "verbatim"
     },
     "sejong-1-l06-영화": {
       "example": "영화를 봤어요.",
+      "exampleVi": "Tôi đã xem một bộ phim.",
       "sourcePage": 91,
       "sourceType": "verbatim"
     },
     "sejong-1-l06-영화를 보다": {
       "example": "어제 친구하고 영화를 봤어요.",
+      "exampleVi": "Hôm qua tôi đã xem phim với bạn tôi.",
       "sourcePage": 91,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l06-우리": {
       "example": "우리 같이 축구를 해요.",
+      "exampleVi": "Chúng ta cùng chơi bóng đá nhé.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l06-음악": {
       "example": "저는 한국 음악을 좋아해요.",
+      "exampleVi": "Tôi thích âm nhạc Hàn Quốc.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l06-커피숍": {
       "example": "커피숍에서 만났어요.",
+      "exampleVi": "Chúng tôi gặp nhau ở một quán cà phê.",
       "sourcePage": 92,
       "sourceType": "verbatim"
     },
     "sejong-1-l06-텔레비전": {
       "example": "텔레비전을 봤어요.",
+      "exampleVi": "Tôi đã xem tivi.",
       "sourcePage": 91,
       "sourceType": "verbatim"
     },
     "sejong-1-l07-가을": {
       "example": "그리고 가을도 좋아해요.",
+      "exampleVi": "Và tôi cũng thích mùa thu.",
       "sourcePage": 103,
       "sourceType": "verbatim"
     },
     "sejong-1-l07-가져오다": {
       "example": "두꺼운 옷을 가져오세요.",
+      "exampleVi": "Vui lòng mang theo quần áo dày.",
       "sourcePage": 108,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-겨울": {
       "example": "한국은 겨울에 추워요?",
+      "exampleVi": "Mùa đông Hàn Quốc có lạnh không?",
       "sourcePage": 108,
       "sourceType": "verbatim"
     },
     "sejong-1-l07-날씨가 나쁘다": {
       "example": "오늘은 날씨가 나빠요.",
+      "exampleVi": "Hôm nay thời tiết xấu.",
       "sourcePage": 104,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-날씨가 어때요?": {
       "example": "한국의 요즘 날씨가 어때요?",
+      "exampleVi": "Thời tiết ở Hàn Quốc những ngày này thế nào?",
       "sourcePage": 106,
       "sourceType": "verbatim"
     },
     "sejong-1-l07-날씨가 좋다": {
       "example": "오늘은 날씨가 좋아요.",
+      "exampleVi": "Thời tiết hôm nay đẹp.",
       "sourcePage": 104,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-눈이 오다": {
       "example": "오늘은 눈이 와요.",
+      "exampleVi": "Hôm nay trời có tuyết.",
       "sourcePage": 104,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-덥다": {
       "example": "여름은 덥습니다.",
+      "exampleVi": "Mùa hè nóng bức.",
       "sourcePage": 108,
       "sourceType": "verbatim"
     },
     "sejong-1-l07-두꺼운 옷": {
       "example": "겨울에는 두꺼운 옷을 입어요.",
+      "exampleVi": "Tôi mặc quần áo dày vào mùa đông.",
       "sourcePage": 108,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-따뜻하다": {
       "example": "오늘은 따뜻해요.",
+      "exampleVi": "Hôm nay trời ấm áp.",
       "sourcePage": 104,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-봄": {
       "example": "타완 씨는 봄을 좋아해요?",
+      "exampleVi": "Tawan, bạn có thích mùa xuân không?",
       "sourcePage": 102,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-비가 오다": {
       "example": "오늘은 비가 와요.",
+      "exampleVi": "Hôm nay trời mưa.",
       "sourcePage": 104,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-쉬다": {
       "example": "오늘은 쉬어요.",
+      "exampleVi": "Hôm nay tôi được nghỉ.",
       "sourcePage": 105,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-시원하다": {
       "example": "오늘은 시원해요.",
+      "exampleVi": "Hôm nay trời mát mẻ.",
       "sourcePage": 104,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-언제": {
       "example": "언제 한국에 가요?",
+      "exampleVi": "Khi nào bạn đi Hàn Quốc?",
       "sourcePage": 108,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-여름": {
       "example": "저는 여름을 좋아해요.",
+      "exampleVi": "Tôi thích mùa hè.",
       "sourcePage": 102,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l07-요즘": {
       "example": "한국은 요즘 봄입니다.",
+      "exampleVi": "Những ngày này ở Hàn Quốc đang là mùa xuân.",
       "sourcePage": 108,
       "sourceType": "verbatim"
     },
     "sejong-1-l07-좋아하다": {
       "example": "여러분이 좋아하는 것들이 있어요?",
+      "exampleVi": "Có thứ gì bạn thích không?",
       "sourcePage": 103,
       "sourceType": "verbatim"
     },
     "sejong-1-l07-중국어": {
       "example": "그리고 중국어도 공부해요.",
+      "exampleVi": "Và tôi cũng học tiếng Trung.",
       "sourcePage": 102,
       "sourceType": "verbatim"
     },
     "sejong-1-l07-춥다": {
       "example": "겨울은 춥습니다.",
+      "exampleVi": "Mùa đông lạnh.",
       "sourcePage": 108,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-구월": {
       "example": "약속은 구월 오일이에요.",
+      "exampleVi": "Cuộc hẹn là ngày 5 tháng 9.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-금요일": {
       "example": "금요일에 가요.",
+      "exampleVi": "Tôi sẽ đi vào thứ Sáu.",
       "sourcePage": 112,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-내일": {
       "example": "내일 오후에 만나요.",
+      "exampleVi": "Hẹn gặp lại vào chiều mai.",
       "sourcePage": 114,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-며칠": {
       "example": "한국어 시험이 며칠에 있어요?",
+      "exampleVi": "Kỳ thi tiếng Hàn diễn ra khi nào?",
       "sourcePage": 118,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-목요일": {
       "example": "화요일하고 목요일은 열한 시에 수업이 있습니다.",
+      "exampleVi": "Lớp học được tổ chức lúc 11 giờ vào các ngày thứ Ba và thứ Năm.",
       "sourcePage": 118,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-무슨 요일": {
       "example": "무슨 요일에 한국어 수업이 있어요?",
+      "exampleVi": "Lớp học tiếng Hàn được tổ chức vào những ngày nào trong tuần?",
       "sourcePage": 113,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-사월": {
       "example": "약속은 사월 오일이에요.",
+      "exampleVi": "Cuộc hẹn là ngày 5 tháng 4.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-삼십일": {
       "example": "오늘은 삼십일이에요.",
+      "exampleVi": "Hôm nay là ngày 30.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-삼십일일": {
       "example": "오늘은 삼십일일이에요.",
+      "exampleVi": "Hôm nay là ngày 31.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-삼월": {
       "example": "약속은 삼월 오일이에요.",
+      "exampleVi": "Cuộc hẹn là ngày 5 tháng 3.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-삼일": {
       "example": "오늘은 삼일이에요.",
+      "exampleVi": "Hôm nay là ngày 3.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-수업": {
       "example": "언제 한국어 수업이 있어요?",
+      "exampleVi": "Khi nào bạn có lớp học tiếng Hàn?",
       "sourcePage": 115,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-수요일": {
       "example": "한국어 수업이 월요일하고 수요일에 있어요?",
+      "exampleVi": "Lớp học tiếng Hàn có tổ chức vào thứ Hai và thứ Tư không?",
       "sourcePage": 112,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-시월": {
       "example": "약속은 시월 오일이에요.",
+      "exampleVi": "Cuộc hẹn là ngày 5 tháng 10.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-시험": {
       "example": "시험이 언제 있어요?",
+      "exampleVi": "Khi nào thi?",
       "sourcePage": 116,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-십이월": {
       "example": "약속은 십이월 오일이에요.",
+      "exampleVi": "Cuộc hẹn là ngày 5 tháng 12.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-십일월": {
       "example": "약속은 십일월 오일이에요.",
+      "exampleVi": "Cuộc hẹn là ngày 5 tháng 11.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-십일일": {
       "example": "오늘은 십일일이에요.",
+      "exampleVi": "Hôm nay là ngày 11.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-아침": {
       "example": "아침을 언제 먹어요?",
+      "exampleVi": "Khi nào bạn ăn sáng?",
       "sourcePage": 114,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-월요일": {
       "example": "월요일에 한국어 수업이 있어요.",
+      "exampleVi": "Tôi có lớp học tiếng Hàn vào thứ Hai.",
       "sourcePage": 110,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-유월": {
       "example": "금요일이 유월 삼일이에요?",
+      "exampleVi": "Thứ sáu là ngày 3 tháng 6 phải không?",
       "sourcePage": 112,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-육일": {
       "example": "오늘은 육일이에요.",
+      "exampleVi": "Hôm nay là ngày 6.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-이십구일": {
       "example": "오늘은 이십구일이에요.",
+      "exampleVi": "Hôm nay là ngày 29.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-이월": {
       "example": "약속은 이월 오일이에요.",
+      "exampleVi": "Cuộc hẹn là ngày 5 tháng 2.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-이일": {
       "example": "오늘은 이일이에요.",
+      "exampleVi": "Hôm nay là ngày 2.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-일요일": {
       "example": "일요일에는 집에서 쉬어요.",
+      "exampleVi": "Tôi nghỉ ở nhà vào ngày chủ nhật.",
       "sourcePage": 111,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-일월": {
       "example": "약속은 일월 오일이에요.",
+      "exampleVi": "Cuộc hẹn là ngày 5 tháng 1.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-일일": {
       "example": "오늘은 일일이에요.",
+      "exampleVi": "Hôm nay là ngày 1.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-저녁": {
       "example": "같이 저녁을 먹습니다.",
+      "exampleVi": "Chúng tôi ăn tối cùng nhau.",
       "sourcePage": 118,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-점심": {
       "example": "몇 시에 점심을 먹어요?",
+      "exampleVi": "Bạn ăn trưa lúc mấy giờ?",
       "sourcePage": 115,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-칠월": {
       "example": "약속은 칠월 오일이에요.",
+      "exampleVi": "Cuộc hẹn là ngày 5 tháng 7.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-칠일": {
       "example": "오늘은 칠일이에요.",
+      "exampleVi": "Hôm nay là ngày 7.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-토요일": {
       "example": "토요일에 뭐 했어요?",
+      "exampleVi": "Bạn đã làm gì vào thứ bảy?",
       "sourcePage": 135,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-팔월": {
       "example": "약속은 팔월 오일이에요.",
+      "exampleVi": "Cuộc hẹn là ngày 5 tháng 8.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l08-화요일": {
       "example": "화요일하고 목요일에 있어요.",
+      "exampleVi": "Đó là vào thứ Ba và thứ Năm.",
       "sourcePage": 112,
       "sourceType": "verbatim"
     },
     "sejong-1-l08-회의": {
       "example": "언제 회의가 있어요?",
+      "exampleVi": "Cuộc họp diễn ra khi nào?",
       "sourcePage": 115,
       "sourceType": "verbatim"
     },
     "sejong-1-l09-괜찮다": {
       "example": "괜찮아요.",
+      "exampleVi": "Không sao.",
       "sourcePage": 123,
       "sourceType": "verbatim"
     },
     "sejong-1-l09-그러면": {
       "example": "그러면 우리 같이 축구를 해요.",
+      "exampleVi": "Vậy thì chúng ta cùng chơi bóng đá nhé.",
       "sourcePage": 136,
       "sourceType": "verbatim"
     },
     "sejong-1-l09-남자 친구를 만나다": {
       "example": "저는 남자 친구하고 약속이 있어요.",
+      "exampleVi": "Tôi có hẹn với bạn trai.",
       "sourcePage": 125,
       "sourceType": "verbatim"
     },
     "sejong-1-l09-노래방": {
       "example": "노래방에 갈까요?",
+      "exampleVi": "Chúng ta đi hát karaoke nhé?",
       "sourcePage": 128,
       "sourceType": "verbatim"
     },
     "sejong-1-l09-놀러 가다": {
       "example": "오늘 저녁에 놀러 가요.",
+      "exampleVi": "Chúng ta hãy đi ra ngoài tối nay.",
       "sourcePage": 124,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-미안하다": {
       "example": "제가 많이 늦었어요. 미안해요.",
+      "exampleVi": "Tôi muộn lắm rồi. Xin lỗi.",
       "sourcePage": 129,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-바쁘다": {
       "example": "오늘 저녁에 바빠요.",
+      "exampleVi": "Tối nay tôi bận.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-불고기": {
       "example": "불고기를 먹어요.",
+      "exampleVi": "Tôi ăn bulgogi.",
       "sourcePage": 124,
       "sourceType": "verbatim"
     },
     "sejong-1-l09-쇼핑을 하다": {
       "example": "오늘 저녁에 쇼핑을 해요.",
+      "exampleVi": "Tôi sẽ đi mua sắm tối nay.",
       "sourcePage": 124,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-시간이 없다": {
       "example": "오늘은 시간이 없어요.",
+      "exampleVi": "Hôm nay tôi không có thời gian.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-시간이 있다": {
       "example": "내일은 시간이 있어요.",
+      "exampleVi": "Ngày mai tôi có thời gian.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-시내": {
       "example": "시내에서 두 시에 만나요.",
+      "exampleVi": "Hãy gặp nhau ở trung tâm thành phố lúc hai giờ.",
       "sourcePage": 125,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-약속을 하다": {
       "example": "오늘 저녁에 약속을 해요.",
+      "exampleVi": "Tối nay tôi sẽ hẹn gặp.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-약속이 없다": {
       "example": "이번 주말에는 약속이 없어요.",
+      "exampleVi": "Tôi không có kế hoạch vào cuối tuần này.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-약속이 있다": {
       "example": "오늘 저녁에 약속이 있어요.",
+      "exampleVi": "Tôi có một cuộc hẹn vào tối nay.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-여자 친구를 만나다": {
       "example": "오늘 저녁에 여자 친구를 만나요.",
+      "exampleVi": "Tôi sẽ gặp bạn gái tôi tối nay.",
       "sourcePage": 124,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-일이 있다": {
       "example": "오전에는 일이 있어요.",
+      "exampleVi": "Tôi có việc vào buổi sáng.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-저녁을 먹다": {
       "example": "오늘 저녁을 같이 먹을까요?",
+      "exampleVi": "Tối nay chúng ta cùng ăn tối nhé?",
       "sourcePage": 124,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-점심을 먹다": {
       "example": "점심을 같이 먹을까요?",
+      "exampleVi": "Chúng ta cùng ăn trưa nhé?",
       "sourcePage": 124,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-정말": {
       "example": "날씨가 정말 좋아요.",
+      "exampleVi": "Thời tiết thực sự rất đẹp.",
       "sourcePage": 123,
       "sourceType": "verbatim"
     },
     "sejong-1-l09-차를 마시다": {
       "example": "오늘 저녁에 차를 마셔요.",
+      "exampleVi": "Tối nay tôi uống trà.",
       "sourcePage": 124,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l09-층": {
       "example": "다섯 시에 1층에서 봐요.",
+      "exampleVi": "Hẹn gặp bạn ở tầng một lúc 5 giờ.",
       "sourcePage": 124,
       "sourceType": "verbatim"
     },
     "sejong-1-l09-커피를 마시다": {
       "example": "오늘 저녁에 커피를 마셔요.",
+      "exampleVi": "Tối nay tôi uống cà phê.",
       "sourcePage": 124,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l10-고궁": {
       "example": "그래서 고궁에 갈 거예요.",
+      "exampleVi": "Vậy nên tôi sẽ tới cung điện cũ.",
       "sourcePage": 140,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-고향": {
       "example": "고향에서 친구가 왔어요.",
+      "exampleVi": "Một người bạn ở quê tôi đã đến.",
       "sourcePage": 135,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-구경하다": {
       "example": "이번 주말에 구경해요.",
+      "exampleVi": "Cuối tuần này tôi sẽ đi tham quan.",
       "sourcePage": 136,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l10-그림": {
       "example": "저는 그림을 좋아해요.",
+      "exampleVi": "Tôi thích tranh.",
       "sourcePage": 135,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-낮잠을 자다": {
       "example": "이번 주말에 낮잠을 자요.",
+      "exampleVi": "Cuối tuần này tôi sẽ ngủ trưa.",
       "sourcePage": 136,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l10-많이": {
       "example": "어제는 많이 아팠어요.",
+      "exampleVi": "Hôm qua tôi bị đau rất nhiều.",
       "sourcePage": 134,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-미술관": {
       "example": "그래서 미술관에 갔어요.",
+      "exampleVi": "Vì thế tôi đã tới bảo tàng nghệ thuật.",
       "sourcePage": 135,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-바다": {
       "example": "더운 여름에는 강이나 바다에서 물놀이를 하고 겨울에는 산에서 스키를 탑니다.",
+      "exampleVi": "Vào mùa hè nóng nực, tôi đi bơi ở sông hoặc biển, còn vào mùa đông, tôi đi trượt tuyết trên núi.",
       "sourcePage": 131,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-박물관": {
       "example": "그래서 같이 박물관에 갔어요.",
+      "exampleVi": "Thế là chúng tôi cùng nhau đến bảo tàng.",
       "sourcePage": 134,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-병원": {
       "example": "그래서 병원에 갔어요.",
+      "exampleVi": "Thế là tôi đến bệnh viện.",
       "sourcePage": 134,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-사진을 찍다": {
       "example": "이번 주말에 사진을 찍어요.",
+      "exampleVi": "Tôi sẽ chụp ảnh vào cuối tuần này.",
       "sourcePage": 136,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l10-산": {
       "example": "지난 주말에 산에 갔어요.",
+      "exampleVi": "Tôi đã đi đến vùng núi cuối tuần trước.",
       "sourcePage": 134,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l10-수영": {
       "example": "저는 주말에 수영을 배워요.",
+      "exampleVi": "Tôi học bơi vào cuối tuần.",
       "sourcePage": 134,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-수영장": {
       "example": "그래서 수영장에 갔어요.",
+      "exampleVi": "Vì vậy tôi đã đi đến hồ bơi.",
       "sourcePage": 134,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-아프다": {
       "example": "어제부터 머리가 아팠어요.",
+      "exampleVi": "Tôi bị đau đầu từ hôm qua.",
       "sourcePage": 134,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l10-여행을 가다": {
       "example": "이번 주말에 여행을 가요.",
+      "exampleVi": "Tôi sẽ đi du lịch vào cuối tuần này.",
       "sourcePage": 136,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l10-여행을 하다": {
       "example": "이번 주말에 여행을 해요.",
+      "exampleVi": "Cuối tuần này tôi sẽ đi du lịch.",
       "sourcePage": 136,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l10-이번 주말": {
       "example": "여러분은 이번 주말에 어디에 갈 거예요?",
+      "exampleVi": "Cuối tuần này bạn đi đâu?",
       "sourcePage": 137,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-주말": {
       "example": "주말에는 보통 집에서 쉬어요.",
+      "exampleVi": "Tôi thường nghỉ ngơi ở nhà vào cuối tuần.",
       "sourcePage": 134,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l10-지난 주말": {
       "example": "여러분은 지난 주말에 무엇을 했어요?",
+      "exampleVi": "Cuối tuần trước bạn đã làm gì?",
       "sourcePage": 135,
       "sourceType": "verbatim"
     },
     "sejong-1-l10-집에서 쉬다": {
       "example": "이번 주말에 집에서 쉬어요.",
+      "exampleVi": "Cuối tuần này tôi đang nghỉ ngơi ở nhà.",
       "sourcePage": 136,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l10-축구를 하다": {
       "example": "이번 주말에 축구를 해요.",
+      "exampleVi": "Tôi sẽ chơi bóng đá vào cuối tuần này.",
       "sourcePage": 136,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l11-강의실": {
       "example": "한국 노래 수업은 3층 강의실에서 합니다.",
+      "exampleVi": "Lớp học bài hát Hàn Quốc được tổ chức tại phòng học tầng 3.",
       "sourcePage": 149,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l11-노래": {
       "example": "저는 한국 노래를 좋아합니다.",
+      "exampleVi": "Tôi thích các bài hát Hàn Quốc.",
       "sourcePage": 149,
       "sourceType": "verbatim"
     },
     "sejong-1-l11-말하기": {
       "example": "말하기 수업이 재미있어요.",
+      "exampleVi": "Lớp nói rất vui.",
       "sourcePage": 148,
       "sourceType": "verbatim"
     },
     "sejong-1-l11-배우다": {
       "example": "세종학당에서 한국어를 배워요.",
+      "exampleVi": "Tôi học tiếng Hàn tại Học viện Sejong.",
       "sourcePage": 149,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l11-쉽다": {
       "example": "한국어 읽기는 쉬워요.",
+      "exampleVi": "Đọc tiếng Hàn thật dễ dàng.",
       "sourcePage": 144,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l11-시작하다": {
       "example": "지난 2월에 한국어 공부를 시작했습니다.",
+      "exampleVi": "Tôi bắt đầu học tiếng Hàn vào tháng 2 năm ngoái.",
       "sourcePage": 149,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l11-아주": {
       "example": "모두 아주 재미있습니다.",
+      "exampleVi": "Tất cả đều rất thú vị.",
       "sourcePage": 149,
       "sourceType": "verbatim"
     },
     "sejong-1-l11-어렵다": {
       "example": "한국어 쓰기는 어려워요.",
+      "exampleVi": "Viết tiếng Hàn khó lắm.",
       "sourcePage": 144,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l11-이유": {
       "example": "한국 음악을 좋아해서 한국어를 공부해요.",
+      "exampleVi": "Tôi học tiếng Hàn vì tôi thích âm nhạc Hàn Quốc.",
       "sourcePage": 147,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l11-잘하다": {
       "example": "민수 씨는 한국어를 잘해요.",
+      "exampleVi": "Minsu nói tiếng Hàn rất tốt.",
       "sourcePage": 149,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l11-재미있다": {
       "example": "한국어 수업은 아주 재미있습니다.",
+      "exampleVi": "Lớp học tiếng Hàn rất vui.",
       "sourcePage": 144,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l11-주": {
       "example": "여러분은 이번 주에 어떤 약속이 있어요?",
+      "exampleVi": "Tuần này bạn có kế hoạch gì không?",
       "sourcePage": 127,
       "sourceType": "verbatim"
     },
     "sejong-1-l11-지난": {
       "example": "저는 지난 2월에 세종학당에서 한국어 공부를 시작했습니다.",
+      "exampleVi": "Tôi bắt đầu học tiếng Hàn tại Học viện King Sejong vào tháng 2 năm ngoái.",
       "sourcePage": 149,
       "sourceType": "verbatim"
     },
     "sejong-1-l11-컴퓨터": {
       "example": "한글은 휴대 전화나 컴퓨터 자판 사용에 매우 편리하다.",
+      "exampleVi": "Hangul rất thuận tiện cho việc sử dụng điện thoại di động hoặc bàn phím máy tính.",
       "sourcePage": 17,
       "sourceType": "verbatim"
     },
     "sejong-1-l11-한 달": {
       "example": "한국 노래 교실은 한 달 동안 열립니다.",
+      "exampleVi": "Lớp học hát tiếng Hàn được tổ chức trong một tháng.",
       "sourcePage": 149,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l12-결혼": {
       "example": "내년에 결혼을 할 거예요.",
+      "exampleVi": "Tôi sẽ kết hôn vào năm tới.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l12-계속": {
       "example": "이 사람은 계속 한국어를 배울 거예요.",
+      "exampleVi": "Người này sẽ tiếp tục học tiếng Hàn.",
       "sourcePage": 159,
       "sourceType": "verbatim"
     },
     "sejong-1-l12-계획": {
       "example": "앞으로 한국어를 계속 공부할 계획입니다.",
+      "exampleVi": "Tôi dự định sẽ tiếp tục học tiếng Hàn trong tương lai.",
       "sourcePage": 158,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l12-내년": {
       "example": "내년에 중국에 유학을 갈 거예요.",
+      "exampleVi": "Tôi sẽ đi du học ở Trung Quốc vào năm tới.",
       "sourcePage": 158,
       "sourceType": "verbatim"
     },
     "sejong-1-l12-다음 달": {
       "example": "다음 달은 방학입니다.",
+      "exampleVi": "Tháng sau là kỳ nghỉ.",
       "sourcePage": 159,
       "sourceType": "verbatim"
     },
     "sejong-1-l12-대학교": {
       "example": "저는 올해 대학교를 졸업해요.",
+      "exampleVi": "Tôi sắp tốt nghiệp đại học năm nay.",
       "sourcePage": 158,
       "sourceType": "verbatim"
     },
     "sejong-1-l12-대학원": {
       "example": "한국에서 대학원에 갈 거예요.",
+      "exampleVi": "Tôi sắp học cao học ở Hàn Quốc.",
       "sourcePage": 157,
       "sourceType": "verbatim"
     },
     "sejong-1-l12-방학": {
       "example": "방학에는 한국 가게에서 아르바이트를 할 거예요.",
+      "exampleVi": "Trong kỳ nghỉ, tôi sẽ làm việc bán thời gian tại một cửa hàng Hàn Quốc.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l12-살다": {
       "example": "저는 서울에서 살아요.",
+      "exampleVi": "Tôi sống ở Seoul.",
       "sourcePage": 157,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l12-아르바이트": {
       "example": "방학에 한국 가게에서 아르바이트를 할 것입니다.",
+      "exampleVi": "Tôi sẽ làm việc bán thời gian tại một cửa hàng Hàn Quốc trong kỳ nghỉ.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l12-앞으로": {
       "example": "앞으로 한국어를 열심히 공부할 거예요.",
+      "exampleVi": "Từ bây giờ tôi sẽ học tiếng Hàn chăm chỉ.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l12-어떤": {
       "example": "로라 씨, 올해에는 어떤 계획이 있어요?",
+      "exampleVi": "Laura, kế hoạch năm nay của bạn là gì?",
       "sourcePage": 158,
       "sourceType": "verbatim"
     },
     "sejong-1-l12-열심히": {
       "example": "열심히 공부하세요.",
+      "exampleVi": "Học tập chăm chỉ.",
       "sourcePage": 118,
       "sourceType": "verbatim"
     },
     "sejong-1-l12-유학": {
       "example": "내년에 중국으로 유학을 갈 거예요.",
+      "exampleVi": "Tôi sẽ đi du học ở Trung Quốc vào năm tới.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l12-졸업": {
       "example": "올해 대학교를 졸업해요.",
+      "exampleVi": "Tôi sắp tốt nghiệp đại học năm nay.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l12-취직": {
       "example": "저는 취직을 할 거예요.",
+      "exampleVi": "Tôi sẽ tìm việc.",
       "sourcePage": 154,
       "sourceType": "verbatim"
     },
     "sejong-1-l12-휴가": {
       "example": "이번 휴가에는 한국을 여행할 거예요.",
+      "exampleVi": "Kỳ nghỉ này tôi sẽ đi du lịch Hàn Quốc.",
       "sourcePage": 159,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l00-오": {
       "example": "가격은 오 원이에요.",
+      "exampleVi": "Giá là năm won.",
       "sourcePage": 14,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-구": {
       "example": "가격은 구 원이에요.",
+      "exampleVi": "Giá là chín won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-만": {
       "example": "가격은 만 원이에요.",
+      "exampleVi": "Giá là 10.000 won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-백": {
       "example": "가격은 백 원이에요.",
+      "exampleVi": "Giá là 100 won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-사": {
       "example": "가격은 사 원이에요.",
+      "exampleVi": "Giá là bốn won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-삼": {
       "example": "가격은 삼 원이에요.",
+      "exampleVi": "Giá là 3 won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-십육": {
       "example": "가격은 십육 원이에요.",
+      "exampleVi": "Giá là mười sáu won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-십이": {
       "example": "가격은 십이 원이에요.",
+      "exampleVi": "Giá là 12 won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-십일": {
       "example": "가격은 십일 원이에요.",
+      "exampleVi": "Giá là 11 won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-십칠": {
       "example": "가격은 십칠 원이에요.",
+      "exampleVi": "Giá là mười bảy won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-십팔": {
       "example": "가격은 십팔 원이에요.",
+      "exampleVi": "Giá là mười tám won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-영": {
       "example": "가격은 영 원이에요.",
+      "exampleVi": "Giá là 0 won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-육": {
       "example": "가격은 육 원이에요.",
+      "exampleVi": "Giá là sáu won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-이": {
       "example": "가격은 이 원이에요.",
+      "exampleVi": "Giá là hai won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-이십": {
       "example": "가격은 이십 원이에요.",
+      "exampleVi": "Giá là hai mươi won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-일": {
       "example": "가격은 일 원이에요.",
+      "exampleVi": "Giá là một won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-천": {
       "example": "가격은 천 원이에요.",
+      "exampleVi": "Giá là 1.000 won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-칠": {
       "example": "가격은 칠 원이에요.",
+      "exampleVi": "Giá là bảy won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l04-팔": {
       "example": "가격은 팔 원이에요.",
+      "exampleVi": "Giá là tám won.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-넷": {
       "example": "숫자는 넷이에요.",
+      "exampleVi": "Số là bốn.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-다섯": {
       "example": "숫자는 다섯이에요.",
+      "exampleVi": "Con số là năm.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-둘": {
       "example": "숫자는 둘이에요.",
+      "exampleVi": "Số là hai.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-셋": {
       "example": "숫자는 셋이에요.",
+      "exampleVi": "Số là ba.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-아홉": {
       "example": "숫자는 아홉이에요.",
+      "exampleVi": "Con số là chín.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-여덟": {
       "example": "숫자는 여덟이에요.",
+      "exampleVi": "Con số là tám.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-여섯": {
       "example": "숫자는 여섯이에요.",
+      "exampleVi": "Con số là sáu.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-열": {
       "example": "숫자는 열이에요.",
+      "exampleVi": "Con số là mười.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-열하나": {
       "example": "숫자는 열하나예요.",
+      "exampleVi": "Con số là mười một.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-일곱": {
       "example": "숫자는 일곱이에요.",
+      "exampleVi": "Con số là bảy.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-1-l05-하나": {
       "example": "숫자는 하나예요.",
+      "exampleVi": "Số là một.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-갔다 오다": {
       "example": "여행을 하고 한국에 갔다 왔어요.",
+      "exampleVi": "Tôi đã đi du lịch và đã đến Hàn Quốc rồi về.",
       "sourcePage": 14,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-그동안 어떻게 지냈어요?": {
       "example": "그동안 잘 지냈어요?",
+      "exampleVi": "Bạn thế nào rồi?",
       "sourcePage": 20,
       "sourceType": "verbatim"
     },
     "sejong-2-l01-그럼": {
       "example": "그럼 안녕히 계세요.",
+      "exampleVi": "Vậy thì tạm biệt nhé.",
       "sourcePage": 20,
       "sourceType": "verbatim"
     },
     "sejong-2-l01-그저 그렇다": {
       "example": "요즘은 그저 그래요.",
+      "exampleVi": "Dạo này cũng bình thường thôi.",
       "sourcePage": 16,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-늦다": {
       "example": "제가 많이 늦었어요.",
+      "exampleVi": "Tôi muộn lắm rồi.",
       "sourcePage": 16,
       "sourceType": "verbatim"
     },
     "sejong-2-l01-다시": {
       "example": "내일 다시 전화해요.",
+      "exampleVi": "Tôi sẽ gọi lại cho bạn vào ngày mai.",
       "sourcePage": 20,
       "sourceType": "verbatim"
     },
     "sejong-2-l01-바쁘다": {
       "example": "요즘은 바빠요.",
+      "exampleVi": "Mấy hôm nay tôi bận.",
       "sourcePage": 16,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-방학을 잘 보냈어요?": {
       "example": "방학을 잘 보냈어요?",
+      "exampleVi": "Bạn đã có một kỳ nghỉ vui vẻ chứ?",
       "sourcePage": 14,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-오랜만이에요": {
       "example": "친구에게 “오랜만이에요”라고 말했어요.",
+      "exampleVi": "Tôi nói với bạn tôi: “Đã lâu rồi nhỉ”.",
       "sourcePage": 14,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-요즘 어떻게 지내요?": {
       "example": "요즘 어떻게 지내요?",
+      "exampleVi": "Dạo này bạn thế nào?",
       "sourcePage": 14,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-음식": {
       "example": "일본 음식을 같이 먹고 여행도 같이 가요.",
+      "exampleVi": "Chúng tôi cùng nhau ăn đồ ăn Nhật và cùng nhau đi du lịch.",
       "sourcePage": 20,
       "sourceType": "verbatim"
     },
     "sejong-2-l01-잘 지내요": {
       "example": "잘 지내요.",
+      "exampleVi": "Tôi vẫn khỏe.",
       "sourcePage": 14,
       "sourceType": "verbatim"
     },
     "sejong-2-l01-재미없다": {
       "example": "요즘은 재미없어요.",
+      "exampleVi": "Những ngày này không vui chút nào.",
       "sourcePage": 16,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-재미있다": {
       "example": "한국어 말하기는 재미있어요.",
+      "exampleVi": "Nói tiếng Hàn thật thú vị.",
       "sourcePage": 17,
       "sourceType": "verbatim"
     },
     "sejong-2-l01-전화를 받다": {
       "example": "미안해요, 전화를 못 받았어요.",
+      "exampleVi": "Xin lỗi, tôi đã lỡ cuộc gọi của bạn.",
       "sourcePage": 20,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-정신이 없다": {
       "example": "요즘 일이 많아서 정신이 없어요.",
+      "exampleVi": "Mấy hôm nay tôi có nhiều việc phải làm nên đầu óc cứ rối tung lên.",
       "sourcePage": 16,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-조금": {
       "example": "그래서 조금 힘들어요.",
+      "exampleVi": "Vì vậy tôi hơi mệt.",
       "sourcePage": 16,
       "sourceType": "verbatim"
     },
     "sejong-2-l01-좀": {
       "example": "요즘은 좀 바빠요.",
+      "exampleVi": "Dạo này tôi hơi bận.",
       "sourcePage": 16,
       "sourceType": "verbatim"
     },
     "sejong-2-l01-즐겁다": {
       "example": "요즘은 즐거워요.",
+      "exampleVi": "Tôi hạnh phúc những ngày này.",
       "sourcePage": 16,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-피곤하다": {
       "example": "요즘은 피곤해요.",
+      "exampleVi": "Những ngày này tôi mệt mỏi.",
       "sourcePage": 16,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-휴가 때 뭐 했어요?": {
       "example": "휴가 때 뭐 했어요?",
+      "exampleVi": "Bạn đã làm gì trong kỳ nghỉ?",
       "sourcePage": 14,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l01-힘들다": {
       "example": "로라 씨는 요즘 힘들어요?",
+      "exampleVi": "Laura, dạo này bạn có gặp khó khăn không?",
       "sourcePage": 18,
       "sourceType": "verbatim"
     },
     "sejong-2-l02-가끔": {
       "example": "좀 바빠서 가끔 쳐요.",
+      "exampleVi": "Vì hơi bận nên tôi chỉ thỉnh thoảng mới chơi.",
       "sourcePage": 26,
       "sourceType": "verbatim"
     },
     "sejong-2-l02-거의": {
       "example": "요즘은 너무 바빠서 거의 못해요.",
+      "exampleVi": "Dạo này tôi bận quá nên hầu như không làm được.",
       "sourcePage": 26,
       "sourceType": "verbatim"
     },
     "sejong-2-l02-건강에 좋다": {
       "example": "매일 운동하면 건강에 좋아요.",
+      "exampleVi": "Tập thể dục mỗi ngày rất tốt cho sức khỏe của bạn.",
       "sourcePage": 30,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-게임을 하다": {
       "example": "주말마다 게임을 해요.",
+      "exampleVi": "Tôi chơi game vào mỗi cuối tuần.",
       "sourcePage": 24,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-꼭": {
       "example": "이번 주에는 꼭 배드민턴을 칠 것입니다.",
+      "exampleVi": "Tôi chắc chắn sẽ chơi cầu lông trong tuần này.",
       "sourcePage": 30,
       "sourceType": "verbatim"
     },
     "sejong-2-l02-낚시를 하다": {
       "example": "주말마다 낚시를 해요.",
+      "exampleVi": "Tôi câu cá vào mỗi cuối tuần.",
       "sourcePage": 24,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-너무": {
       "example": "요즘은 날씨가 너무 더워서 별로 안 해요.",
+      "exampleVi": "Dạo này thời tiết nóng quá nên tôi không làm nhiều.",
       "sourcePage": 27,
       "sourceType": "verbatim"
     },
     "sejong-2-l02-들어오다": {
       "example": "들어오세요.",
+      "exampleVi": "Xin mời vào.",
       "sourcePage": 30,
       "sourceType": "verbatim"
     },
     "sejong-2-l02-등산을 하다": {
       "example": "주말마다 등산을 해요.",
+      "exampleVi": "Tôi đi leo núi vào mỗi cuối tuần.",
       "sourcePage": 24,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-매일": {
       "example": "이 사람은 매일 배드민턴을 쳐요.",
+      "exampleVi": "Người này chơi cầu lông mỗi ngày.",
       "sourcePage": 30,
       "sourceType": "verbatim"
     },
     "sejong-2-l02-매주": {
       "example": "축사모에서는 매주 같이 축구를 합니다.",
+      "exampleVi": "Ở câu lạc bộ yêu bóng đá, chúng tôi cùng chơi bóng đá hằng tuần.",
       "sourcePage": 30,
       "sourceType": "verbatim"
     },
     "sejong-2-l02-배드민턴을 치다": {
       "example": "주말마다 배드민턴을 쳐요.",
+      "exampleVi": "Tôi chơi cầu lông vào mỗi cuối tuần.",
       "sourcePage": 24,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-별로": {
       "example": "저는 운동을 별로 안 좋아해요.",
+      "exampleVi": "Tôi không thích tập thể dục lắm.",
       "sourcePage": 26,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-언제나": {
       "example": "아주 좋아해서 주말에는 언제나 배드민턴을 칩니다.",
+      "exampleVi": "Tôi rất thích nên cuối tuần nào cũng chơi cầu lông.",
       "sourcePage": 30,
       "sourceType": "verbatim"
     },
     "sejong-2-l02-운동장": {
       "example": "운동장에서 운동해요.",
+      "exampleVi": "Tôi tập thể dục ở sân thể thao.",
       "sourcePage": 30,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-일어나다": {
       "example": "저는 매일 일찍 일어나요.",
+      "exampleVi": "Tôi thức dậy sớm mỗi ngày.",
       "sourcePage": 26,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-자전거를 타다": {
       "example": "주말마다 자전거를 타요.",
+      "exampleVi": "Tôi đi xe đạp vào mỗi cuối tuần.",
       "sourcePage": 24,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-자주": {
       "example": "자주 운동해요.",
+      "exampleVi": "Tôi tập thể dục thường xuyên.",
       "sourcePage": 26,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-전혀": {
       "example": "저는 게임을 전혀 하지 않아요.",
+      "exampleVi": "Tôi không chơi game gì cả.",
       "sourcePage": 26,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-제": {
       "example": "제 취미는 배드민턴입니다.",
+      "exampleVi": "Sở thích của tôi là cầu lông.",
       "sourcePage": 30,
       "sourceType": "verbatim"
     },
     "sejong-2-l02-취미": {
       "example": "취미로 배드민턴을 칩니다.",
+      "exampleVi": "Tôi chơi cầu lông như một sở thích.",
       "sourcePage": 24,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-피아노를 치다": {
       "example": "주말마다 피아노를 쳐요.",
+      "exampleVi": "Tôi chơi piano vào mỗi cuối tuần.",
       "sourcePage": 24,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l02-항상": {
       "example": "컴퓨터를 많이 해서 항상 눈이 아파요.",
+      "exampleVi": "Vì dùng máy tính nhiều nên mắt tôi luôn bị đau.",
       "sourcePage": 112,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-갈비": {
       "example": "갈비를 먹었어요.",
+      "exampleVi": "Tôi đã ăn sườn.",
       "sourcePage": 37,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-김밥": {
       "example": "김밥은 맛이 없었어요.",
+      "exampleVi": "Kimbap không ngon.",
       "sourcePage": 38,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-김치찌개": {
       "example": "저는 김치찌개를 좋아해요.",
+      "exampleVi": "Tôi thích món canh kimchi.",
       "sourcePage": 36,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-냉면": {
       "example": "저는 냉면을 좋아해요.",
+      "exampleVi": "Tôi thích mì lạnh.",
       "sourcePage": 35,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-다": {
       "example": "음식을 다 먹었어요.",
+      "exampleVi": "Tôi đã ăn hết đồ ăn.",
       "sourcePage": 37,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l03-달다": {
       "example": "이 음식은 달아요.",
+      "exampleVi": "Món ăn này có vị ngọt.",
       "sourcePage": 36,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l03-된장찌개": {
       "example": "저는 된장찌개하고 불고기를 자주 먹어요.",
+      "exampleVi": "Tôi thường ăn món đậu nành hầm và bulgogi.",
       "sourcePage": 36,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-라면": {
       "example": "라면은 조금 짰어요.",
+      "exampleVi": "Ramen hơi mặn một chút.",
       "sourcePage": 38,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-맛없다": {
       "example": "이 음식은 맛없어요.",
+      "exampleVi": "Món ăn này không ngon.",
       "sourcePage": 36,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l03-맛있다": {
       "example": "그런데 맛있어요.",
+      "exampleVi": "Nhưng nó rất ngon.",
       "sourcePage": 37,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-맵다": {
       "example": "그리고 비빔밥도 별로 안 맵고 좋아요.",
+      "exampleVi": "Và bibimbap cũng không cay lắm nên rất ngon.",
       "sourcePage": 40,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-반찬": {
       "example": "반찬도 많이 줘요.",
+      "exampleVi": "Họ còn cho nhiều món ăn kèm.",
       "sourcePage": 40,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-불고기": {
       "example": "저는 불고기를 먹을래요.",
+      "exampleVi": "Tôi muốn ăn bulgogi.",
       "sourcePage": 35,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-비빔밥": {
       "example": "이 식당은 비빔밥하고 냉면을 잘해요.",
+      "exampleVi": "Nhà hàng này làm món bibimbap và mì lạnh rất ngon.",
       "sourcePage": 34,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-삼계탕": {
       "example": "여자는 삼계탕을 좋아해요.",
+      "exampleVi": "Người phụ nữ thích món gà hầm sâm.",
       "sourcePage": 38,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-설렁탕": {
       "example": "저는 설렁탕을 먹을래요.",
+      "exampleVi": "Tôi muốn ăn seolleongtang.",
       "sourcePage": 34,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l03-소개하다": {
       "example": "친구에게 맛있는 식당을 소개해요.",
+      "exampleVi": "Tôi giới thiệu cho bạn một nhà hàng ngon.",
       "sourcePage": 41,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l03-시다": {
       "example": "이 음식은 셔요.",
+      "exampleVi": "Thức ăn này có vị chua.",
       "sourcePage": 36,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l03-싱겁다": {
       "example": "이 음식은 싱거워요.",
+      "exampleVi": "Món ăn này nhạt.",
       "sourcePage": 36,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l03-쓰다": {
       "example": "이 약은 맛이 써요.",
+      "exampleVi": "Thuốc này có vị đắng.",
       "sourcePage": 36,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l03-아주머니": {
       "example": "아주머니, 여기 비빔밥하고 냉면 주세요.",
+      "exampleVi": "Cô ơi, cho tôi bibimbap và mì lạnh.",
       "sourcePage": 34,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-여러분": {
       "example": "여러분, 하나식당을 알아요?",
+      "exampleVi": "Mọi người có biết nhà hàng Hana không?",
       "sourcePage": 40,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-이": {
       "example": "이 사람들은 지금 무엇을 하고 있어요?",
+      "exampleVi": "Bây giờ những người này đang làm gì?",
       "sourcePage": 33,
       "sourceType": "verbatim"
     },
     "sejong-2-l03-인기가 있다": {
       "example": "비빔밥은 인기가 있어요.",
+      "exampleVi": "Bibimbap rất phổ biến.",
       "sourcePage": 40,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l03-짜다": {
       "example": "이 음식은 짜요.",
+      "exampleVi": "Thức ăn này có vị mặn.",
       "sourcePage": 36,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l03-팔다": {
       "example": "이 식당에서는 무슨 음식을 팔아요?",
+      "exampleVi": "Nhà hàng này bán đồ ăn gì?",
       "sourcePage": 40,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-(일) 번": {
       "example": "시청 앞에서 1번 버스를 타세요.",
+      "exampleVi": "Đi xe buýt số 1 trước Tòa thị chính.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-(한) 번": {
       "example": "한국 음식을 한 번 먹어 보세요.",
+      "exampleVi": "Hãy thử ăn món Hàn Quốc một lần.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-갈아타다": {
       "example": "시청 앞에서 버스를 한 번 갈아타세요.",
+      "exampleVi": "Hãy đổi xe buýt một lần ở trước Tòa thị chính.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-걸어가다": {
       "example": "시청까지 걸어가요.",
+      "exampleVi": "Đi bộ đến Tòa thị chính.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-걸어오다": {
       "example": "시청까지 걸어와요.",
+      "exampleVi": "Đi bộ đến Tòa thị chính.",
       "sourcePage": 46,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-근처": {
       "example": "제 고향은 상하이 근처 도시입니다.",
+      "exampleVi": "Quê tôi là một thành phố gần Thượng Hải.",
       "sourcePage": 52,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-기숙사": {
       "example": "기숙사에 가요.",
+      "exampleVi": "Tôi đi đến ký túc xá.",
       "sourcePage": 52,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-기차": {
       "example": "저는 고향에 기차를 타고 가요.",
+      "exampleVi": "Tôi sẽ về quê hương bằng tàu hỏa.",
       "sourcePage": 46,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-내리다": {
       "example": "그리고 한국문화원 앞에서 내리세요.",
+      "exampleVi": "Và xuống xe trước Trung tâm Văn hóa Hàn Quốc.",
       "sourcePage": 48,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-도시": {
       "example": "도시에서 더 살고 싶어요.",
+      "exampleVi": "Tôi muốn sống ở thành phố thêm nữa.",
       "sourcePage": 133,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-먼저": {
       "example": "먼저 1번 버스를 타세요.",
+      "exampleVi": "Đầu tiên, đi xe buýt số 1.",
       "sourcePage": 48,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-버스": {
       "example": "버스를 타고 와요.",
+      "exampleVi": "Tôi đến bằng xe buýt.",
       "sourcePage": 46,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-보내다": {
       "example": "이 책을 어느 나라에 보낼 거예요?",
+      "exampleVi": "Bạn sẽ gửi cuốn sách này đến nước nào?",
       "sourcePage": 47,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-비행기": {
       "example": "한국에 비행기를 타고 갔어요.",
+      "exampleVi": "Tôi đã đến Hàn Quốc bằng máy bay.",
       "sourcePage": 47,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-생신": {
       "example": "지난주 토요일은 어머니 생신이었습니다.",
+      "exampleVi": "Thứ Bảy tuần trước là sinh nhật của mẹ tôi.",
       "sourcePage": 52,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-설악산": {
       "example": "어제 설악산에 갔다 왔어요.",
+      "exampleVi": "Tôi đã đến núi Seorak ngày hôm qua.",
       "sourcePage": 47,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-시청": {
       "example": "시청에서 미술관까지 두 시간이 걸려요.",
+      "exampleVi": "Phải mất hai giờ để đi từ Tòa thị chính đến bảo tàng mỹ thuật.",
       "sourcePage": 48,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-어느": {
       "example": "어느 버스를 타야 해요?",
+      "exampleVi": "Tôi nên đi xe buýt nào?",
       "sourcePage": 47,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-어떻게": {
       "example": "한국문화원까지 어떻게 가요?",
+      "exampleVi": "Tôi đến Trung tâm Văn hóa Hàn Quốc bằng cách nào?",
       "sourcePage": 46,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-어머니": {
       "example": "어머니 생신에 기차를 타고 고향에 갔어요.",
+      "exampleVi": "Nhân dịp sinh nhật mẹ, tôi bắt tàu về quê.",
       "sourcePage": 52,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-자전거": {
       "example": "자전거를 타고 와요.",
+      "exampleVi": "Hãy đến bằng xe đạp.",
       "sourcePage": 47,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-지하철": {
       "example": "지하철을 타고 가세요.",
+      "exampleVi": "Đi tàu điện ngầm.",
       "sourcePage": 49,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-타고 가다": {
       "example": "시청까지 타고 가요.",
+      "exampleVi": "Tôi đi xe đến Tòa thị chính.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-타고 다니다": {
       "example": "저는 지하철을 타고 다녀요.",
+      "exampleVi": "Tôi đi tàu điện ngầm.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-타고 오다": {
       "example": "학교에 버스를 타고 와요.",
+      "exampleVi": "Tôi đi xe buýt đến trường.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-타다": {
       "example": "저는 버스를 타고 학교에 가요.",
+      "exampleVi": "Tôi đi học bằng xe buýt.",
       "sourcePage": 48,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l04-택시": {
       "example": "택시를 타세요.",
+      "exampleVi": "Đi taxi.",
       "sourcePage": 46,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-하루": {
       "example": "하루가 걸렸어요.",
+      "exampleVi": "Phải mất một ngày.",
       "sourcePage": 46,
       "sourceType": "verbatim"
     },
     "sejong-2-l04-한국문화원": {
       "example": "로라 씨, 학교에서 한국문화원까지 어떻게 가요?",
+      "exampleVi": "Laura, đi từ trường đến Trung tâm Văn hóa Hàn Quốc bằng cách nào?",
       "sourcePage": 48,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-가깝다": {
       "example": "우리 집은 서울병원에서 가까워요.",
+      "exampleVi": "Nhà tôi ở gần bệnh viện Seoul.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-건너다": {
       "example": "길을 건너서 오른쪽으로 가세요.",
+      "exampleVi": "Băng qua đường rồi rẽ phải.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-계단": {
       "example": "계단이 어디에 있어요?",
+      "exampleVi": "Cầu thang ở đâu?",
       "sourcePage": 57,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-그쪽": {
       "example": "그쪽으로 쭉 가세요.",
+      "exampleVi": "Đi thẳng tới đó.",
       "sourcePage": 56,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-길": {
       "example": "이 길을 건너서 오른쪽으로 가세요.",
+      "exampleVi": "Băng qua con đường này và rẽ phải.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-나가다": {
       "example": "교실 밖으로 나가세요.",
+      "exampleVi": "Hãy ra khỏi lớp học.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-나오다": {
       "example": "1번 출구로 나오세요.",
+      "exampleVi": "Đi theo lối ra 1.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-내려가다": {
       "example": "계단으로 내려가세요.",
+      "exampleVi": "Đi xuống cầu thang.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-내려오다": {
       "example": "2층에서 계단으로 내려오세요.",
+      "exampleVi": "Đi xuống cầu thang từ tầng hai.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-들어가다": {
       "example": "오른쪽 문으로 들어가세요.",
+      "exampleVi": "Đi vào cánh cửa bên phải.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-똑바로": {
       "example": "똑바로 가세요.",
+      "exampleVi": "Đi thẳng.",
       "sourcePage": 57,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-미터": {
       "example": "100미터쯤 가세요.",
+      "exampleVi": "Đi khoảng 100 mét.",
       "sourcePage": 58,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-사무실": {
       "example": "사무실이 어디에 있어요?",
+      "exampleVi": "Văn phòng ở đâu?",
       "sourcePage": 60,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-서점": {
       "example": "서점은 어디에 있어요?",
+      "exampleVi": "Hiệu sách ở đâu?",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-실례지만": {
       "example": "실례지만, 화장실이 어디에 있어요?",
+      "exampleVi": "Xin lỗi, nhà vệ sinh ở đâu?",
       "sourcePage": 56,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-아파트": {
       "example": "아파트는 어디에 있어요?",
+      "exampleVi": "Căn hộ ở đâu?",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-엘리베이터": {
       "example": "그러면 엘리베이터가 있어요.",
+      "exampleVi": "Vậy thì có thang máy.",
       "sourcePage": 56,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-오른쪽": {
       "example": "오른쪽으로 쭉 가세요.",
+      "exampleVi": "Đi thẳng sang bên phải.",
       "sourcePage": 56,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-올라가다": {
       "example": "계단으로 2층에 올라가세요.",
+      "exampleVi": "Đi lên cầu thang lên tầng hai.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-올라오다": {
       "example": "엘리베이터를 타고 올라오세요.",
+      "exampleVi": "Đi thang máy lên.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-왼쪽": {
       "example": "2층으로 올라가서 왼쪽으로 가세요.",
+      "exampleVi": "Đi lên tầng hai và rẽ trái.",
       "sourcePage": 58,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-우리 집": {
       "example": "우리 집은 아파트 3층에 있어요.",
+      "exampleVi": "Nhà tôi ở trên tầng 3 của một chung cư.",
       "sourcePage": 62,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-은행": {
       "example": "은행은 어디에 있어요?",
+      "exampleVi": "Ngân hàng ở đâu?",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-이쪽": {
       "example": "이쪽으로 쭉 가세요.",
+      "exampleVi": "Đi thẳng theo lối này.",
       "sourcePage": 56,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-저쪽": {
       "example": "은행은 저쪽에 있어요.",
+      "exampleVi": "Ngân hàng ở đằng kia.",
       "sourcePage": 56,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-지나다": {
       "example": "은행을 지나서 오른쪽으로 가세요.",
+      "exampleVi": "Đi qua ngân hàng và rẽ phải.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-쭉": {
       "example": "서울병원에서 오른쪽으로 쭉 오세요.",
+      "exampleVi": "Từ Bệnh viện Seoul, cứ đi thẳng về phía bên phải.",
       "sourcePage": 62,
       "sourceType": "verbatim"
     },
     "sejong-2-l05-쯤": {
       "example": "오후 세 시쯤 만나요.",
+      "exampleVi": "Hãy gặp nhau vào khoảng 3 giờ chiều.",
       "sourcePage": 58,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l05-화장실": {
       "example": "엘리베이터 옆에 화장실이 있어요.",
+      "exampleVi": "Có nhà vệ sinh cạnh thang máy.",
       "sourcePage": 56,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-가르치다": {
       "example": "선생님이 학생들에게 한국어를 가르쳐요.",
+      "exampleVi": "Giáo viên dạy tiếng Hàn cho học sinh.",
       "sourcePage": 66,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-거기": {
       "example": "거기 김은주 선생님 댁이지요?",
+      "exampleVi": "Đó là nhà của cô Kim Eun-ju phải không?",
       "sourcePage": 68,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-걱정하다": {
       "example": "친구가 늦어서 걱정해요.",
+      "exampleVi": "Tôi lo lắng vì bạn tôi đến muộn.",
       "sourcePage": 72,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-그렇다": {
       "example": "네, 그렇습니다.",
+      "exampleVi": "Vâng, đúng vậy.",
       "sourcePage": 68,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-나중에 다시 하겠습니다": {
       "example": "그러면 제가 나중에 다시 하겠습니다.",
+      "exampleVi": "Vậy tôi sẽ gọi lại sau.",
       "sourcePage": 68,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-다른": {
       "example": "다른 사람이 전화를 받았어요.",
+      "exampleVi": "Một người khác đã trả lời điện thoại.",
       "sourcePage": 71,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-댁": {
       "example": "지금 댁에 계세요?",
+      "exampleVi": "Bây giờ anh/chị có ở nhà không ạ?",
       "sourcePage": 68,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-맞다": {
       "example": "네, 맞습니다.",
+      "exampleVi": "Vâng, đúng vậy.",
       "sourcePage": 69,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-모르다": {
       "example": "전화번호를 잘 몰라요.",
+      "exampleVi": "Tôi không rõ số điện thoại lắm.",
       "sourcePage": 71,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-문자 메시지를 보내다": {
       "example": "문자 메시지를 보내세요.",
+      "exampleVi": "Hãy gửi tin nhắn.",
       "sourcePage": 66,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-물어보다": {
       "example": "선생님한테 물어보세요.",
+      "exampleVi": "Hãy hỏi giáo viên.",
       "sourcePage": 66,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-빌리다": {
       "example": "친구에게 사전을 빌려요.",
+      "exampleVi": "Tôi mượn từ điển của bạn.",
       "sourcePage": 66,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-사전": {
       "example": "친구에게 사전을 빌려 줬어요.",
+      "exampleVi": "Tôi cho bạn tôi mượn một cuốn từ điển.",
       "sourcePage": 66,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-선물": {
       "example": "그래서 친구한테 선물을 사 주었어요.",
+      "exampleVi": "Vì vậy tôi đã mua tặng bạn một món quà.",
       "sourcePage": 66,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-실례지만 어디세요?": {
       "example": "실례지만 지금 어디세요?",
+      "exampleVi": "Xin lỗi, bây giờ bạn đang ở đâu?",
       "sourcePage": 68,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-안 계신데요": {
       "example": "안 계신데요.",
+      "exampleVi": "Anh ấy/cô ấy không có ở đây.",
       "sourcePage": 68,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-알다": {
       "example": "여자가 전화번호를 잘못 알았어요.",
+      "exampleVi": "Người phụ nữ đã ghi nhầm số điện thoại.",
       "sourcePage": 70,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-여보세요": {
       "example": "여보세요, 거기 세종 여행사지요?",
+      "exampleVi": "Xin chào, đó là Công ty Du lịch Sejong phải không?",
       "sourcePage": 68,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-여행사": {
       "example": "세종 여행사에 전화했어요.",
+      "exampleVi": "Tôi gọi cho công ty du lịch Sejong.",
       "sourcePage": 68,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-음성 메시지를 남기다": {
       "example": "전화한 후에 음성 메시지를 남겨요.",
+      "exampleVi": "Sau khi gọi điện, tôi để lại tin nhắn thoại.",
       "sourcePage": 66,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-잘못 걸었습니다": {
       "example": "잘못 걸었습니다.",
+      "exampleVi": "Tôi gọi nhầm số.",
       "sourcePage": 68,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-잠깐만 기다리세요": {
       "example": "네, 잠깐만 기다리세요.",
+      "exampleVi": "Được rồi, đợi một chút.",
       "sourcePage": 68,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-전화를 걸다": {
       "example": "친구에게 전화를 걸어요.",
+      "exampleVi": "Tôi gọi điện cho bạn.",
       "sourcePage": 66,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-전화를 끊다": {
       "example": "통화가 끝나면 전화를 끊어요.",
+      "exampleVi": "Khi nói chuyện xong, tôi cúp máy.",
       "sourcePage": 66,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-전화를 하다": {
       "example": "친구에게 전화를 해요.",
+      "exampleVi": "Tôi đang gọi cho bạn tôi.",
       "sourcePage": 66,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-전화번호": {
       "example": "전화로 전화번호를 물어봤어요.",
+      "exampleVi": "Tôi đã hỏi số điện thoại qua điện thoại.",
       "sourcePage": 66,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l06-통화 중입니다": {
       "example": "아, 수진 씨는 지금 통화 중입니다.",
+      "exampleVi": "Ồ, Sujin đang nói chuyện điện thoại.",
       "sourcePage": 68,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-휴대 전화": {
       "example": "휴대 전화가 집에 있었어요.",
+      "exampleVi": "Điện thoại di động của tôi ở nhà.",
       "sourcePage": 70,
       "sourceType": "verbatim"
     },
     "sejong-2-l06-OO 씨 좀 바꿔 주세요": {
       "example": "민수 씨 좀 바꿔 주세요.",
+      "exampleVi": "Làm ơn cho tôi gặp Min-su.",
       "sourcePage": 68,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-가방을 들다": {
       "example": "저 학생은 가방을 들어요.",
+      "exampleVi": "Học sinh kia đang xách một chiếc túi.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-검은색": {
       "example": "검은색 옷을 입고 있어요.",
+      "exampleVi": "Anh ấy đang mặc quần áo màu đen.",
       "sourcePage": 80,
       "sourceType": "verbatim"
     },
     "sejong-2-l07-구두를 신다": {
       "example": "저 학생은 구두를 신어요.",
+      "exampleVi": "Học sinh kia đi giày da.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-귀엽다": {
       "example": "저 학생은 귀여워요.",
+      "exampleVi": "Cậu học sinh đó thật dễ thương.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-날씬하다": {
       "example": "저 학생은 날씬해요.",
+      "exampleVi": "Học sinh kia có dáng mảnh mai.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-넥타이를 매다": {
       "example": "저 남자는 노란색 넥타이를 매요.",
+      "exampleVi": "Người đàn ông kia thắt cà vạt màu vàng.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-노란색": {
       "example": "저 남자는 노란색 넥타이를 매고 있어요.",
+      "exampleVi": "Người đàn ông đó đang đeo cà vạt màu vàng.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-뚱뚱하다": {
       "example": "저 학생은 뚱뚱해요.",
+      "exampleVi": "Học sinh đó béo.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-마르다": {
       "example": "저 학생은 말라요.",
+      "exampleVi": "Học sinh kia gầy.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-머리가 길다": {
       "example": "저 학생은 머리가 길어요.",
+      "exampleVi": "Học sinh đó có mái tóc dài.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-머리가 짧다": {
       "example": "저 학생은 머리가 짧아요.",
+      "exampleVi": "Học sinh đó có mái tóc ngắn.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-멋있다": {
       "example": "저 학생은 멋있어요.",
+      "exampleVi": "Học sinh đó thật ngầu.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-모자를 쓰다": {
       "example": "저 학생은 모자를 써요.",
+      "exampleVi": "Học sinh đó đội một chiếc mũ.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-목도리를 하다": {
       "example": "저 학생은 목도리를 해요.",
+      "exampleVi": "Học sinh đó đang đeo một chiếc khăn quàng cổ.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-문": {
       "example": "문 옆에 사람이 서 있어요.",
+      "exampleVi": "Có một người đang đứng cạnh cửa.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-바지를 입다": {
       "example": "저 학생은 바지를 입어요.",
+      "exampleVi": "Học sinh đó mặc quần.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-보이다": {
       "example": "저기 키가 큰 여학생이 보여요?",
+      "exampleVi": "Bạn có thấy nữ sinh cao đằng kia không?",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-빨간색": {
       "example": "저기 빨간색 옷을 입은 사람이 보여요?",
+      "exampleVi": "Bạn có thấy người mặc áo đỏ đằng kia không?",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-신발을 신다": {
       "example": "저 학생은 신발을 신어요.",
+      "exampleVi": "Học sinh đó đang đi giày.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-안경을 쓰다": {
       "example": "저 학생은 안경을 써요.",
+      "exampleVi": "Học sinh đó đeo kính.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-여학생": {
       "example": "문 앞에 키가 큰 여학생이 있어요.",
+      "exampleVi": "Có một nữ sinh cao ráo đang đứng trước cửa.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-예쁘다": {
       "example": "저 학생은 예뻐요.",
+      "exampleVi": "Học sinh kia rất xinh.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-옷을 입다": {
       "example": "저 학생은 옷을 입어요.",
+      "exampleVi": "Học sinh đó đang mặc quần áo.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-운동화를 신다": {
       "example": "저 학생은 운동화를 신어요.",
+      "exampleVi": "Học sinh đó đi giày thể thao.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-잘생기다": {
       "example": "저 학생은 잘생겼어요.",
+      "exampleVi": "Học sinh đó đẹp trai.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-저기": {
       "example": "저기에 키가 큰 여학생이 있어요.",
+      "exampleVi": "Có một nữ sinh viên cao đằng kia.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-찾다": {
       "example": "사람을 찾습니다.",
+      "exampleVi": "Đang tìm ai đó.",
       "sourcePage": 84,
       "sourceType": "verbatim"
     },
     "sejong-2-l07-청바지": {
       "example": "오늘 민수 씨는 청바지를 입고 있어요.",
+      "exampleVi": "Hôm nay Minsu mặc quần jean.",
       "sourcePage": 81,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-치마를 입다": {
       "example": "저 학생은 치마를 입어요.",
+      "exampleVi": "Học sinh đó mặc váy.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-키가 작다": {
       "example": "저 학생은 키가 작아요.",
+      "exampleVi": "Học sinh đó thấp.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-키가 크다": {
       "example": "저 학생은 키가 커요.",
+      "exampleVi": "Học sinh đó cao.",
       "sourcePage": 78,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l07-호텔": {
       "example": "저는 저녁에 호텔로 갈게요.",
+      "exampleVi": "Tôi sẽ đến khách sạn vào buổi tối.",
       "sourcePage": 84,
       "sourceType": "verbatim"
     },
     "sejong-2-l07-흰색": {
       "example": "저는 흰색 옷을 입고 있어요.",
+      "exampleVi": "Tôi đang mặc quần áo màu trắng.",
       "sourcePage": 80,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-가족": {
       "example": "우리 가족은 다섯 명이에요.",
+      "exampleVi": "Có năm người trong gia đình tôi.",
       "sourcePage": 88,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-계시다": {
       "example": "할아버지는 고향에 계세요.",
+      "exampleVi": "Ông nội tôi ở quê.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-남동생": {
       "example": "우리 가족에는 남동생이 있어요.",
+      "exampleVi": "Gia đình tôi có một người em trai.",
       "sourcePage": 88,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-누나": {
       "example": "우리 가족은 아버지, 어머니, 누나, 형, 저, 다섯 명입니다.",
+      "exampleVi": "Gia đình tôi gồm có năm người: bố, mẹ, chị gái, anh trai và tôi.",
       "sourcePage": 88,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-돌아가시다": {
       "example": "할머니는 작년에 돌아가셨어요.",
+      "exampleVi": "Bà tôi qua đời năm ngoái.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-동생": {
       "example": "우리 가족에는 동생이 있어요.",
+      "exampleVi": "Gia đình tôi có một người em.",
       "sourcePage": 88,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-드시다": {
       "example": "아버지는 아침을 드세요.",
+      "exampleVi": "Bố ăn sáng.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-딸": {
       "example": "형은 딸이 있어요.",
+      "exampleVi": "Anh trai tôi có một cô con gái.",
       "sourcePage": 94,
       "sourceType": "verbatim"
     },
     "sejong-2-l08-똑똑하다": {
       "example": "형의 딸은 아주 똑똑합니다.",
+      "exampleVi": "Con gái của anh trai tôi rất thông minh.",
       "sourcePage": 94,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-말씀하시다": {
       "example": "선생님께서 천천히 말씀하세요.",
+      "exampleVi": "Thầy/cô nói chậm.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-분": {
       "example": "아버지와 어머니는 두 분 다 회사에 다니세요.",
+      "exampleVi": "Bố và mẹ tôi đều đi làm ở công ty.",
       "sourcePage": 94,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-산책": {
       "example": "그리고 산책을 아주 좋아하십니다.",
+      "exampleVi": "Và ông ấy rất thích đi dạo.",
       "sourcePage": 91,
       "sourceType": "verbatim"
     },
     "sejong-2-l08-신문": {
       "example": "방에서 신문을 읽으세요.",
+      "exampleVi": "Hãy đọc báo trong phòng.",
       "sourcePage": 90,
       "sourceType": "verbatim"
     },
     "sejong-2-l08-아내": {
       "example": "제 아내는 회사원이에요.",
+      "exampleVi": "Vợ tôi là nhân viên văn phòng.",
       "sourcePage": 94,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-아들": {
       "example": "우리 가족에는 아들이 있어요.",
+      "exampleVi": "Gia đình chúng tôi có một cậu con trai.",
       "sourcePage": 94,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-아버지": {
       "example": "아버지, 어머니, 언니, 동생이 있어요.",
+      "exampleVi": "Tôi có bố, mẹ, chị gái và em trai.",
       "sourcePage": 88,
       "sourceType": "verbatim"
     },
     "sejong-2-l08-언니": {
       "example": "우리 가족에는 언니가 있어요.",
+      "exampleVi": "Gia đình tôi có một người chị gái.",
       "sourcePage": 88,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-여동생": {
       "example": "우리 가족에는 여동생이 있어요.",
+      "exampleVi": "Gia đình tôi có một em gái.",
       "sourcePage": 88,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-오빠": {
       "example": "우리 가족에는 오빠가 있어요.",
+      "exampleVi": "Gia đình tôi có một người anh trai.",
       "sourcePage": 88,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-주무시다": {
       "example": "할아버지는 방에서 주무세요.",
+      "exampleVi": "Ông nội ngủ trong phòng của mình.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-주부": {
       "example": "어머니는 주부세요.",
+      "exampleVi": "Mẹ tôi là một bà nội trợ.",
       "sourcePage": 94,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-편찮으시다": {
       "example": "할머니께서 조금 편찮으세요.",
+      "exampleVi": "Bà tôi hơi không khỏe.",
       "sourcePage": 90,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-할머니": {
       "example": "우리 가족에는 할머니가 있어요.",
+      "exampleVi": "Gia đình tôi có bà.",
       "sourcePage": 88,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-할아버지": {
       "example": "저는 할아버지, 할머니하고 같이 살아요.",
+      "exampleVi": "Tôi sống cùng ông bà.",
       "sourcePage": 90,
       "sourceType": "verbatim"
     },
     "sejong-2-l08-함께": {
       "example": "저는 형의 가족과 함께 살아요.",
+      "exampleVi": "Tôi sống với gia đình anh trai tôi.",
       "sourcePage": 94,
       "sourceType": "verbatim"
     },
     "sejong-2-l08-형": {
       "example": "우리 가족에는 형이 있어요.",
+      "exampleVi": "Gia đình tôi có một người anh trai.",
       "sourcePage": 88,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l08-형제": {
       "example": "저는 형제가 없어요.",
+      "exampleVi": "Tôi không có anh chị em.",
       "sourcePage": 88,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-강": {
       "example": "강이 있어요.",
+      "exampleVi": "Có một con sông.",
       "sourcePage": 104,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-경주": {
       "example": "경주는 도시 전체가 유적지입니다.",
+      "exampleVi": "Toàn bộ thành phố Gyeongju là một khu di tích lịch sử.",
       "sourcePage": 107,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-경치가 좋다": {
       "example": "제주도는 경치가 좋아요.",
+      "exampleVi": "Đảo Jeju có phong cảnh tuyệt vời.",
       "sourcePage": 98,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-곳": {
       "example": "온천이 있고 유적지도 있는 곳에 가고 싶어요.",
+      "exampleVi": "Tôi muốn đến một nơi có suối nước nóng và di tích lịch sử.",
       "sourcePage": 100,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-공기가 맑다": {
       "example": "제주도는 공기가 맑아요.",
+      "exampleVi": "Không khí ở đảo Jeju trong lành.",
       "sourcePage": 98,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-관심": {
       "example": "저는 한국에 관심이 많습니다.",
+      "exampleVi": "Tôi rất quan tâm đến Hàn Quốc.",
       "sourcePage": 104,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-교통이 불편하다": {
       "example": "시골은 교통이 불편해요.",
+      "exampleVi": "Giao thông ở nông thôn bất tiện.",
       "sourcePage": 98,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-교통이 편리하다": {
       "example": "서울은 교통이 편리해요.",
+      "exampleVi": "Giao thông ở Seoul thuận tiện.",
       "sourcePage": 98,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-글쎄요": {
       "example": "글쎄요, 아직 잘 모르겠어요.",
+      "exampleVi": "Ừm, tôi vẫn chưa rõ lắm.",
       "sourcePage": 100,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-남이섬": {
       "example": "기차하고 배를 타고 남이섬에 가요.",
+      "exampleVi": "Đi tàu và thuyền đến đảo Nami.",
       "sourcePage": 104,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-놀이공원": {
       "example": "저는 놀이공원에 가고 싶어요.",
+      "exampleVi": "Tôi muốn đi đến công viên giải trí.",
       "sourcePage": 100,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-드라마": {
       "example": "우리는 한국 드라마를 보고 싶어요.",
+      "exampleVi": "Chúng tôi muốn xem phim truyền hình Hàn Quốc.",
       "sourcePage": 100,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-드라마 촬영지": {
       "example": "저는 드라마 촬영지에 가고 싶어요.",
+      "exampleVi": "Tôi muốn đến địa điểm quay phim.",
       "sourcePage": 101,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-민속촌": {
       "example": "여행에서 민속촌을 보고 싶어요.",
+      "exampleVi": "Tôi muốn tham quan làng dân gian trong chuyến đi.",
       "sourcePage": 100,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-사람들이 친절하다": {
       "example": "서울은 사람들이 친절해요.",
+      "exampleVi": "Người dân ở Seoul rất thân thiện.",
       "sourcePage": 98,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-사원": {
       "example": "그리고 사원이 유명해요.",
+      "exampleVi": "Và ngôi chùa rất nổi tiếng.",
       "sourcePage": 99,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-서울": {
       "example": "작년에 서울에 가 봤어요.",
+      "exampleVi": "Tôi đã tới Seoul vào năm ngoái.",
       "sourcePage": 98,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-섬": {
       "example": "제 고향은 한국의 아름다운 섬 제주도입니다.",
+      "exampleVi": "Quê hương của tôi là đảo Jeju, một hòn đảo xinh đẹp ở Hàn Quốc.",
       "sourcePage": 136,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-아름답다": {
       "example": "아름답고 유적지가 많은 곳입니다.",
+      "exampleVi": "Đó là một nơi tuyệt đẹp với nhiều di tích lịch sử.",
       "sourcePage": 106,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-아직": {
       "example": "아니요, 아직 못 가 봤어요.",
+      "exampleVi": "Không, tôi chưa đến đó.",
       "sourcePage": 98,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-온천": {
       "example": "온천이 있는 곳에 가고 싶어요.",
+      "exampleVi": "Tôi muốn đến nơi có suối nước nóng.",
       "sourcePage": 100,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-유명하다": {
       "example": "유명하고 영화와 드라마의 촬영지로도 인기가 많습니다.",
+      "exampleVi": "Nơi này nổi tiếng và cũng rất được yêu thích làm địa điểm quay phim điện ảnh lẫn phim truyền hình.",
       "sourcePage": 106,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-유적지": {
       "example": "하지만 온천이 있고 근처에 유적지도 있는 곳에 가고 싶어요.",
+      "exampleVi": "Nhưng tôi muốn đến một nơi có suối nước nóng và di tích lịch sử gần đó.",
       "sourcePage": 100,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-작년": {
       "example": "작년에는 제주도를 여행했어요.",
+      "exampleVi": "Năm ngoái tôi đã đi du lịch đến đảo Jeju.",
       "sourcePage": 98,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-잡채": {
       "example": "저는 어제 잡채를 만들어 봤어요.",
+      "exampleVi": "Tôi đã làm japchae ngày hôm qua.",
       "sourcePage": 98,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-저곳": {
       "example": "저곳은 드라마 촬영지예요.",
+      "exampleVi": "Nơi đó là địa điểm quay phim truyền hình.",
       "sourcePage": 104,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-제주도": {
       "example": "제주도에 가 봤어요?",
+      "exampleVi": "Bạn đã đến đảo Jeju chưa?",
       "sourcePage": 98,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-특히": {
       "example": "특히 한국 드라마를 좋아합니다.",
+      "exampleVi": "Tôi đặc biệt thích phim truyền hình Hàn Quốc.",
       "sourcePage": 104,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-폭포": {
       "example": "드라마에서 본 제주도의 바다, 산, 폭포가 아주 아름다웠습니다.",
+      "exampleVi": "Biển, núi và thác nước ở đảo Jeju mà tôi thấy trong phim truyền hình rất đẹp.",
       "sourcePage": 104,
       "sourceType": "verbatim"
     },
     "sejong-2-l09-하지만": {
       "example": "하지만 아직 한국에 못 가 봤어요.",
+      "exampleVi": "Nhưng tôi chưa đến Hàn Quốc.",
       "sourcePage": 100,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l09-호수": {
       "example": "호수가 있는 곳에 가고 싶어요.",
+      "exampleVi": "Tôi muốn đến một nơi có hồ nước.",
       "sourcePage": 100,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-감기에 걸리다": {
       "example": "수진 씨는 감기에 걸렸어요.",
+      "exampleVi": "Sujin bị cảm lạnh.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-건강하다": {
       "example": "할아버지는 건강하세요?",
+      "exampleVi": "Ông nội của bạn có khỏe không?",
       "sourcePage": 90,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-귀": {
       "example": "귀가 아파요.",
+      "exampleVi": "Tai tôi đau quá.",
       "sourcePage": 110,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-기침을 하다": {
       "example": "오늘은 기침을 해요.",
+      "exampleVi": "Hôm nay tôi bị ho.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-낫다": {
       "example": "약을 먹고 푹 쉬면 빨리 나아요.",
+      "exampleVi": "Nếu uống thuốc và nghỉ ngơi tốt thì bệnh sẽ nhanh chóng khỏi.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-눈": {
       "example": "요즘 눈이 계속 아파요.",
+      "exampleVi": "Mấy hôm nay mắt tôi cứ nhức hoài.",
       "sourcePage": 111,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-다리": {
       "example": "산에서 다리를 다쳤어요.",
+      "exampleVi": "Tôi bị thương ở chân khi ở trên núi.",
       "sourcePage": 114,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-다치다": {
       "example": "오늘은 다쳐요.",
+      "exampleVi": "Hôm nay tôi bị thương.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-말": {
       "example": "그러면 말을 많이 하지 마세요.",
+      "exampleVi": "Vậy thì đừng nói nhiều.",
       "sourcePage": 110,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-머리": {
       "example": "아침부터 머리가 계속 아파요.",
+      "exampleVi": "Đầu tôi đau từ sáng tới giờ.",
       "sourcePage": 113,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-목": {
       "example": "목이 너무 아파요.",
+      "exampleVi": "Tôi đau họng quá.",
       "sourcePage": 110,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-몸이 안 좋다": {
       "example": "감기에 걸려서 몸이 안 좋아요.",
+      "exampleVi": "Tôi cảm thấy không khỏe vì tôi bị cảm lạnh.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-바꾸다": {
       "example": "건강한 하루를 위해 습관을 바꾸세요.",
+      "exampleVi": "Thay đổi thói quen của bạn để có một ngày khỏe mạnh hơn.",
       "sourcePage": 116,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-발": {
       "example": "발이 아파요.",
+      "exampleVi": "Chân tôi đau.",
       "sourcePage": 110,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-배": {
       "example": "어제부터 배가 아팠어요.",
+      "exampleVi": "Bụng tôi đau từ hôm qua.",
       "sourcePage": 110,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-비밀": {
       "example": "이 이야기는 비밀이에요.",
+      "exampleVi": "Câu chuyện này là một bí mật.",
       "sourcePage": 111,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-빨리": {
       "example": "빨리 이야기해 주세요.",
+      "exampleVi": "Hãy nói nhanh đi.",
       "sourcePage": 111,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-손": {
       "example": "저는 손을 씻은 후에 밥을 먹어요.",
+      "exampleVi": "Tôi ăn sau khi rửa tay.",
       "sourcePage": 113,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-습관": {
       "example": "좋은 습관이 건강한 하루를 만듭니다.",
+      "exampleVi": "Những thói quen tốt tạo nên một ngày khỏe mạnh.",
       "sourcePage": 116,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-씻다": {
       "example": "화장실에 갔다 온 후에 손을 꼭 씻으세요.",
+      "exampleVi": "Hãy nhớ rửa tay sau khi đi vệ sinh.",
       "sourcePage": 113,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-아프다": {
       "example": "오늘은 아파요.",
+      "exampleVi": "Hôm nay tôi cảm thấy ốm.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-약": {
       "example": "그리고 약을 먹은 후에 푹 쉬세요.",
+      "exampleVi": "Và nghỉ ngơi tốt sau khi dùng thuốc.",
       "sourcePage": 112,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-어깨": {
       "example": "어깨가 아파요.",
+      "exampleVi": "Vai tôi đau quá.",
       "sourcePage": 110,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-얼굴": {
       "example": "얼굴이 별로 안 좋아요.",
+      "exampleVi": "Sắc mặt tôi không được tốt lắm.",
       "sourcePage": 110,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-열이 나다": {
       "example": "감기에 걸려서 열이 나요.",
+      "exampleVi": "Tôi bị cảm lạnh và sốt.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-일찍": {
       "example": "오늘은 일찍 집에 가세요.",
+      "exampleVi": "Hôm nay về nhà sớm nhé.",
       "sourcePage": 112,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-입": {
       "example": "입이 아파요.",
+      "exampleVi": "Miệng tôi đau quá.",
       "sourcePage": 110,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-전": {
       "example": "약은 식사 전에 드세요.",
+      "exampleVi": "Uống thuốc trước bữa ăn.",
       "sourcePage": 116,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-좋아지다": {
       "example": "약을 먹은 후에 몸이 좋아졌어요.",
+      "exampleVi": "Sau khi uống thuốc, tôi cảm thấy khỏe hơn.",
       "sourcePage": 112,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-참다": {
       "example": "참지 말고 병원에 가세요.",
+      "exampleVi": "Đừng chịu đựng, hãy đến bệnh viện.",
       "sourcePage": 110,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-팔": {
       "example": "팔이 아파요.",
+      "exampleVi": "Tay tôi đau quá.",
       "sourcePage": 110,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l10-푹": {
       "example": "푹 잤어요.",
+      "exampleVi": "Tôi ngủ ngon.",
       "sourcePage": 113,
       "sourceType": "verbatim"
     },
     "sejong-2-l10-허리": {
       "example": "네, 허리가 좀 아파요.",
+      "exampleVi": "Vâng, lưng tôi hơi đau một chút.",
       "sourcePage": 111,
       "sourceType": "verbatim"
     },
     "sejong-2-l11-과자": {
       "example": "과자를 준비해야 해요.",
+      "exampleVi": "Tôi cần chuẩn bị đồ ăn nhẹ.",
       "sourcePage": 123,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-꽃": {
       "example": "꽃을 구경해요.",
+      "exampleVi": "Tôi ngắm hoa.",
       "sourcePage": 136,
       "sourceType": "verbatim"
     },
     "sejong-2-l11-끝나다": {
       "example": "시험이 끝난 후에 친구들이 모여요.",
+      "exampleVi": "Bạn bè tụ tập cùng nhau sau kỳ thi.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-도와주다": {
       "example": "내일 우리 집에 와서 저 좀 도와줄래요?",
+      "exampleVi": "Ngày mai bạn có thể đến nhà tôi và giúp tôi được không?",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-모이다": {
       "example": "친구들은 식당에 모여요.",
+      "exampleVi": "Bạn bè tụ tập tại một nhà hàng.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-모임을 준비하다": {
       "example": "우리 반 학기 말 모임을 준비해요.",
+      "exampleVi": "Chúng tôi đang chuẩn bị cho buổi gặp mặt cuối học kỳ của lớp.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-발표회": {
       "example": "한국어 말하기 발표회를 준비해요.",
+      "exampleVi": "Chúng tôi chuẩn bị cho buổi thuyết trình nói tiếng Hàn.",
       "sourcePage": 123,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-사람들을 초대하다": {
       "example": "생일 파티에 친구들을 초대해요.",
+      "exampleVi": "Tôi mời bạn bè đến dự tiệc sinh nhật.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-사진기": {
       "example": "사진기를 가져와요.",
+      "exampleVi": "Mang theo một chiếc máy ảnh.",
       "sourcePage": 124,
       "sourceType": "verbatim"
     },
     "sejong-2-l11-생각": {
       "example": "좋은 생각이에요.",
+      "exampleVi": "Ý tưởng hay.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-생일 파티": {
       "example": "저녁에 유키 씨 생일 파티가 있어요.",
+      "exampleVi": "Có bữa tiệc sinh nhật của Yuki vào buổi tối.",
       "sourcePage": 120,
       "sourceType": "verbatim"
     },
     "sejong-2-l11-순서": {
       "example": "발표 순서를 정해야 해요.",
+      "exampleVi": "Chúng tôi phải sắp xếp thứ tự thuyết trình.",
       "sourcePage": 123,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-시간을 정하다": {
       "example": "모임 시간을 정해야 해요.",
+      "exampleVi": "Chúng ta cần ấn định thời gian gặp mặt.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-연락을 하다": {
       "example": "유키 씨에게 지금 연락할게요.",
+      "exampleVi": "Tôi sẽ liên lạc với Yuki ngay bây giờ.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-음료수": {
       "example": "음료수를 준비해야 해요.",
+      "exampleVi": "Tôi cần chuẩn bị đồ uống.",
       "sourcePage": 120,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-장소를 예약하다": {
       "example": "제가 모임 장소를 예약할게요.",
+      "exampleVi": "Tôi sẽ đặt chỗ gặp mặt.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-청소": {
       "example": "그래서 청소를 하고 음식을 만들어야 해요.",
+      "exampleVi": "Vì vậy tôi phải dọn dẹp và nấu thức ăn.",
       "sourcePage": 120,
       "sourceType": "verbatim"
     },
     "sejong-2-l11-체육 대회": {
       "example": "세종학당 체육 대회를 준비해요.",
+      "exampleVi": "Chúng tôi đang chuẩn bị cho hội thao của Học viện Sejong.",
       "sourcePage": 123,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-초대장": {
       "example": "초대장을 준비해야 해요.",
+      "exampleVi": "Tôi cần chuẩn bị thiệp mời.",
       "sourcePage": 120,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-케이크": {
       "example": "케이크하고 꽃을 샀어요.",
+      "exampleVi": "Tôi đã mua một chiếc bánh và hoa.",
       "sourcePage": 120,
       "sourceType": "verbatim"
     },
     "sejong-2-l11-풍선": {
       "example": "풍선을 준비해야 해요.",
+      "exampleVi": "Chúng ta cần chuẩn bị bóng bay.",
       "sourcePage": 120,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-학기 말": {
       "example": "학기 말에 친구들과 모일 거예요.",
+      "exampleVi": "Tôi sẽ tụ tập với bạn bè vào cuối học kỳ.",
       "sourcePage": 123,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l11-한번": {
       "example": "시험이 끝난 후에 우리 반 친구들 한번 모일까요?",
+      "exampleVi": "Sau khi thi xong, lớp chúng ta tụ họp một lần nhé?",
       "sourcePage": 122,
       "sourceType": "verbatim"
     },
     "sejong-2-l11-회비를 모으다": {
       "example": "우리 반에서 회비를 모아요.",
+      "exampleVi": "Chúng tôi thu quỹ lớp.",
       "sourcePage": 122,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-깨끗하다": {
       "example": "전주는 깨끗하고 조용한 도시예요.",
+      "exampleVi": "Jeonju là một thành phố sạch sẽ và yên tĩnh.",
       "sourcePage": 130,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-남쪽": {
       "example": "남쪽에 있어요.",
+      "exampleVi": "Nó ở phía nam.",
       "sourcePage": 132,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-넓다": {
       "example": "제 고향은 넓어요.",
+      "exampleVi": "Quê tôi rộng.",
       "sourcePage": 130,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-높은 건물이 많다": {
       "example": "서울에는 높은 건물이 많아요.",
+      "exampleVi": "Có rất nhiều tòa nhà cao tầng ở Seoul.",
       "sourcePage": 132,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-뉴스": {
       "example": "저는 아침마다 뉴스를 봐요.",
+      "exampleVi": "Tôi xem tin tức mỗi sáng.",
       "sourcePage": 131,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-다르다": {
       "example": "도시와 시골은 분위기가 달라요.",
+      "exampleVi": "Không khí ở thành phố và nông thôn khác nhau.",
       "sourcePage": 131,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-단순하다": {
       "example": "제 고향은 단순해요.",
+      "exampleVi": "Quê hương tôi giản dị.",
       "sourcePage": 130,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-대도시": {
       "example": "서울은 복잡한 대도시예요.",
+      "exampleVi": "Seoul là một đô thị lớn đông đúc.",
       "sourcePage": 133,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-더": {
       "example": "어디에서 더 살고 싶어요?",
+      "exampleVi": "Bạn muốn sống ở đâu hơn?",
       "sourcePage": 133,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-더럽다": {
       "example": "제 고향은 더러워요.",
+      "exampleVi": "Quê tôi bẩn.",
       "sourcePage": 130,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-마을": {
       "example": "제 고향은 조용한 시골 마을입니다.",
+      "exampleVi": "Quê tôi là một ngôi làng nông thôn yên tĩnh.",
       "sourcePage": 136,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-멀다": {
       "example": "제 고향은 멀어요.",
+      "exampleVi": "Quê hương tôi ở rất xa.",
       "sourcePage": 130,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-복잡하다": {
       "example": "제 고향은 복잡해요.",
+      "exampleVi": "Quê tôi đông đúc.",
       "sourcePage": 130,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-분위기가 좋다": {
       "example": "제 고향은 분위기가 좋아요.",
+      "exampleVi": "Quê tôi có bầu không khí dễ chịu.",
       "sourcePage": 132,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-비슷하다": {
       "example": "두 도시는 분위기가 비슷해요.",
+      "exampleVi": "Hai thành phố có bầu không khí tương tự nhau.",
       "sourcePage": 131,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-살기 좋다": {
       "example": "전주는 조용해서 살기 좋아요.",
+      "exampleVi": "Jeonju yên tĩnh và dễ sống.",
       "sourcePage": 132,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-시골": {
       "example": "시골은 경치는 좋지만 불편해요.",
+      "exampleVi": "Nông thôn có phong cảnh đẹp nhưng bất tiện.",
       "sourcePage": 130,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-시끄럽다": {
       "example": "제 고향은 시끄러워요.",
+      "exampleVi": "Quê tôi ồn ào.",
       "sourcePage": 130,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-인기가 많다": {
       "example": "제주도는 경치가 좋아서 인기가 많아요.",
+      "exampleVi": "Đảo Jeju rất được yêu thích vì có phong cảnh đẹp.",
       "sourcePage": 132,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-작다": {
       "example": "여기는 작은 도시예요.",
+      "exampleVi": "Đây là một thành phố nhỏ.",
       "sourcePage": 131,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-적다": {
       "example": "여기는 사람들이 적지만 제 고향은 사람들이 많아요.",
+      "exampleVi": "Ở đây có ít người nhưng ở quê tôi thì có rất nhiều người.",
       "sourcePage": 131,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-전주": {
       "example": "전주 알아요?",
+      "exampleVi": "Bạn có biết Jeonju không?",
       "sourcePage": 130,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-전통적인 도시다": {
       "example": "전주는 전통적인 도시예요.",
+      "exampleVi": "Jeonju là một thành phố truyền thống.",
       "sourcePage": 132,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-제일": {
       "example": "하와이보다 작지만 한국에서는 제일 큰 섬이에요.",
+      "exampleVi": "Mặc dù nhỏ hơn Hawaii nhưng lại là hòn đảo lớn nhất ở Hàn Quốc.",
       "sourcePage": 132,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-조용하다": {
       "example": "제 고향은 조용하고 작은 시골 마을입니다.",
+      "exampleVi": "Quê hương tôi là một thị trấn nhỏ yên tĩnh.",
       "sourcePage": 136,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-좁다": {
       "example": "제 고향은 좁아요.",
+      "exampleVi": "Quê tôi chật hẹp.",
       "sourcePage": 130,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-중": {
       "example": "여러분은 소개한 습관 중에서 어떤 습관을 가지고 있어요?",
+      "exampleVi": "Trong những thói quen đã giới thiệu, bạn có thói quen nào?",
       "sourcePage": 116,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-축제": {
       "example": "가을에 사과 축제를 보러 오세요.",
+      "exampleVi": "Hãy đến xem lễ hội táo vào mùa thu.",
       "sourcePage": 136,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-크다": {
       "example": "제 고향은 커요.",
+      "exampleVi": "Quê tôi lớn lắm.",
       "sourcePage": 130,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l12-한옥마을": {
       "example": "그리고 한옥마을도 유명해요.",
+      "exampleVi": "Và làng Hanok cũng nổi tiếng.",
       "sourcePage": 130,
       "sourceType": "verbatim"
     },
     "sejong-2-l12-현대적인 도시다": {
       "example": "서울은 현대적인 도시예요.",
+      "exampleVi": "Seoul là một thành phố hiện đại.",
       "sourcePage": 132,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-공연을 보다": {
       "example": "요즘은 공연을 봐요.",
+      "exampleVi": "Dạo này tôi đi xem biểu diễn.",
       "sourcePage": 144,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-그냥": {
       "example": "그냥 친구들을 만나서 이야기를 많이 해요.",
+      "exampleVi": "Tôi chỉ gặp bạn bè và nói chuyện rất nhiều.",
       "sourcePage": 143,
       "sourceType": "verbatim"
     },
     "sejong-2-l13-기분 전환을 하다": {
       "example": "그러면 우리 기분 전환을 하러 갈까요?",
+      "exampleVi": "Vậy chúng ta đi đâu đó để thay đổi không khí nhé?",
       "sourcePage": 144,
       "sourceType": "verbatim"
     },
     "sejong-2-l13-기분이 나쁘다": {
       "example": "시험을 잘 못 봐서 기분이 나빠요.",
+      "exampleVi": "Tôi cảm thấy tồi tệ vì tôi đã không làm tốt bài kiểm tra.",
       "sourcePage": 142,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-기분이 좋다": {
       "example": "친구를 만나서 기분이 좋아요.",
+      "exampleVi": "Cảm giác thật vui khi được gặp một người bạn.",
       "sourcePage": 142,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-기쁘다": {
       "example": "요즘은 기뻐요.",
+      "exampleVi": "Dạo này tôi vui.",
       "sourcePage": 142,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-노래방에 가다": {
       "example": "요즘은 노래방에 가요.",
+      "exampleVi": "Những ngày này tôi đi hát karaoke.",
       "sourcePage": 144,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-늘다": {
       "example": "학교생활을 하면서 한국말도 많이 늘었어요.",
+      "exampleVi": "Kỹ năng tiếng Hàn của tôi đã được cải thiện rất nhiều trong thời gian đi học.",
       "sourcePage": 148,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-다행이다": {
       "example": "친구들이 많이 생겨서 다행이에요.",
+      "exampleVi": "Thật may là tôi đã có nhiều bạn.",
       "sourcePage": 142,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-맛있는 것을 먹다": {
       "example": "요즘은 맛있는 것을 먹어요.",
+      "exampleVi": "Những ngày này, tôi ăn đồ ăn ngon.",
       "sourcePage": 144,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-바람을 쐬다": {
       "example": "요즘은 바람을 쐬어요.",
+      "exampleVi": "Những ngày này, tôi được hít thở không khí trong lành.",
       "sourcePage": 144,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-생기다": {
       "example": "학교에서 새 친구가 생겼어요.",
+      "exampleVi": "Tôi đã có một người bạn mới ở trường.",
       "sourcePage": 142,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-수다를 떨다": {
       "example": "요즘은 수다를 떨어요.",
+      "exampleVi": "Dạo này tôi thường tán gẫu.",
       "sourcePage": 144,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-스트레스가 많다": {
       "example": "요즘 일이 많아서 스트레스가 많아요.",
+      "exampleVi": "Những ngày này tôi có rất nhiều việc phải làm và rất căng thẳng.",
       "sourcePage": 144,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-슬프다": {
       "example": "또 언제 슬프고 외로워요?",
+      "exampleVi": "Ngoài ra, khi nào bạn cảm thấy buồn và cô đơn?",
       "sourcePage": 147,
       "sourceType": "verbatim"
     },
     "sejong-2-l13-시험을 잘 못 보다": {
       "example": "요즘은 시험을 잘 못 봐요.",
+      "exampleVi": "Dạo này tôi làm bài kiểm tra không tốt.",
       "sourcePage": 144,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-연락드리다": {
       "example": "한국에 가면 선생님께 연락드리겠습니다.",
+      "exampleVi": "Khi đến Hàn Quốc, tôi sẽ liên lạc với thầy/cô.",
       "sourcePage": 148,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-외롭다": {
       "example": "요즘은 외로워요.",
+      "exampleVi": "Những ngày này tôi cô đơn.",
       "sourcePage": 142,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-이따": {
       "example": "이따 봐요.",
+      "exampleVi": "Hẹn gặp lại sau.",
       "sourcePage": 144,
       "sourceType": "verbatim"
     },
     "sejong-2-l13-이미": {
       "example": "갔을 때 이미 표가 없었어요.",
+      "exampleVi": "Khi tôi đến thì vé đã hết.",
       "sourcePage": 142,
       "sourceType": "verbatim"
     },
     "sejong-2-l13-학교생활": {
       "example": "학교생활도 잘하고 한국말도 많이 늘었어요.",
+      "exampleVi": "Tôi thích nghi tốt với cuộc sống ở trường và tiếng Hàn cũng tiến bộ rất nhiều.",
       "sourcePage": 148,
       "sourceType": "verbatim"
     },
     "sejong-2-l13-행복하다": {
       "example": "여러분은 주로 언제 행복하고 기분이 좋아요?",
+      "exampleVi": "Khi nào bạn thường vui vẻ và có tâm trạng tốt?",
       "sourcePage": 147,
       "sourceType": "verbatim"
     },
     "sejong-2-l13-혼자": {
       "example": "혼자 살고 친구도 없어서 많이 외로웠어요.",
+      "exampleVi": "Tôi rất cô đơn vì tôi sống một mình và không có bạn bè.",
       "sourcePage": 148,
       "sourceType": "verbatim"
     },
     "sejong-2-l13-화가 나다": {
       "example": "약속에 늦어서 친구가 화가 났어요.",
+      "exampleVi": "Bạn tôi tức giận vì tôi đến trễ cuộc hẹn.",
       "sourcePage": 142,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l13-화가 풀리다": {
       "example": "친구와 이야기한 후에 화가 풀렸어요.",
+      "exampleVi": "Sau khi nói chuyện với bạn, tôi đã nguôi giận.",
       "sourcePage": 143,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-(선생님)이 되다": {
       "example": "나중에 선생님이 되고 싶어요.",
+      "exampleVi": "Tôi muốn sau này trở thành giáo viên.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-(한) 살": {
       "example": "아들은 한 살이에요.",
+      "exampleVi": "Con trai tôi được một tuổi.",
       "sourcePage": 1,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-가사": {
       "example": "저는 한국 노래 가사를 알고 싶어요.",
+      "exampleVi": "Tôi muốn biết lời các bài hát Hàn Quốc.",
       "sourcePage": 158,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-고급": {
       "example": "고급반에서 한국어를 배우고 싶어요.",
+      "exampleVi": "Tôi muốn học tiếng Hàn ở lớp nâng cao.",
       "sourcePage": 158,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-꿈을 이루다": {
       "example": "열심히 공부해서 꿈을 이루고 싶어요.",
+      "exampleVi": "Tôi muốn học tập chăm chỉ và đạt được ước mơ của mình.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-돈을 많이 벌다": {
       "example": "사업을 해서 돈을 많이 벌고 싶어요.",
+      "exampleVi": "Tôi muốn bắt đầu kinh doanh và kiếm được nhiều tiền.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-무역": {
       "example": "한국어를 잘하면 무역 회사에서 일할 때 좋습니다.",
+      "exampleVi": "Nếu giỏi tiếng Hàn thì sẽ có lợi khi làm việc tại công ty thương mại.",
       "sourcePage": 158,
       "sourceType": "verbatim"
     },
     "sejong-2-l14-번역가가 되다": {
       "example": "나중에 한국어 번역가가 되고 싶어요.",
+      "exampleVi": "Sau này tôi muốn trở thành biên dịch viên tiếng Hàn.",
       "sourcePage": 152,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-부자": {
       "example": "나중에 부자가 되고 싶어요.",
+      "exampleVi": "Tôi muốn sau này trở nên giàu có.",
       "sourcePage": 154,
       "sourceType": "verbatim"
     },
     "sejong-2-l14-사업을 하다": {
       "example": "졸업하면 사업을 할 거예요.",
+      "exampleVi": "Khi tôi tốt nghiệp, tôi sẽ bắt đầu kinh doanh.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-성공하다": {
       "example": "열심히 일해서 성공하고 싶어요.",
+      "exampleVi": "Tôi muốn làm việc chăm chỉ và thành công.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-신청하다": {
       "example": "고급반을 신청하려고 해요.",
+      "exampleVi": "Mình đang định đăng ký vào lớp nâng cao.",
       "sourcePage": 158,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-아이들": {
       "example": "나중에 선생님이 되어서 아이들을 가르치고 싶어요.",
+      "exampleVi": "Tôi muốn sau này trở thành một giáo viên và dạy học cho trẻ em.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-앉다": {
       "example": "숙제를 하려고 책상에 앉았어요.",
+      "exampleVi": "Tôi ngồi vào bàn để làm bài tập.",
       "sourcePage": 152,
       "sourceType": "verbatim"
     },
     "sejong-2-l14-양복": {
       "example": "취직하면 새 양복을 살 거예요.",
+      "exampleVi": "Khi tôi có được việc làm, tôi sẽ mua một bộ đồ mới.",
       "sourcePage": 153,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-외국 여행을 가다": {
       "example": "나중에 외국 여행을 가요.",
+      "exampleVi": "Sau này tôi sẽ đi du lịch nước ngoài.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-전 세계": {
       "example": "저는 돈을 많이 벌면 전 세계를 여행하고 싶어요.",
+      "exampleVi": "Khi tôi kiếm được nhiều tiền, tôi muốn đi du lịch vòng quanh thế giới.",
       "sourcePage": 155,
       "sourceType": "verbatim"
     },
     "sejong-2-l14-좋은 사람과 결혼하다": {
       "example": "나중에 좋은 사람과 결혼하고 싶어요.",
+      "exampleVi": "Sau này tôi muốn cưới một người tốt.",
       "sourcePage": 154,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-중급": {
       "example": "중급반에서 한국어를 배우고 싶어요.",
+      "exampleVi": "Tôi muốn học tiếng Hàn ở lớp trung cấp.",
       "sourcePage": 158,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-초급": {
       "example": "초급반에서 한국어를 배우고 싶어요.",
+      "exampleVi": "Tôi muốn học tiếng Hàn ở lớp dành cho người mới bắt đầu.",
       "sourcePage": 158,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-통역사가 되다": {
       "example": "한국어를 공부해서 통역사가 되고 싶어요.",
+      "exampleVi": "Tôi muốn học tiếng Hàn và trở thành phiên dịch viên.",
       "sourcePage": 152,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-한국 문화에 관심이 있다": {
       "example": "저는 한국 문화에 관심이 있어서 한국어를 배워요.",
+      "exampleVi": "Tôi đang học tiếng Hàn vì tôi quan tâm đến văn hóa Hàn Quốc.",
       "sourcePage": 152,
       "sourceType": "verbatim"
     },
     "sejong-2-l14-한국 친구를 사귀다": {
       "example": "저는 한국 친구를 사귀려고 한국어를 배워요.",
+      "exampleVi": "Tôi đang học tiếng Hàn để kết bạn với người Hàn Quốc.",
       "sourcePage": 153,
       "sourceType": "verbatim"
     },
     "sejong-2-l14-한국 회사에 취직하다": {
       "example": "저는 대학교를 졸업하면 한국 회사에 취직하고 싶어요.",
+      "exampleVi": "Khi tốt nghiệp đại học, tôi muốn xin việc ở một công ty Hàn Quốc.",
       "sourcePage": 154,
       "sourceType": "verbatim"
     },
     "sejong-2-l14-한국과 무역을 하다": {
       "example": "나중에 한국과 무역을 하고 싶어요.",
+      "exampleVi": "Tôi muốn giao thương với Hàn Quốc trong tương lai.",
       "sourcePage": 152,
       "sourceType": "verbatim"
     },
     "sejong-2-l14-한국으로 여행을 가다": {
       "example": "방학에 한국으로 여행을 가려고 해요.",
+      "exampleVi": "Tôi đang có kế hoạch đi du lịch Hàn Quốc trong kỳ nghỉ.",
       "sourcePage": 152,
       "sourceType": "completed-exercise"
     },
     "sejong-2-l14-한국으로 유학을 가다": {
       "example": "한국으로 유학을 가려고 한국어를 공부해요.",
+      "exampleVi": "Tôi đang học tiếng Hàn để đi du học ở Hàn Quốc.",
       "sourcePage": 152,
       "sourceType": "completed-exercise"
     }

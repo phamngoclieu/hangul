@@ -25,6 +25,7 @@ for (const course of courseData.courses || []) {
       const bookExample = bookExamples.items?.[item.id];
       if (!bookExample) continue;
       item.example = bookExample.example;
+      item.exampleVi = bookExample.exampleVi;
       item.exampleSourcePage = bookExample.sourcePage;
       item.exampleSourceType = bookExample.sourceType;
       restored += 1;

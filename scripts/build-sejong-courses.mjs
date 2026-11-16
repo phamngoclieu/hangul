@@ -345,6 +345,7 @@ function vocabularyRecord(courseId, item) {
     hanviet: originType === "sino" ? (override.hanviet || oldOrigin?.hanviet || "") : "",
     pronunciation: old?.actual_pronunciation || entry.pronunciation || "",
     example: bookExample.example || "",
+    exampleVi: bookExample.exampleVi || "",
     exampleSourcePage: bookExample.sourcePage || null,
     exampleSourceType: bookExample.sourceType || "",
     ...(vocabularyGroup ? { vocabularyGroup } : {}),

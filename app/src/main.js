@@ -642,6 +642,7 @@ function renderVocabularyExample(item) {
     <div class="vocabulary-example">
       <span>Ví dụ trong sách</span>
       <p>${escapeHtml(item.example)}</p>
+      ${item.exampleVi ? `<small>${escapeHtml(item.exampleVi)}</small>` : ""}
     </div>
   `;
 }

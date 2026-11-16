@@ -4,8 +4,10 @@ import path from "node:path";
 const root = process.cwd();
 const coursesPath = path.join(root, "app/data/courses.json");
 const outputPath = path.join(root, "app/data/book-examples.json");
+const translationsPath = path.join(root, "app/data/example-translations-vi.json");
 const assignedRoot = process.env.SEJONG_ASSIGNED_ROOT || "/private/tmp";
 const courseData = JSON.parse(fs.readFileSync(coursesPath, "utf8"));
+const exampleTranslations = JSON.parse(fs.readFileSync(translationsPath, "utf8"));
 
 const assignedById = new Map();
 for (const courseId of ["sejong-1", "sejong-2"]) {
@@ -478,7 +480,9 @@ for (const course of courseData.courses || []) {
     if (!/[.!?]$/u.test(example)) example = `${example}.`;
     seen.add(example);
     stats[course.id][sourceType === "verbatim" ? "verbatim" : "completedExercise"] += 1;
-    items[item.id] = { example, sourcePage, sourceType };
+    const exampleVi = String(exampleTranslations.items?.[item.id] || "").trim();
+    if (!exampleVi) throw new Error(`Thiếu bản dịch tiếng Việt cho ${item.id}`);
+    items[item.id] = { example, exampleVi, sourcePage, sourceType };
   }
 }
 
